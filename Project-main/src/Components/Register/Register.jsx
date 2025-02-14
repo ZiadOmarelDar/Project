@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import dog from "../../assets/unsplash_BJaqPaH6AGQ.png";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
   FaEye,
   FaEyeSlash,
@@ -44,21 +47,32 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/register',{fullName,userType,username,email,password})
-      .then((result)=>console.log(result)).catch(err=>console.log(err))
-    if (validate()) {
-      console.log("Form Submitted", {
+
+    if (!validate()) return;
+
+    axios
+      .post("http://localhost:3001/register", {
         fullName,
         userType,
         username,
         email,
         password,
-        confirmPassword,
+      })
+      .then((result) => {
+        toast.success("✅ Registration successful! Redirecting to login...");
+        setTimeout(() => navigate("/login"), 2000); // Redirect after 2 seconds
+      })
+      .catch((err) => {
+        if (err.response && err.response.status === 400) {
+          toast.error("❌ This email is already registered. Please use a different email.");
+        } else {
+          toast.error("❌ An error occurred. Please try again later.");
+        }
+        console.error("Error:", err);
       });
-
-      navigate("/login");
-    }
   };
+
+
 
   return (
     <div className="register-container">
@@ -169,6 +183,7 @@ function Register() {
           <FaTelegram className="icon" />
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
