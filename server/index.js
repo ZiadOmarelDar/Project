@@ -13,11 +13,22 @@ mongoose.connect("mongodb+srv://PetsCare:lDQ6GppZgrBKPZO2@cluster0.ifl5z.mongodb
 .catch(err=>console.log(err))
 
 // Register
-app.post('/register',(req,res)=>{
-    UsersModel.create(req.body)
-    .then(Users=>res.json(Users))
-    .catch(err=>res.json(err))
-})
+app.post("/register", async (req, res) => {
+    const { email } = req.body;
+  
+    try {
+      const existingUser = await UsersModel.findOne({ email });
+  
+      if (existingUser) {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      const newUser = await UsersModel.create(req.body);
+      res.status(201).json({ message: "User registered successfully", user: newUser });
+    } catch (err) {
+      res.status(500).json({ message: "Server error", error: err });
+    }
+  });
+  
 
 // Login
 app.post('/login',(req,res)=>{
@@ -35,7 +46,6 @@ app.post('/login',(req,res)=>{
         }
     })
 })
-
 
 app.listen(3001, ()=>{
     console.log("server is running")
