@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
-import dog from "../../assets/unsplash_BJaqPaH6AGQ.png";
+import dog from "../../assets/Dog.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -64,9 +64,9 @@ function Register() {
       })
       .catch((err) => {
         if (err.response && err.response.status === 400) {
-          toast.error("❌ This email is already registered. Please use a different email.");
+          toast.error(" This email is already registered. Please use a different email.");
         } else {
-          toast.error("❌ An error occurred. Please try again later.");
+          toast.error(" An error occurred. Please try again later.");
         }
         console.error("Error:", err);
       });

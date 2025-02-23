@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Sacramento&display=swap");
+
+.footer {
+  background-color: #f8f8f8;
+  color: #444;
+  font-family: Arial, sans-serif;
+  line-height: 20px;
+  border-top: 1px solid rgb(120, 120, 120);
+  padding: 30px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 230px;
+  margin: 10px;
+  padding-top: 25px;
+  transition: all 0.3s ease;
+}
+
+.logo-2 {
+  font-family: "Luckiest Guy", serif;
+  color: #323773;
+  font-size: 60px;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.logo-2:hover {
+  color: #6c3d9b;
+}
+
+.about-text {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #666;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.icon {
+  color: #1a237e;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #1a237e;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  background-color: #f8f8f8;
+  color: #323773;
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 6px 15px rgba(142, 68, 173, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s;
+}
+
+.footer-bottom:hover {
+  color: #000;
+  box-shadow: 0px 12px 25px rgba(106, 38, 143, 0.6);
+}
+
+.footer-bottom span {
+  color: #676d77;
+}
+
+.footer-bottom span:hover {
+  color: #754e84;
+}
+
+.footer-bottom a {
+  color: #323773;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: #845896;
+  text-decoration: underline;
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 1024px) {
+  .footer-container {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+    padding-top: 25px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    font-size: 16px;
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    justify-content: center;
+    padding: 0 15px;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+  }
+
+  .logo-2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+
+  .footer-bottom {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .footer-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+
+  .about-text {
+    font-size: 13px;
+  }
+}
+

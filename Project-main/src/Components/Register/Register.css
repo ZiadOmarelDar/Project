@@ -11,6 +11,7 @@ body {
   height: 100vh;
   padding: 20px;
   background: #f8f7fc;
+  margin-bottom: 120px;
 }
 
 .image-section {
@@ -47,6 +48,7 @@ body {
   max-width: 80%;
   height: auto;
   z-index: 1;
+  transform: scaleX(-1);
 }
 
 .form-section {
@@ -187,6 +189,7 @@ body {
   .register-container {
     flex-direction: column;
     padding: 10px;
+    margin-bottom: 300px;
   }
 
   .image-section {
@@ -234,6 +237,50 @@ body {
 @media (max-width: 480px) {
   .register-container {
     max-width: 100%;
+    margin-bottom: 300px;
+  }
+  .form-section {
+    padding: 15px;
+  }
+
+  .form-title {
+    font-size: 16px;
+  }
+
+  .inputs input,
+  .inputs select {
+    padding: 6px;
+  }
+
+  .register-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .google-signup {
+    font-size: 14px;
+  }
+
+  .google-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+  .image-section {
+    margin-top: 250px;
+    margin-right: 100px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .register-container {
+    max-width: 100%;
+    margin-bottom: 400px;
+    margin-top: 100px;
   }
   .form-section {
     padding: 15px;

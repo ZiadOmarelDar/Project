@@ -1,26 +1,28 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Login.css";
 import Dog from "../../assets/Dog.png";
 import axios from "axios"
 import { FaGoogle, FaFacebook, FaWhatsapp, FaTelegram } from "react-icons/fa";
 
 function Login() {
+  const Navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-  
     axios
       .post("http://localhost:3001/login", { email, password })
       .then((result) => {
         if (result.data === "success") {
-          console.log("✅ Login successful");
+          // console.log(" Login successful");
+          Navigate("/");
         } else {
-          console.log("❌ Login failed!");
+          console.log(" Login failed!");
         }
       })
       .catch((err) => {
@@ -51,8 +53,6 @@ function Login() {
       console.log("Logging in...");
     }
   };
-
-
   return (
     <>
       <div className="container">
