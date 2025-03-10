@@ -2,11 +2,12 @@ const express = require ("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const UsersModel = require("./models/Users")
-
+const ProductModel = require("./models/ProductModel");
 
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect("mongodb+srv://PetsCare:lDQ6GppZgrBKPZO2@cluster0.ifl5z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{console.log("Mongodb Connected Successfully")})
@@ -46,6 +47,70 @@ app.post('/login',(req,res)=>{
         }
     })
 })
+
+
+// E-commerc
+app.get("/dogs-food", async (req, res) => {
+  try {
+    const products = await ProductModel.find({ category: "dogs-food" });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching dogs food", error: err });
+  }
+});
+
+// cats food
+app.get("/cats-food", async (req, res) => {
+  try {
+    const products = await ProductModel.find({ category: "cats-food" });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching cats food", error: err });
+  }
+});
+
+// Accessories
+app.get("/accessories", async (req, res) => {
+  try {
+    const products = await ProductModel.find({ category: "accessories" });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching accessories", error: err });
+  }
+});
+
+// add product
+app.post("/products", async (req, res) => {
+  try {
+    const { productName, description, price, stockQuantity, image, category } = req.body;
+
+    if (!productName || !price || stockQuantity === undefined) {
+      return res.status(400).json({ message: "All Field Required" });
+    }
+
+    if (!["dogs-food", "cats-food", "accessories"].includes(category)) {
+      return res.status(400).json({ message: "Invalid category" });
+    }
+
+    const newProduct = new ProductModel({
+      productName,
+      description,
+      price,
+      stockQuantity,
+      image,
+      category
+    });
+
+    await newProduct.save();
+    
+    res.status(201).json({ message: "✅ Product added successfully", product: newProduct });
+  } catch (err) {
+    res.status(500).json({ message: "❌ Error adding product", error: err });
+  }
+});
+
+
+
 
 app.listen(3001, ()=>{
     console.log("server is running")
