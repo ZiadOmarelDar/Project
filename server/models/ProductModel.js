@@ -6,7 +6,15 @@ const ProductSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   stockQuantity: { type: Number, required: true },
   image: { type: String },
-  category: { type: String, required: true, enum: ["dogs-food", "cats-food", "accessories"] }
+  category: { 
+    type: String, 
+    required: true, 
+    enum: ["dogs-food", "cats-food", "accessories"] 
+  },
+  type: { 
+    type: String, 
+    required: true 
+  }
 });
 
 const ProductModel = mongoose.model("Product", ProductSchema);

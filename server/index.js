@@ -30,6 +30,16 @@ app.post("/register", async (req, res) => {
     }
   });
   
+// all products
+// Get all products
+app.get("/products", async (req, res) => {
+  try {
+    const products = await ProductModel.find(); // جلب كل المنتجات
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching products", error: err });
+  }
+});
 
 // Login
 app.post('/login',(req,res)=>{
@@ -82,23 +92,37 @@ app.get("/accessories", async (req, res) => {
 // add product
 app.post("/products", async (req, res) => {
   try {
-    const { productName, description, price, stockQuantity, image, category } = req.body;
+    const { productName, description, price, stockQuantity, image, category, type } = req.body;
 
-    if (!productName || !price || stockQuantity === undefined) {
-      return res.status(400).json({ message: "All Field Required" });
+    if (!productName || !price || stockQuantity === undefined || !type) {
+      return res.status(400).json({ message: "this filed required" });
     }
 
-    if (!["dogs-food", "cats-food", "accessories"].includes(category)) {
+    const validCategories = ["dogs-food", "cats-food", "accessories"];
+    if (!validCategories.includes(category)) {
       return res.status(400).json({ message: "Invalid category" });
     }
 
+    
+    const validTypes = {
+      "dogs-food": ["Dog Dry food", "Dog Wet food", "Puppy food", "Treats & Snacks"],
+      "cats-food": ["Cat Dry food", "Cat Wet food", "Kitten food", "Treats & Snacks"],
+      "accessories": ["Dogs", "Cats"] 
+    };
+
+    if (!validTypes[category]?.includes(type)) {
+      return res.status(400).json({ message: `Invalid type for category ${category}` });
+    }
+
+   
     const newProduct = new ProductModel({
       productName,
       description,
       price,
       stockQuantity,
       image,
-      category
+      category,
+      type
     });
 
     await newProduct.save();
@@ -108,6 +132,7 @@ app.post("/products", async (req, res) => {
     res.status(500).json({ message: "❌ Error adding product", error: err });
   }
 });
+
 
 
 
