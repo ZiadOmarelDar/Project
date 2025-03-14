@@ -33,8 +33,8 @@ const Home = () => {
             pet care and adoption easier than ever.
           </p>
           <div className="hero-buttons">
-            <Link to="/adopt" className="hero-btn"><GiDogHouse />Adoption</Link>
-            <Link to="/supplies" className="hero-btn"><MdShoppingCart />Supplies</Link>
+            <Link to="/AdoptionPage" className="hero-btn"><GiDogHouse />Adoption</Link>
+            <Link to="/ProductsPage" className="hero-btn"><MdShoppingCart />Supplies</Link>
             <Link to="/forum" className="hero-btn"><FaMobile />Forum</Link>
             <Link to="/clinics" className="hero-btn"><MdPets />Clinics</Link>
             <Link to="/training" className="hero-btn"><GiJumpingDog />Training</Link>

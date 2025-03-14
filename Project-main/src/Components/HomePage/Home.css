@@ -30,10 +30,11 @@
 }
 
 .hero-text p {
-  font-size: 22px;
+  font-size: 21px;
   color: #666;
   line-height: 1.5;
   font-family: Inter;
+  padding-bottom: 20px;
 }
 
 /* ======== Hero btn ======== */

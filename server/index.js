@@ -88,6 +88,7 @@ app.get("/accessories", async (req, res) => {
     res.status(500).json({ message: "Error fetching accessories", error: err });
   }
 });
+//http://localhost:3001/products
 
 // add product
 app.post("/products", async (req, res) => {
@@ -134,6 +135,18 @@ app.post("/products", async (req, res) => {
 });
 
 
+// 🔹 جلب منتج واحد حسب ID
+app.get("/products/:id", async (req, res) => {
+  try {
+    const product = await ProductModel.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching product", error: err });
+  }
+});
 
 
 
