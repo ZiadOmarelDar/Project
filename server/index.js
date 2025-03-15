@@ -3,6 +3,8 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const UsersModel = require("./models/Users")
 const ProductModel = require("./models/ProductModel");
+const TravelRequirementModel = require("./models/TravelRequirementModel");
+
 
 const app = express()
 app.use(express.json())
@@ -93,47 +95,85 @@ app.get("/accessories", async (req, res) => {
 // add product
 app.post("/products", async (req, res) => {
   try {
-    const { productName, description, price, stockQuantity, image, category, type } = req.body;
+    const products = req.body;
 
-    if (!productName || !price || stockQuantity === undefined || !type) {
-      return res.status(400).json({ message: "this filed required" });
+    if (!Array.isArray(products) || products.length === 0) {
+      return res.status(400).json({ message: "❌ Invalid data format. Expected an array of products." });
     }
 
-    const validCategories = ["dogs-food", "cats-food", "accessories"];
-    if (!validCategories.includes(category)) {
-      return res.status(400).json({ message: "Invalid category" });
+    let newProducts = [];
+
+    for (let product of products) {
+      const { productName, price, stockQuantity, category, type } = product;
+
+      if (!productName || !price || stockQuantity === undefined || !type) {
+        return res.status(400).json({ message: "❌ All fields are required for each product." });
+      }
+
+      const validCategories = ["dogs-food", "cats-food", "accessories"];
+      if (!validCategories.includes(category)) {
+        return res.status(400).json({ message: `❌ Invalid category: ${category}` });
+      }
+
+      const validTypes = {
+        "dogs-food": ["Dog Dry food", "Dog Wet food", "Puppy food", "Treats & Snacks"],
+        "cats-food": ["Cat Dry food", "Cat Wet food", "Kitten food", "Treats & Snacks"],
+        "accessories": ["Dogs", "Cats"]
+      };
+
+      if (!validTypes[category]?.includes(type)) {
+        return res.status(400).json({ message: `❌ Invalid type for category ${category}: ${type}` });
+      }
+
+      const newProduct = await ProductModel.create(product);
+      newProducts.push(newProduct);
     }
 
-    
-    const validTypes = {
-      "dogs-food": ["Dog Dry food", "Dog Wet food", "Puppy food", "Treats & Snacks"],
-      "cats-food": ["Cat Dry food", "Cat Wet food", "Kitten food", "Treats & Snacks"],
-      "accessories": ["Dogs", "Cats"] 
-    };
-
-    if (!validTypes[category]?.includes(type)) {
-      return res.status(400).json({ message: `Invalid type for category ${category}` });
-    }
-
-   
-    const newProduct = new ProductModel({
-      productName,
-      description,
-      price,
-      stockQuantity,
-      image,
-      category,
-      type
-    });
-
-    await newProduct.save();
-    
-    res.status(201).json({ message: "✅ Product added successfully", product: newProduct });
+    res.status(201).json({ message: "✅ Products added successfully", products: newProducts });
   } catch (err) {
-    res.status(500).json({ message: "❌ Error adding product", error: err });
+    res.status(500).json({ message: "❌ Error adding products", error: err.message });
   }
 });
 
+
+// إضافة متطلبات السفر
+app.post("/travel-requirements", async (req, res) => {
+  try {
+    const { country, documentsRequired, vaccinationsRequired, comfortTips, type } = req.body;
+
+    if (!country || !documentsRequired || !vaccinationsRequired || !comfortTips || !type) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const validTypes = ["Dog", "Cat"];
+    if (!validTypes.includes(type)) {
+      return res.status(400).json({ message: "Invalid animal type" });
+    }
+
+    const newRequirement = new TravelRequirementModel({
+      country,
+      documentsRequired,
+      vaccinationsRequired,
+      comfortTips,
+      type,
+    });
+
+    await newRequirement.save();
+
+    res.status(201).json({ message: "✅ Travel requirement added successfully", requirement: newRequirement });
+  } catch (err) {
+    res.status(500).json({ message: "❌ Error adding travel requirement", error: err });
+  }
+});
+
+app.get("/travel-requirements", async (req, res) => {
+  try {
+    const requirements = await TravelRequirementModel.find();
+    res.json(requirements);
+  } catch (err) {
+    res.status(500).json({ message: "❌ Error fetching travel requirements", error: err });
+  }
+});
 
 // 🔹 جلب منتج واحد حسب ID
 app.get("/products/:id", async (req, res) => {
