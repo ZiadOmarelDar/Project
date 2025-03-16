@@ -1,0 +1,177 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .adoption-page {
+    text-align: center;
+  }
+  
+  
+  .header {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/adoption/adoptionback.png") no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+  
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 200px;
+    color: white;
+    width: 30%;
+    height: 70px;
+    border-radius: 25px;
+    border:2px solid #f8f8f8;
+    z-index: 1;
+  }
+  
+  .search-icon {
+    margin-right: 8px;
+    color: gray;
+    width: 50px;
+    height: 50px;
+    background: #f8f8f8;
+    border-radius: 22px 15px 15px 22px;
+    padding: 10px;
+    
+  }
+  .search-icon:hover{
+    color: #3f3b97;
+  }
+  
+  .search-container input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 250px;
+    background: none;
+    color: #f8f8f8;
+  }
+  
+  
+  .category-icons {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 20px;
+  }
+  
+  .icon-box {
+    background: white;
+    padding: 15px;
+    font-size: 100px;
+    width: 180px;
+    color: #3f3b97;
+    margin-top: -100px;
+    border-radius: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  .icon-box:hover{
+    box-shadow: 0px 7px 7px #2b2866 ;
+  }
+  
+  
+  .section-title {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .pets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 5px;
+    
+  }
+  
+  .pet-card {
+    background: white;
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  .pet-card:hover{
+    box-shadow: 0px 7px 10px #4a4a8c;
+  }
+  
+  .pet-image {
+    width: 70%;
+    border-radius: 8px;
+  }
+  
+  .pet-name {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .heart-icon {
+    position: absolute;
+    top: 10px;
+    color: #bbb8b8;
+
+  }
+  
+  
+  .see-more-card {
+    background: #4a4a8c;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .paw-icon {
+    font-size: 130px;
+    text-align: center;
+  }
+ 
+  
+
+  .info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .info-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+  }
+  
+  
+  .articles-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .article-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+  }
+  
