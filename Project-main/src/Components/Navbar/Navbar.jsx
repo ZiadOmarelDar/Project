@@ -1,24 +1,31 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
-import "./Navbar.css"; 
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaChevronDown } from 'react-icons/fa';
+import './Navbar.css';
+import { MdOutlineShoppingCart } from 'react-icons/md';
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
+	};
 
-  return (
-    <nav className="navbar">
-      {/* Logo (Link to Home) */}
-      <Link to="/" className="logo-1">PET CARE</Link>
-      
-      {/* Button to toggle menu in small screens */}
-      <button className="menu-btn" onClick={toggleMenu}>
-        &#9776; {/* Hamburger menu icon */}
-      </button>
+	return (
+		<nav className='navbar'>
+			{/* Logo (Link to Home) */}
+			<Link
+				to='/'
+				className='logo-1'>
+				PET CARE
+			</Link>
+
+			{/* Button to toggle menu in small screens */}
+			<button
+				className='menu-btn'
+				onClick={toggleMenu}>
+				&#9776; {/* Hamburger menu icon */}
+			</button>
 
       {/* Navigation Links */}
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
@@ -38,7 +45,6 @@ function Navbar() {
           </ul>
         </li>
       </ul>
-      
       
       {/* Authentication Buttons */}
       <div className="auth-buttons">
