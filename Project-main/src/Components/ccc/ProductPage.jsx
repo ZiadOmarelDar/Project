@@ -3,10 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./ProductPage.css";
 
 const ProductPage = () => {
-  const { id } = useParams(); // 🔹 التقاط ID المنتج من المسار
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,18 +32,34 @@ const ProductPage = () => {
   if (error) return <h2>{error}</h2>;
 
   return (
-    <div className="product-page">
-      <button className="back-btn" onClick={() => navigate(-1)}>⬅ Back</button>
-
-      <div className="product-details">
-        <img src={product.image} alt={product.productName} className="product-image" />
-        <div className="product-info">
-          <h1>{product.productName}</h1>
-          <p className="description">{product.description}</p>
-          <h3 className="price">EGP {product.price}</h3>
-          <p className="stock">Stock: {product.stockQuantity}</p>
+    <div className="product-page-1">
+      <div className="product-container-1">
+        <img src={product.image} alt={product.productName} className="product-image-1" />
+        <div className="product-info-1">
+          <h1 className="product-title-1">{product.productName}</h1>
+          <h2 className="product-price-1">{product.price} LE</h2>
           
-          <button className="add-to-cart">🛒 Add to Cart</button>
+          <div className="product-description-1">
+            <p><strong>Description</strong></p>
+            <p> {product.description}</p>
+            <br />
+            <p>Stock : {product.stockQuantity} pices</p>
+          </div>
+
+          <div className="quantity-container-1">
+            <p>Quantity</p>
+            <div className="quantity-controls-1">
+              <button className="bb" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+              <span>{quantity}</span>
+              <button className="bb" onClick={() => setQuantity(quantity + 1)}>+</button>
+              <button className="add-to-cart-1">ADD TO CARD</button>
+            </div>
+          </div>
+
+          <div className="buttons-container-1">
+            
+            <button className="buy-now-1">BUY IT NOW</button>
+          </div>
         </div>
       </div>
     </div>

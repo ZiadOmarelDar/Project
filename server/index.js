@@ -136,7 +136,7 @@ app.post("/products", async (req, res) => {
 });
 
 
-// إضافة متطلبات السفر
+
 app.post("/travel-requirements", async (req, res) => {
   try {
     const { country, documentsRequired, vaccinationsRequired, comfortTips, type } = req.body;
@@ -165,17 +165,6 @@ app.post("/travel-requirements", async (req, res) => {
     res.status(500).json({ message: "❌ Error adding travel requirement", error: err });
   }
 });
-
-app.get("/travel-requirements", async (req, res) => {
-  try {
-    const requirements = await TravelRequirementModel.find();
-    res.json(requirements);
-  } catch (err) {
-    res.status(500).json({ message: "❌ Error fetching travel requirements", error: err });
-  }
-});
-
-// 🔹 جلب منتج واحد حسب ID
 app.get("/products/:id", async (req, res) => {
   try {
     const product = await ProductModel.findById(req.params.id);
@@ -187,6 +176,18 @@ app.get("/products/:id", async (req, res) => {
     res.status(500).json({ message: "Error fetching product", error: err });
   }
 });
+
+app.get("/travel-requirements", async (req, res) => {
+  try {
+    const requirements = await TravelRequirementModel.find();
+    res.json(requirements);
+  } catch (err) {
+    res.status(500).json({ message: "❌ Error fetching travel requirements", error: err });
+  }
+});
+
+
+
 
 
 

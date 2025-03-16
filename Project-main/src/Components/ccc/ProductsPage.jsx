@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { HiFilter } from "react-icons/hi";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
@@ -9,10 +10,9 @@ const ProductsPage = () => {
   const [visibleProducts, setVisibleProducts] = useState(8);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
 
-  // 🔹 جلب المنتجات من API
+ 
   useEffect(() => {
     fetch("http://localhost:3001/products")
       .then((res) => {
@@ -32,40 +32,46 @@ const ProductsPage = () => {
       });
   }, []);
 
-  // 🔹 فلترة المنتجات بناءً على الفئات المحددة
+ 
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters((prevFilters) => {
       const updatedFilters = { ...prevFilters };
+
       if (checked) {
-        updatedFilters[name] = [...prevFilters[name], value];
+        if (!updatedFilters[name].includes(value)) {
+          updatedFilters[name] = [...updatedFilters[name], value];
+        }
       } else {
-        updatedFilters[name] = prevFilters[name].filter((item) => item !== value);
+        updatedFilters[name] = updatedFilters[name].filter((item) => item !== value);
       }
+
       return updatedFilters;
     });
   };
 
-  // 🔹 تطبيق الفلترة عند تغيير الخيارات
+
   useEffect(() => {
     let filtered = products;
-    if (filters.dogs.length > 0 || filters.cats.length > 0) {
-      filtered = filtered.filter((product) =>
-        filters.dogs.includes(product.type) || filters.cats.includes(product.type)
+
+    if (filters.dogs.length || filters.cats.length) {
+      filtered = products.filter((product) =>
+        [...filters.dogs, ...filters.cats].includes(product.type)
       );
     }
+
     setFilteredProducts(filtered);
   }, [filters, products]);
 
-  // 🔹 عرض التحميل أو رسالة الخطأ إذا لم ينجح الجلب
+
   if (loading) return <h2>Loading products...</h2>;
   if (error) return <h2>Error: {error}</h2>;
 
   return (
     <div className="products-container">
-      {/* 🔹 قسم الفلاتر */}
+    
       <div className="filters">
-        <h2>⚙ Filters</h2>
+        <h2> <HiFilter />Filters</h2>
         <h3>DOGS</h3>
         <label><input type="checkbox" name="dogs" value="Dog Dry food" onChange={handleFilterChange} /> Dog Dry food</label>
         <label><input type="checkbox" name="dogs" value="Dog Wet food" onChange={handleFilterChange} /> Dog Wet food</label>
@@ -79,15 +85,15 @@ const ProductsPage = () => {
         <label><input type="checkbox" name="cats" value="Treats & Snacks" onChange={handleFilterChange} /> Treats & Snacks</label>
       </div>
       
-      {/* 🔹 قائمة المنتجات */}
+  
       <div className="products-list">
         <div className="product-grid">
           {filteredProducts.slice(0, visibleProducts).map((product) => (
             <div 
               key={product._id} 
               className="product-card" 
-              onClick={() => navigate(`/products/product/${product.id}`)} // ✅ تعديل المسار
-              style={{ cursor: "pointer" }} // يجعل العنصر قابل للنقر
+              onClick={() => navigate(`/products/product/${product._id}`)}
+              style={{ cursor: "pointer" }} 
             >
               <img src={product.image} alt={product.productName} className="product-image" />
               <h4>{product.productName}</h4>
@@ -96,7 +102,6 @@ const ProductsPage = () => {
           ))}
         </div>
 
-        {/* 🔹 زر "تحميل المزيد" */}
         {visibleProducts < filteredProducts.length && (
           <div className="show-more-container">
             <button onClick={() => setVisibleProducts(visibleProducts + 8)} className="show-more-btn">

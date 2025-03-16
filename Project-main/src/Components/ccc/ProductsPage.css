@@ -1,11 +1,11 @@
-/* تنسيق عام للصفحة */
+
 .products-container {
   display: flex;
   padding: 20px;
   background: white;
 }
 
-/* الشريط الجانبي للفلاتر */
+
 .filters {
   width: 250px;
   padding: 20px;
@@ -13,7 +13,7 @@
   margin-right: 20px;
 }
 
-/* تنسيق عنوان الفلترة مع الأيقونة */
+
 .filters h2 {
   font-size: 22px;
   font-weight: bold;
@@ -23,7 +23,7 @@
   gap: 8px;
 }
 
-/* تكبير وتنسيق العناوين */
+
 .filters h3 {
   font-size: 14px;
   font-weight: bold;
@@ -32,7 +32,7 @@
   text-transform: uppercase;
 }
 
-/* تنسيق خيارات الفلترة */
+
 .filters label {
   display: flex;
   align-items: center;
@@ -43,7 +43,6 @@
   font-weight: normal;
 }
 
-/* تحسين شكل الـ checkbox */
 .filters input[type="checkbox"] {
   margin-right: 10px;
   width: 16px;
@@ -51,7 +50,7 @@
   cursor: pointer;
 }
 
-/* شبكة المنتجات */
+
 .products-list {
   flex: 1;
   display: flex;
@@ -66,7 +65,7 @@
   max-width: 1000px;
 }
 
-/* كارت المنتج */
+
 .product-card {
   background: white;
   border-radius: 10px;
@@ -101,7 +100,7 @@
   
 
 }
-/* زر عرض المزيد */
+
 .show-more-container {
   text-align: center;
   margin-top: 20px;
@@ -125,7 +124,7 @@
   color:white ;
 }
 
-/* زر تطبيق الفلترة */
+
 .apply-filter-btn {
   background-color: #ff9800;
   color: white;
@@ -142,7 +141,7 @@
   background-color: #e68900;
 }
 
-/* تحسين استجابة التصميم للأجهزة الصغيرة */
+
 @media (max-width: 768px) {
   .products-container {
     flex-direction: column;

@@ -39,6 +39,7 @@ function Navbar() {
         </li>
       </ul>
       
+      
       {/* Authentication Buttons */}
       <div className="auth-buttons">
         <Link to="/login" className="sign-in">Sign In</Link>
