@@ -25,7 +25,6 @@
 }
 
 .nav-links {
-<<<<<<< HEAD
 	list-style: none;
 	display: flex;
 	gap: 60px;
@@ -43,27 +42,6 @@
 	font-weight: 500;
 	padding: 5px 10px;
 	transition: color 0.3s;
-=======
-  list-style: none;
-  display: flex;
-  gap: 60px;
-  font-weight: bold;
-}
-
-.nav-links li {
-  display: inline-block;
-  font-family: Inter;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500px;
-  padding: 5px 10px;
-  transition: color 0.3s;
->>>>>>> bf8a054801299feffd94e650ac12c534f4b04f37
 }
 
 .nav-links a:hover,

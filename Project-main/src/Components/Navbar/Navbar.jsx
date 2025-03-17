@@ -32,7 +32,7 @@ function Navbar() {
         <li><Link to="/" className="active">Home</Link></li>
         <li><Link to="/adopt">Adopt a Pet</Link></li>
         <li><Link to="/clinics">Find a Clinic</Link></li>
-        <li><Link to="/supplies">Shop Supplies</Link></li>
+        <li><Link to="/shop">Shop Supplies</Link></li>
         
         {/* Dropdown Menu */}
         <li className="dropdown">
@@ -45,6 +45,7 @@ function Navbar() {
           </ul>
         </li>
       </ul>
+      <Link to="/cart" className="cart-icon"><MdOutlineShoppingCart/></Link>
       
       {/* Authentication Buttons */}
       <div className="auth-buttons">

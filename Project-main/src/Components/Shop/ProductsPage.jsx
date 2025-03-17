@@ -91,11 +91,11 @@ const ProductsPage = () => {
           {filteredProducts.slice(0, visibleProducts).map((product) => (
             <div 
               key={product._id} 
-              className="product-card" 
+              className="product-card-2" 
               onClick={() => navigate(`/products/product/${product._id}`)}
               style={{ cursor: "pointer" }} 
             >
-              <img src={product.image} alt={product.productName} className="product-image" />
+              <img src={product.image} alt={product.productName} className="product-image-9" />
               <h4>{product.productName}</h4>
               <p>EGP {product.price}</p>
             </div>

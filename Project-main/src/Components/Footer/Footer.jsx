@@ -30,7 +30,7 @@ const Footer = () => {
 
 				{/* Section 2: Services */}
 				<div className='footer-section'>
-					<h3 className='section-title'>Services</h3>
+					<h3 className='section-title-1'>Services</h3>
 					<ul>
 						<li>
 							<Link to='/adopt'>Adoption</Link>
@@ -55,7 +55,7 @@ const Footer = () => {
 
 				{/* Section 3: Social Media */}
 				<div className='footer-section'>
-					<h3 className='section-title'>Follow us</h3>
+					<h3 className='section-title-1'>Follow us</h3>
 					<ul>
 						<li>
 							<a href='#'>Facebook</a>
@@ -74,7 +74,7 @@ const Footer = () => {
 
 				{/* Section 4: Contact */}
 				<div className='footer-section'>
-					<h3 className='section-title'>Contact us</h3>
+					<h3 className='section-title-1'>Contact us</h3>
 					<p>bet_care@mail.com</p>
 				</div>
 			</div>

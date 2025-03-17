@@ -28,6 +28,20 @@ const ProductPage = () => {
       });
   }, [id]);
 
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      cart.push({ ...product, quantity });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart!");
+  };
+
   if (loading) return <h2>Loading product details...</h2>;
   if (error) return <h2>{error}</h2>;
 
@@ -38,21 +52,21 @@ const ProductPage = () => {
         <div className="product-info-1">
           <h1 className="product-title-1">{product.productName}</h1>
           <h2 className="product-price-1">{product.price} LE</h2>
-          
+
           <div className="product-description-1">
             <p><strong>Description</strong></p>
-            <p> {product.description}</p>
-            <br />
-            <p>Stock : {product.stockQuantity} pices</p>
+            <p>{product.description}</p>
+            <p>Stock: {product.stockQuantity} pieces</p>
           </div>
 
           <div className="quantity-container-1">
             <p>Quantity</p>
             <div className="quantity-controls-1">
-              <button className="bb" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+              
+              <button className="qty-btn" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
               <span>{quantity}</span>
-              <button className="bb" onClick={() => setQuantity(quantity + 1)}>+</button>
-              <button className="add-to-cart-1">ADD TO CARD</button>
+              <button className="qty-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
+              <button className="add-to-cart-1" onClick={addToCart}>ADD TO CART</button>
             </div>
           </div>
 
