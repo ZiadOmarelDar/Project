@@ -5,7 +5,7 @@ import Cats from "../../assets/Cats.png";
 
 const ShopByCategory = () => {
   return (
-    <div className="container-2">
+    <div className="container-3">
       <div className="shop-by-category">
         <h2>Shop by Category</h2>
         <div className="category-container">
