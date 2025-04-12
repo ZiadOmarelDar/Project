@@ -5,7 +5,6 @@ import dog from "../../assets/Dog.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import {
   FaEye,
   FaEyeSlash,
@@ -16,17 +15,16 @@ import {
 } from "react-icons/fa";
 
 function Register() {
-  // Separate state variables for each input field
   const [fullName, setFullName] = useState("");
   const [userType, setUserType] = useState("user");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,39 +38,43 @@ function Register() {
       newErrors.password = "Password must be at least 6 characters";
     if (password !== confirmPassword)
       newErrors.confirmPassword = "Passwords do not match";
+    if (!["user", "clinicAdmin", "trainer"].includes(userType))
+      newErrors.userType = "Invalid user type";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validate()) return;
 
-    axios
-      .post("http://localhost:3001/register", {
-        fullName,
+    setIsLoading(true);
+    try {
+      const response = await axios.post("http://localhost:3001/register", {
+        name: fullName,
         userType,
         username,
         email,
         password,
-      })
-      .then((result) => {
-        toast.success("✅ Registration successful! Redirecting to login...");
-        setTimeout(() => navigate("/login"), 2000); // Redirect after 2 seconds
-      })
-      .catch((err) => {
-        if (err.response && err.response.status === 400) {
-          toast.error(" This email is already registered. Please use a different email.");
-        } else {
-          toast.error(" An error occurred. Please try again later.");
-        }
-        console.error("Error:", err);
       });
+
+      toast.success("✅ Registration successful! Redirecting to login...");
+      setTimeout(() => {
+        navigate("/login");
+        setIsLoading(false);
+      }, 2000);
+    } catch (err) {
+      setIsLoading(false);
+      if (err.response?.data?.message) {
+        toast.error(`❌ ${err.response.data.message}`);
+      } else {
+        toast.error("❌ An error occurred. Please try again.");
+      }
+      console.error("Registration error:", err);
+    }
   };
-
-
 
   return (
     <div className="register-container">
@@ -89,6 +91,7 @@ function Register() {
             placeholder="Enter your full name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
+            disabled={isLoading}
           />
           {errors.fullName && <span className="error">{errors.fullName}</span>}
 
@@ -97,11 +100,13 @@ function Register() {
             name="userType"
             value={userType}
             onChange={(e) => setUserType(e.target.value)}
+            disabled={isLoading}
           >
             <option value="user">User</option>
             <option value="clinicAdmin">Clinic Admin</option>
             <option value="trainer">Trainer</option>
           </select>
+          {errors.userType && <span className="error">{errors.userType}</span>}
 
           <label>Username:</label>
           <input
@@ -110,6 +115,7 @@ function Register() {
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            disabled={isLoading}
           />
           {errors.username && <span className="error">{errors.username}</span>}
 
@@ -120,6 +126,7 @@ function Register() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={isLoading}
           />
           {errors.email && <span className="error">{errors.email}</span>}
 
@@ -131,6 +138,7 @@ function Register() {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={isLoading}
             />
             <span
               className="toggle-password"
@@ -149,6 +157,7 @@ function Register() {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              disabled={isLoading}
             />
             <span
               className="toggle-password"
@@ -161,8 +170,8 @@ function Register() {
             <span className="error">{errors.confirmPassword}</span>
           )}
 
-          <button type="submit" className="register-button">
-            Register
+          <button type="submit" className="register-button" disabled={isLoading}>
+            {isLoading ? "Registering..." : "Register"}
           </button>
         </form>
 
@@ -173,7 +182,7 @@ function Register() {
           </span>
         </p>
 
-        <button className="google-signup">
+        <button className="google-signup" disabled={isLoading}>
           <FaGoogle className="google-icon" /> Sign up with Google
         </button>
 
