@@ -1,6 +1,7 @@
 import React from 'react';
 import './BigSale.css';
 import saleImage from '../../assets/Big Sales.png';
+import { Link } from 'react-router-dom';
 
 const BigSale = () => {
 	return (
@@ -12,7 +13,8 @@ const BigSale = () => {
 				<p className='sale-text'>
 					<span className='sale-text'>CHECK NOW OUR SPECIAL OFFERS</span>
 				</p>
-				<button className='shop-now'>Shop Now</button>
+				
+				<Link to='/ProductsPage' className='shop-1' > <button className='shop-now-2'> Shop Now </button></Link> 
 			</div>
 
 			<div className='sale-image'>

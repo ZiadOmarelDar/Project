@@ -139,6 +139,27 @@
 .menu-btn {
 	display: none;
 }
+/* ################################# */
+.username {
+	color: #333;
+	font-weight: 500;
+	margin-right: 10px;
+  }
+  
+  .logout-btn {
+	background-color: #151141;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.3s;
+  }
+  
+  .logout-btn:hover {
+	background-color: #e60000;
+  }
 
 @media (max-width: 768px) {
 	.navbar {
@@ -262,3 +283,6 @@
 		font-size: 16px;
 	}
 }
+
+
+

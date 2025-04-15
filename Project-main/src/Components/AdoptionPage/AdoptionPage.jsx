@@ -34,7 +34,7 @@ const AdoptionPage = () => {
   return (
     <div className="adoption-page">
       
-      <div className="header">
+      <div className="header-1">
         <div className="search-container">
           <BiSearchAlt className="search-icon" />
           <input

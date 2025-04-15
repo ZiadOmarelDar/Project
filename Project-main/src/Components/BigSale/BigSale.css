@@ -35,7 +35,7 @@
 	margin: 5px 0;
 }
 
-.shop-now {
+.shop-now-2 {
 	background: transparent;
 	color: white;
 	padding: 10px 40px;
@@ -48,8 +48,12 @@
 	margin-top: 50px;
 }
 
-.shop-now:hover {
+.shop-now-2:hover {
 	background: rgb(78, 37, 154);
+}
+.shop-1{
+	text-decoration: none;
+	color: white;
 }
 
 .sale-image {

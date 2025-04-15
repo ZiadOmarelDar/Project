@@ -10,9 +10,9 @@ const ProductsPage = () => {
   const [visibleProducts, setVisibleProducts] = useState(8);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showFilters, setShowFilters] = useState(false);
   const navigate = useNavigate();
 
- 
   useEffect(() => {
     fetch("http://localhost:3001/products")
       .then((res) => {
@@ -32,7 +32,6 @@ const ProductsPage = () => {
       });
   }, []);
 
- 
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters((prevFilters) => {
@@ -50,7 +49,6 @@ const ProductsPage = () => {
     });
   };
 
-
   useEffect(() => {
     let filtered = products;
 
@@ -63,39 +61,91 @@ const ProductsPage = () => {
     setFilteredProducts(filtered);
   }, [filters, products]);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        showFilters &&
+        !e.target.closest(".filters") &&
+        !e.target.closest(".filter-toggle-btn")
+      ) {
+        setShowFilters(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [showFilters]);
 
   if (loading) return <h2>Loading products...</h2>;
   if (error) return <h2>Error: {error}</h2>;
 
   return (
     <div className="products-container">
-    
-      <div className="filters">
-        <h2> <HiFilter />Filters</h2>
+      {/* Filter Section */}
+      <div 
+        className={`filters ${showFilters ? "show-filters" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2><HiFilter /> Filters</h2>
+        
         <h3>DOGS</h3>
-        <label><input type="checkbox" name="dogs" value="Dog Dry food" onChange={handleFilterChange} /> Dog Dry food</label>
-        <label><input type="checkbox" name="dogs" value="Dog Wet food" onChange={handleFilterChange} /> Dog Wet food</label>
-        <label><input type="checkbox" name="dogs" value="Puppy food" onChange={handleFilterChange} /> Puppy food</label>
-        <label><input type="checkbox" name="dogs" value="Treats & Snacks" onChange={handleFilterChange} /> Treats & Snacks</label>
+        <label>
+          <input type="checkbox" name="dogs" value="Dog Dry food" onChange={handleFilterChange} />
+          Dog Dry food
+        </label>
+        <label>
+          <input type="checkbox" name="dogs" value="Dog Wet food" onChange={handleFilterChange} />
+          Dog Wet food
+        </label>
+        <label>
+          <input type="checkbox" name="dogs" value="Puppy food" onChange={handleFilterChange} />
+          Puppy food
+        </label>
+        <label>
+          <input type="checkbox" name="dogs" value="Treats & Snacks" onChange={handleFilterChange} />
+          Treats & Snacks
+        </label>
         
         <h3>CATS</h3>
-        <label><input type="checkbox" name="cats" value="Cat Dry food" onChange={handleFilterChange} /> Cat Dry food</label>
-        <label><input type="checkbox" name="cats" value="Cat Wet food" onChange={handleFilterChange} /> Cat Wet food</label>
-        <label><input type="checkbox" name="cats" value="Kitten food" onChange={handleFilterChange} /> Kitten food</label>
-        <label><input type="checkbox" name="cats" value="Treats & Snacks" onChange={handleFilterChange} /> Treats & Snacks</label>
+        <label>
+          <input type="checkbox" name="cats" value="Cat Dry food" onChange={handleFilterChange} />
+          Cat Dry food
+        </label>
+        <label>
+          <input type="checkbox" name="cats" value="Cat Wet food" onChange={handleFilterChange} />
+          Cat Wet food
+        </label>
+        <label>
+          <input type="checkbox" name="cats" value="Kitten food" onChange={handleFilterChange} />
+          Kitten food
+        </label>
+        <label>
+          <input type="checkbox" name="cats" value="Treats & Snacks" onChange={handleFilterChange} />
+          Treats & Snacks
+        </label>
       </div>
-      
-  
+
+      {/* Toggle Button */}
+      <button
+        className={`filter-toggle-btn ${showFilters ? "active" : ""}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowFilters(!showFilters);
+        }}
+      >
+        <HiFilter /> {showFilters ? "Close Filters" : "Open Filters"}
+      </button>
+
+      {/* Products List */}
       <div className="products-list">
         <div className="product-grid">
           {filteredProducts.slice(0, visibleProducts).map((product) => (
             <div 
               key={product._id} 
-              className="product-card" 
+              className="product-card-2" 
               onClick={() => navigate(`/products/product/${product._id}`)}
-              style={{ cursor: "pointer" }} 
             >
-              <img src={product.image} alt={product.productName} className="product-image" />
+              <img src={product.image} alt={product.productName} className="product-image-9" />
               <h4>{product.productName}</h4>
               <p>EGP {product.price}</p>
             </div>
@@ -104,7 +154,10 @@ const ProductsPage = () => {
 
         {visibleProducts < filteredProducts.length && (
           <div className="show-more-container">
-            <button onClick={() => setVisibleProducts(visibleProducts + 8)} className="show-more-btn">
+            <button 
+              onClick={() => setVisibleProducts(visibleProducts + 8)} 
+              className="show-more-btn"
+            >
               MORE
             </button>
           </div>

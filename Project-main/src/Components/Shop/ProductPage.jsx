@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./ProductPage.css";
 
 const ProductPage = () => {
@@ -28,6 +29,36 @@ const ProductPage = () => {
       });
   }, [id]);
 
+  const addToCart = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/cart/add",
+        { productId: id, quantity },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Product added to cart!"); // الإشعار بس من غير توجيه
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Error adding to cart. Please try again."
+      );
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("cart");
+        navigate("/login");
+      }
+    }
+  };
+
   if (loading) return <h2>Loading product details...</h2>;
   if (error) return <h2>{error}</h2>;
 
@@ -38,26 +69,36 @@ const ProductPage = () => {
         <div className="product-info-1">
           <h1 className="product-title-1">{product.productName}</h1>
           <h2 className="product-price-1">{product.price} LE</h2>
-          
+
           <div className="product-description-1">
             <p><strong>Description</strong></p>
-            <p> {product.description}</p>
-            <br />
-            <p>Stock : {product.stockQuantity} pices</p>
+            <p>{product.description}</p>
+            <p>Stock: {product.stockQuantity} pieces</p>
           </div>
 
           <div className="quantity-container-1">
             <p>Quantity</p>
             <div className="quantity-controls-1">
-              <button className="bb" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
+              >
+                -
+              </button>
               <span>{quantity}</span>
-              <button className="bb" onClick={() => setQuantity(quantity + 1)}>+</button>
-              <button className="add-to-cart-1">ADD TO CARD</button>
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
+              <button className="add-to-cart-1" onClick={addToCart}>
+                ADD TO CART
+              </button>
             </div>
           </div>
 
           <div className="buttons-container-1">
-            
             <button className="buy-now-1">BUY IT NOW</button>
           </div>
         </div>
