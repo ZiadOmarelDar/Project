@@ -20,6 +20,66 @@ import { MdShoppingCart, MdPets } from "react-icons/md";
 import { FaMobile, FaBrain } from "react-icons/fa";
 
 const Home = () => {
+<<<<<<< HEAD
+	return (
+		<div className='home-container'>
+			{/* Section 1: Hero */}
+			<section className='hero'>
+				<div className='hero-text'>
+					<h1>
+						Your Animal, <br /> Our Priority
+					</h1>
+					<p>
+						Connecting you with trusted services and loving companions to make
+						pet care and adoption easier than ever.
+					</p>
+					<div className='hero-buttons'>
+						<Link
+							to='/AdoptionPage'
+							className='hero-btn'>
+							<GiDogHouse />
+							Adoption
+						</Link>
+						<Link
+							to='/shop'
+							className='hero-btn'>
+							<MdShoppingCart />
+							Supplies
+						</Link>
+						<Link
+							to='/ProductsPage'
+							className='hero-btn'>
+							<FaMobile />
+							Forum
+						</Link>
+						<Link
+							to='/clinics'
+							className='hero-btn'>
+							<MdPets />
+							Clinics
+						</Link>
+						<Link
+							to='/training'
+							className='hero-btn'>
+							<GiJumpingDog />
+							Training
+						</Link>
+						<Link
+							to='/ai'
+							className='hero-btn'>
+							<FaBrain />
+							AI
+						</Link>
+					</div>
+				</div>
+				<div className='hero-image'>
+					<img
+						src={dogImage}
+						alt='Dog'
+					/>
+				</div>
+			</section>
+=======
   return (
     <div className="home-container">
       {/* Section 1: Hero */}
@@ -63,6 +123,7 @@ const Home = () => {
           <img src={dogImage} alt="Dog" />
         </div>
       </section>
+>>>>>>> 36e7142c3210d4d58403b270090acb03ebfd25ac
 
       {/* Section 2: Give Them a Home */}
       <section className="adopt-section section">

@@ -1,0 +1,77 @@
+.posts-page {
+	width: 60%;
+	margin: 20px auto;
+	font-family: Arial, sans-serif;
+}
+
+.add-post {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.profile-pic {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.post-input {
+	flex: 1;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+}
+
+.post-card {
+	background: #f9f9f9;
+	border-radius: 10px;
+	padding: 15px;
+	margin-bottom: 20px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.post-text {
+	margin: 10px 0;
+}
+
+.post-actions {
+	display: flex;
+	gap: 15px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.likes,
+.comments {
+	margin: 5px 0;
+	font-size: 14px;
+}
+
+.add-comment {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.add-comment input {
+	flex: 1;
+	padding: 6px 10px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+}
+
+.icon {
+	font-size: 18px;
+	color: #555;
+	cursor: pointer;
+}

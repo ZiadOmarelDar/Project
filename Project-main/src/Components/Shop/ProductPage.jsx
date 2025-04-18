@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./ProductPage.css";
 
 const ProductPage = () => {
@@ -28,18 +29,34 @@ const ProductPage = () => {
       });
   }, [id]);
 
-  const addToCart = () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingProduct = cart.find((item) => item.id === product.id);
-
-    if (existingProduct) {
-      existingProduct.quantity += quantity;
-    } else {
-      cart.push({ ...product, quantity });
+  const addToCart = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Product added to cart!");
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/cart/add",
+        { productId: id, quantity },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Product added to cart!"); // الإشعار بس من غير توجيه
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Error adding to cart. Please try again."
+      );
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("cart");
+        navigate("/login");
+      }
+    }
   };
 
   if (loading) return <h2>Loading product details...</h2>;
@@ -62,16 +79,26 @@ const ProductPage = () => {
           <div className="quantity-container-1">
             <p>Quantity</p>
             <div className="quantity-controls-1">
-              
-              <button className="qty-btn" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
+              >
+                -
+              </button>
               <span>{quantity}</span>
-              <button className="qty-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
-              <button className="add-to-cart-1" onClick={addToCart}>ADD TO CART</button>
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
+              <button className="add-to-cart-1" onClick={addToCart}>
+                ADD TO CART
+              </button>
             </div>
           </div>
 
           <div className="buttons-container-1">
-            
             <button className="buy-now-1">BUY IT NOW</button>
           </div>
         </div>
