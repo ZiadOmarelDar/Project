@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  FaPaw, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaPaw, FaHeart, FaRegHeart } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { LuDog } from "react-icons/lu";
 import { TbCat } from "react-icons/tb";
@@ -14,8 +14,8 @@ import dog4 from "../../assets/adoption/4.png";
 import dog5 from "../../assets/adoption/5.png";
 import dog6 from "../../assets/adoption/6.png";
 import dog7 from "../../assets/adoption/7.png";
-import dogArticleImage from "../../assets/adoption/dog-article.png"; 
-import catArticleImage from "../../assets/adoption/cat-article.png"; 
+import dogArticleImage from "../../assets/adoption/dog-article.png";
+import catArticleImage from "../../assets/adoption/cat-article.png";
 
 const pets = [
   { id: 1, name: "Baha", image: dog1, type: "dog" },
@@ -29,7 +29,7 @@ const pets = [
 
 const planningCards = [
   {
-    icon: <ImPaste/>,
+    icon: <ImPaste />,
     title: "CHECKLIST FOR NEW ADOPTERS",
     description: "Make the adoption transition as smooth as possible",
   },
@@ -56,23 +56,27 @@ const articles = [
   },
 ];
 
+// بيانات بطاقات التصفية مع الأيقونات والنصوص
+const filterCards = [
+  { icon: <LuDog />, label: "Dog" },
+  { icon: <TbCat />, label: "Cat" },
+  { icon: <FaPaw />, label: "Paw" },
+];
+
 const AdoptionPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [favorites, setFavorites] = useState([]); // حالة لتتبع الحيوانات المفضلة
+  const [favorites, setFavorites] = useState([]);
 
-  // تصفية الحيوانات بناءً على البحث
   const filteredPets = pets
     .filter((pet) => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .slice(0, 7); // عرض أول 4 حيوانات فقط
+    .slice(0, 7);
 
-  // وظيفة تبديل المفضلة
   const toggleFavorite = (petId) => {
     if (favorites.includes(petId)) {
       setFavorites(favorites.filter((id) => id !== petId));
     } else {
       setFavorites([...favorites, petId]);
     }
-    // يمكن إضافة منطق لإرسال الحيوان إلى صفحة المفضلة (API أو localStorage)
   };
 
   return (
@@ -90,20 +94,21 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      {/* أيقونات التصفية */}
+      {/* أيقونات التصفية مع تأثير القلب */}
       <div className="category-icons">
-        <div className="icon-box">
-          <LuDog />
-        </div>
-        <div className="icon-box">
-          <TbCat />
-        </div>
-        <div className="icon-box">
-          <FaPaw />
-        </div>
+        {filterCards.map((card, index) => (
+          <div key={index} className="icon-box">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">{card.icon}</div>
+              <div className="flip-card-back">
+                <span className="filter-label">{card.label}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* قسم الحيوانات المتاحة للتبني (4 بطاقات) */}
+      {/* قسم الحيوانات المتاحة للتبني */}
       <h2 className="section-title-2">Pets Available for Adoption</h2>
       <div className="pets-grid">
         {filteredPets.map((pet) => (

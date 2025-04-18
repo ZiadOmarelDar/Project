@@ -1,103 +1,142 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .adoption-page {
-    text-align: center;
-  }
-  
-  
-  .header-1 {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.adoption-page {
+  text-align: center;
+}
+
+.header-1 {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../../assets/adoption/adoptionback.png") no-repeat center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 20px;
-  }
-  
-  
-  .search-container-1 {
-    display: flex;
-    align-items: center;
-    margin-bottom: 300px;
-    color: white;
-    width: 30%;
-    height: 50px;
-    border-radius: 20px;
-    border:2px solid #f8f8f8;
-    z-index: 1;
-    
-  }
-  
-  .search-icon-1 {
-    margin-right: 8px;
-    color: gray;
-    width: 50px;
-    height: 30px;
-    background: #f8f8f8;
-    border-radius: 18px 15px 15px 18px;
-    padding: 10px;
-    
-    
-  }
-  .search-icon-1:hover{
-    color: #3f3b97;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
 
-  .search-container-1 input {
-    border: none;
-    outline: none;
-    padding: 8px;
-    width: 250px;
-    background:none;
-    color: white;
-  }
-  
-  
-  .category-icons {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    padding: 20px;
-  }
-  
-  .icon-box {
-    background: white;
-    padding: 15px;
-    font-size: 100px;
-    width: 180px;
-    color: #3f3b97;
-    margin-top: -100px;
-    border-radius: 40px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-  .icon-box:hover{
-    box-shadow: 0px 7px 7px #2b2866 ;
-  }
-  
-  .section-title-2{
-    font-family: Inter;
-font-weight: 700;
-font-size: 48px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-color: #323773;
+.search-container-1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 300px;
+  color: white;
+  width: 30%;
+  height: 50px;
+  border-radius: 20px;
+  border: 2px solid #f8f8f8;
+  z-index: 1;
+}
 
-  }
+.search-icon-1 {
+  margin-right: 8px;
+  color: gray;
+  width: 50px;
+  height: 30px;
+  background: #f8f8f8;
+  border-radius: 18px 15px 15px 18px;
+  padding: 10px;
+}
+
+.search-icon-1:hover {
+  color: #3f3b97;
+}
+
+.search-container-1 input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  width: 250px;
+  background: none;
+  color: white;
+}
+
+/* أنماط أيقونات التصفية مع تأثير القلب */
+.category-icons {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 20px;
+}
+
+.icon-box {
+  background: white;
+  width: 180px;
+  height: 180px; /* زيادة الارتفاع لاستيعاب النص */
+  margin-top: -100px;
+  border-radius: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  perspective: 1000px; /* إضافة منظور لتأثير 3D */
+}
+
+.icon-box:hover {
+  box-shadow: 0px 7px 7px #2b2866;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.icon-box:hover .flip-card-inner {
+  transform: rotateY(180deg); /* قلب البطاقة عند الـ hover */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* إخفاء الوجه الخلفي أثناء الدوران */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front {
+  color: #3f3b97;
+}
+
+.flip-card-front svg {
+  font-size: 100px; /* الحفاظ على حجم الأيقونة كما في التصميم الأصلي */
+}
+
+.flip-card-back {
+  transform: rotateY(180deg); /* الوجه الخلفي مقلوب 180 درجة */
+  color: #3f3b97;
+}
+
+.filter-label {
+  font-family: Inter;
+  font-size: 40px; /* حجم النص ليتناسب مع البطاقة */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-title-2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #323773;
+}
+
 /* أنماط قسم الحيوانات */
 .pets-grid {
   display: grid;
-  grid-template-columns: repeat(4,  1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 20px;
   padding: 30px;
@@ -120,7 +159,6 @@ color: #323773;
 
 .pet-image {
   width: 100%;
-  
   object-fit: cover;
 }
 
@@ -141,7 +179,8 @@ color: #323773;
 .heart-icon.favorited {
   color: #ff0000;
 }
-.heart-icon:hover{
+
+.heart-icon:hover {
   transform: scale(1.3);
 }
 
@@ -187,19 +226,19 @@ color: #323773;
 /* أنماط قسم "Planning to adopt a pet?" */
 .planning-section {
   margin-top: 80px;
-  margin-bottom: 40px; /* مسافة أسفل القسم */
+  margin-bottom: 40px;
 }
-.planning-section-title{
-  font-family: Inter;
-font-weight: 700px;
-font-size: 48px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-color: #323773;
-;
 
+.planning-section-title {
+  font-family: Inter;
+  font-weight: 700px;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #323773;
 }
+
 .planning-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -207,16 +246,13 @@ color: #323773;
 }
 
 .planning-card {
-  
-  
-  
   padding: 20px;
   text-align: center;
 }
 
 .planning-icon {
   font-size: 100px;
-  color:  #323773;
+  color: #323773;
   margin-bottom: 10px;
 }
 
@@ -230,7 +266,6 @@ color: #323773;
 .planning-description {
   font-size: 14px;
   color: #666;
-  
   margin-bottom: 30px;
 }
 
@@ -254,7 +289,7 @@ color: #323773;
 /* أنماط قسم المقالات */
 .articles-section {
   margin-top: 70px;
-  margin-bottom: 40px; /* مسافة أسفل القسم */
+  margin-bottom: 40px;
 }
 
 .articles-grid {
@@ -270,7 +305,6 @@ color: #323773;
   overflow: hidden;
   text-align: center;
   width: 400px;
-
 }
 
 .article-image {
@@ -286,8 +320,8 @@ color: #323773;
 }
 
 .read-more-btn-9 {
- width: 100%;
- background: white;
+  width: 100%;
+  background: white;
   color: #323773;
   border: 1px solid;
   padding: 10px 20px;
@@ -295,7 +329,6 @@ color: #323773;
   cursor: pointer;
   font-size: 20px;
   font-weight: 600px;
-  
 }
 
 .read-more-btn-9:hover {
