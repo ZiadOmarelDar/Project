@@ -46,7 +46,7 @@ const Home = () => {
 							Supplies
 						</Link>
 						<Link
-							to='/ProductsPage'
+							to='/form'
 							className='hero-btn'>
 							<FaMobile />
 							Forum
