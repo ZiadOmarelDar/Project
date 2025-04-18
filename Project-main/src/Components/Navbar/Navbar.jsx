@@ -72,7 +72,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/adopt">Adopt a Pet</Link>
+          <Link to="/AdoptionPage">Adopt a Pet</Link>
         </li>
         <li>
           <Link to="/clinics">Find a Clinic</Link>

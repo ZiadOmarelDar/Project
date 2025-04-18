@@ -87,7 +87,7 @@ const Home = () => {
           <img src={suppliesImg} alt="Adopt a Dog" />
           <img src={forumImg} alt="Adopt a Bird" />
         </div>
-        <Link to="/adopt">
+        <Link to="/AdoptionPage">
           <button className="show-more">Show more</button>
         </Link>
       </section>

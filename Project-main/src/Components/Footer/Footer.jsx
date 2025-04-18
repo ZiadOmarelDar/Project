@@ -31,7 +31,7 @@ const Footer = () => {
           <h3 className="section-title-1">Services</h3>
           <ul>
             <li>
-              <Link to="/adopt">Adoption</Link>
+              <Link to="/AdoptionPage">Adoption</Link>
             </li>
             <li>
               <Link to="/shop">Supplies</Link>
