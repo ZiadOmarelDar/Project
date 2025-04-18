@@ -54,6 +54,7 @@
 }
 
 .product-name {
+	cursor: pointer;
 	font-weight: bold;
 	color: black;
 }

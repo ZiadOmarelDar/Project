@@ -112,7 +112,7 @@ const Cart = () => {
   };
 
   const subtotal = cartItems.reduce((acc, item) => {
-    const price = item.productId?.price || 0; // التأكد إن السعر موجود، لو مش موجود بيحط 0
+    const price = item.productId?.price || 0;
     return acc + price * (item.quantity || 0);
   }, 0);
 
@@ -137,9 +137,15 @@ const Cart = () => {
                   src={item.productId?.image || "https://via.placeholder.com/100"}
                   alt={item.productId?.productName || "Product"}
                   className="product-image"
+                  onClick={() => navigate(`/products/product/${item.productId?._id}`)}
+                  style={{ cursor: "pointer" }}
                 />
                 <div className="product-details">
-                  <p className="product-name">
+                  <p
+                    className="product-name"
+                    onClick={() => navigate(`/products/product/${item.productId?._id}`)}
+                    
+                  >
                     {item.productId?.productName || "Unknown Product"}
                   </p>
                   <p className="product-weight">
