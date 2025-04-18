@@ -33,7 +33,7 @@ const Home = () => {
             pet care and adoption easier than ever.
           </p>
           <div className="hero-buttons">
-            <Link to="/adopt" className="hero-btn">
+            <Link to="/AdoptionPage" className="hero-btn">
               <GiDogHouse />
               Adoption
             </Link>

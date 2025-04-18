@@ -14,7 +14,7 @@ body {
   .header-1 {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 400px;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../../assets/adoption/adoptionback.png") no-repeat center/cover;
     display: flex;
@@ -24,39 +24,41 @@ body {
   }
   
   
-  .search-container {
+  .search-container-1 {
     display: flex;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 300px;
     color: white;
     width: 30%;
-    height: 70px;
-    border-radius: 25px;
+    height: 50px;
+    border-radius: 20px;
     border:2px solid #f8f8f8;
     z-index: 1;
+    
   }
   
-  .search-icon {
+  .search-icon-1 {
     margin-right: 8px;
     color: gray;
     width: 50px;
-    height: 50px;
+    height: 30px;
     background: #f8f8f8;
-    border-radius: 22px 15px 15px 22px;
+    border-radius: 18px 15px 15px 18px;
     padding: 10px;
     
+    
   }
-  .search-icon:hover{
+  .search-icon-1:hover{
     color: #3f3b97;
   }
-  
-  .search-container input {
+
+  .search-container-1 input {
     border: none;
     outline: none;
     padding: 8px;
     width: 250px;
-    background: none;
-    color: #f8f8f8;
+    background:none;
+    color: white;
   }
   
   
@@ -82,96 +84,221 @@ body {
     box-shadow: 0px 7px 7px #2b2866 ;
   }
   
-  
-  .section-title {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .pets-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 5px;
-    
-  }
-  
-  .pet-card {
-    background: white;
-    padding: 5px;
-    border-radius: 20px;
-    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-  }
-  .pet-card:hover{
-    box-shadow: 0px 7px 10px #4a4a8c;
-  }
-  
-  .pet-image {
-    width: 70%;
-    border-radius: 8px;
-  }
-  
-  .pet-name {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  .heart-icon {
-    position: absolute;
-    top: 10px;
-    color: #bbb8b8;
+  .section-title-2{
+    font-family: Inter;
+font-weight: 700;
+font-size: 48px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+color: #323773;
 
   }
-  
-  
-  .see-more-card {
-    background: #4a4a8c;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    padding: 10px;
-  }
-  
-  .paw-icon {
-    font-size: 130px;
-    text-align: center;
-  }
- 
-  
+/* أنماط قسم الحيوانات */
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(4,  1fr);
+  gap: 20px;
+  margin-top: 20px;
+  padding: 30px;
+  margin-right: -100px;
+}
 
-  .info-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
+.pet-card {
+  background-color: #fff;
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 280px;
+}
+
+.pet-image-container {
+  position: relative;
+}
+
+.pet-image {
+  width: 100%;
   
-  .info-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    text-align: center;
-  }
+  object-fit: cover;
+}
+
+.heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.heart-icon {
+  font-size: 24px;
+  color: #6b46c1;
+}
+
+.heart-icon.favorited {
+  color: #ff0000;
+}
+.heart-icon:hover{
+  transform: scale(1.3);
+}
+
+.pet-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #323773;
+  margin: 10px 0;
+}
+
+.see-them-card {
+  background-color: #323773;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+}
+
+.see-them-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.paw-icon {
+  font-size: 120px;
+  margin-bottom: 10px;
+}
+
+.see-them-content p {
+  font-size: 20px;
+  margin-bottom: 80px;
+  color: white;
+}
+
+.see-them-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* أنماط قسم "Planning to adopt a pet?" */
+.planning-section {
+  margin-top: 80px;
+  margin-bottom: 40px; /* مسافة أسفل القسم */
+}
+.planning-section-title{
+  font-family: Inter;
+font-weight: 700px;
+font-size: 48px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+color: #323773;
+;
+
+}
+.planning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.planning-card {
   
   
-  .articles-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
   
-  .article-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-  }
+  padding: 20px;
+  text-align: center;
+}
+
+.planning-icon {
+  font-size: 100px;
+  color:  #323773;
+  margin-bottom: 10px;
+}
+
+.planning-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.planning-description {
+  font-size: 14px;
+  color: #666;
   
+  margin-bottom: 30px;
+}
+
+.explore-btn-9 {
+  background-color: transparent;
+  border: 2px solid #6b46c1;
+  color: #6b46c1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600px;
+  margin-top: 30px;
+}
+
+.explore-btn-9:hover {
+  background-color: #6b46c1;
+  color: #fff;
+}
+
+/* أنماط قسم المقالات */
+.articles-section {
+  margin-top: 70px;
+  margin-bottom: 40px; /* مسافة أسفل القسم */
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+}
+
+.article-card {
+  background-color: #fff;
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 400px;
+
+}
+
+.article-image {
+  width: 80%;
+  object-fit: cover;
+}
+
+.article-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #323773;
+  margin: 15px 0;
+}
+
+.read-more-btn-9 {
+ width: 100%;
+ background: white;
+  color: #323773;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 0px 0px 50px 50px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600px;
+  
+}
+
+.read-more-btn-9:hover {
+  background-color: #323773;
+  color: white;
+}
