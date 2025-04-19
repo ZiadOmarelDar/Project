@@ -10,6 +10,9 @@ import ProductPage from './Components/Shop/ProductPage';
 import Shop from './Components/Shop/Shop';
 import Cart from './Components/Shop/Cart';
 import Community from './Components/Community/Community';
+import Profile from "./Components/Profile/Profile";
+import ProfileEdit from "./Components/ProfileEdit/ProfileEdit";
+import PetTravelRequirements from "./Components/PetTravelRequirements/PetTravelRequirements";
 
 function App() {
 	return (
@@ -54,6 +57,9 @@ function App() {
 						path='community'
 						element={<Community />}
 					/>
+					<Route path="/profile/edit" element={<ProfileEdit />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/PetTravelRequirements" element={<PetTravelRequirements />} />
 				</Route>
 			</Routes>
 		</Router>
