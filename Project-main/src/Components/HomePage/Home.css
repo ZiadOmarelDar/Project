@@ -292,14 +292,14 @@
 .clinic-text {
   max-width: 600px;
 }
-.clinic-text h2{
-font-size: 3rem;
+.clinic-text h2 {
+  font-size: 3rem;
 }
 .doctor-image {
   max-width: 600px;
   margin-top: -50px;
 }
-.doctor-image img{
+.doctor-image img {
   position: relative;
   top: 90px;
 }
@@ -318,7 +318,7 @@ font-size: 3rem;
 
 .training-text {
   flex: 1;
-  text-align:center ;
+  text-align: center;
 }
 
 .training-text h2 {
@@ -340,7 +340,7 @@ font-size: 3rem;
   padding: 15px;
   font-size: 18px;
   background: #e6f7ff;
-  box-shadow: 0 2px 4px #7b8a90 ;
+  box-shadow: 0 2px 4px #7b8a90;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -372,7 +372,7 @@ font-size: 3rem;
 .ai-text {
   max-width: 450px;
 }
-.ai-text h2{
+.ai-text h2 {
   font-size: 4.3rem;
 }
 .ai-text-p {
@@ -391,11 +391,10 @@ font-size: 3rem;
 
 /* ======== Responsive Design ======== */
 @media (max-width: 1024px) {
-  
-.home-container {
-  max-width: 100%;
-  font-family: Inter;
-}
+  .home-container {
+    max-width: 100%;
+    font-family: Inter;
+  }
   .hero {
     flex-direction: column;
     text-align: center;
@@ -504,16 +503,15 @@ font-size: 3rem;
 }
 
 @media (max-width: 480px) {
-  
-.home-container {
-  max-width: 100%;
-  font-family: Inter;
-}
-.hero {
-  background-color: #f7f7fc;
-  padding-right: 20px;
-  margin-bottom: -100px;
-}
+  .home-container {
+    max-width: 100%;
+    font-family: Inter;
+  }
+  .hero {
+    background-color: #f7f7fc;
+    padding-right: 20px;
+    margin-bottom: -100px;
+  }
   .hero-text h1 {
     font-size: 32px;
   }
@@ -638,11 +636,11 @@ font-size: 3rem;
     font-size: 3rem;
     font-weight: bold;
     font-family: Inter;
-    margin-left:25px;
+    margin-left: 25px;
     margin-top: -30px;
     color: #ded6e6;
   }
-  .explore-btn-2{
+  .explore-btn-2 {
     position: relative;
     bottom: -280px;
   }
@@ -651,16 +649,16 @@ font-size: 3rem;
     width: 300px;
     margin-top: -130px;
   }
-  .clinic-section{
+  .clinic-section {
     height: 800px;
   }
   .clinic-text {
     max-width: 300px;
   }
-  .clinic-text h2{
+  .clinic-text h2 {
     font-size: 2.2rem;
     margin-top: -10px;
-    }
+  }
 
   .clinic-image img {
     width: 250px;
@@ -670,11 +668,11 @@ font-size: 3rem;
   .doctor-image {
     max-width: 300px;
   }
-  .doctor-image .explore-btn{
+  .doctor-image .explore-btn {
     position: relative;
     right: -80px;
   }
-  .doctor-image img{
+  .doctor-image img {
     position: relative;
     top: 400px;
     left: -100px;
@@ -690,7 +688,7 @@ font-size: 3rem;
     padding: 11px;
     font-size: 15px;
     background: #e6f7ff;
-    box-shadow: 0 2px 4px #7b8a90 ;
+    box-shadow: 0 2px 4px #7b8a90;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -704,13 +702,13 @@ font-size: 3rem;
     left: 27px;
     top: -150px;
   }
-  .training-section{
+  .training-section {
     height: 770px;
   }
-  .ai-section{
+  .ai-section {
     height: 550px;
   }
-  .ai-text h2{
+  .ai-text h2 {
     font-size: 2.5rem;
     margin-top: -40px;
   }
@@ -719,7 +717,7 @@ font-size: 3rem;
     position: relative;
     top: -100px;
   }
-  .ai-section .explore-btn{
+  .ai-section .explore-btn {
     position: relative;
     bottom: -170px;
   }
