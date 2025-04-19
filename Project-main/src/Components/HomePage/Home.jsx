@@ -46,7 +46,7 @@ const Home = () => {
 							Supplies
 						</Link>
 						<Link
-							to='/form'
+							to='/community'
 							className='hero-btn'>
 							<FaMobile />
 							Forum
@@ -79,18 +79,27 @@ const Home = () => {
 				</div>
 			</section>
 
-      {/* Section 2: Give Them a Home */}
-      <section className="adopt-section section">
-        <h2>Give Them a Home</h2>
-        <div className="adopt-gallery">
-          <img src={adoptionImg} alt="Adopt a Cat" />
-          <img src={suppliesImg} alt="Adopt a Dog" />
-          <img src={forumImg} alt="Adopt a Bird" />
-        </div>
-        <Link to="/AdoptionPage">
-          <button className="show-more">Show more</button>
-        </Link>
-      </section>
+			{/* Section 2: Give Them a Home */}
+			<section className='adopt-section section'>
+				<h2>Give Them a Home</h2>
+				<div className='adopt-gallery'>
+					<img
+						src={adoptionImg}
+						alt='Adopt a Cat'
+					/>
+					<img
+						src={suppliesImg}
+						alt='Adopt a Dog'
+					/>
+					<img
+						src={forumImg}
+						alt='Adopt a Bird'
+					/>
+				</div>
+				<Link to='/AdoptionPage'>
+					<button className='show-more'>Show more</button>
+				</Link>
+			</section>
 
 			{/* Section 3: Provide Best Care */}
 			<section className='care-section section'>

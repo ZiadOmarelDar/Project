@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { FaImage, FaPaperPlane } from 'react-icons/fa';
 import Post from './Post';
 import './Community.css';
-import groupOfPets from '../../assets/groupOfPets.png'; // تأكد من المسار والامتداد الصحيح
 
 const Community = ({ currentUserAvatar }) => {
 	// Dummy data for posts with initial state

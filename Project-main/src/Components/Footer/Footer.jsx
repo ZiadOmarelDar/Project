@@ -28,30 +28,30 @@ const Footer = () => {
 					</div>
 				</div>
 
-        {/* Section 2: Services */}
-        <div className="footer-section">
-          <h3 className="section-title-1">Services</h3>
-          <ul>
-            <li>
-              <Link to="/AdoptionPage">Adoption</Link>
-            </li>
-            <li>
-              <Link to="/shop">Supplies</Link>
-            </li>
-            <li>
-              <Link to="/forum">Forum</Link>
-            </li>
-            <li>
-              <Link to="/clinics">Clinics</Link>
-            </li>
-            <li>
-              <Link to="/training">Training</Link>
-            </li>
-            <li>
-              <Link to="/ai">AI</Link>
-            </li>
-          </ul>
-        </div>
+				{/* Section 2: Services */}
+				<div className='footer-section'>
+					<h3 className='section-title-1'>Services</h3>
+					<ul>
+						<li>
+							<Link to='/AdoptionPage'>Adoption</Link>
+						</li>
+						<li>
+							<Link to='/shop'>Supplies</Link>
+						</li>
+						<li>
+							<Link to='/community'>Forum</Link>
+						</li>
+						<li>
+							<Link to='/clinics'>Clinics</Link>
+						</li>
+						<li>
+							<Link to='/training'>Training</Link>
+						</li>
+						<li>
+							<Link to='/ai'>AI</Link>
+						</li>
+					</ul>
+				</div>
 
 				{/* Section 3: Social Media */}
 				<div className='footer-section'>
