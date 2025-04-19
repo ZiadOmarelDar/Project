@@ -298,12 +298,10 @@ font-size: 3rem;
 .doctor-image {
   max-width: 600px;
   margin-top: -50px;
-  
 }
 .doctor-image img{
   position: relative;
   top: 90px;
-  
 }
 
 .clinic-image img {
@@ -317,7 +315,6 @@ font-size: 3rem;
   align-items: center;
   justify-content: space-between;
 }
-
 
 .training-text {
   flex: 1;
@@ -357,11 +354,9 @@ font-size: 3rem;
   color: white;
 }
 
-
 .training-image img {
   max-width: 400px;
   margin-right: 50px;
-
 }
 
 /* ======== AI Section ======== */
@@ -376,7 +371,6 @@ font-size: 3rem;
 
 .ai-text {
   max-width: 450px;
-  
 }
 .ai-text h2{
   font-size: 4.3rem;
@@ -394,8 +388,6 @@ font-size: 3rem;
 .ai-image img {
   width: 500px;
 }
-
-
 
 /* ======== Responsive Design ======== */
 @media (max-width: 1024px) {
@@ -534,7 +526,6 @@ font-size: 3rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    
   }
   .hero-btn {
     width: 65%;
@@ -642,7 +633,6 @@ font-size: 3rem;
     font-family: Inter;
     position: relative;
     bottom: -290px;
-
   }
   .forum-text h2 {
     font-size: 3rem;
@@ -679,7 +669,6 @@ font-size: 3rem;
   }
   .doctor-image {
     max-width: 300px;
-    
   }
   .doctor-image .explore-btn{
     position: relative;
@@ -690,14 +679,12 @@ font-size: 3rem;
     top: 400px;
     left: -100px;
     top: 420px;
-    
   }
   .training-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding-left: 20px;
-    
   }
   .training-cards button {
     padding: 11px;
@@ -716,7 +703,6 @@ font-size: 3rem;
     position: relative;
     left: 27px;
     top: -150px;
-  
   }
   .training-section{
     height: 770px;
@@ -738,7 +724,3 @@ font-size: 3rem;
     bottom: -170px;
   }
 }
-
-
-
-
