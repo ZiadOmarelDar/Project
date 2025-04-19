@@ -9,6 +9,8 @@ import ProductsPage from "./Components/Shop/ProductsPage";
 import ProductPage from "./Components/Shop/ProductPage";
 import Shop from "./Components/Shop/Shop";
 import Cart from "./Components/Shop/Cart";
+import Profile from "./Components/Profile/Profile";
+import ProfileEdit from "./Components/ProfileEdit/ProfileEdit";
 
 function App() {
     return (
@@ -17,7 +19,9 @@ function App() {
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="register" element={<Register />} />
+            <Route path="/profile/edit" element={<ProfileEdit />} />
             <Route path="login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="AdoptionPage" element={<AdoptionPage />} />
             <Route path="productsPage" element={<ProductsPage />} />
             <Route path="/products/product/:id" element={<ProductPage />} />

@@ -1,0 +1,475 @@
+/* الخطوط والإعدادات العامة */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f8ff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* الحاوية الرئيسية */
+  .profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .profile-container h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #1a3c6d;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* الأيقونة */
+  .profile-icon {
+    margin-bottom: 30px;
+  }
+  
+  .profile-icon svg {
+    color: #1a3c6d;
+    background: #e6efff;
+    border-radius: 50%;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-icon svg:hover {
+    transform: scale(1.1);
+  }
+  
+  /* تفاصيل الملف الشخصي */
+  .profile-details {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-bottom: 30px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .profile-details:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .profile-details p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .profile-details p strong {
+    color: #1a3c6d;
+    font-weight: 600;
+    min-width: 120px;
+  }
+  
+  /* قسم الخدمات */
+  .services-section {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .services-section h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a3c6d;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+  }
+  
+  .services-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .service-item {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .service-content {
+    flex: 1;
+  }
+  
+  .service-content p {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+  
+  .service-content p strong {
+    color: #1a3c6d;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  
+  .no-services {
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+  
+  /* أزرار إضافة/تعديل الخدمة */
+  .add-service-btn,
+  .edit-service-btn {
+    padding: 12px 30px;
+    background: #1a3c6d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 60, 109, 0.2);
+    margin-top: 20px;
+  }
+  
+  .add-service-btn:hover,
+  .edit-service-btn:hover {
+    background: #143158;
+    transform: translateY(-2px);
+  }
+  
+  .delete-service-btn {
+    padding: 10px 20px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.2);
+  }
+  
+  .delete-service-btn:hover {
+    background: #e63939;
+    transform: translateY(-2px);
+  }
+  
+  /* فورم إضافة/تعديل الخدمة */
+  .add-service-form {
+    margin-top: 30px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid #e6efff;
+  }
+  
+  .add-service-form:hover {
+    transform: translateY(-3px);
+  }
+  
+  .add-service-form h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a3c6d;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+  
+  .add-service-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .form-group label {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #1a3c6d;
+    font-size: 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #f9f9fb;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #1a3c6d;
+    box-shadow: 0 0 10px rgba(26, 60, 109, 0.15);
+    outline: none;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  /* تصميم حقلي الوقت */
+  .time-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .time-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  .time-field select {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #f9f9fb;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 80px;
+  }
+  
+  .time-field select:focus {
+    border-color: #1a3c6d;
+    box-shadow: 0 0 10px rgba(26, 60, 109, 0.15);
+    outline: none;
+  }
+  
+  .time-separator {
+    font-size: 15px;
+    color: #4a4a4a;
+    font-weight: 500;
+  }
+  
+  /* تصميم حقل السعر */
+  .price-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .price-inputs input {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .price-inputs select {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #f9f9fb;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 100px;
+  }
+  
+  .price-inputs select:focus {
+    border-color: #1a3c6d;
+    box-shadow: 0 0 10px rgba(26, 60, 109, 0.15);
+    outline: none;
+  }
+  
+  /* أزرار الفورم */
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .save-service-btn {
+    padding: 12px 35px;
+    background: #1a3c6d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 60, 109, 0.2);
+  }
+  
+  .save-service-btn:hover {
+    background: #143158;
+    transform: translateY(-2px);
+  }
+  
+  .cancel-btn {
+    padding: 12px 35px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.2);
+  }
+  
+  .cancel-btn:hover {
+    background: #e63939;
+    transform: translateY(-2px);
+  }
+  
+  /* زر تحديث الملف الشخصي */
+  .profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .update-btn {
+    padding: 12px 30px;
+    background: #1a3c6d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 60, 109, 0.2);
+  }
+  
+  .update-btn:hover {
+    background: #143158;
+    transform: translateY(-2px);
+  }
+  
+  /* الرسائل */
+  .error {
+    color: #ff4d4d;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    background: #ffe6e6;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 77, 77, 0.1);
+  }
+  
+  .success {
+    color: #28a745;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    background: #e6f4e6;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(40, 167, 69, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-container {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .profile-container h2 {
+      font-size: 28px;
+    }
+  
+    .profile-details p {
+      font-size: 14px;
+    }
+  
+    .services-section h3 {
+      font-size: 22px;
+    }
+  
+    .service-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .delete-service-btn {
+      align-self: flex-end;
+    }
+  
+    .add-service-btn,
+    .edit-service-btn,
+    .save-service-btn,
+    .cancel-btn,
+    .update-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  
+    .time-inputs,
+    .price-inputs {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .time-field,
+    .price-inputs input,
+    .price-inputs select {
+      width: 100%;
+    }
+  
+    .time-separator {
+      display: none;
+    }
+  }

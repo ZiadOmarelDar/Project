@@ -28,7 +28,7 @@ function Navbar() {
         .catch((err) => {
           console.error("Error fetching user data:", err);
           localStorage.removeItem("token");
-          localStorage.removeItem("cart"); 
+          localStorage.removeItem("cart");
           setIsLoggedIn(false);
           setUsername("");
           navigate("/login");
@@ -36,7 +36,7 @@ function Navbar() {
     } else {
       setIsLoggedIn(false);
       setUsername("");
-      localStorage.removeItem("cart"); 
+      localStorage.removeItem("cart");
     }
   }, [navigate]);
 
@@ -50,7 +50,7 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("cart"); 
+    localStorage.removeItem("cart");
     setIsLoggedIn(false);
     setUsername("");
     navigate("/login");
@@ -106,7 +106,9 @@ function Navbar() {
       <div className="auth-buttons">
         {isLoggedIn ? (
           <>
-            <span className="username">Welcome, {username}</span>
+            <Link to="/profile" className="username">
+              Welcome, {username}
+            </Link>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>

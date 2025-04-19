@@ -19,6 +19,9 @@ mongoose
   .then(() => console.log("MongoDB Connected Successfully"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
+// تعريف الـ Secret Key بشكل ثابت
+const JWT_SECRET = "yourSecretKey";
+
 const authMiddleware = (req, res, next) => {
   const token = req.header("Authorization")?.replace("Bearer ", "");
   if (!token) {
@@ -26,11 +29,11 @@ const authMiddleware = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "yourSecretKey");
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ message: "Invalid token" });
+    res.status(401).json({ message: "Invalid token", error: error.message });
   }
 };
 
@@ -38,26 +41,32 @@ app.post("/register", async (req, res) => {
   const { name, userType, username, email, password } = req.body;
 
   try {
-    if (!name || !email || !password || !username) {
-      return res.status(400).json({ message: "All fields (name, email, password, username) are required" });
+    // التحقق من وجود كل الحقول
+    if (!name || !username || !email || !password) {
+      return res.status(400).json({ message: "All fields (name, username, email, password) are required" });
     }
 
+    // التحقق من نوع المستخدم
     const validUserTypes = ["user", "clinicAdmin", "trainer"];
     if (!validUserTypes.includes(userType)) {
       return res.status(400).json({ message: "Invalid user type" });
     }
 
-    const existingUser = await UsersModel.findOne({ email });
+    // التحقق من الإيميل واليوزرنيم (مش موجودين قبل كده)
+    const existingUser = await UsersModel.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
-      return res.status(400).json({ message: "Email already registered" });
+      if (existingUser.email === email) {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      if (existingUser.username === username) {
+        return res.status(400).json({ message: "Username already taken" });
+      }
     }
 
-    const existingUsername = await UsersModel.findOne({ username });
-    if (existingUsername) {
-      return res.status(400).json({ message: "Username already taken" });
-    }
-
+    // تشفير كلمة السر
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    // إنشاء مستخدم جديد
     const newUser = await UsersModel.create({
       name,
       userType,
@@ -67,11 +76,28 @@ app.post("/register", async (req, res) => {
       cart: [],
     });
 
+    // إنشاء توكن
+    const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
     res.status(201).json({
       message: "User registered successfully",
-      user: { id: newUser._id, email: newUser.email, username: newUser.username },
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        username: newUser.username,
+        email: newUser.email,
+        userType: newUser.userType,
+      },
+      token,
     });
   } catch (err) {
+    // معالجة أخطاء الـ schema validation من mongoose
+    if (err.name === "ValidationError") {
+      const messages = Object.values(err.errors).map((e) => e.message);
+      return res.status(400).json({ message: messages.join(", ") });
+    }
     res.status(500).json({ message: "Server error", error: err.message });
   }
 });
@@ -91,23 +117,196 @@ app.post("/login", async (req, res) => {
     }
 
     const payload = { userId: user._id };
-    const token = jwt.sign(payload, process.env.JWT_SECRET || "yourSecretKey", { expiresIn: "1h" });
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
 
     res.json({ message: "Login successful", token });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 });
+
 // Get user info
 app.get("/user", authMiddleware, async (req, res) => {
   try {
-    const user = await UsersModel.findById(req.user.userId).select("username");
+    const user = await UsersModel.findById(req.user.userId).select("-password");
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
     res.json({ user });
   } catch (err) {
     res.status(500).json({ message: "Error fetching user data", error: err.message });
+  }
+});
+
+// Endpoint لجلب الخدمات بتاعة المستخدم
+app.get("/user/services", authMiddleware, async (req, res) => {
+  try {
+    const user = await UsersModel.findById(req.user.userId).select("services userType");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json({ userType: user.userType, services: user.services });
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching services", error: err.message });
+  }
+});
+
+// إضافة خدمة جديدة
+app.post("/user/services", authMiddleware, async (req, res) => {
+  try {
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    let serviceData = { contactInfo: req.body.contactInfo };
+
+    if (user.userType === "clinicAdmin") {
+      serviceData = {
+        ...serviceData,
+        type: "clinic",
+        clinicName: req.body.clinicName,
+        doctorName: req.body.doctorName,
+        location: req.body.location,
+        workingHours: req.body.workingHours,
+        servicePrice: req.body.servicePrice,
+        currency: req.body.currency,
+        serviceType: req.body.serviceType,
+        doctorDescription: req.body.doctorDescription,
+      };
+    } else if (user.userType === "trainer") {
+      serviceData = {
+        ...serviceData,
+        type: "trainer",
+        trainerName: user.name,
+        specialty: req.body.specialty,
+        availablePrograms: req.body.availablePrograms,
+      };
+    }
+
+    // إضافة الخدمة للـ services array في الـ user
+    user.services.push(serviceData);
+    await user.save();
+
+    res.status(201).json({ service: serviceData });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// تعديل خدمة موجودة
+app.put("/user/services/:index", authMiddleware, async (req, res) => {
+  try {
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const serviceIndex = parseInt(req.params.index);
+    if (serviceIndex < 0 || serviceIndex >= user.services.length) {
+      return res.status(404).json({ message: "Service not found" });
+    }
+
+    let serviceData = { contactInfo: req.body.contactInfo };
+
+    if (user.userType === "clinicAdmin") {
+      serviceData = {
+        ...serviceData,
+        type: "clinic",
+        clinicName: req.body.clinicName,
+        doctorName: req.body.doctorName,
+        location: req.body.location,
+        workingHours: req.body.workingHours,
+        servicePrice: req.body.servicePrice,
+        currency: req.body.currency,
+        serviceType: req.body.serviceType,
+        doctorDescription: req.body.doctorDescription,
+      };
+    } else if (user.userType === "trainer") {
+      serviceData = {
+        ...serviceData,
+        type: "trainer",
+        trainerName: user.name,
+        specialty: req.body.specialty,
+        availablePrograms: req.body.availablePrograms,
+      };
+    }
+
+    // تحديث الخدمة في الـ services array
+    user.services[serviceIndex] = serviceData;
+    await user.save();
+
+    res.status(200).json({ service: serviceData });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// delete service
+app.delete("/user/services/:index", authMiddleware, async (req, res) => {
+  try {
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const serviceIndex = parseInt(req.params.index);
+    if (isNaN(serviceIndex) || serviceIndex < 0 || serviceIndex >= user.services.length) {
+      return res.status(400).json({ message: "Invalid service index" });
+    }
+
+    user.services.splice(serviceIndex, 1);
+    await user.save();
+
+    res.json({ message: "Service deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Error deleting service", error: err.message });
+  }
+});
+
+// user update
+app.put("/user/update", authMiddleware, async (req, res) => {
+  const { name, username, email } = req.body;
+
+  try {
+    // التحقق من وجود كل الحقول
+    if (!name || !username || !email) {
+      return res.status(400).json({ message: "Name, username, and email are required" });
+    }
+
+    // التحقق من عدم وجود إيميل أو يوزرنيم مستخدمين قبل كده (باستثناء المستخدم الحالي)
+    const existingUser = await UsersModel.findOne({
+      $or: [{ email }, { username }],
+      _id: { $ne: req.user.userId }, // استثناء المستخدم الحالي
+    });
+    if (existingUser) {
+      if (existingUser.email === email) {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      if (existingUser.username === username) {
+        return res.status(400).json({ message: "Username already taken" });
+      }
+    }
+
+    // البحث عن المستخدم وتحديث بياناته
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.name = name;
+    user.username = username;
+    user.email = email;
+    await user.save();
+
+    res.json({ message: "Profile updated successfully", user });
+  } catch (err) {
+    // معالجة أخطاء الـ schema validation من mongoose
+    if (err.name === "ValidationError") {
+      const messages = Object.values(err.errors).map((e) => e.message);
+      return res.status(400).json({ message: messages.join(", ") });
+    }
+    res.status(500).json({ message: "Error updating profile", error: err.message });
   }
 });
 
@@ -275,14 +474,13 @@ app.post("/cart/add", authMiddleware, async (req, res) => {
   }
 });
 
-
 app.get("/cart", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    await user.populate("cart.productId"); // التأكد إن productId متعبّى بكل التفاصيل
+    await user.populate("cart.productId");
     res.json({ cart: user.cart });
   } catch (err) {
     res.status(500).json({ message: "Error fetching cart", error: err.message });

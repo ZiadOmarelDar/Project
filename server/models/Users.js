@@ -1,73 +1,124 @@
 const mongoose = require("mongoose");
 
-const UsersSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, "Full name is required"],
-        trim: true,
+const serviceSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    enum: ["clinic", "trainer"],
+    required: true,
+  },
+  contactInfo: {
+    type: String,
+    required: true,
+  },
+  // حقول خاصة بالـ clinicAdmin
+  clinicName: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
     },
-    userType: {
-        type: String,
-        enum: {
-            values: ["user", "clinicAdmin", "trainer"],
-            message: "{VALUE} is not a valid user type",
-        },
-        default: "user",
+  },
+  doctorName: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
     },
-    username: {
-        type: String,
-        required: [true, "Username is required"],
-        unique: true,
-        trim: true,
-        minlength: [3, "Username must be at least 3 characters"],
+  },
+  location: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
     },
-    email: {
-        type: String,
-        required: [true, "Email is required"],
-        unique: true,
-        trim: true,
-        match: [/^\S+@\S+\.\S+$/, "Please enter a valid email address"],
+  },
+  workingHours: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
     },
-    password: {
-        type: String,
-        required: [true, "Password is required"],
-        minlength: [6, "Password must be at least 6 characters"],
+  },
+  servicePrice: {
+    type: Number,
+    required: function () {
+      return this.type === "clinic";
     },
-    cart: [
-        {
-            productId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Product",
-                required: true,
-            },
-            quantity: {
-                type: Number,
-                required: true,
-                min: [1, "Quantity must be at least 1"],
-            },
-        },
-    ],
-    createdAt: {
-        type: Date,
-        default: Date.now,
+  },
+  currency: {
+    type: String,
+    enum: ["EGP", "USD"],
+    default: "EGP",
+    required: function () {
+      return this.type === "clinic";
     },
-    updatedAt: {
-        type: Date,
-        default: Date.now,
+  },
+  serviceType: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
     },
+  },
+  doctorDescription: {
+    type: String,
+    required: function () {
+      return this.type === "clinic";
+    },
+  },
+  // حقول خاصة بالـ trainer
+  trainerName: {
+    type: String,
+    required: function () {
+      return this.type === "trainer";
+    },
+  },
+  specialty: {
+    type: String,
+    required: function () {
+      return this.type === "trainer";
+    },
+  },
+  availablePrograms: {
+    type: String,
+    required: function () {
+      return this.type === "trainer";
+    },
+  },
 });
 
-UsersSchema.pre("save", function (next) {
-    this.updatedAt = Date.now();
-    next();
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  userType: {
+    type: String,
+    enum: ["user", "clinicAdmin", "trainer"],
+    required: true,
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  cart: [
+    {
+      productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+      },
+      quantity: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  services: [serviceSchema],
 });
 
-const UsersModel = mongoose.model("users", UsersSchema);
-
-module.exports = UsersModel;
-
-
-
-
-
-
+module.exports = mongoose.model("User", userSchema);
