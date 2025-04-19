@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { FaSearch, FaPaw, FaDog, FaCat, FaHeart } from "react-icons/fa";
+import { FaPaw, FaHeart, FaRegHeart } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { LuDog } from "react-icons/lu";
 import { TbCat } from "react-icons/tb";
-import { FaRegHeart } from "react-icons/fa6";
-
-import "./AdoptionPage.css"; 
+import { ImPaste } from "react-icons/im";
+import { MdQuestionAnswer } from "react-icons/md";
+import { PiDogBold } from "react-icons/pi";
+import "./AdoptionPage.css";
 import dog1 from "../../assets/adoption/1.png";
 import dog2 from "../../assets/adoption/2.png";
 import dog3 from "../../assets/adoption/3.png";
@@ -13,30 +14,77 @@ import dog4 from "../../assets/adoption/4.png";
 import dog5 from "../../assets/adoption/5.png";
 import dog6 from "../../assets/adoption/6.png";
 import dog7 from "../../assets/adoption/7.png";
+import dogArticleImage from "../../assets/adoption/dog-article.png";
+import catArticleImage from "../../assets/adoption/cat-article.png";
 
 const pets = [
-  { name: "Baha", image: dog1 },
-  { name: "Sokar", image: dog2 },
-  { name: "Bosy", image: dog3},
-  { name: "Soud", image: dog4 },
-  { name: "Kitty", image: dog5 },
-  { name: "Mshmsh", image: dog6 },
-  { name: "Zoro", image: dog7 },
+  { id: 1, name: "Baha", image: dog1, type: "dog" },
+  { id: 2, name: "Sokar", image: dog2, type: "dog" },
+  { id: 3, name: "Bosy", image: dog3, type: "cat" },
+  { id: 4, name: "Soud", image: dog4, type: "cat" },
+  { id: 5, name: "Kitty", image: dog5, type: "cat" },
+  { id: 6, name: "Mshmsh", image: dog6, type: "cat" },
+  { id: 7, name: "Zoro", image: dog7, type: "dog" },
+];
+
+const planningCards = [
+  {
+    icon: <ImPaste />,
+    title: "CHECKLIST FOR NEW ADOPTERS",
+    description: "Make the adoption transition as smooth as possible",
+  },
+  {
+    icon: <PiDogBold />,
+    title: "HOW OLD IS A DOG IN HUMAN YEARS?",
+    description: "Learn to translate dog years to human years for fun, and we might slip",
+  },
+  {
+    icon: <MdQuestionAnswer />,
+    title: "PET ADOPTION FAQS",
+    description: "Get answer to all of the questions you haven’t thought for yet",
+  },
+];
+
+const articles = [
+  {
+    title: "Dog Adoption Articles",
+    image: dogArticleImage,
+  },
+  {
+    title: "Cat Adoption Articles",
+    image: catArticleImage,
+  },
+];
+
+// بيانات بطاقات التصفية مع الأيقونات والنصوص
+const filterCards = [
+  { icon: <LuDog />, label: "Dog" },
+  { icon: <TbCat />, label: "Cat" },
+  { icon: <FaPaw />, label: "Paw" },
 ];
 
 const AdoptionPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
-  const filteredPets = pets.filter((pet) =>
-    pet.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPets = pets
+    .filter((pet) => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .slice(0, 7);
+
+  const toggleFavorite = (petId) => {
+    if (favorites.includes(petId)) {
+      setFavorites(favorites.filter((id) => id !== petId));
+    } else {
+      setFavorites([...favorites, petId]);
+    }
+  };
 
   return (
     <div className="adoption-page">
-      
+      {/* شريط البحث */}
       <div className="header-1">
-        <div className="search-container">
-          <BiSearchAlt className="search-icon" />
+        <div className="search-container-1">
+          <BiSearchAlt className="search-icon-1" />
           <input
             type="text"
             placeholder="Search"
@@ -46,60 +94,79 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-     
+      {/* أيقونات التصفية مع تأثير القلب */}
       <div className="category-icons">
-        <div className="icon-box"><LuDog /></div>
-        <div className="icon-box"><TbCat /></div>
-        <div className="icon-box"><FaPaw /></div>
-      </div>
-
-      
-      <h2 className="section-title">Pets Available for Adoption</h2>
-      <div className="pets-grid">
-        {filteredPets.length > 0 ? (
-          filteredPets.map((pet, index) => (
-            <div key={index} className="pet-card">
-              <img src={pet.image} alt={pet.name} className="pet-image" />
-              <div className="pet-name">{pet.name}</div>
-              <FaRegHeart className="heart-icon" />
+        {filterCards.map((card, index) => (
+          <div key={index} className="icon-box">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">{card.icon}</div>
+              <div className="flip-card-back">
+                <span className="filter-label">{card.label}</span>
+              </div>
             </div>
-          ))
-        ) : (
-          <p className="no-results">No pets found.</p>
-        )}
-        <div className="see-more-card">
-          <FaPaw className="paw-icon" />
-          <p>More Pets available in Pet care</p>
-          <h1>See Them</h1>
+          </div>
+        ))}
+      </div>
+
+      {/* قسم الحيوانات المتاحة للتبني */}
+      <h2 className="section-title-2">Pets Available for Adoption</h2>
+      <div className="pets-grid">
+        {filteredPets.map((pet) => (
+          <div key={pet.id} className="pet-card">
+            <div className="pet-image-container">
+              <img src={pet.image} alt={pet.name} className="pet-image" />
+              <button
+                className="heart-btn"
+                onClick={() => toggleFavorite(pet.id)}
+              >
+                {favorites.includes(pet.id) ? (
+                  <FaHeart className="heart-icon favorited" />
+                ) : (
+                  <FaRegHeart className="heart-icon" />
+                )}
+              </button>
+            </div>
+            <h3 className="pet-name">{pet.name}</h3>
+          </div>
+        ))}
+        <div className="see-them-card">
+          <div className="see-them-content">
+            <FaPaw className="paw-icon" />
+            <p>More Pets available in Pet care</p>
+            <h3>See Them</h3>
+          </div>
         </div>
       </div>
 
-     
-      <h2 className="section-title">Planning to adopt a pet?</h2>
-      <div className="info-grid">
-        <div className="info-box">
-          <p>Checklist for New Adopters</p>
-          <button>Explore</button>
-        </div>
-        <div className="info-box">
-          <p>How to Care for a Dog</p>
-          <button>Explore</button>
-        </div>
-        <div className="info-box">
-          <p>Pet Adoption FAQs</p>
-          <button>Explore</button>
+      {/* قسم "Planning to adopt a pet?" */}
+      <div className="planning-section">
+        <h2 className="planning-section-title">Planning to adopt a pet?</h2>
+        <div className="planning-grid">
+          {planningCards.map((card, index) => (
+            <div key={index} className="planning-card">
+              <div className="planning-icon">{card.icon}</div>
+              <h3 className="planning-title">{card.title}</h3>
+              <p className="planning-description">{card.description}</p>
+              <button className="explore-btn-9">Explore</button>
+            </div>
+          ))}
         </div>
       </div>
 
-     
-      <div className="articles-grid">
-        <div className="article-box">
-          <h3>Dog Adoption Articles</h3>
-          <button>Read More</button>
-        </div>
-        <div className="article-box">
-          <h3>Cat Adoption Articles</h3>
-          <button>Read More</button>
+      {/* قسم المقالات */}
+      <div className="articles-section">
+        <div className="articles-grid">
+          {articles.map((article, index) => (
+            <div key={index} className="article-card">
+              <img
+                src={article.image}
+                alt={article.title}
+                className="article-image"
+              />
+              <h3 className="article-title">{article.title}</h3>
+              <button className="read-more-btn-9">Read More</button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -107,4 +174,3 @@ const AdoptionPage = () => {
 };
 
 export default AdoptionPage;
-
