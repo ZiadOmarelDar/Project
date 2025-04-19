@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import axios from "axios";
-import "./Navbar.css";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { FaChevronDown } from 'react-icons/fa';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import axios from 'axios';
+import './Navbar.css';
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
-  const [username, setUsername] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+	const [username, setUsername] = useState('');
+	const navigate = useNavigate();
+	const location = useLocation();
 
   const fetchUserData = useCallback(() => {
     const token = localStorage.getItem("token");
@@ -40,13 +40,13 @@ function Navbar() {
     }
   }, [navigate]);
 
-  useEffect(() => {
-    fetchUserData();
-  }, [fetchUserData, location]);
+	useEffect(() => {
+		fetchUserData();
+	}, [fetchUserData, location]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
+	};
 
   const handleLogout = () => {
     localStorage.removeItem("token");

@@ -6,12 +6,14 @@ const jwt = require("jsonwebtoken");
 const UsersModel = require("./models/Users");
 const ProductModel = require("./models/ProductModel");
 const TravelRequirementModel = require("./models/TravelRequirementModel");
+const PostModel = require("./models/PostModel");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+// Mongo DB Connection
 mongoose
   .connect(
     "mongodb+srv://PetsCare:lDQ6GppZgrBKPZO2@cluster0.ifl5z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -36,6 +38,8 @@ const authMiddleware = (req, res, next) => {
     res.status(401).json({ message: "Invalid token", error: error.message });
   }
 };
+
+// ----------------------------------------------------------------------------------------------------------------------
 
 app.post("/register", async (req, res) => {
   const { name, userType, username, email, password } = req.body;
@@ -508,6 +512,48 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   }
 });
 
+// --------------------------------------------------------------------------------------------------
+
+// Community Feature
+
+// Add a new post
+app.post("/posts", authMiddleware, async (req, res) => {
+  try {
+    const { title, content, image } = req.body;
+
+    if (!content) {
+      return res.status(400).json({ message: "content is required" });
+    }
+
+    const newPost = await PostModel.create({
+      title,
+      content,
+      image,
+      author: req.user.userId,
+    });
+
+    res.status(201).json({ message: "Post created successfully", post: newPost });
+  } catch (err) {
+    res.status(500).json({ message: "Error creating post", error: err.message });
+  }
+});
+
+// Get all posts
+app.get("/posts", async (req, res) => {
+  try {
+    const posts = await PostModel.find()
+      .populate("author", "username email") // show user details
+      .sort({ createdAt: -1 }); // newest first
+
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching posts", error: err.message });
+  }
+});
+
+
+// ----------------------------------------------------------------------------------------------------
+
 app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+  console.log("Server is running on http://localhost:3001");
 });
