@@ -64,7 +64,7 @@ const Home = () => {
 							Training
 						</Link>
 						<Link
-							to='/ai'
+							to='/PetTravelRequirements'
 							className='hero-btn'>
 							<FaBrain />
 							AI
