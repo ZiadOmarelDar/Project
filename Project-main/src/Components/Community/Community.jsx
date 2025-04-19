@@ -1,78 +1,135 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import { FaImage, FaPaperPlane } from 'react-icons/fa';
+import Post from './Post';
 import './Community.css';
-import { FaHeart, FaComment, FaSmile } from 'react-icons/fa';
+import groupOfPets from '../../assets/groupOfPets.png'; // تأكد من المسار والامتداد الصحيح
 
-function Community() {
-	const posts = [
+const Community = ({ currentUserAvatar }) => {
+	// Dummy data for posts with initial state
+	const [posts, setPosts] = useState([
 		{
-			id: 1,
-			user: 'Sara Ziad',
-			text: 'This little ball of fluff has completely stolen my heart. 🐶...',
-			likes: 542,
-			comments: 123,
+			username: 'Sara Ziad',
+			avatar: 'https://via.placeholder.com/40',
+			content:
+				'This little creature has completely stolen my heart! From her mischievous eyes to her endless running around the little ball, or lounging in the perfect sleeping spot (preferably on my lap!), she knows how to warm my heart and make me smile every day.',
+			initialLikes: 0,
+			initialComments: [],
+			isLiked: false, // حالة اللايك لكل بوست
 		},
 		{
-			id: 2,
-			user: 'ZOZA',
-			text: 'This little ball of fluff has completely stolen my heart. 🐶...',
-			likes: 1542,
-			comments: 112,
+			username: 'ZOA',
+			avatar: 'https://via.placeholder.com/40',
+			content:
+				'This little creature has completely stolen my heart! From her mischievous eyes to her endless running around the little ball, or lounging in the perfect sleeping spot (preferably on my lap!), she knows how to warm my heart and make me smile every day.',
+			initialLikes: 0,
+			initialComments: [],
+			isLiked: false, // حالة اللايك لكل بوست
 		},
-	];
+	]);
+
+	const [newPost, setNewPost] = useState(''); // النص بتاع البوست الجديد
+	const [selectedImage, setSelectedImage] = useState(null); // الصورة المرفوعة
+	const fileInputRef = useRef(null); // Ref للـ input file
+
+	const handlePostSubmit = () => {
+		if (newPost.trim()) {
+			setPosts([
+				{
+					username: 'Current User',
+					avatar: currentUserAvatar,
+					content: newPost,
+					initialLikes: 0,
+					initialComments: [],
+					isLiked: false, // البوست الجديد يبدأ بدون لايك
+					image: selectedImage ? URL.createObjectURL(selectedImage) : null,
+				},
+				...posts,
+			]);
+			setNewPost(''); // إفراغ الـ textarea
+			setSelectedImage(null); // إعادة تعيين الصورة بعد الإضافة
+		}
+	};
+
+	const handleImageUpload = (e) => {
+		const file = e.target.files[0];
+		if (file) {
+			setSelectedImage(file);
+		}
+	};
+
+	const handleLikeToggle = (index) => {
+		setPosts((prevPosts) =>
+			prevPosts.map((post, i) =>
+				i === index
+					? {
+							...post,
+							isLiked: !post.isLiked,
+							initialLikes: post.isLiked
+								? post.initialLikes - 1
+								: post.initialLikes + 1,
+					  }
+					: post
+			)
+		);
+	};
 
 	return (
-		<div className='posts-page'>
+		<div className='Community'>
+			{/* سكشن إضافة بوست جديد */}
 			<div className='add-post'>
 				<img
-					src='user.png'
-					alt='User'
-					className='profile-pic'
+					src={currentUserAvatar}
+					alt="Current user's avatar"
+					className='current-user-avatar'
 				/>
-				<input
-					type='text'
-					placeholder='Add Post'
-					className='post-input'
-				/>
+				<div className='add-post-input-container'>
+					<textarea
+						placeholder='Add Post'
+						value={newPost}
+						onChange={(e) => setNewPost(e.target.value)}
+					/>
+					<FaImage
+						className='upload-image-icon'
+						onClick={() => fileInputRef.current.click()}
+					/>
+					<FaPaperPlane
+						className='post-icon'
+						onClick={handlePostSubmit}
+					/>
+					<input
+						type='file'
+						accept='image/*'
+						ref={fileInputRef}
+						style={{ display: 'none' }}
+						onChange={handleImageUpload}
+					/>
+					{selectedImage && (
+						<div className='image-preview'>
+							<img
+								src={URL.createObjectURL(selectedImage)}
+								alt='Preview'
+							/>
+						</div>
+					)}
+				</div>
 			</div>
 
-			{posts.map((post) => (
-				<div
-					key={post.id}
-					className='post-card'>
-					<div className='post-header'>
-						<img
-							src='user.png'
-							alt='User'
-							className='profile-pic'
-						/>
-						<strong>{post.user}</strong>
-					</div>
-					<p className='post-text'>{post.text}</p>
-
-					<div className='post-actions'>
-						<FaHeart /> <FaComment />
-					</div>
-
-					<p className='likes'>{post.likes} Likes</p>
-					<p className='comments'>View all {post.comments} comments</p>
-
-					<div className='add-comment'>
-						<img
-							src='user.png'
-							alt='User'
-							className='profile-pic'
-						/>
-						<input
-							type='text'
-							placeholder='Add a comment...'
-						/>
-						<FaHeart className='icon' />
-						<FaSmile className='icon' />
-					</div>
-				</div>
+			{/* عرض البوستات */}
+			{posts.map((post, index) => (
+				<Post
+					key={index}
+					username={post.username}
+					avatar={post.avatar}
+					content={post.content}
+					initialLikes={post.initialLikes}
+					isLiked={post.isLiked}
+					initialComments={post.initialComments}
+					currentUserAvatar={currentUserAvatar}
+					onLikeToggle={() => handleLikeToggle(index)}
+				/>
 			))}
 		</div>
 	);
-}
+};
 
 export default Community;
