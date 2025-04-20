@@ -1,134 +1,109 @@
-import React, { useState, useRef } from 'react';
-import { FaImage, FaPaperPlane } from 'react-icons/fa';
-import Post from './Post';
-import './Community.css';
+// src/components/Community/Community.js
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaPaperPlane, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Post from "./Post";
+import "./Community.css";
 
 const Community = ({ currentUserAvatar }) => {
-	// Dummy data for posts with initial state
-	const [posts, setPosts] = useState([
-		{
-			username: 'Sara Ziad',
-			avatar: 'https://via.placeholder.com/40',
-			content:
-				'This little creature has completely stolen my heart! From her mischievous eyes to her endless running around the little ball, or lounging in the perfect sleeping spot (preferably on my lap!), she knows how to warm my heart and make me smile every day.',
-			initialLikes: 0,
-			initialComments: [],
-			isLiked: false, // حالة اللايك لكل بوست
-		},
-		{
-			username: 'ZOA',
-			avatar: 'https://via.placeholder.com/40',
-			content:
-				'This little creature has completely stolen my heart! From her mischievous eyes to her endless running around the little ball, or lounging in the perfect sleeping spot (preferably on my lap!), she knows how to warm my heart and make me smile every day.',
-			initialLikes: 0,
-			initialComments: [],
-			isLiked: false, // حالة اللايك لكل بوست
-		},
-	]);
+  const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
-	const [newPost, setNewPost] = useState(''); // النص بتاع البوست الجديد
-	const [selectedImage, setSelectedImage] = useState(null); // الصورة المرفوعة
-	const fileInputRef = useRef(null); // Ref للـ input file
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/community/posts");
+      setPosts(response.data);
+    } catch (err) {
+      setError(err.response?.data?.message || "Error fetching posts");
+    }
+  };
 
-	const handlePostSubmit = () => {
-		if (newPost.trim()) {
-			setPosts([
-				{
-					username: 'Current User',
-					avatar: currentUserAvatar,
-					content: newPost,
-					initialLikes: 0,
-					initialComments: [],
-					isLiked: false, // البوست الجديد يبدأ بدون لايك
-					image: selectedImage ? URL.createObjectURL(selectedImage) : null,
-				},
-				...posts,
-			]);
-			setNewPost(''); // إفراغ الـ textarea
-			setSelectedImage(null); // إعادة تعيين الصورة بعد الإضافة
-		}
-	};
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
-	const handleImageUpload = (e) => {
-		const file = e.target.files[0];
-		if (file) {
-			setSelectedImage(file);
-		}
-	};
+  const handlePostSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
 
-	const handleLikeToggle = (index) => {
-		setPosts((prevPosts) =>
-			prevPosts.map((post, i) =>
-				i === index
-					? {
-							...post,
-							isLiked: !post.isLiked,
-							initialLikes: post.isLiked
-								? post.initialLikes - 1
-								: post.initialLikes + 1,
-					  }
-					: post
-			)
-		);
-	};
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/community/posts",
+        { content: newPost },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
-	return (
-		<div className='Community'>
-			{/* سكشن إضافة بوست جديد */}
-			<div className='add-post'>
-				<img
-					src={currentUserAvatar}
-					alt="Current user's avatar"
-					className='current-user-avatar'
-				/>
-				<div className='add-post-input-container'>
-					<textarea
-						placeholder='Add Post'
-						value={newPost}
-						onChange={(e) => setNewPost(e.target.value)}
-					/>
-					<FaImage
-						className='upload-image-icon'
-						onClick={() => fileInputRef.current.click()}
-					/>
-					<FaPaperPlane
-						className='post-icon'
-						onClick={handlePostSubmit}
-					/>
-					<input
-						type='file'
-						accept='image/*'
-						ref={fileInputRef}
-						style={{ display: 'none' }}
-						onChange={handleImageUpload}
-					/>
-					{selectedImage && (
-						<div className='image-preview'>
-							<img
-								src={URL.createObjectURL(selectedImage)}
-								alt='Preview'
-							/>
-						</div>
-					)}
-				</div>
-			</div>
+      setPosts([response.data.post, ...posts]);
+      setNewPost("");
+      setSuccess("Post added successfully!");
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.message || "Error adding post");
+      setSuccess("");
+    }
+  };
 
-			{/* عرض البوستات */}
-			{posts.map((post, index) => (
-				<Post
-					key={index}
-					username={post.username}
-					avatar={post.avatar}
-					content={post.content}
-					initialLikes={post.initialLikes}
-					isLiked={post.isLiked}
-					initialComments={post.initialComments}
-					currentUserAvatar={currentUserAvatar}
-					onLikeToggle={() => handleLikeToggle(index)}
-				/>
-			))}
-		</div>
-	);
+  const handlePostUpdate = (updatedPost) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post._id === updatedPost._id ? updatedPost : post
+      )
+    );
+  };
+
+  return (
+    <div className="Community">
+      {error && <div className="error-message">{error}</div>}
+      {success && <div className="success-message">{success}</div>}
+
+      {/* سكشن إضافة بوست جديد */}
+      <div className="add-post">
+        {currentUserAvatar ? (
+          <img
+            src={currentUserAvatar}
+            alt="Current user's avatar"
+            className="current-user-avatar"
+          />
+        ) : (
+          <div className="current-user-avatar-icon">
+            <FaUser />
+          </div>
+        )}
+        <div className="add-post-input-container">
+          <textarea
+            placeholder="Add Post"
+            value={newPost}
+            onChange={(e) => setNewPost(e.target.value)}
+          />
+          <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />
+        </div>
+      </div>
+
+      {/* عرض البوستات */}
+      {posts.length === 0 ? (
+        <p>No posts yet. Be the first to share your experience!</p>
+      ) : (
+        posts.map((post) => (
+          <Post
+            key={post._id}
+            post={post}
+            currentUserAvatar={currentUserAvatar}
+            onPostUpdate={handlePostUpdate}
+          />
+        ))
+      )}
+    </div>
+  );
 };
 
 export default Community;

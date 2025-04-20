@@ -517,43 +517,101 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
 // Community Feature
 
 // Add a new post
-app.post("/posts", authMiddleware, async (req, res) => {
+app.post("/community/posts", authMiddleware, async (req, res) => {
   try {
-    const { title, content, image } = req.body;
-
+    const { content } = req.body;
     if (!content) {
-      return res.status(400).json({ message: "content is required" });
+      return res.status(400).json({ message: "Content is required" });
     }
 
-    const newPost = await PostModel.create({
-      title,
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const newPost = new PostModel({
       content,
-      image,
       author: req.user.userId,
+      username: user.username,
+      likes: [],
+      comments: [],
     });
 
-    res.status(201).json({ message: "Post created successfully", post: newPost });
+    await newPost.save();
+    res.status(201).json({ message: "Post added successfully", post: newPost });
   } catch (err) {
-    res.status(500).json({ message: "Error creating post", error: err.message });
+    res.status(500).json({ message: "Error adding post", error: err.message });
   }
 });
 
-// Get all posts
-app.get("/posts", async (req, res) => {
+// جلب كل البوستات
+app.get("/community/posts", async (req, res) => {
   try {
     const posts = await PostModel.find()
-      .populate("author", "username email") // show user details
-      .sort({ createdAt: -1 }); // newest first
-
+      .populate("author", "username")
+      .sort({ createdAt: -1 });
     res.json(posts);
   } catch (err) {
     res.status(500).json({ message: "Error fetching posts", error: err.message });
   }
 });
 
+// إضافة/حذف Like على بوست
+app.post("/community/posts/:postId/like", authMiddleware, async (req, res) => {
+  try {
+    const post = await PostModel.findById(req.params.postId);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
 
-// ----------------------------------------------------------------------------------------------------
+    const userId = req.user.userId;
+    const alreadyLiked = post.likes.includes(userId);
+
+    if (alreadyLiked) {
+      post.likes = post.likes.filter((id) => id.toString() !== userId);
+    } else {
+      post.likes.push(userId);
+    }
+
+    await post.save();
+    res.json({ message: alreadyLiked ? "Like removed" : "Like added", post });
+  } catch (err) {
+    res.status(500).json({ message: "Error toggling like", error: err.message });
+  }
+});
+
+// إضافة تعليق على بوست
+app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) => {
+  try {
+    const { content } = req.body;
+    if (!content) {
+      return res.status(400).json({ message: "Comment content is required" });
+    }
+
+    const post = await PostModel.findById(req.params.postId);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const newComment = {
+      userId: req.user.userId,
+      username: user.username,
+      content,
+    };
+
+    post.comments.push(newComment);
+    await post.save();
+    res.status(201).json({ message: "Comment added successfully", post });
+  } catch (err) {
+    res.status(500).json({ message: "Error adding comment", error: err.message });
+  }
+});
 
 app.listen(3001, () => {
-  console.log("Server is running on http://localhost:3001");
+  console.log("Server is running on port 3001");
 });

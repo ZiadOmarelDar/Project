@@ -1,153 +1,172 @@
-import React, { useState, useRef } from 'react';
+// src/components/Community/Post.js
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
-	FaHeart,
-	FaRegHeart,
-	FaRegComment,
-	FaImage,
-	FaPaperPlane,
-} from 'react-icons/fa';
-import './Post.css';
+  FaHeart,
+  FaRegHeart,
+  FaRegComment,
+  FaPaperPlane,
+  FaUser,
+} from "react-icons/fa";
+import "./Post.css";
 
-const Post = ({
-	username,
-	avatar,
-	content,
-	initialLikes,
-	isLiked,
-	initialComments,
-	currentUserAvatar,
-	onLikeToggle,
-}) => {
-	const [comments, setComments] = useState(initialComments); // قايمة التعليقات
-	const [showComments, setShowComments] = useState(false); // حالة إظهار كل التعليقات
-	const [comment, setComment] = useState(''); // التعليق الجديد
-	const [selectedCommentImage, setSelectedCommentImage] = useState(null); // الصورة المرفوعة مع التعليق
-	const fileInputRef = useRef(null); // Ref للـ input file
+const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
+  const [showComments, setShowComments] = useState(false);
+  const [comment, setComment] = useState("");
+  const [isLiking, setIsLiking] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-	const toggleComments = () => {
-		setShowComments(!showComments);
-	};
+  const token = localStorage.getItem("token");
+  const userId = token
+    ? JSON.parse(atob(token.split(".")[1])).userId
+    : null;
 
-	const handleAddComment = () => {
-		if (comment.trim()) {
-			setComments([
-				...comments,
-				{
-					text: comment,
-					image: selectedCommentImage
-						? URL.createObjectURL(selectedCommentImage)
-						: null,
-				},
-			]);
-			setComment(''); // إفراغ حقل التعليق
-			setSelectedCommentImage(null); // إعادة تعيين الصورة
-		}
-	};
+  const handleToggleLike = async () => {
+    if (!token) {
+      navigate("/login");
+      return;
+    }
 
-	const handleCommentImageUpload = (e) => {
-		const file = e.target.files[0];
-		if (file) {
-			setSelectedCommentImage(file);
-		}
-	};
+    setIsLiking(true);
+    setError("");
 
-	return (
-		<div className='post'>
-			{/* العنوان مع صورة المستخدم */}
-			<div className='post-header'>
-				<img
-					src={avatar}
-					alt={`${username}'s avatar`}
-					className='user-avatar'
-				/>
-				<h1 className='post-title'> {username}</h1>
-			</div>
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/community/posts/${post._id}/like`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      onPostUpdate(response.data.post);
+    } catch (err) {
+      setError(err.response?.data?.message || "Error toggling like");
+    } finally {
+      setIsLiking(false);
+    }
+  };
 
-			{/* المحتوى */}
-			<div className='post-content'>
-				<p>{content}</p>
-			</div>
+  const handleAddComment = async (e) => {
+    e.preventDefault();
+    if (!token) {
+      navigate("/login");
+      return;
+    }
 
-			{/* الإعجابات والتعليقات */}
-			<div className='post-engagement'>
-				<div className='engagement-metrics'>
-					<span
-						className='likes-icon'
-						onClick={onLikeToggle}>
-						{isLiked ? <FaHeart className='liked' /> : <FaRegHeart />}
-					</span>
-					<span
-						className='comments-icon'
-						onClick={toggleComments}>
-						<FaRegComment />
-					</span>
-				</div>
-				<span className='likes-count'>{initialLikes} Likes</span>
-				<br />
-				<span className='comments-count'>{comments.length} comments</span>
+    setError("");
 
-				{/* عرض التعليقات */}
-				<div className='comments-section'>
-					{showComments && comments.length > 0
-						? comments.map((commentObj, index) => (
-								<div
-									key={index}
-									className='comment'>
-									<p>{commentObj.text}</p>
-									{commentObj.image && (
-										<img
-											src={commentObj.image}
-											alt='Comment attachment'
-											className='comment-image'
-										/>
-									)}
-								</div>
-						  ))
-						: showComments && <div>No comments yet.</div>}
-				</div>
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/community/posts/${post._id}/comment`,
+        { content: comment },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      onPostUpdate(response.data.post);
+      setComment("");
+    } catch (err) {
+      setError(err.response?.data?.message || "Error adding comment");
+    }
+  };
 
-				{/* حقل التعليق مع صورة المستخدم */}
-				<div className='add-comment'>
-					<img
-						src={currentUserAvatar}
-						alt="Current user's avatar"
-						className='current-user-avatar'
-					/>
-					<div className='add-comment-input-container'>
-						<input
-							type='text'
-							placeholder='Add a comment...'
-							value={comment}
-							onChange={(e) => setComment(e.target.value)}
-						/>
-						<FaImage
-							className='upload-comment-image-icon'
-							onClick={() => fileInputRef.current.click()}
-						/>
-						<FaPaperPlane
-							className='comment-submit-icon'
-							onClick={handleAddComment}
-						/>
-						<input
-							type='file'
-							accept='image/*'
-							ref={fileInputRef}
-							style={{ display: 'none' }}
-							onChange={handleCommentImageUpload}
-						/>
-						{selectedCommentImage && (
-							<div className='comment-image-preview'>
-								<img
-									src={URL.createObjectURL(selectedCommentImage)}
-									alt='Preview'
-								/>
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="post">
+      {error && <div className="error-message">{error}</div>}
+
+      {/* العنوان مع صورة المستخدم */}
+      <div className="post-header">
+        {post.avatar ? (
+          <img
+            src={post.avatar}
+            alt={`${post.username}'s avatar`}
+            className="user-avatar"
+          />
+        ) : (
+          <div className="user-avatar-icon">
+            <FaUser />
+          </div>
+        )}
+        <h1 className="post-title">{post.username}</h1>
+      </div>
+
+      {/* المحتوى */}
+      <div className="post-content">
+        <p>{post.content}</p>
+      </div>
+
+      {/* الإعجابات والتعليقات */}
+      <div className="post-engagement">
+        <div className="engagement-metrics">
+          <span
+            className="likes-container"
+            onClick={handleToggleLike}
+            style={{ cursor: isLiking ? "not-allowed" : "pointer" }}
+          >
+            {isLiking ? (
+              <span>Loading...</span>
+            ) : userId && post.likes.includes(userId) ? (
+              <FaHeart className="liked" />
+            ) : (
+              <FaRegHeart />
+            )}
+            <span className="likes-count">{post.likes.length}</span>
+          </span>
+          <span
+            className="comments-container"
+            onClick={() => setShowComments(!showComments)}
+          >
+            <FaRegComment />
+            <span className="comments-count">{post.comments.length}</span>
+          </span>
+        </div>
+
+        {/* عرض التعليقات */}
+        <div className="comments-section">
+          {showComments && post.comments.length > 0 ? (
+            post.comments.map((commentObj, index) => (
+              <div key={index} className="comment">
+                <div className="comment-header">
+                  <span className="comment-username">{commentObj.username}</span>
+                  <span className="comment-date">
+                    {new Date(commentObj.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
+                <p>{commentObj.content}</p>
+              </div>
+            ))
+          ) : (
+            showComments && <div>No comments yet.</div>
+          )}
+        </div>
+
+        {/* حقل التعليق مع صورة المستخدم */}
+        <div className="add-comment">
+          {currentUserAvatar ? (
+            <img
+              src={currentUserAvatar}
+              alt="Current user's avatar"
+              className="current-user-avatar"
+            />
+          ) : (
+            <div className="current-user-avatar-icon">
+              <FaUser />
+            </div>
+          )}
+          <div className="add-comment-input-container">
+            <input
+              type="text"
+              placeholder="Add a comment..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <FaPaperPlane
+              className="comment-submit-icon"
+              onClick={handleAddComment}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Post;
