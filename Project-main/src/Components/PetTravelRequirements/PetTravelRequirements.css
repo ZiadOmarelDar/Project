@@ -1,9 +1,5 @@
 /* src/components/PetTravelRequirements/PetTravelRequirements.css */
 .travel-requirements-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
     font-family: Arial, sans-serif;
   }
   
