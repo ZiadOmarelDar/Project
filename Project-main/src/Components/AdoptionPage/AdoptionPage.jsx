@@ -19,7 +19,7 @@ import catArticleImage from "../../assets/adoption/cat-article.png";
 
 const pets = [
   { id: 1, name: "Baha", image: dog1, type: "dog" },
-  { id: 2, name: "Sokar", image: dog2, type: "dog" },
+  { id: 2, name: "ahmed", image: dog2, type: "dog" },
   { id: 3, name: "Bosy", image: dog3, type: "cat" },
   { id: 4, name: "Soud", image: dog4, type: "cat" },
   { id: 5, name: "Kitty", image: dog5, type: "cat" },
@@ -56,7 +56,7 @@ const articles = [
   },
 ];
 
-// بيانات بطاقات التصفية مع الأيقونات والنصوص
+
 const filterCards = [
   { icon: <LuDog />, label: "Dog" },
   { icon: <TbCat />, label: "Cat" },
@@ -81,7 +81,7 @@ const AdoptionPage = () => {
 
   return (
     <div className="adoption-page">
-      {/* شريط البحث */}
+     
       <div className="header-1">
         <div className="search-container-1">
           <BiSearchAlt className="search-icon-1" />
@@ -94,7 +94,7 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      {/* أيقونات التصفية مع تأثير القلب */}
+      
       <div className="category-icons">
         {filterCards.map((card, index) => (
           <div key={index} className="icon-box">
@@ -108,7 +108,7 @@ const AdoptionPage = () => {
         ))}
       </div>
 
-      {/* قسم الحيوانات المتاحة للتبني */}
+    
       <h2 className="section-title-2">Pets Available for Adoption</h2>
       <div className="pets-grid">
         {filteredPets.map((pet) => (
@@ -138,7 +138,7 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      {/* قسم "Planning to adopt a pet?" */}
+     
       <div className="planning-section">
         <h2 className="planning-section-title">Planning to adopt a pet?</h2>
         <div className="planning-grid">
@@ -153,7 +153,7 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      {/* قسم المقالات */}
+      
       <div className="articles-section">
         <div className="articles-grid">
           {articles.map((article, index) => (

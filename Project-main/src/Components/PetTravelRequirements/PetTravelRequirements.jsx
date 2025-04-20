@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dogWithBage from "../../assets/dogWithBage.png"; // المسار الصحيح للصورة
 import "./PetTravelRequirements.css";
+import { CgFileDocument } from "react-icons/cg";
+import { GiMiracleMedecine } from "react-icons/gi";
+import { SiPinboard } from "react-icons/si";
+
 
 const PetTravelRequirements = () => {
   const [requirements, setRequirements] = useState([]);
@@ -37,9 +41,11 @@ const PetTravelRequirements = () => {
 
   return (
     <div className="travel-requirements-container">
+      <div className="travel-hero">
       <h1>Pet Travel Requirements</h1>
-      <p className="subtitle">Travel with your pet the safest way!</p>
+      <pre className="subtitle-5">Travel with Your Pet with Ease!</pre>
       <img src={dogWithBage} alt="Dog with Baggage" className="travel-image" />
+      </div>
 
       <div className="selectors">
         <div className="selector-group">
@@ -70,16 +76,19 @@ const PetTravelRequirements = () => {
       {filteredRequirement ? (
         <div className="requirements-content">
           <div className="section1 documents">
-            <h2>Documents Required</h2>
+            <h2 className="doc-1"><CgFileDocument/>Documents Required</h2>
             <ul>
               {filteredRequirement.documentsRequired.map((doc, index) => (
                 <li key={index}>{doc}</li>
               ))}
             </ul>
+            <p className="make"><SiPinboard className="pin" /> Make sure all documents are valid and issued within the correct timeframe</p>
           </div>
 
           <div className="section1 vaccinations">
-            <h2>Vaccinations Required</h2>
+            
+            <h2 className="doc-2"><GiMiracleMedecine />Vaccinations Required</h2>
+            <pre className="keep" >Keep your pet healthy and compliant with entry laws:</pre>
             <ul>
               {filteredRequirement.vaccinationsRequired.map((vac, index) => (
                 <li key={index}>{vac}</li>
