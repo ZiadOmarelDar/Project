@@ -7,6 +7,7 @@ import FeaturedCategories from '../FeaturedCategories/FeaturedCategories';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import BigSale from '../BigSale/BigSale';
 
+
 const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const navigate = useNavigate();
