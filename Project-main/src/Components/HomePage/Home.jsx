@@ -34,7 +34,7 @@ const Home = () => {
 					</p>
 					<div className='hero-buttons'>
 						<Link
-							to='/adopt'
+							to='/AdoptionPage'
 							className='hero-btn'>
 							<GiDogHouse />
 							Adoption
@@ -64,7 +64,7 @@ const Home = () => {
 							Training
 						</Link>
 						<Link
-							to='/ai'
+							to='/PetTravelRequirements'
 							className='hero-btn'>
 							<FaBrain />
 							AI
