@@ -7,7 +7,8 @@ import "./Profile.css";
 // إضافة Google Fonts لخط Poppins
 const addGoogleFonts = () => {
   const link = document.createElement("link");
-  link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
+  link.href =
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
   link.rel = "stylesheet";
   document.head.appendChild(link);
 };
@@ -55,9 +56,12 @@ const Profile = () => {
         });
         setUserData(userResponse.data.user);
 
-        const servicesResponse = await axios.get("http://localhost:3001/user/services", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const servicesResponse = await axios.get(
+          "http://localhost:3001/user/services",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setServices(servicesResponse.data.services);
 
         if (servicesResponse.data.services.length > 0) {
@@ -108,7 +112,10 @@ const Profile = () => {
 
         setError("");
       } catch (err) {
-        setError(err.response?.data?.message || "Error fetching profile data. Please try again.");
+        setError(
+          err.response?.data?.message ||
+            "Error fetching profile data. Please try again."
+        );
         if (err.response?.status === 401) {
           localStorage.removeItem("token");
           navigate("/login");
@@ -152,15 +159,23 @@ const Profile = () => {
 
       let response;
       if (services.length > 0) {
-        response = await axios.put("http://localhost:3001/user/services/0", serviceData, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        response = await axios.put(
+          "http://localhost:3001/user/services/0",
+          serviceData,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setServices([response.data.service]);
         setSuccess("Service updated successfully!");
       } else {
-        response = await axios.post("http://localhost:3001/user/services", serviceData, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        response = await axios.post(
+          "http://localhost:3001/user/services",
+          serviceData,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setServices([response.data.service]);
         setSuccess("Service added successfully!");
       }
@@ -168,7 +183,9 @@ const Profile = () => {
       setError("");
       setShowAddServiceForm(false);
     } catch (err) {
-      setError(err.response?.data?.message || "Error saving service. Please try again.");
+      setError(
+        err.response?.data?.message || "Error saving service. Please try again."
+      );
       setSuccess("");
     }
   };
@@ -205,7 +222,10 @@ const Profile = () => {
       setError("");
       setShowAddServiceForm(false);
     } catch (err) {
-      setError(err.response?.data?.message || "Error deleting service. Please try again.");
+      setError(
+        err.response?.data?.message ||
+          "Error deleting service. Please try again."
+      );
       setSuccess("");
     }
   };
@@ -228,20 +248,33 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2>My Profile</h2>
+      <h2>Welcome !!</h2>
       <div className="profile-icon">
         <FaUserCircle size={80} />
       </div>
       <div className="profile-details">
-        <p><strong>Full Name:</strong> {userData.name || "Not provided"}</p>
-        <p><strong>Username:</strong> {userData.username || "Not provided"}</p>
-        <p><strong>Email:</strong> {userData.email || "Not provided"}</p>
-        <p><strong>User Type:</strong> {userData.userType || "Not provided"}</p>
-        <p><strong>Account Created:</strong> {formatDate(userData.createdAt)}</p>
-        <p><strong>Last Updated:</strong> {formatDate(userData.updatedAt)}</p>
+        <p>
+          <strong>Full Name:</strong> {userData.name || "Not provided"}
+        </p>
+        <p>
+          <strong>Username:</strong> {userData.username || "Not provided"}
+        </p>
+        <p>
+          <strong>Email:</strong> {userData.email || "Not provided"}
+        </p>
+        <p>
+          <strong>User Type:</strong> {userData.userType || "Not provided"}
+        </p>
+        <p>
+          <strong>Account Created:</strong> {formatDate(userData.createdAt)}
+        </p>
+        <p>
+          <strong>Last Updated:</strong> {formatDate(userData.updatedAt)}
+        </p>
       </div>
 
-      {(userData.userType === "trainer" || userData.userType === "clinicAdmin") && (
+      {(userData.userType === "trainer" ||
+        userData.userType === "clinicAdmin") && (
         <div className="services-section">
           {success && <p className="success">{success}</p>}
           {error && <p className="error">{error}</p>}
@@ -253,21 +286,49 @@ const Profile = () => {
                   <div className="service-content">
                     {service.type === "clinic" ? (
                       <>
-                        <p><strong>Clinic Name:</strong> {service.clinicName}</p>
-                        <p><strong>Doctor Name:</strong> {service.doctorName}</p>
-                        <p><strong>Location:</strong> {service.location}</p>
-                        <p><strong>Contact Info:</strong> {service.contactInfo}</p>
-                        <p><strong>Working Hours:</strong> {service.workingHours}</p>
-                        <p><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
-                        <p><strong>Service Type:</strong> {service.serviceType}</p>
-                        <p><strong>Doctor Description:</strong> {service.doctorDescription}</p>
+                        <p>
+                          <strong>Clinic Name:</strong> {service.clinicName}
+                        </p>
+                        <p>
+                          <strong>Doctor Name:</strong> {service.doctorName}
+                        </p>
+                        <p>
+                          <strong>Location:</strong> {service.location}
+                        </p>
+                        <p>
+                          <strong>Contact Info:</strong> {service.contactInfo}
+                        </p>
+                        <p>
+                          <strong>Working Hours:</strong> {service.workingHours}
+                        </p>
+                        <p>
+                          <strong>Service Price:</strong> {service.servicePrice}{" "}
+                          {service.currency}
+                        </p>
+                        <p>
+                          <strong>Service Type:</strong> {service.serviceType}
+                        </p>
+                        <p>
+                          <strong>Doctor Description:</strong>{" "}
+                          {service.doctorDescription}
+                        </p>
                       </>
                     ) : (
                       <>
-                        <p><strong>Trainer Name:</strong> {service.trainerName || userData.name}</p>
-                        <p><strong>Specialty:</strong> {service.specialty}</p>
-                        <p><strong>Contact Info:</strong> {service.contactInfo}</p>
-                        <p><strong>Available Programs:</strong> {service.availablePrograms}</p>
+                        <p>
+                          <strong>Trainer Name:</strong>{" "}
+                          {service.trainerName || userData.name}
+                        </p>
+                        <p>
+                          <strong>Specialty:</strong> {service.specialty}
+                        </p>
+                        <p>
+                          <strong>Contact Info:</strong> {service.contactInfo}
+                        </p>
+                        <p>
+                          <strong>Available Programs:</strong>{" "}
+                          {service.availablePrograms}
+                        </p>
                       </>
                     )}
                   </div>
@@ -286,14 +347,18 @@ const Profile = () => {
 
           <button
             onClick={() => setShowAddServiceForm(true)}
-            className={services.length > 0 ? "edit-service-btn" : "add-service-btn"}
+            className={
+              services.length > 0 ? "edit-service-btn" : "add-service-btn"
+            }
           >
             {services.length > 0 ? "Edit Service" : "Add Service"}
           </button>
 
           {showAddServiceForm && (
             <div className="add-service-form">
-              <h3>{services.length > 0 ? "Edit Service" : "Add New Service"}</h3>
+              <h3>
+                {services.length > 0 ? "Edit Service" : "Add New Service"}
+              </h3>
               <form onSubmit={handleServiceAction}>
                 {userData.userType === "clinicAdmin" ? (
                   <>
@@ -419,7 +484,9 @@ const Profile = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label>Doctor Description (Education, Experience, etc.):</label>
+                      <label>
+                        Doctor Description (Education, Experience, etc.):
+                      </label>
                       <textarea
                         name="doctorDescription"
                         value={formData.doctorDescription}
@@ -480,7 +547,10 @@ const Profile = () => {
       )}
 
       <div className="profile-actions">
-        <button onClick={() => navigate("/profile/edit")} className="update-btn">
+        <button
+          onClick={() => navigate("/profile/edit")}
+          className="update-btn"
+        >
           Update Profile
         </button>
       </div>

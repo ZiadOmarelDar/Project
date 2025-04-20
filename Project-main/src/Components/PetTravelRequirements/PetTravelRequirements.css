@@ -86,9 +86,7 @@
 
 .requirements-content {
   text-align: left;
-  
- 
-  
+
 }
 
 .section1 {
@@ -321,6 +319,9 @@
 }
 
 @media (max-width: 480px) {
+  .travel-requirements-container{
+    max-width: 480px;
+  }
 
   .travel-hero {
     padding: 10px;
@@ -343,7 +344,7 @@
   }
 
   .selector-group label {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .selector-group select {
@@ -362,7 +363,7 @@
 
   .make,
   .keep {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     padding-left: 10px;
   }
 
@@ -384,7 +385,7 @@
   }
 
   .tip-card {
-    max-width: 100%;
+    max-width: 90%;
     font-size: 0.9rem;
     min-height: 60px;
   }

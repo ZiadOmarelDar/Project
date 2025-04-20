@@ -48,8 +48,12 @@ const Footer = () => {
 							<Link to='/training'>Training</Link>
 						</li>
 						<li>
+							<Link to='/PetTravelRequirements'>Traveling </Link>
+						</li>
+						<li>
 							<Link to='/ai'>AI</Link>
 						</li>
+						
 					</ul>
 				</div>
 

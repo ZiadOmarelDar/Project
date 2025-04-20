@@ -3,7 +3,7 @@
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 30px 20px;
-	background-color: #f5f7fa;
+	
 	min-height: 100vh;
   }
   
@@ -69,7 +69,7 @@
   }
   
   .add-post-input-container textarea {
-	width: 100%;
+	width: 90%;
 	min-height: 100px;
 	padding: 12px;
 	border: 1px solid #e0e0e0;
@@ -89,11 +89,12 @@
 	cursor: pointer;
 	font-size: 1.8rem;
 	color: #323773; /* غيرنا اللون */
-	transition: color 0.3s ease;
+	transition:  0.3s ease;
+	margin-left: 680px;
   }
   
   .post-icon:hover {
-	color: #252b5a; /* لون أغمق للـ hover */
+	color: #06115d; /* لون أغمق للـ hover */
   }
   
   /* Responsive Design */
@@ -123,10 +124,13 @@
 	  font-size: 1rem; /* تصغير الـ font */
 	  min-height: 80px; /* تصغير الارتفاع */
 	  padding: 10px; /* قلّصنا الـ padding */
+	  width: 500px;
 	}
   
 	.post-icon {
 	  font-size: 1.5rem; /* تصغير الأيقونة */
+	
+	  margin-left: 470px;
 	}
   }
   
@@ -155,10 +159,12 @@
 	  font-size: 0.9rem;
 	  min-height: 60px;
 	  padding: 8px;
+	  width: 300px;
 	}
   
 	.post-icon {
 	  font-size: 1.3rem;
+	  margin-left: 270px;
 	}
   
 	.error-message,
