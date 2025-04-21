@@ -19,11 +19,8 @@
     "express": "^4.21.2",
     "firebase": "^11.6.0",
     "firebase-admin": "^13.2.0",
-<<<<<<< HEAD
     "ftp": "^0.3.10",
-=======
     "google-auth-library": "^9.15.1",
->>>>>>> 967000195a423536ec2190bb99c9032411e31abf
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.0",
     "mongoose-sequence": "^6.0.1",

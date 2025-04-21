@@ -40,6 +40,9 @@ const postSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
+    imageUrl: {
+      type: String,
+      },
     comments: [commentSchema],
   },
   { timestamps: true }
