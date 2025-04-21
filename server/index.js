@@ -7,6 +7,9 @@ const UsersModel = require("./models/Users");
 const ProductModel = require("./models/ProductModel");
 const TravelRequirementModel = require("./models/TravelRequirementModel");
 const PostModel = require("./models/PostModel");
+const multer = require("multer");
+const fs = require("fs");
+const ftp = require("ftp");
 
 const app = express();
 app.use(express.json());
@@ -516,8 +519,47 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
 
 // Community Feature
 
-// Add a new post
-app.post("/community/posts", authMiddleware, async (req, res) => {
+// // Add a new post
+// app.post("/community/posts", authMiddleware, async (req, res) => {
+//   try {
+//     const { content } = req.body;
+//     if (!content) {
+//       return res.status(400).json({ message: "Content is required" });
+//     }
+
+//     const user = await UsersModel.findById(req.user.userId);
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     const newPost = new PostModel({
+//       content,
+//       author: req.user.userId,
+//       username: user.username,
+//       likes: [],
+//       comments: [],
+//     });
+
+//     await newPost.save();
+//     res.status(201).json({ message: "Post added successfully", post: newPost });
+//   } catch (err) {
+//     res.status(500).json({ message: "Error adding post", error: err.message });
+//   }
+// });
+
+// ---------------------------------------------------------------------------------------------------------
+
+const upload = multer({ dest: "uploads/" });
+
+
+// FTP config
+const ftpOptions = {
+  host: "92.113.18.144",
+  user: "u993113834",
+  password: "Mahxoud@000",
+};
+
+// 👇 Add image support here
+app.post("/community/posts", authMiddleware, upload.single("image"), async (req, res) => {
   try {
     const { content } = req.body;
     if (!content) {
@@ -529,10 +571,56 @@ app.post("/community/posts", authMiddleware, async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
+    let imageUrl = null;
+
+    if (req.file) {
+      const filePath = req.file.path;
+      const fileName = Date.now() + "-" + req.file.originalname;
+      const client = new ftp();
+
+      // Wrap FTP logic in a promise to use with await
+      const uploadImageToFtp = () =>
+        new Promise((resolve, reject) => {
+          client.on("ready", () => {
+            client.mkdir(
+              "/domains/express-elmadina.com/public_html/Pets_images",
+              true,
+              (mkdirErr) => {
+                if (mkdirErr) {
+                  client.end();
+                  return reject(mkdirErr);
+                }
+
+                client.put(
+                  filePath,
+                  `/domains/express-elmadina.com/public_html/Pets_images/${fileName}`,
+                  (putErr) => {
+                    client.end();
+                    fs.unlinkSync(filePath); // Delete temp file
+
+                    if (putErr) return reject(putErr);
+
+                    // ✅ Final image URL
+                    const finalUrl = `https://express-elmadina.com/Pets_images/${fileName}`;
+                    resolve(finalUrl);
+                  }
+                );
+              }
+            );
+          });
+
+          client.on("error", (err) => reject(err));
+          client.connect(ftpOptions);
+        });
+
+      imageUrl = await uploadImageToFtp();
+    }
+
     const newPost = new PostModel({
       content,
       author: req.user.userId,
       username: user.username,
+      imageUrl, // null if no image uploaded
       likes: [],
       comments: [],
     });
@@ -540,10 +628,12 @@ app.post("/community/posts", authMiddleware, async (req, res) => {
     await newPost.save();
     res.status(201).json({ message: "Post added successfully", post: newPost });
   } catch (err) {
+    console.error("Error adding post:", err);
     res.status(500).json({ message: "Error adding post", error: err.message });
   }
 });
 
+// ----------------------------------------------------------------------------------------------------
 // جلب كل البوستات
 app.get("/community/posts", async (req, res) => {
   try {

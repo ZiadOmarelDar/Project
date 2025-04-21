@@ -12,6 +12,8 @@ const Community = ({ currentUserAvatar }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const [image, setImage] = useState(null);
+
 
   const fetchPosts = async () => {
     try {
@@ -34,10 +36,16 @@ const Community = ({ currentUserAvatar }) => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("content", newPost);
+    if (image) {
+      formData.append("image", image); // ⬅️ attach the image if selected
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:3001/community/posts",
-        { content: newPost },
+        formData,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -45,6 +53,7 @@ const Community = ({ currentUserAvatar }) => {
 
       setPosts([response.data.post, ...posts]);
       setNewPost("");
+      setImage(null);
       setSuccess("Post added successfully!");
       setError("");
     } catch (err) {
@@ -69,7 +78,7 @@ const Community = ({ currentUserAvatar }) => {
       {/* سكشن إضافة بوست جديد */}
       <div className="add-post">
         {currentUserAvatar ? (
-           <img
+          <img
             src={currentUserAvatar}
             alt="Current user's avatar"
             className="current-user-avatar"
@@ -86,6 +95,12 @@ const Community = ({ currentUserAvatar }) => {
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
           />
+          <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+          />
+          {image && <p>Selected: {image.name}</p>}
           <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />
         </div>
       </div>

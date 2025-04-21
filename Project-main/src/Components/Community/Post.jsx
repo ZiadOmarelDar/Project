@@ -90,8 +90,24 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
 
       {/* المحتوى */}
       <div className="post-content">
-        <p>{post.content}</p>
-      </div>
+  <p>{post.content}</p>
+
+  {post.imageUrl && (
+    <div className="post-image">
+      <img
+        src={post.imageUrl}
+        alt="Post"
+        style={{
+          maxWidth: "100%",
+          marginTop: "10px",
+          borderRadius: "10px",
+          boxShadow: "0 0 5px rgba(0,0,0,0.1)",
+        }}
+      />
+    </div>
+  )}
+</div>
+
 
       {/* الإعجابات والتعليقات */}
       <div className="post-engagement">
