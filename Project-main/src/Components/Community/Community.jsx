@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaPaperPlane, FaUser } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Post from "./Post";
 import "./Community.css";
 
@@ -69,14 +69,15 @@ const Community = ({ currentUserAvatar }) => {
       {/* سكشن إضافة بوست جديد */}
       <div className="add-post">
         {currentUserAvatar ? (
-          <img
+           <img
             src={currentUserAvatar}
             alt="Current user's avatar"
             className="current-user-avatar"
           />
         ) : (
           <div className="current-user-avatar-icon">
-            <FaUser />
+            
+            <Link to='/Profile'><FaUser /></Link>
           </div>
         )}
         <div className="add-post-input-container">

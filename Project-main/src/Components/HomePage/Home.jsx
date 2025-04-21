@@ -18,6 +18,7 @@ import doctorImg from "../../assets/doctor.png";
 import { GiDogHouse, GiJumpingDog } from "react-icons/gi";
 import { MdShoppingCart, MdPets } from "react-icons/md";
 import { FaMobile, FaBrain } from "react-icons/fa";
+import { FaUserDoctor } from "react-icons/fa6";
 
 const Home = () => {
 	return (
@@ -46,7 +47,7 @@ const Home = () => {
 							Supplies
 						</Link>
 						<Link
-							to='/community'
+							to='/Community'
 							className='hero-btn'>
 							<FaMobile />
 							Forum
@@ -54,7 +55,7 @@ const Home = () => {
 						<Link
 							to='/clinics'
 							className='hero-btn'>
-							<MdPets />
+							<FaUserDoctor />
 							Clinics
 						</Link>
 						<Link
@@ -120,7 +121,7 @@ const Home = () => {
         <div className="forum-text">
           <h2>Connect with Our Pet Care Forum</h2>
           <div className="postionbtn2">
-            <Link to="/forum" className="explore-btn-2">
+            <Link to="/Community" className="explore-btn-2">
               Explore
             </Link>
           </div>

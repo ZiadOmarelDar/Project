@@ -1,7 +1,7 @@
 // src/components/Community/Post.js
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaHeart,
   FaRegHeart,
@@ -147,9 +147,9 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
               className="current-user-avatar"
             />
           ) : (
-            <div className="current-user-avatar-icon">
-              <FaUser />
-            </div>
+            <Link to='/Profile'><div className="current-user-avatar-icon">
+            <FaUser />
+          </div></Link>
           )}
           <div className="add-comment-input-container">
             <input
