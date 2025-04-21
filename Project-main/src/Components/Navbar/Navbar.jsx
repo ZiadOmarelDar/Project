@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom"; // استبدل Link بـ NavLink
 import { FaChevronDown } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import axios from "axios";
@@ -28,7 +28,7 @@ function Navbar() {
         .catch((err) => {
           console.error("Error fetching user data:", err);
           localStorage.removeItem("token");
-          localStorage.removeItem("cart"); 
+          localStorage.removeItem("cart");
           setIsLoggedIn(false);
           setUsername("");
           navigate("/login");
@@ -36,7 +36,7 @@ function Navbar() {
     } else {
       setIsLoggedIn(false);
       setUsername("");
-      localStorage.removeItem("cart"); 
+      localStorage.removeItem("cart");
     }
   }, [navigate]);
 
@@ -48,67 +48,9 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-<<<<<<< HEAD
-			{/* Navigation Links */}
-			<ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-				<li>
-					<Link
-						to='/'
-						className='active'>
-						Home
-					</Link>
-				</li>
-				<li>
-					<Link to='/adopt'>Adopt a Pet</Link>
-				</li>
-				<li>
-					<Link to='/clinics'>Find a Clinic</Link>
-				</li>
-				<li>
-					<Link to='/shop'>Shop Supplies</Link>
-				</li>
-
-				{/* Dropdown Menu */}
-				<li className='dropdown'>
-					<button className='dropbtn'>
-						Other <FaChevronDown className='icon' />
-					</button>
-					<ul className='dropdown-content'>
-						<li>
-							<Link to='/services'>Training</Link>
-						</li>
-						<li>
-							<Link to='/community'>Community</Link>
-						</li>
-						<li>
-							<Link to='/services'>Pet Travel Guide</Link>
-						</li>
-						<li>
-							<Link to='/contact'>Contact</Link>
-						</li>
-					</ul>
-				</li>
-			</ul>
-
-			{/* Authentication Buttons */}
-			<div className='auth-buttons'>
-				<Link
-					to='/login'
-					className='sign-in'>
-					Sign In
-				</Link>
-				<Link
-					to='/register'
-					className='join-now'>
-					Join Now
-				</Link>
-			</div>
-		</nav>
-	);
-=======
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("cart"); 
+    localStorage.removeItem("cart");
     setIsLoggedIn(false);
     setUsername("");
     navigate("/login");
@@ -117,26 +59,26 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="logo-1">
+      <NavLink to="/" className="logo-1">
         PET CARE
-      </Link>
+      </NavLink>
       <button className="menu-btn" onClick={toggleMenu}>
         ☰
       </button>
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/" className="active">
+          <NavLink to="/" end> {/* استخدم end للمطابقة الدقيقة للمسار الرئيسي */}
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/adopt">Adopt a Pet</Link>
+          <NavLink to="/AdoptionPage">Adopt a Pet</NavLink>
         </li>
         <li>
-          <Link to="/clinics">Find a Clinic</Link>
+          <NavLink to="/clinics">Find a Clinic</NavLink>
         </li>
         <li>
-          <Link to="/shop">Shop Supplies</Link>
+          <NavLink to="/shop">Shop Supplies</NavLink>
         </li>
         <li className="dropdown">
           <button className="dropbtn">
@@ -144,45 +86,46 @@ function Navbar() {
           </button>
           <ul className="dropdown-content">
             <li>
-              <Link to="/services">Training</Link>
+              <NavLink to="/services">Training</NavLink>
             </li>
             <li>
-              <Link to="/services">Community</Link>
+              <NavLink to="/Community">Community</NavLink>
             </li>
             <li>
-              <Link to="/services">Pet Travel Guide</Link>
+              <NavLink to="/PetTravelRequirements">Pet Travel Guide</NavLink>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </ul>
         </li>
       </ul>
-      <Link to="/cart" className="cart-icon">
+      <NavLink to="/cart" className="cart-icon">
         <MdOutlineShoppingCart />
-      </Link>
+      </NavLink>
       <div className="auth-buttons">
         {isLoggedIn ? (
           <>
-            <span className="username">Welcome, {username}</span>
+            <NavLink to="/profile" className="username">
+              Welcome , {username}
+            </NavLink>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" className="sign-in">
+            <NavLink to="/login" className="sign-in">
               Sign In
-            </Link>
-            <Link to="/register" className="join-now">
+            </NavLink>
+            <NavLink to="/register" className="join-now">
               Join Now
-            </Link>
+            </NavLink>
           </>
         )}
       </div>
     </nav>
   );
->>>>>>> 36e7142c3210d4d58403b270090acb03ebfd25ac
 }
 
 export default Navbar;

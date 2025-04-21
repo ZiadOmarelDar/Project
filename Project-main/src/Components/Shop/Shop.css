@@ -1,57 +1,53 @@
-.featured-products-3{
-    text-align: center;
-    align-items: center;
-    padding-bottom: 20px;
+.featured-products-3 {
+	text-align: center;
+	align-items: center;
+	padding-bottom: 20px;
 }
-  
-  
-  .products-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(200px, 1fr));
-    gap: 40px;
-    max-width: 1500px;
-    padding: 20px;
-   
-  }
-  
-  .product-card-3 {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .product-card-3:hover {
-    transform: translateY(-5px);
-  }
-  
-  .product-image-3 {
-    width: 70%;
-   
-    object-fit: contain;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-  }
 
-  
-  
-  .view-all-btn {
-    background: white;
-    padding: 10px 20px;
-    color: #323773;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 20px;
+.products-grid-3 {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(200px, 1fr));
+	gap: 40px;
+	max-width: 1500px;
+	padding: 20px;
+}
+
+.product-card-3 {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	text-align: center;
+	transition: transform 0.2s ease-in-out;
+}
+
+.product-card-3:hover {
+	transform: translateY(-5px);
+}
+
+.product-image-3 {
+	width: 70%;
+
+	object-fit: contain;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+.view-all-btn {
+	background: white;
+	padding: 10px 20px;
+	color: #323773;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 20px;
 	font-weight: bold;
-    display: block;
-    margin: 0 auto;
-    transition: background-color 0.3s ease-in-out;
-    margin-bottom: 30px;
-  }
-  
-  .view-all-btn:hover {
-    background-color: #7868b2;
-  color:white ;
-  }
+	display: block;
+	margin: 0 auto;
+	transition: background-color 0.3s ease-in-out;
+	margin-bottom: 30px;
+}
+
+.view-all-btn:hover {
+	background-color: #7868b2;
+	color: white;
+}

@@ -1,77 +1,174 @@
-.posts-page {
-	width: 60%;
-	margin: 20px auto;
-	font-family: Arial, sans-serif;
-}
-
-.add-post {
-	display: flex;
-	align-items: center;
-	gap: 10px;
+/* src/components/Community/Community.css */
+.Community {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 30px 20px;
+	
+	min-height: 100vh;
+  }
+  
+  .error-message {
+	color: #e63946;
 	margin-bottom: 20px;
-}
-
-.profile-pic {
-	width: 40px;
-	height: 40px;
+	text-align: center;
+	font-size: 1rem;
+  }
+  
+  .success-message {
+	color: #323773; /* غيرنا اللون */
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 1rem;
+  }
+  
+  .add-post {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+	padding: 20px;
+	border-radius: 12px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease;
+  }
+  
+  .add-post:hover {
+	transform: translateY(-2px);
+  }
+  
+  .current-user-avatar {
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
-}
-
-.post-input {
-	flex: 1;
-	padding: 8px 12px;
-	border: 1px solid #ccc;
-	border-radius: 20px;
-}
-
-.post-card {
-	background: #f9f9f9;
-	border-radius: 10px;
-	padding: 15px;
-	margin-bottom: 20px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.post-header {
+	border: 2px solid #323773; /* غيرنا اللون */
+	object-fit: cover;
+  }
+  
+  .current-user-avatar-icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid #323773; /* غيرنا اللون */
 	display: flex;
 	align-items: center;
-	gap: 10px;
-	margin-bottom: 10px;
-}
-
-.post-text {
-	margin: 10px 0;
-}
-
-.post-actions {
+	justify-content: center;
+	background-color: #f0f0f0;
+  }
+  
+  .current-user-avatar-icon svg {
+	font-size: 1.8rem; /* قلّصنا الحجم من 2rem */
+	color: #323773; /* غيرنا اللون */
+  }
+  
+  .add-post-input-container {
+	flex: 1;
 	display: flex;
+	flex-direction: column;
 	gap: 15px;
-	font-size: 20px;
-	margin-bottom: 10px;
-}
-
-.likes,
-.comments {
-	margin: 5px 0;
-	font-size: 14px;
-}
-
-.add-comment {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-top: 10px;
-}
-
-.add-comment input {
-	flex: 1;
-	padding: 6px 10px;
-	border: 1px solid #ccc;
-	border-radius: 20px;
-}
-
-.icon {
-	font-size: 18px;
-	color: #555;
+  }
+  
+  .add-post-input-container textarea {
+	width: 90%;
+	min-height: 100px;
+	padding: 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	resize: vertical;
+	font-size: 1.1rem;
+	font-family: "Arial", sans-serif;
+	transition: border-color 0.3s ease;
+  }
+  
+  .add-post-input-container textarea:focus {
+	outline: none;
+	border-color: #323773; /* غيرنا اللون */
+  }
+  
+  .post-icon {
 	cursor: pointer;
-}
+	font-size: 1.8rem;
+	color: #323773; /* غيرنا اللون */
+	transition:  0.3s ease;
+	margin-left: 680px;
+  }
+  
+  .post-icon:hover {
+	color: #06115d; /* لون أغمق للـ hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+	.Community {
+	  padding: 15px 10px; /* قلّصنا الـ padding */
+	}
+  
+	.add-post {
+	  flex-direction: column;
+	  align-items: center;
+	  padding: 15px;
+	  gap: 10px; /* قلّصنا المسافة */
+	}
+  
+	.current-user-avatar,
+	.current-user-avatar-icon {
+	  width: 40px; /* تصغير الحجم */
+	  height: 40px;
+	}
+  
+	.current-user-avatar-icon svg {
+	  font-size: 1.5rem; /* تصغير الأيقونة */
+	}
+  
+	.add-post-input-container textarea {
+	  font-size: 1rem; /* تصغير الـ font */
+	  min-height: 80px; /* تصغير الارتفاع */
+	  padding: 10px; /* قلّصنا الـ padding */
+	  width: 500px;
+	}
+  
+	.post-icon {
+	  font-size: 1.5rem; /* تصغير الأيقونة */
+	
+	  margin-left: 470px;
+	}
+  }
+  
+  /* شاشات أصغر (مثل الموبايل الصغير جدًا) */
+  @media (max-width: 480px) {
+	.Community {
+	  padding: 10px 5px;
+	}
+  
+	.add-post {
+	  padding: 10px;
+	  gap: 8px;
+	}
+  
+	.current-user-avatar,
+	.current-user-avatar-icon {
+	  width: 35px;
+	  height: 35px;
+	}
+  
+	.current-user-avatar-icon svg {
+	  font-size: 1.2rem;
+	}
+  
+	.add-post-input-container textarea {
+	  font-size: 0.9rem;
+	  min-height: 60px;
+	  padding: 8px;
+	  width: 300px;
+	}
+  
+	.post-icon {
+	  font-size: 1.3rem;
+	  margin-left: 270px;
+	}
+  
+	.error-message,
+	.success-message {
+	  font-size: 0.9rem;
+	}
+  }

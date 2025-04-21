@@ -1,78 +1,109 @@
-import React from 'react';
-import './Community.css';
-import { FaHeart, FaComment, FaSmile } from 'react-icons/fa';
+// src/components/Community/Community.js
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaPaperPlane, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Post from "./Post";
+import "./Community.css";
 
-function Community() {
-	const posts = [
-		{
-			id: 1,
-			user: 'Sara Ziad',
-			text: 'This little ball of fluff has completely stolen my heart. 🐶...',
-			likes: 542,
-			comments: 123,
-		},
-		{
-			id: 2,
-			user: 'ZOZA',
-			text: 'This little ball of fluff has completely stolen my heart. 🐶...',
-			likes: 1542,
-			comments: 112,
-		},
-	];
+const Community = ({ currentUserAvatar }) => {
+  const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
-	return (
-		<div className='posts-page'>
-			<div className='add-post'>
-				<img
-					src='user.png'
-					alt='User'
-					className='profile-pic'
-				/>
-				<input
-					type='text'
-					placeholder='Add Post'
-					className='post-input'
-				/>
-			</div>
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/community/posts");
+      setPosts(response.data);
+    } catch (err) {
+      setError(err.response?.data?.message || "Error fetching posts");
+    }
+  };
 
-			{posts.map((post) => (
-				<div
-					key={post.id}
-					className='post-card'>
-					<div className='post-header'>
-						<img
-							src='user.png'
-							alt='User'
-							className='profile-pic'
-						/>
-						<strong>{post.user}</strong>
-					</div>
-					<p className='post-text'>{post.text}</p>
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
-					<div className='post-actions'>
-						<FaHeart /> <FaComment />
-					</div>
+  const handlePostSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
 
-					<p className='likes'>{post.likes} Likes</p>
-					<p className='comments'>View all {post.comments} comments</p>
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/community/posts",
+        { content: newPost },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
-					<div className='add-comment'>
-						<img
-							src='user.png'
-							alt='User'
-							className='profile-pic'
-						/>
-						<input
-							type='text'
-							placeholder='Add a comment...'
-						/>
-						<FaHeart className='icon' />
-						<FaSmile className='icon' />
-					</div>
-				</div>
-			))}
-		</div>
-	);
-}
+      setPosts([response.data.post, ...posts]);
+      setNewPost("");
+      setSuccess("Post added successfully!");
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.message || "Error adding post");
+      setSuccess("");
+    }
+  };
+
+  const handlePostUpdate = (updatedPost) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post._id === updatedPost._id ? updatedPost : post
+      )
+    );
+  };
+
+  return (
+    <div className="Community">
+      {error && <div className="error-message">{error}</div>}
+      {success && <div className="success-message">{success}</div>}
+
+      {/* سكشن إضافة بوست جديد */}
+      <div className="add-post">
+        {currentUserAvatar ? (
+          <img
+            src={currentUserAvatar}
+            alt="Current user's avatar"
+            className="current-user-avatar"
+          />
+        ) : (
+          <div className="current-user-avatar-icon">
+            <FaUser />
+          </div>
+        )}
+        <div className="add-post-input-container">
+          <textarea
+            placeholder="Add Post"
+            value={newPost}
+            onChange={(e) => setNewPost(e.target.value)}
+          />
+          <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />
+        </div>
+      </div>
+
+      {/* عرض البوستات */}
+      {posts.length === 0 ? (
+        <p>No posts yet. Be the first to share your experience!</p>
+      ) : (
+        posts.map((post) => (
+          <Post
+            key={post._id}
+            post={post}
+            currentUserAvatar={currentUserAvatar}
+            onPostUpdate={handlePostUpdate}
+          />
+        ))
+      )}
+    </div>
+  );
+};
 
 export default Community;

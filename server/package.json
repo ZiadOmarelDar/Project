@@ -15,14 +15,21 @@
     "bcryptjs": "^3.0.2",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^4.21.2",
+    "firebase": "^11.6.0",
     "firebase-admin": "^13.2.0",
+<<<<<<< HEAD
     "ftp": "^0.3.10",
+=======
+    "google-auth-library": "^9.15.1",
+>>>>>>> 967000195a423536ec2190bb99c9032411e31abf
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.0",
     "mongoose-sequence": "^6.0.1",
     "multer": "^1.4.5-lts.2",
     "nodemon": "^3.1.9",
+    "react-icons": "^5.5.0",
     "toast": "^0.5.4"
   }
 }

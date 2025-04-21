@@ -1,0 +1,83 @@
+.profile-edit-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #F5F7FA; /* نفس لون الخلفية العام */
+    border-radius: 15px; /* حواف مستديرة */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف */
+    text-align: center;
+  }
+  
+  .profile-edit-container h2 {
+    font-size: 32px; /* حجم العنوان */
+    margin-bottom: 20px;
+    color: #1A3C6D; /* لون زرقاء داكنة */
+    font-weight: 700;
+  }
+  
+  .profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1A3C6D; /* لون الـ labels */
+  }
+  
+  .form-group input {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff; /* خلفية بيضاء للحقول */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-group input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+  
+  .save-btn {
+    padding: 12px 25px;
+    background-color: #1A3C6D; /* لون الزر زرقاء داكنة */
+    color: white;
+    border: none;
+    border-radius: 10px; /* حواف مستديرة */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .save-btn:hover {
+    background-color: #143158; /* لون أغمق عند الـ hover */
+  }
+  
+  .save-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .error {
+    color: #d32f2f;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .success {
+    color: #388e3c;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }

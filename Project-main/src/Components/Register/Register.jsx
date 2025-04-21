@@ -32,14 +32,14 @@ function Register() {
     let newErrors = {};
     if (!fullName.trim()) newErrors.fullName = "Full name is required";
     if (!username.trim()) newErrors.username = "Username is required";
+    else if (username.length < 3)
+      newErrors.username = "Username must be at least 3 characters";
     if (!email.match(/^\S+@\S+\.\S+$/))
       newErrors.email = "Enter a valid email address";
     if (password.length < 6)
       newErrors.password = "Password must be at least 6 characters";
     if (password !== confirmPassword)
       newErrors.confirmPassword = "Passwords do not match";
-    if (!["user", "clinicAdmin", "trainer"].includes(userType))
-      newErrors.userType = "Invalid user type";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -60,15 +60,33 @@ function Register() {
         password,
       });
 
-      toast.success("✅ Registration successful! Redirecting to login...");
+      const { token } = response.data;
+      localStorage.setItem("token", token); // تخزين التوكن
+
+      toast.success("✅ Registration successful! Redirecting...");
       setTimeout(() => {
-        navigate("/login");
+        navigate("/"); // توجيه للصفحة الرئيسية
         setIsLoading(false);
       }, 2000);
     } catch (err) {
       setIsLoading(false);
       if (err.response?.data?.message) {
-        toast.error(`❌ ${err.response.data.message}`);
+        const errorMessage = err.response.data.message;
+        toast.error(`❌ ${errorMessage}`);
+
+        let newErrors = {};
+        if (errorMessage.includes("Email already registered")) {
+          newErrors.email = "Email already registered";
+        } else if (errorMessage.includes("Username already taken")) {
+          newErrors.username = "Username already taken";
+        } else if (errorMessage.includes("Invalid user type")) {
+          newErrors.userType = "Invalid user type";
+        } else if (errorMessage.includes("Username must be at least 3 characters")) {
+          newErrors.username = "Username must be at least 3 characters";
+        } else if (errorMessage.includes("Password must be at least 6 characters")) {
+          newErrors.password = "Password must be at least 6 characters";
+        }
+        setErrors(newErrors);
       } else {
         toast.error("❌ An error occurred. Please try again.");
       }
