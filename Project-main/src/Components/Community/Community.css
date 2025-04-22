@@ -84,6 +84,39 @@
 	outline: none;
 	border-color: #323773; /* غيرنا اللون */
   }
+  .image-upload-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding-bottom: 13px;
+  }
+  
+  .custom-upload-button {
+	background-color: #323773;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	display: inline-block;
+	width: fit-content;
+	transition: background-color 0.3s ease;
+  }
+  
+  .custom-upload-button:hover {
+	background-color: #0e1446;
+  }
+  
+  .hidden-file-input {
+	display: none;
+  }
+  
+  .selected-image-name {
+	font-size: 0.85rem;
+	color: #000;
+	margin-top: -4px;
+  }
+  
   
   .post-icon {
 	cursor: pointer;
@@ -91,6 +124,8 @@
 	color: #323773; /* غيرنا اللون */
 	transition:  0.3s ease;
 	margin-left: 680px;
+	margin-top: -60px;
+	padding-bottom: 10px;
   }
   
   .post-icon:hover {

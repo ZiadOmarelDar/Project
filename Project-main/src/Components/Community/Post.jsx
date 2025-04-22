@@ -68,6 +68,11 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
     }
   };
 
+  const formattedPostDate = new Date(post.createdAt).toLocaleString("en-UA", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+
   return (
     <div className="post">
       {error && <div className="error-message">{error}</div>}
@@ -90,24 +95,26 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
 
       {/* المحتوى */}
       <div className="post-content">
-  <p>{post.content}</p>
+        <p>{post.content}</p>
 
-  {post.imageUrl && (
-    <div className="post-image">
-      <img
-        src={post.imageUrl}
-        alt="Post"
-        style={{
-          maxWidth: "100%",
-          marginTop: "10px",
-          borderRadius: "10px",
-          boxShadow: "0 0 5px rgba(0,0,0,0.1)",
-        }}
-      />
-    </div>
-  )}
-</div>
+        {post.imageUrl && (
+          <div className="post-image">
+            <img
+              src={post.imageUrl}
+              alt="Post"
+              style={{
+                maxWidth: "100%",
+                marginTop: "10px",
+                borderRadius: "10px",
+                boxShadow: "0 0 5px rgba(0,0,0,0.1)",
+              }}
+            />
+          </div>
+        )}
 
+        {/* تاريخ البوست */}
+        <p className="post-date">🕒 {formattedPostDate}</p>
+      </div>
 
       {/* الإعجابات والتعليقات */}
       <div className="post-engagement">
@@ -143,7 +150,7 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
                 <div className="comment-header">
                   <span className="comment-username">{commentObj.username}</span>
                   <span className="comment-date">
-                    {new Date(commentObj.createdAt).toLocaleDateString()}
+                    {new Date(commentObj.createdAt).toLocaleDateString("ar-EG")}
                   </span>
                 </div>
                 <p>{commentObj.content}</p>
@@ -154,7 +161,7 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
           )}
         </div>
 
-        {/* حقل التعليق مع صورة المستخدم */}
+        {/* حقل التعليق */}
         <div className="add-comment">
           {currentUserAvatar ? (
             <img
@@ -163,9 +170,11 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
               className="current-user-avatar"
             />
           ) : (
-            <Link to='/Profile'><div className="current-user-avatar-icon">
-            <FaUser />
-          </div></Link>
+            <Link to="/Profile">
+              <div className="current-user-avatar-icon">
+                <FaUser />
+              </div>
+            </Link>
           )}
           <div className="add-comment-input-container">
             <input

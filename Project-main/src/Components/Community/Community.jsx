@@ -95,12 +95,20 @@ const Community = ({ currentUserAvatar }) => {
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
           />
-          <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
-          />
-          {image && <p>Selected: {image.name}</p>}
+          <div className="image-upload-container">
+  <label htmlFor="file-upload" className="custom-upload-button">
+    📷 Add Photo
+  </label>
+  <input
+    id="file-upload"
+    type="file"
+    accept="image/*"
+    onChange={(e) => setImage(e.target.files[0])}
+    className="hidden-file-input"
+  />
+  {image && <p className="selected-image-name">The Photo : {image.name}</p>}
+</div>
+
           <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />
         </div>
       </div>

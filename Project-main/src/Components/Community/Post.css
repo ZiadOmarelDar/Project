@@ -12,6 +12,13 @@
   .post:hover {
 	transform: translateY(-3px);
   }
+  .post-date {
+  font-size: 0.85rem;
+  color: #777;
+  text-align: left;
+  margin-top: 10px;
+}
+
   
   .error-message {
 	color: #e63946;
