@@ -189,13 +189,16 @@ body {
   .register-container {
     flex-direction: column;
     padding: 10px;
-    margin-bottom: 300px;
+    margin-top: 170px;
+    
+    margin-bottom: 200px;
   }
 
   .image-section {
     flex: none;
     width: 70%;
     padding-top: 100px;
+    margin-left: 100px;
     margin-bottom: 20px;
   }
 
@@ -236,11 +239,12 @@ body {
 
 @media (max-width: 480px) {
   .register-container {
-    max-width: 100%;
-    margin-bottom: 300px;
+    width: 390px;
+    margin-bottom: 200px;
   }
   .form-section {
-    padding: 15px;
+    padding: 0px;
+    width: 350px;
   }
 
   .form-title {
@@ -270,8 +274,8 @@ body {
     font-size: 20px;
   }
   .image-section {
-    margin-top: 250px;
-    margin-right: 100px;
+    
+    margin-right: 170px;
   }
 }
 

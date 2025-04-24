@@ -42,6 +42,7 @@
   border-style: double;
 }
 
+
 p {
   font-size: 20px;
   position: relative;
@@ -215,6 +216,10 @@ p {
     max-width: 90%;
     margin-top: 0;
   }
+  .toggle-password-2{
+    margin-left: -160px;
+    margin-top: 60px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -249,6 +254,10 @@ p {
   .container {
     padding: 20px;
   }
+  .toggle-password-2{
+    margin-left: -270px;
+    margin-top: 50px;
+  }
 }
 
 .error-message {
@@ -257,12 +266,13 @@ p {
   margin-top: 5px;
 }
 
-.toggle-password {
+.toggle-password-2 {
   position: absolute;
-  top: 50%;
-  right: 10px;
+  top:185px ;
+  left: 390px;
   transform: translateY(-50%);
   cursor: pointer;
+  color: #372e77;
 }
 
 .input input[type="password"]::-ms-reveal,

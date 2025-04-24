@@ -467,40 +467,227 @@
 }
 
 @media (max-width: 768px) {
+   .home-container {
+    max-width: 100%;
+    font-family: Inter;
+  }
+  .hero {
+    background-color: #f7f7fc;
+    padding-right: 20px;
+    margin-bottom: -100px;
+  }
   .hero-text h1 {
     font-size: 40px;
   }
+  .hero-text p {
+    font-size: 15px;
+    padding-bottom: 30px;
+  }
   .hero-buttons {
-    grid-template-columns: repeat(1, 1fr);
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
+  .hero-btn {
+    width: 70%;
+    font-size: 15px;
+    padding: 15px;
+  }
   .hero-image img {
-    max-width: 250px;
+    max-width: 230px;
+    position: relative;
+    bottom: 270px;
+    left: 200px;
   }
   .adopt-gallery {
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding-left: 20px;
   }
   .adopt-gallery img {
     width: 200px;
-    height: 250px;
+    
+  }
+  .care-text h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000;
+    padding-top: 25px;
+    font-family: Inter;
+  }
+  .care-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: -60px;
   }
   .care-gallery {
-    grid-template-columns: repeat(1, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-top: -120px;
   }
+  .image {
+    width: 100%;
+    object-fit: contain;
+  }
+  #one {
+    grid-column: sapn 2;
+    grid-row: span 1;
+    height: 120px;
+    width: 100px;
+    position: relative;
+    left: -50px;
+  }
+  #two {
+    grid-column: sapn 3;
+    grid-row: span 1;
+    height: 140px;
+    width: 110px;
+    position: relative;
+    bottom: 20px;
+    right: 70px;
+  }
+  #three {
+    grid-column: sapn 1;
+    grid-row: span 2;
+    height: 100px;
+    width: 120px;
+    position: relative;
+    left: -30px;
+    bottom: 30px;
+  }
+  #four {
+    grid-column: sapn 2;
+    grid-row: span 2;
+    height: 220px;
+    width: 120px;
+    position: relative;
+    bottom: 45px;
+    left: -50px;
+  }
+  #five {
+    grid-column: sapn 3;
+    grid-row: span 2;
+    height: 140px;
+    width: 80px;
+    position: relative;
+    bottom: 45px;
+    left: -50px;
+  }
+  .postionbtn {
+    text-align: center;
+  }
+  .explore-btn {
+    display: inline-block;
+    padding: 12px 45px;
+    border: 2px solid #323773;
+    border-radius: 40px;
+    color: #323773;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 17.48px;
+    box-shadow: 0 1.5px 3px #292741;
+    transition: 0.3s;
+    font-family: Inter;
+    position: relative;
+    bottom: -290px;
+  }
+  .forum-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: Inter;
+    margin-left: 25px;
+    margin-top: -30px;
+    color: #ded6e6;
+  }
+  .explore-btn-2 {
+    position: relative;
+    bottom: -280px;
+  }
+
   .forum-image img {
-    width: 250px;
+    width: 300px;
+    margin-top: -130px;
   }
+  .clinic-section {
+    height: 800px;
+  }
+  .clinic-text {
+    max-width: 300px;
+  }
+  .clinic-text h2 {
+    font-size: 2.2rem;
+    margin-top: -10px;
+  }
+
   .clinic-image img {
     width: 250px;
+    position: relative;
+    top: -250px;
+  }
+  .doctor-image {
+    max-width: 300px;
+  }
+  .doctor-image .explore-btn {
+    position: relative;
+    right: -80px;
+  }
+  .doctor-image img {
+    position: relative;
+    top: 400px;
+    left: -100px;
+    top: 420px;
+  }
+  .training-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-left: 20px;
   }
   .training-cards button {
-    width: 200px;
+    padding: 11px;
+    font-size: 15px;
+    background: #e6f7ff;
+    box-shadow: 0 2px 4px #7b8a90;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    width: 155px;
+  }
+  .training-image img {
+    max-width: 300px;
+    position: relative;
+    left: 27px;
+    top: -150px;
+  }
+  .training-section {
+    height: 770px;
+  }
+  .ai-section {
+    height: 550px;
+  }
+  .ai-text h2 {
+    font-size: 2.5rem;
+    margin-top: -40px;
   }
   .ai-image img {
-    width: 250px;
+    width: 200px;
+    position: relative;
+    top: -100px;
   }
-}
+  .ai-section .explore-btn {
+    position: relative;
+    bottom: -170px;
+  }
+  }
+
 
 @media (max-width: 480px) {
   .home-container {
@@ -527,7 +714,7 @@
   }
   .hero-btn {
     width: 65%;
-    font-size: 15px;
+    font-size: 12px;
     padding: 15px;
   }
   .hero-image img {
