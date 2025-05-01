@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+  }
+  
+  .pet-details {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 16px;
+  }
+  
+  .pet-images {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pet-image-large {
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .pet-images-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .pet-image-middle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .hr {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 30%;
+    height: 2px;
+    background-color: #2b2f66;
+  }
+  .pet-name {
+    font-size: 36px;
+    font-weight: bold;
+    color: #323773;
+    text-align: center;
+    margin: 16px 0;
+  }
+  
+  .pet-info-box {
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .pet-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .pet-info-label {
+    font-size: 18px;
+    font-weight: 600px;
+    color: #323773;
+  }
+  
+  .pet-info-value {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .take-me-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  
+  .take-me-button {
+    background-color: #323773;
+    color: #fff;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .take-me-button:hover {
+    background-color: #2b2f66;
+  }
+  
+  .status-message {
+    text-align: center;
+    font-size: 18px;
+    color: #6b7280;
+  }
+  
+  .status-message.error {
+    color: #ef4444;
+  }
+  
+  /* Media Queries للتصميم المتجاوب */
+  @media (max-width: 768px) {
+    .pet-images {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .pet-image-large {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+    }
+  
+    .pet-images-middle {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .pet-image-middle {
+      width: 120px;
+      height: 100px;
+    }
+  
+    .pet-name {
+      font-size: 28px;
+    }
+  
+    .pet-info-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+  
+    .pet-info-label {
+      font-size: 14px;
+    }
+  
+    .pet-info-value {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pet-image-large {
+      height: 180px;
+    }
+  
+    .pet-image-middle {
+      width: 100px;
+      height: 80px;
+    }
+  
+    .pet-name {
+      font-size: 24px;
+    }
+  }

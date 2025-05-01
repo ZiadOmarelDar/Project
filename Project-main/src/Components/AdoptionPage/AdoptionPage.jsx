@@ -15,7 +15,8 @@ import dog5 from "../../assets/adoption/5.png";
 import dog6 from "../../assets/adoption/6.png";
 import dog7 from "../../assets/adoption/7.png";
 import dogArticleImage from "../../assets/adoption/dog-article.png";
-import catArticleImage from "../../assets/adoption/cat-article.png";
+
+import { Link } from "react-router-dom";
 
 const pets = [
   { id: 1, name: "Baha", image: dog1, type: "dog" },
@@ -47,13 +48,10 @@ const planningCards = [
 
 const articles = [
   {
-    title: "Dog Adoption Articles",
+    title: "You Have A Pet For Adoption",
     image: dogArticleImage,
   },
-  {
-    title: "Cat Adoption Articles",
-    image: catArticleImage,
-  },
+ 
 ];
 
 
@@ -126,16 +124,22 @@ const AdoptionPage = () => {
                 )}
               </button>
             </div>
-            <h3 className="pet-name">{pet.name}</h3>
+            <h3 className="pet-name-1">{pet.name}</h3>
           </div>
         ))}
-        <div className="see-them-card">
+        
+        
+          <Link to='/AdoptionPetsSection' className="see-them-card">
+          <div className="see-them-card">
           <div className="see-them-content">
             <FaPaw className="paw-icon" />
             <p>More Pets available in Pet care</p>
             <h3>See Them</h3>
           </div>
-        </div>
+          </div>
+          </Link>
+         
+        
       </div>
 
      
@@ -164,7 +168,7 @@ const AdoptionPage = () => {
                 className="article-image"
               />
               <h3 className="article-title">{article.title}</h3>
-              <button className="read-more-btn-9">Read More</button>
+              <button className="read-more-btn-9">Add Pet</button>
             </div>
           ))}
         </div>
