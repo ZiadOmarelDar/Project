@@ -596,7 +596,7 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
                   `/domains/express-elmadina.com/public_html/Pets_images/${fileName}`,
                   (putErr) => {
                     client.end();
-                    fs.unlinkSync(filePath); // Delete temp file
+                    // fs.unlinkSync(filePath);
 
                     if (putErr) return reject(putErr);
 
