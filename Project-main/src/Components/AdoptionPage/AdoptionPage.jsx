@@ -20,11 +20,11 @@ import { Link } from "react-router-dom";
 
 const pets = [
   { id: 1, name: "Baha", image: dog1, type: "dog" },
-  { id: 2, name: "ahmed", image: dog2, type: "dog" },
+  { id: 2, name: "hamada", image: dog2, type: "dog" },
   { id: 3, name: "Bosy", image: dog3, type: "cat" },
   { id: 4, name: "Soud", image: dog4, type: "cat" },
   { id: 5, name: "Kitty", image: dog5, type: "cat" },
-  { id: 6, name: "Mshmsh", image: dog6, type: "cat" },
+  { id: 6, name: "hamoo", image: dog6, type: "cat" },
   { id: 7, name: "Zoro", image: dog7, type: "dog" },
 ];
 
