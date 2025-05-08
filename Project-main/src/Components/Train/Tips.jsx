@@ -5,7 +5,7 @@ function Tips() {
 	return (
 		<div className='dog-train-container'>
 			<div className='header-text-dog'>
-				<h2>DOG Training</h2>
+				<h2>Tips</h2>
 			</div>
 			<div className='videos-grid'>
 				<div className='video-card-dog'>
