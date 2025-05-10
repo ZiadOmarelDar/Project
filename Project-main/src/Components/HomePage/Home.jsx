@@ -60,7 +60,7 @@ const Home = () => {
 							Clinics
 						</Link>
 						<Link
-							to='/training'
+							to='/TrainHome'
 							className='hero-btn'>
 							<GiJumpingDog />
 							Training

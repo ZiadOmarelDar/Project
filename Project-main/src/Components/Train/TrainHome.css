@@ -7,9 +7,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 50px 20px; /* مسافة متساوية من اليمين واليسار */
+	padding: 20px 20px; /* مسافة متساوية من اليمين واليسار */
 	max-width: 100%;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 .section1-text {
@@ -36,9 +37,10 @@
 }
 
 .image-train img {
-	max-width: 100%;
+	width: 400px; /* عرض الصورة */
 	height: auto;
 	object-fit: contain; /* لضمان الصورة ما تتشوهش */
+	margin-bottom: -55px; /* مسافة سلبية لتقليل المسافة بين الصورة والنص */
 }
 
 @media (max-width: 1024px) {
@@ -188,7 +190,7 @@
 		justify-content: center;
 	}
 	.trainer {
-		width: 45%; /* 2 كارت في الصف */
+		width: 10%; /* 2 كارت في الصف */
 	}
 }
 
@@ -214,7 +216,7 @@
 		flex-wrap: wrap;
 	}
 	.trainer {
-		width: 50%; /* 2 كارت في الصف */
+		width: 25%; /* 2 كارت في الصف */
 		margin-bottom: 20px; /* مسافة بين الصفوف */
 	}
 	.trainers-container > :nth-child(2n + 1) {
