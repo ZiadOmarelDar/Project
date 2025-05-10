@@ -45,7 +45,7 @@ const Footer = () => {
 							<Link to='/clinics'>Clinics</Link>
 						</li>
 						<li>
-							<Link to='/training'>Training</Link>
+							<Link to='/trainHome'>Training</Link>
 						</li>
 						<li>
 							<Link to='/PetTravelRequirements'>Traveling </Link>
@@ -53,7 +53,6 @@ const Footer = () => {
 						<li>
 							<Link to='/ai'>AI</Link>
 						</li>
-						
 					</ul>
 				</div>
 
