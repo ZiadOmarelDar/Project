@@ -82,6 +82,8 @@ const serviceSchema = new mongoose.Schema({
   },
 });
 
+
+// ------------------------------------------------------
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -105,6 +107,9 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  userPhoto:{
+    type: String,
   },
   cart: [
     {

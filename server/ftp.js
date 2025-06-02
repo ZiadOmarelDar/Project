@@ -1,5 +1,12 @@
+const express = require('express');
+const multer = require('multer');
 const ftp = require('ftp');
-const fs = require('fs');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const upload = multer({ dest: 'uploads/' });
 
 const ftpOptions = {
   host: '92.113.18.144',
@@ -7,37 +14,37 @@ const ftpOptions = {
   password: 'Mahxoud@000',
 };
 
-function uploadToFtp(file, folder = '/domains/express-elmadina.com/public_html/Pets_images') {
-  return new Promise((resolve, reject) => {
-    const filePath = file.path;
-    const fileName = Date.now() + '-' + file.originalname;
-    const client = new ftp();
+// Upload route
+app.post('/upload', upload.single('image'), (req, res) => {
+  const filePath = req.file.path;
+  const fileName = Date.now() + '-' + req.file.originalname;
+  const client = new ftp();
 
-    client.on('ready', () => {
-      client.mkdir(folder, true, (mkdirErr) => {
-        if (mkdirErr) {
-          client.end();
-          return reject(mkdirErr);
+  client.on('ready', () => {
+    console.log('FTP Connection Successful');
+
+      client.put(filePath, `/domains/express-elmadina.com/public_html/Pets_images/${fileName}`, async (err) => {
+        client.end();
+        if (err) {
+          console.error('FTP Upload Error:', err);
+          return res.status(500).json({ message: 'FTP Upload Failed', error: err });
         }
 
-        client.put(filePath, `${folder}/${fileName}`, (putErr) => {
-          client.end();
-          fs.unlinkSync(filePath); // delete temp file
-
-          if (putErr) {
-            return reject(putErr);
-          }
-
-          const imageUrl = `https://express-elmadina.com/Pets_images/${fileName}`;
-          resolve(imageUrl); // ✅ return only the URL
-        });
+        const imageUrl = `https://express-elmadina.com/Pets_images/${fileName}`;
+        console.log("image uploaded successfully:", imageUrl);
+      
       });
-    });
-
-    client.on('error', (err) => reject(err));
-    client.connect(ftpOptions);
   });
-}
 
-module.exports = uploadToFtp;
-// module.exports = uploadToFtp; // Export the function for use in other files
+  client.on('error', (err) => {
+    console.error('FTP Connection Error:', err);
+    res.status(500).json({ message: 'FTP Connection Error', error: err });
+  });
+
+  client.connect(ftpOptions);
+  
+  client.on('end', () => {
+    console.log('FTP Connection Closed');
+  });
+
+});

@@ -7,10 +7,6 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-
-mongoose.connect('mongodb+srv://PetsCare:lDQ6GppZgrBKPZO2@cluster0.ifl5z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log("MongoDB Connected Successfully"))
-  .catch((err) => console.error("MongoDB Connection Error:", err));
   
 const ImageSchema = new mongoose.Schema({
   url: String,
@@ -28,24 +24,23 @@ const ftpOptions = {
 
 // Upload route
 app.post('/upload', upload.single('image'), (req, res) => {
+  console.log("filePath", typeof req.file)
+  if (!req.file) {
+   console.log("errrorrrrrrrrrrrrrrrrrrrrrrrr") 
+  }
   const filePath = req.file.path;
   const fileName = Date.now() + '-' + req.file.originalname;
-  console.log('File Path:', filePath);
-  console.log('File Name:', fileName);
-  console.log('File Name:', req.file);
   const client = new ftp();
-
   client.on('ready', () => {
     console.log('FTP Connection Successful');
 
-    client.mkdir('/domains/express-elmadina.com/public_html/Pets_images', true, (err) => {
-      if (err) {
-        console.error('Error creating directory:', err);
-        client.end();
-        return res.status(500).json({ message: 'Directory creation failed', error: err });
-      }
-
-      console.log('Directory created or already exists.');
+    // cheack and create the directory
+    // client.mkdir('/domains/express-elmadina.com/public_html/Pets_images', true, (err) => {
+    //   if (err) {
+    //     console.error('Error creating directory:', err);
+    //     client.end();
+    //     return res.status(500).json({ message: 'Directory creation failed', error: err });
+    //   }
 
       client.put(filePath, `/domains/express-elmadina.com/public_html/Pets_images/${fileName}`, async (err) => {
         client.end();
@@ -55,12 +50,15 @@ app.post('/upload', upload.single('image'), (req, res) => {
         }
 
         const imageUrl = `https://express-elmadina.com/Pets_images/${fileName}`;
-        const newImage = new Image({ url: imageUrl });
-        await newImage.save();
-        console.log('Image URL saved to MongoDB:', imageUrl);
-        res.status(200).json({ message: 'Uploaded Successfully', imageUrl });
+        console.log("image uploaded successfully:", imageUrl);
+        // save into the mongodb
+        // const newImage = new Image({ url: imageUrl });
+        // await newImage.save();
+        // console.log('Image URL saved to MongoDB:', imageUrl);
+        // res.status(200).json({ message: 'Uploaded Successfully', imageUrl });
+      
       });
-    });
+    // });
   });
 
   client.on('error', (err) => {
@@ -73,7 +71,12 @@ app.post('/upload', upload.single('image'), (req, res) => {
   client.on('end', () => {
     console.log('FTP Connection Closed');
   });
+
 });
+
+
+
+
 
 app.listen(3003, () => {
   console.log('Server running on http://localhost:3003');

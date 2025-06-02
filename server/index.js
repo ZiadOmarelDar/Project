@@ -8,8 +8,9 @@ const ProductModel = require("./models/ProductModel");
 const TravelRequirementModel = require("./models/TravelRequirementModel");
 const PostModel = require("./models/PostModel");
 const multer = require("multer");
-const fs = require("fs");
 const ftp = require("ftp");
+const uploadFileToFTP = require("./funcUp");
+
 
 const app = express();
 app.use(express.json());
@@ -42,10 +43,12 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
+const upload = multer({ dest: "uploads/" });
+
 // ----------------------------------------------------------------------------------------------------------------------
 
 app.post("/register", async (req, res) => {
-  const { name, userType, username, email, password } = req.body;
+  const { name, userType, username, email, password} = req.body;
 
   try {
     // التحقق من وجود كل الحقول
@@ -70,6 +73,32 @@ app.post("/register", async (req, res) => {
       }
     }
 
+    // let imageUrl = "not found";
+    // // if(req.file){
+    // //     const filePath = req.file.path;
+    // //     const originalName = req.file.originalname;
+    // //     var imageUrl = await uploadFileToFTP(filePath, originalName);
+    // //     flag = true
+    // // }
+
+    //     if (req.file) {
+    //   try {
+    //     console.log('File received:', req.file);
+    //     const filePath = req.file.path;
+    //     const originalName = req.file.originalname;
+        
+    //     // Upload to FTP and get URL
+    //     imageUrl = await uploadFileToFTP(filePath, originalName);
+    //     console.log('Upload successful, URL:', imageUrl);
+        
+        
+    //   } catch (uploadError) {
+    //     console.error('File upload failed:', uploadError);
+    //     // Continue with registration even if upload fails
+    //     // imageUrl remains "not found"
+    //   }
+    // }
+
     // تشفير كلمة السر
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -80,6 +109,7 @@ app.post("/register", async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      userPhoto: imageUrl,
       cart: [],
     });
 
@@ -96,6 +126,7 @@ app.post("/register", async (req, res) => {
         username: newUser.username,
         email: newUser.email,
         userType: newUser.userType,
+        userPhoto: newUser.userPhoto,
       },
       token,
     });
@@ -109,18 +140,19 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// ---------------------------------------------------------------------------
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await UsersModel.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "User does not exist" });
+      return res.status(400).json({ message: "Incorrect Username or password" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Incorrect password" });
+      return res.status(400).json({ message: "Incorrect Username or Password" });
     }
 
     const payload = { userId: user._id };
@@ -131,6 +163,8 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 });
+
+// ------------------------------------------------------------------------------
 
 // Get user info
 app.get("/user", authMiddleware, async (req, res) => {
@@ -145,6 +179,8 @@ app.get("/user", authMiddleware, async (req, res) => {
   }
 });
 
+// -----------------------------------------------------------------------------------------------
+
 // Endpoint لجلب الخدمات بتاعة المستخدم
 app.get("/user/services", authMiddleware, async (req, res) => {
   try {
@@ -157,6 +193,8 @@ app.get("/user/services", authMiddleware, async (req, res) => {
     res.status(500).json({ message: "Error fetching services", error: err.message });
   }
 });
+
+// -----------------------------------------------------------------------------------------------
 
 // إضافة خدمة جديدة
 app.post("/user/services", authMiddleware, async (req, res) => {
@@ -201,6 +239,8 @@ app.post("/user/services", authMiddleware, async (req, res) => {
   }
 });
 
+
+// ----------------------------------------------------------------------------------
 // تعديل خدمة موجودة
 app.put("/user/services/:index", authMiddleware, async (req, res) => {
   try {
@@ -249,6 +289,8 @@ app.put("/user/services/:index", authMiddleware, async (req, res) => {
   }
 });
 
+
+// -------------------------------------------------------------------------------------------
 // delete service
 app.delete("/user/services/:index", authMiddleware, async (req, res) => {
   try {
@@ -271,6 +313,7 @@ app.delete("/user/services/:index", authMiddleware, async (req, res) => {
   }
 });
 
+// -------------------------------------------------------------------------------------------------
 // user update
 app.put("/user/update", authMiddleware, async (req, res) => {
   const { name, username, email } = req.body;
@@ -317,6 +360,8 @@ app.put("/user/update", authMiddleware, async (req, res) => {
   }
 });
 
+
+// -------------------------------------------------------------------------------------------
 app.get("/products", async (req, res) => {
   try {
     const products = await ProductModel.find();
@@ -326,6 +371,8 @@ app.get("/products", async (req, res) => {
   }
 });
 
+
+// ---------------------------------------------------------------------------------------------
 app.get("/products/:id", async (req, res) => {
   try {
     const product = await ProductModel.findById(req.params.id);
@@ -338,6 +385,8 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
+
+// -----------------------------------------------------------------------------------------------
 app.get("/dogs-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "dogs-food" });
@@ -347,6 +396,8 @@ app.get("/dogs-food", async (req, res) => {
   }
 });
 
+
+// -----------------------------------------------------------------------------------------------
 app.get("/cats-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "cats-food" });
@@ -356,6 +407,8 @@ app.get("/cats-food", async (req, res) => {
   }
 });
 
+
+// ------------------------------------------------------------------------------------------------
 app.get("/accessories", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "accessories" });
@@ -365,6 +418,8 @@ app.get("/accessories", async (req, res) => {
   }
 });
 
+
+// --------------------------------------------------------------------------------------------------
 app.post("/products", async (req, res) => {
   try {
     const products = req.body;
@@ -407,6 +462,8 @@ app.post("/products", async (req, res) => {
   }
 });
 
+
+// ---------------------------------------------------------------------------------------------------
 app.post("/travel-requirements", async (req, res) => {
   try {
     const { country, documentsRequired, vaccinationsRequired, comfortTips, type } = req.body;
@@ -436,6 +493,8 @@ app.post("/travel-requirements", async (req, res) => {
   }
 });
 
+
+// -----------------------------------------------------------------------------------------------------------------
 app.get("/travel-requirements", async (req, res) => {
   try {
     const requirements = await TravelRequirementModel.find();
@@ -445,6 +504,8 @@ app.get("/travel-requirements", async (req, res) => {
   }
 });
 
+
+// -------------------------------------------------------------------------------------------------------------------
 app.post("/cart/add", authMiddleware, async (req, res) => {
   const { productId, quantity } = req.body;
 
@@ -481,6 +542,8 @@ app.post("/cart/add", authMiddleware, async (req, res) => {
   }
 });
 
+
+// -----------------------------------------------------------------------------------------
 app.get("/cart", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -494,6 +557,8 @@ app.get("/cart", authMiddleware, async (req, res) => {
   }
 });
 
+
+// --------------------------------------------------------------------------------------------
 app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   const { productId } = req.params;
 
@@ -515,40 +580,9 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   }
 });
 
-// --------------------------------------------------------------------------------------------------
-
-// Community Feature
-
-// // Add a new post
-// app.post("/community/posts", authMiddleware, async (req, res) => {
-//   try {
-//     const { content } = req.body;
-//     if (!content) {
-//       return res.status(400).json({ message: "Content is required" });
-//     }
-
-//     const user = await UsersModel.findById(req.user.userId);
-//     if (!user) {
-//       return res.status(404).json({ message: "User not found" });
-//     }
-//     const newPost = new PostModel({
-//       content,
-//       author: req.user.userId,
-//       username: user.username,
-//       likes: [],
-//       comments: [],
-//     });
-
-//     await newPost.save();
-//     res.status(201).json({ message: "Post added successfully", post: newPost });
-//   } catch (err) {
-//     res.status(500).json({ message: "Error adding post", error: err.message });
-//   }
-// });
-
 // ---------------------------------------------------------------------------------------------------------
 
-const upload = multer({ dest: "uploads/" });
+
 
 
 // FTP config
