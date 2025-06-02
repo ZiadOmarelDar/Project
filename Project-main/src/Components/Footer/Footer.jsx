@@ -20,7 +20,7 @@ const Footer = () => {
 					</p>
 					<div className='contact-info'>
 						<p>
-							<FaEnvelope className='icon' /> bet_care@mail.co
+							<FaEnvelope className='icon' /> bet_care@gmail.com
 						</p>
 						<p>
 							<FaPhone className='icon' /> 01211901946
@@ -78,7 +78,7 @@ const Footer = () => {
 				{/* Section 4: Contact */}
 				<div className='footer-section'>
 					<h3 className='section-title-1'>Contact us</h3>
-					<p>bet_care@mail.com</p>
+					<p>bet_care@gmail.com</p>
 				</div>
 			</div>
 

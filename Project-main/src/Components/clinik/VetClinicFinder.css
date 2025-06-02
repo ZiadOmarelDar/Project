@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* الجزء العلوي */
+.top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.title-container-10 {
+  width: 20%;
+}
+
+.title-10 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.top-section .illustration {
+  width: 307;
+  height: 539;
+  margin-top: -80px;
+  left: 470px;
+}
+
+.top-section .content {
+  text-align: center;
+}
+
+.icon-10{
+    color: #323773;
+    font-size: 40px;
+}
+
+.features-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.features-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.features-list li .icon {
+  font-size: 24px;
+  margin-right: 15px;
+  color: #2563eb;
+}
+
+.features-list li h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.features-list li p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* الجزء السفلي */
+.bottom-section {
+  width: 100%;
+}
+
+.bottom-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-section h2 .arrow {
+  margin-left: 10px;
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  background-color: #e5e7eb;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.view-larger-map {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #2563eb;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-larger-map:hover {
+  background-color: #f3f4f6;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .top-section {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .top-section .illustration {
+    margin-bottom: 0;
+  }
+
+  .top-section .content {
+    text-align: left;
+  }
+
+  .features-list {
+    margin: 0;
+  }
+}

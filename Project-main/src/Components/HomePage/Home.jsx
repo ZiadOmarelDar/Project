@@ -54,7 +54,7 @@ const Home = () => {
 							Forum
 						</Link>
 						<Link
-							to='/clinics'
+							to='/VetClinicFinder'
 							className='hero-btn'>
 							<FaUserDoctor />
 							Clinics

@@ -83,7 +83,7 @@ function Navbar() {
 					<NavLink to='/AdoptionPage'>Adopt a Pet</NavLink>
 				</li>
 				<li>
-					<NavLink to='/clinics'>Find a Clinic</NavLink>
+					<NavLink to='/VetClinicFinder'>Find a Clinic</NavLink>
 				</li>
 				<li>
 					<NavLink to='/shop'>Shop Supplies</NavLink>
