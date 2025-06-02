@@ -106,7 +106,8 @@ const Community = ({ currentUserAvatar }) => {
     onChange={(e) => setImage(e.target.files[0])}
     className="hidden-file-input"
   />
-  {image && <p className="selected-image-name">The Photo : {image.name}</p>}
+  {/* {image && <p className="selected-image-name">The Photo : {image.name}</p>}
+  <img src={URL.createObjectURL(image)} alt="" style={{ maxWidth: "150px", marginTop: "10px" }} /> */}
 </div>
 
           <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />

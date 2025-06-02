@@ -97,7 +97,7 @@ function Navbar() {
 							<NavLink to='/trainHome'>Training</NavLink>
 						</li>
 						<li>
-							<NavLink to='/Community'>Community</NavLink>
+							<NavLink to='/community'>Community</NavLink>
 						</li>
 						<li>
 							<NavLink to='/PetTravelRequirements'>Pet Travel Guide</NavLink>
