@@ -23,28 +23,28 @@ const VetClinicFinder = () => {
             <li>
               <BiSearchAlt className="icon-10"/>
               <div className="description-text">
-                <h3>Fast & Easy Search</h3>
+                <h3 className="sub-des">Fast & Easy Search</h3>
                 <p>Find the closest vet clinics instantly.</p>
               </div>
             </li>
             <li>
               <FaClock className="icon-10"/>
               <div className="description-text">
-                <h3>24/7 Emergency Care</h3>
+                <h3 className="sub-des">24/7 Emergency Care</h3>
                 <p>Get urgent help when your pet needs it most.</p>
               </div>
             </li>
             <li>
               <FaUserDoctor className="icon-10"/>
               <div className="description-text">
-                <h3>Expert Veterinarians</h3>
+                <h3 className="sub-des">Expert Veterinarians</h3>
                 <p>Connect with certified professionals.</p>
               </div>
             </li>
             <li>
               <RiFirstAidKitLine className="icon-10"/>
               <div className="description-text">
-                <h3>Comprehensive Services</h3>
+                <h3 className="sub-des">Comprehensive Services</h3>
                 <p>From routine check-ups to advanced treatments.</p>
               </div>
             </li>
@@ -60,7 +60,7 @@ const VetClinicFinder = () => {
         </h2>
         <div className="map-container">
           <div className="map-placeholder">
-            خريطة لتحديد أقرب عيادة بيطرية (Placeholder)
+          
           </div>
           <button className="view-larger-map">View Larger Map</button>
         </div>
