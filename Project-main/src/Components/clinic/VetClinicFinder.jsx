@@ -8,6 +8,19 @@ import { RiFirstAidKitLine } from "react-icons/ri";
 
 
 const VetClinicFinder = () => {
+
+  const defaultCenter = {
+    lat: 37.78825, // خط العرض
+    lng: -122.4324, // خط الطول
+  };
+
+  // بيانات العيادات
+  const clinics = [
+    { name: 'Pet Health', address: 'Sohag - Alshahed', contact: '01211901946' },
+    { name: 'Healthy dogs', address: 'Sohag - ALgmhoria', contact: '01090297636' },
+    { name: 'Friends', address: 'Sohag - AL mraha', contact: '01090297636' },
+  ];
+  
   return (
     <div className="container">
       <div className="top-section">
@@ -60,10 +73,31 @@ const VetClinicFinder = () => {
         </h2>
         <div className="map-container">
           <div className="map-placeholder">
-          
+            
           </div>
           <button className="view-larger-map">View Larger Map</button>
         </div>
+      </div>
+      {/* الجزء الجديد: قائمة العيادات */}
+      <div className="clinics-section">
+        <table className="clinics-table">
+          <thead>
+            <tr>
+              <th>Clinic Name</th>
+              <th>Address</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {clinics.map((clinic, index) => (
+              <tr key={index}>
+                <td>{clinic.name}</td>
+                <td>{clinic.address}</td>
+                <td>{clinic.contact}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
