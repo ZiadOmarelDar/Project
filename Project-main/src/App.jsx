@@ -20,7 +20,9 @@ import TrainHome from "./Components/Train/TrainHome";
 import DogTrain from "./Components/Train/DogTrain";
 import CatTrain from "./Components/Train/CatTrain";
 import Tips from "./Components/Train/Tips";
-import VetClinicFinder from "./Components/clinik/VetClinicFinder";
+import VetClinicFinder from "./Components/clinic/VetClinicFinder";
+
+import CheckoutPage from "./Components/Shop/CheckoutPage";
 
 function App() {
   return (
@@ -53,7 +55,7 @@ function App() {
           <Route path="/dogTrain" element={<DogTrain />} />
           <Route path="/catTrain" element={<CatTrain />} />
           <Route path="/tips" element={<Tips />} />
-		  <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
+		      <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
         </Route>
       </Routes>
     </Router>
