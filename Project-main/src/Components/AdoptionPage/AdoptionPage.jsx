@@ -81,8 +81,8 @@ const AdoptionPage = () => {
     <div className="adoption-page">
      
       <div className="header-1">
-        <div className="search-container-1">
-          <BiSearchAlt className="search-icon-1" />
+        <div className="search-container-5">
+          <BiSearchAlt className="search-icon-5" />
           <input
             type="text"
             placeholder="Search"

@@ -1,0 +1,151 @@
+.checkout-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.section-30 {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.payment-method {
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.payment-option {
+  margin-bottom: 20px;
+}
+
+.payment-option label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.payment-option input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.card-logos {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.card-logos img {
+  height: 30px;
+}
+
+.card-details-30 input {
+  width: 100%;
+}
+
+.card-info-30 {
+  display: flex;
+  gap: 10px;
+}
+
+.card-info-30 input {
+  width: 50%;
+}
+.cvv {
+ margin-top: 30px;
+ height: 50px;
+
+}   
+.expiry {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.expiry label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.expiry select {
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-btn, .cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.confirm-btn-30 {
+  width: 30%;
+  padding: 15px;
+  background-color: #003087;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 180px;
+}
+
+@media (max-width: 600px) {
+  .checkout-container {
+    padding: 10px;
+  }
+
+  .card-info {
+    flex-direction: column;
+  }
+
+  .card-info input, .expiry {
+    width: 100%;
+  }
+}

@@ -162,6 +162,7 @@ p {
   color: #372e77;
 }
 
+
 .icon {
   font-size: 29px;
   cursor: pointer;
@@ -268,7 +269,7 @@ p {
 
 .toggle-password-2 {
   position: absolute;
-  top:185px ;
+  top:200px ;
   left: 390px;
   transform: translateY(-50%);
   cursor: pointer;
