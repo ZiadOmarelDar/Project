@@ -93,12 +93,16 @@
 .bottom-section {
   width: 100%;
   margin-bottom: 50px;
+  background-color: #323773;
+  padding: 40px 20px;
+  border-radius: 20px;
+;
 }
 
 .bottom-section h2 {
   font-size: 24px;
   font-weight: bold;
-  color: #1f2937;
+  color: #ffffff;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -106,7 +110,7 @@
 
 .bottom-section h2 .arrow {
   margin-left: 10px;
-  color: #2563eb;
+  color: #ffffff;
   font-size: 20px;
 }
 
