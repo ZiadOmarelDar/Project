@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const ProductSchema = new mongoose.Schema({
-  id: { type: Number, unique: true, required: true },  // ✅ لازم يكون required
+  id: { type: Number, unique: true, required: true }, 
   productName: { type: String, required: true },
   description: { type: String },
   price: { type: Number, required: true },

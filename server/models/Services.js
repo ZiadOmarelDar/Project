@@ -8,7 +8,7 @@ const serviceSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    // حقول خاصة بالـ clinicAdmin
+    
     clinicName: {
       type: String,
       required: function () {
@@ -59,7 +59,7 @@ const serviceSchema = new mongoose.Schema({
         return this.type === "clinic";
       },
     },
-    // حقول خاصة بالـ trainer
+    
     trainerName: {
       type: String,
       required: function () {

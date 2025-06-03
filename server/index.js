@@ -131,7 +131,7 @@ app.post("/register", async (req, res) => {
       token,
     });
   } catch (err) {
-    // معالجة أخطاء الـ schema validation من mongoose
+    // معالجة أخطاء  schema validation من mongoose
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((e) => e.message);
       return res.status(400).json({ message: messages.join(", ") });
@@ -323,8 +323,6 @@ app.put("/user/update", authMiddleware, async (req, res) => {
     if (!name || !username || !email) {
       return res.status(400).json({ message: "Name, username, and email are required" });
     }
-
-    // التحقق من عدم وجود إيميل أو يوزرنيم مستخدمين قبل كده (باستثناء المستخدم الحالي)
     const existingUser = await UsersModel.findOne({
       $or: [{ email }, { username }],
       _id: { $ne: req.user.userId }, // استثناء المستخدم الحالي
