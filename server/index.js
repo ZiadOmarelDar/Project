@@ -109,7 +109,6 @@ app.post("/register", async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      userPhoto: imageUrl,
       cart: [],
     });
 
@@ -126,7 +125,6 @@ app.post("/register", async (req, res) => {
         username: newUser.username,
         email: newUser.email,
         userType: newUser.userType,
-        userPhoto: newUser.userPhoto,
       },
       token,
     });
