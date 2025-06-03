@@ -12,7 +12,7 @@
   padding: 40px 20px;
 }
 
-/* الجزء العلوي */
+/*first section*/
 .top-section {
   display: flex;
   flex-direction: column;
@@ -30,6 +30,7 @@
   font-size: 60px;
   line-height: 100%;
   letter-spacing: 0%;
+  margin-top: 35px;
 }
 
 .top-section .illustration {
@@ -37,15 +38,32 @@
   height: 539;
   margin-top: -80px;
   left: 470px;
+  margin-left: 20px;
 }
 
 .top-section .content {
   text-align: center;
+  margin-top: 50px;
+  margin-left: 70px;
 }
 
 .icon-10{
     color: #323773;
     font-size: 40px;
+    margin-right: 20px;
+}
+
+.description-text {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+}
+
+.sub-des {
+  margin-bottom: 5px;
 }
 
 .features-list {
@@ -57,7 +75,7 @@
 .features-list li {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .features-list li .icon {
@@ -66,19 +84,12 @@
   color: #2563eb;
 }
 
-.features-list li h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 5px;
-}
-
 .features-list li p {
   font-size: 14px;
   color: #6b7280;
 }
 
-/* الجزء السفلي */
+/* Maps */
 .bottom-section {
   width: 100%;
 }

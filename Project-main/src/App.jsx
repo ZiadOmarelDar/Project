@@ -21,7 +21,6 @@ import DogTrain from "./Components/Train/DogTrain";
 import CatTrain from "./Components/Train/CatTrain";
 import Tips from "./Components/Train/Tips";
 import VetClinicFinder from "./Components/clinik/VetClinicFinder";
-import CheckoutPage from "./Components/Shop/CheckoutPage";
 
 function App() {
   return (
