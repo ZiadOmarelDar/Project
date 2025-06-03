@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import "./Cart.css";
 
@@ -205,7 +205,9 @@ const Cart = () => {
             <p className="tax-info">
               Taxes and shipping calculated at checkout
             </p>
+            <Link to="/CheckoutPage" >
             <button className="checkout-btn">BUY IT NOW</button>
+            </Link>
           </div>
         )}
       </div>

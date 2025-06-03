@@ -188,7 +188,7 @@ function Register() {
             <span className="error">{errors.confirmPassword}</span>
           )}
 
-            <br />
+           
             <input 
             type="file"
             name="userPhoto"
