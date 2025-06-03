@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./ProductPage.css";
 
@@ -78,6 +78,7 @@ const ProductPage = () => {
 
           <div className="quantity-container-1">
             <p>Quantity</p>
+            <br />
             <div className="quantity-controls-1">
               <button
                 className="qty-btn"
@@ -99,7 +100,9 @@ const ProductPage = () => {
           </div>
 
           <div className="buttons-container-1">
+            <Link to="/CheckoutPage" >
             <button className="buy-now-1">BUY IT NOW</button>
+            </Link>
           </div>
         </div>
       </div>

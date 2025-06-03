@@ -22,6 +22,8 @@ import CatTrain from "./Components/Train/CatTrain";
 import Tips from "./Components/Train/Tips";
 import VetClinicFinder from "./Components/clinic/VetClinicFinder";
 
+import CheckoutPage from "./Components/Shop/CheckoutPage";
+
 function App() {
   return (
     <Router>
@@ -35,6 +37,7 @@ function App() {
           <Route path="/products/product/:id" element={<ProductPage />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/CheckoutPage" element={<CheckoutPage />} />
           <Route path="/community" element={<Community />} />
           <Route path="/profile/edit" element={<ProfileEdit />} />
           <Route path="/profile" element={<Profile />} />
@@ -52,7 +55,7 @@ function App() {
           <Route path="/dogTrain" element={<DogTrain />} />
           <Route path="/catTrain" element={<CatTrain />} />
           <Route path="/tips" element={<Tips />} />
-		  <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
+		      <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
         </Route>
       </Routes>
     </Router>
