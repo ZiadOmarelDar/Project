@@ -29,11 +29,12 @@
 .search-input {
 	flex: 1;
 	padding: 10px;
+	padding-top: 18px;
 	font-size: 16px;
 	color: #2e317f;
 	border: none;
 	outline: none;
-	height: 40px;
+	height: 20px;
 	border-radius: 0 10px 10px 0;
 }
 
