@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@vis.gl/react-google-maps": "^1.5.2"
+    "@vis.gl/react-google-maps": "^1.5.2",
+    "node-fetch": "^3.3.2"
   }
 }
