@@ -126,8 +126,9 @@ const VetClinicFinder = () => {
           Find Your Closest Vet
           <IoIosArrowForward/>
         </h2>
-        <div className="map-container" style={{ height: "400px", width: "100%" }}>
-          <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
+        <div className="map-container">
+          <div className="map-wrapper">
+            <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
             <Map
               defaultZoom={6}
               center={userLocation || defaultCenter}
@@ -152,6 +153,7 @@ const VetClinicFinder = () => {
               ))}
             </Map>
           </APIProvider>
+          </div>
         </div>
       </div>
 
