@@ -17,7 +17,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .title-container-10 {
@@ -25,20 +24,22 @@
 }
 
 .title-10 {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 60px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   margin-top: 35px;
+  color: #000;
 }
+
 
 .top-section .illustration {
   width: 307px;
   height: 539px;
   margin-top: -80px;
   left: 470px;
-  margin-left: 20px;
+  margin-left: 50px;
   overflow: hidden;
 }
 
@@ -46,6 +47,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-top: 20px;
 }
 
 .top-section .content {
@@ -95,7 +97,7 @@
   margin-left: calc(-50vw + 50%); 
   background-color: #323773;
   padding: 40px 20px;
-  border-radius: 0;
+  border-radius: 50px 50px 0 0;
   margin-bottom: 50px;
 }
 
