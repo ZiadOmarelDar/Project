@@ -9,8 +9,9 @@ const TravelRequirementModel = require("./models/TravelRequirementModel");
 const PostModel = require("./models/PostModel");
 const multer = require("multer");
 const ftp = require("ftp");
+const path = require("path");
+const fs = require("fs");
 const uploadFileToFTP = require("./funcUp");
-
 
 const app = express();
 app.use(express.json());
@@ -28,27 +29,98 @@ mongoose
 // تعريف الـ Secret Key بشكل ثابت
 const JWT_SECRET = "yourSecretKey";
 
+// Middleware للتحقق من التوكن
 const authMiddleware = (req, res, next) => {
-  const token = req.header("Authorization")?.replace("Bearer ", "");
+  const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
-    return res.status(401).json({ message: "No token provided" });
+    return res.status(401).json({ message: "No token provided. Please log in." });
   }
-
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, "your-secret-key");
     req.user = decoded;
     next();
-  } catch (error) {
-    res.status(401).json({ message: "Invalid token", error: error.message });
+  } catch (err) {
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({ message: "Token expired. Please log in again." });
+    }
+    return res.status(401).json({ message: "Invalid token. Please log in again." });
   }
 };
 
-const upload = multer({ dest: "uploads/" });
+// إعدادات Multer لصور البوستات (FTP)
+const uploadPosts = multer({ dest: "uploads/" });
 
-// ----------------------------------------------------------------------------------------------------------------------
+// إعدادات Multer لصور اليوزرز (محلي)
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "Uploads", "users");
+    fs.mkdirSync(uploadPath, { recursive: true }); // Create folder if it doesn't exist
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const uniqueName = `${Date.now()}-${file.originalname}`;
+    cb(null, uniqueName);
+  },
+});
 
+
+// 
+
+// 
+const uploadUsers = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    const filetypes = /jpeg|jpg|png/;
+    const extname = filetypes.test(
+      path.extname(file.originalname).toLowerCase()
+    );
+    const mimetype = filetypes.test(file.mimetype);
+    if (extname && mimetype) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only JPEG and PNG images are allowed"));
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
+
+// Serve static files from the uploads folder
+app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+
+
+// ***********************************************************************************
+// إعداد Multer لصور العيادات
+const storageClinics = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "uploads", "clinic-photos");
+    fs.mkdirSync(uploadPath, { recursive: true }); // Create folder if it doesn't exist
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // إسم فريد للصورة
+  },
+});
+
+const uploadClinics = multer({
+  storage: storageClinics,
+  fileFilter: (req, file, cb) => {
+    const filetypes = /jpeg|jpg|png/;
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+    if (extname && mimetype) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only JPEG and PNG images are allowed"));
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
+
+// ***********************************************************************************
+
+// Endpoint للتسجيل
 app.post("/register", async (req, res) => {
-  const { name, userType, username, email, password} = req.body;
+  const { name, userType, username, email, password } = req.body;
 
   try {
     // التحقق من وجود كل الحقول
@@ -73,32 +145,6 @@ app.post("/register", async (req, res) => {
       }
     }
 
-    // let imageUrl = "not found";
-    // // if(req.file){
-    // //     const filePath = req.file.path;
-    // //     const originalName = req.file.originalname;
-    // //     var imageUrl = await uploadFileToFTP(filePath, originalName);
-    // //     flag = true
-    // // }
-
-    //     if (req.file) {
-    //   try {
-    //     console.log('File received:', req.file);
-    //     const filePath = req.file.path;
-    //     const originalName = req.file.originalname;
-        
-    //     // Upload to FTP and get URL
-    //     imageUrl = await uploadFileToFTP(filePath, originalName);
-    //     console.log('Upload successful, URL:', imageUrl);
-        
-        
-    //   } catch (uploadError) {
-    //     console.error('File upload failed:', uploadError);
-    //     // Continue with registration even if upload fails
-    //     // imageUrl remains "not found"
-    //   }
-    // }
-
     // تشفير كلمة السر
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -109,6 +155,7 @@ app.post("/register", async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      userPhoto: "not found", // لا رفع صورة أثناء التسجيل
       cart: [],
     });
 
@@ -125,11 +172,12 @@ app.post("/register", async (req, res) => {
         username: newUser.username,
         email: newUser.email,
         userType: newUser.userType,
+        userPhoto: newUser.userPhoto,
       },
       token,
     });
   } catch (err) {
-    // معالجة أخطاء  schema validation من mongoose
+    // معالجة أخطاء schema validation من mongoose
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((e) => e.message);
       return res.status(400).json({ message: messages.join(", ") });
@@ -138,33 +186,31 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// ---------------------------------------------------------------------------
+// تسجيل الدخول
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
   try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
     const user = await UsersModel.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Incorrect Username or password" });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Incorrect Username or Password" });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    const payload = { userId: user._id };
-    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
-
-    res.json({ message: "Login successful", token });
+    const token = jwt.sign({ userId: user._id }, "your-secret-key", { expiresIn: "24h" }); // زيادة المدة لـ 24 ساعة
+    res.json({ token, message: "Login successful" });
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ message: "Error logging in", error: err.message });
   }
 });
-
-// ------------------------------------------------------------------------------
-
-// Get user info
+// جلب بيانات المستخدم
 app.get("/user", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId).select("-password");
@@ -177,9 +223,51 @@ app.get("/user", authMiddleware, async (req, res) => {
   }
 });
 
-// -----------------------------------------------------------------------------------------------
+// Endpoint لرفع صورة اليوزر
+app.post("/user/upload-photo", authMiddleware, uploadUsers.single("photo"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
 
-// Endpoint لجلب الخدمات بتاعة المستخدم
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const imageUrl = `/uploads/users/${req.file.filename}`;
+    user.userPhoto = imageUrl;
+    await user.save();
+
+    res.status(200).json({ message: "Profile photo uploaded successfully", imageUrl });
+  } catch (err) {
+    res.status(500).json({ message: "Error uploading photo", error: err.message });
+  }
+});
+// delete photo
+app.delete("/user/remove-photo", authMiddleware, async (req, res) => {
+  try {
+    const user = await UsersModel.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.userPhoto && user.userPhoto !== "not found") {
+      const photoPath = path.join(__dirname, "uploads", user.userPhoto.split("/uploads/")[1]);
+      if (fs.existsSync(photoPath)) {
+        fs.unlinkSync(photoPath); // حذف الصورة من المجلد
+      }
+    }
+
+    user.userPhoto = "not found";
+    await user.save();
+
+    res.json({ message: "Profile photo removed successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Error removing photo", error: err.message });
+  }
+});
+// جلب خدمات المستخدم
 app.get("/user/services", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId).select("services userType");
@@ -192,114 +280,206 @@ app.get("/user/services", authMiddleware, async (req, res) => {
   }
 });
 
-// -----------------------------------------------------------------------------------------------
-
-// إضافة خدمة جديدة
-app.post("/user/services", authMiddleware, async (req, res) => {
+// إضافة خدمة جديدة مع رفع صور العيادة
+app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5), async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    let serviceData = { contactInfo: req.body.contactInfo };
+    const { mobile, email } = req.body;
+    if (!mobile || !email) {
+      return res.status(400).json({ message: "Mobile and email are required" });
+    }
+
+    if (!/^\d{10,15}$/.test(mobile)) {
+      return res.status(400).json({ message: "Invalid mobile number" });
+    }
+
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
+
+    let serviceData = { mobile, email };
 
     if (user.userType === "clinicAdmin") {
+      const { clinicName, doctorName, location, workingHours, servicePrice, currency, serviceType, doctorDescription } = req.body;
+      if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription) {
+        return res.status(400).json({ message: "All clinic fields are required" });
+      }
+      if (isNaN(servicePrice) || servicePrice <= 0) {
+        return res.status(400).json({ message: "Service price must be a positive number" });
+      }
+      if (!["EGP", "USD"].includes(currency)) {
+        return res.status(400).json({ message: "Currency must be EGP or USD" });
+      }
+      const clinicPhotos = req.files.map(file => `/uploads/clinic-photos/${file.filename}`);
       serviceData = {
         ...serviceData,
         type: "clinic",
-        clinicName: req.body.clinicName,
-        doctorName: req.body.doctorName,
-        location: req.body.location,
-        workingHours: req.body.workingHours,
-        servicePrice: req.body.servicePrice,
-        currency: req.body.currency,
-        serviceType: req.body.serviceType,
-        doctorDescription: req.body.doctorDescription,
+        clinicName,
+        doctorName,
+        location,
+        workingHours,
+        servicePrice: parseFloat(servicePrice),
+        currency,
+        serviceType,
+        doctorDescription,
+        clinicPhotos,
       };
     } else if (user.userType === "trainer") {
+      const { specialty, availablePrograms } = req.body;
+      if (!specialty || !availablePrograms) {
+        return res.status(400).json({ message: "Specialty and at least one program are required" });
+      }
+      if (!["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"].includes(specialty)) {
+        return res.status(400).json({ message: "Invalid specialty" });
+      }
+
+      // تحويل availablePrograms لمصفوفة لو مش مصفوفة بالفعل
+      const programs = Array.isArray(availablePrograms) ? availablePrograms : [availablePrograms];
+      if (programs.length === 0) {
+        return res.status(400).json({ message: "At least one program (Private Sessions or Online Training) is required" });
+      }
+
+      // التحقق من القيم المختارة
+      const validPrograms = ["Private Sessions", "Online Training"];
+      const invalidPrograms = programs.filter(program => !validPrograms.includes(program));
+      if (invalidPrograms.length > 0) {
+        return res.status(400).json({ message: `Invalid programs: ${invalidPrograms.join(", ")}` });
+      }
+
       serviceData = {
         ...serviceData,
         type: "trainer",
         trainerName: user.name,
-        specialty: req.body.specialty,
-        availablePrograms: req.body.availablePrograms,
+        specialty,
+        availablePrograms: programs, // حفظ كمصفوفة
       };
+    } else {
+      return res.status(403).json({ message: "User type not authorized to add services" });
     }
 
-    // إضافة الخدمة للـ services array في الـ user
+    serviceData._id = new mongoose.Types.ObjectId();
     user.services.push(serviceData);
     await user.save();
 
     res.status(201).json({ service: serviceData });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: "Error adding service", error: err.message });
   }
 });
 
-
-// ----------------------------------------------------------------------------------
-// تعديل خدمة موجودة
-app.put("/user/services/:index", authMiddleware, async (req, res) => {
+// تعديل خدمة موجودة مع رفع صور العيادة
+app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinicPhotos", 5), async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const serviceIndex = parseInt(req.params.index);
-    if (serviceIndex < 0 || serviceIndex >= user.services.length) {
+    const serviceId = req.params.serviceId;
+    const service = user.services.find(s => s._id.toString() === serviceId);
+    if (!service) {
       return res.status(404).json({ message: "Service not found" });
     }
 
-    let serviceData = { contactInfo: req.body.contactInfo };
+    const { mobile, email } = req.body;
+    if (!mobile || !email) {
+      return res.status(400).json({ message: "Mobile and email are required" });
+    }
+
+    if (!/^\d{10,15}$/.test(mobile)) {
+      return res.status(400).json({ message: "Invalid mobile number" });
+    }
+
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
+
+    let serviceData = { _id: service._id, mobile, email };
 
     if (user.userType === "clinicAdmin") {
+      const { clinicName, doctorName, location, workingHours, servicePrice, currency, serviceType, doctorDescription } = req.body;
+      if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription) {
+        return res.status(400).json({ message: "All clinic fields are required" });
+      }
+      if (isNaN(servicePrice) || servicePrice <= 0) {
+        return res.status(400).json({ message: "Service price must be a positive number" });
+      }
+      if (!["EGP", "USD"].includes(currency)) {
+        return res.status(400).json({ message: "Currency must be EGP or USD" });
+      }
+      const clinicPhotos = req.files ? req.files.map(file => `/uploads/clinic-photos/${file.filename}`) : service.clinicPhotos;
       serviceData = {
         ...serviceData,
         type: "clinic",
-        clinicName: req.body.clinicName,
-        doctorName: req.body.doctorName,
-        location: req.body.location,
-        workingHours: req.body.workingHours,
-        servicePrice: req.body.servicePrice,
-        currency: req.body.currency,
-        serviceType: req.body.serviceType,
-        doctorDescription: req.body.doctorDescription,
+        clinicName,
+        doctorName,
+        location,
+        workingHours,
+        servicePrice: parseFloat(servicePrice),
+        currency,
+        serviceType,
+        doctorDescription,
+        clinicPhotos,
       };
     } else if (user.userType === "trainer") {
+      const { specialty, availablePrograms } = req.body;
+      if (!specialty || !availablePrograms) {
+        return res.status(400).json({ message: "Specialty and at least one program are required" });
+      }
+      if (!["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"].includes(specialty)) {
+        return res.status(400).json({ message: "Invalid specialty" });
+      }
+
+      // تحويل availablePrograms لمصفوفة لو مش مصفوفة بالفعل
+      const programs = Array.isArray(availablePrograms) ? availablePrograms : [availablePrograms];
+      if (programs.length === 0) {
+        return res.status(400).json({ message: "At least one program (Private Sessions or Online Training) is required" });
+      }
+
+      // التحقق من القيم المختارة
+      const validPrograms = ["Private Sessions", "Online Training"];
+      const invalidPrograms = programs.filter(program => !validPrograms.includes(program));
+      if (invalidPrograms.length > 0) {
+        return res.status(400).json({ message: `Invalid programs: ${invalidPrograms.join(", ")}` });
+      }
+
       serviceData = {
         ...serviceData,
         type: "trainer",
         trainerName: user.name,
-        specialty: req.body.specialty,
-        availablePrograms: req.body.availablePrograms,
+        specialty,
+        availablePrograms: programs, // حفظ كمصفوفة
       };
+    } else {
+      return res.status(403).json({ message: "User type not authorized to update services" });
     }
 
-    // تحديث الخدمة في الـ services array
+    const serviceIndex = user.services.findIndex(s => s._id.toString() === serviceId);
     user.services[serviceIndex] = serviceData;
     await user.save();
 
     res.status(200).json({ service: serviceData });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: "Error updating service", error: err.message });
   }
 });
 
-
-// -------------------------------------------------------------------------------------------
-// delete service
-app.delete("/user/services/:index", authMiddleware, async (req, res) => {
+// حذف خدمة
+app.delete("/user/services/:serviceId", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const serviceIndex = parseInt(req.params.index);
-    if (isNaN(serviceIndex) || serviceIndex < 0 || serviceIndex >= user.services.length) {
-      return res.status(400).json({ message: "Invalid service index" });
+    const serviceId = req.params.serviceId;
+    const serviceIndex = user.services.findIndex(s => s._id?.toString() === serviceId);
+    if (serviceIndex === -1) {
+      return res.status(400).json({ message: "Invalid service ID" });
     }
 
     user.services.splice(serviceIndex, 1);
@@ -311,19 +491,63 @@ app.delete("/user/services/:index", authMiddleware, async (req, res) => {
   }
 });
 
-// -------------------------------------------------------------------------------------------------
-// user update
+// جلب جميع المدربين اللي عندهم خدمات
+app.get("/user/trainers", authMiddleware, async (req, res) => {
+  try {
+    const trainers = await UsersModel.find({ userType: "trainer", "services.0": { $exists: true } }).select("-password");
+    if (!trainers || trainers.length === 0) {
+      return res.status(404).json({ message: "No trainers found" });
+    }
+    res.status(200).json({ trainers });
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching trainers", error: err.message });
+  }
+});
+
+// جلب بيانات المدرب بناءً على الـ ID
+app.get("/user/:trainerId", authMiddleware, async (req, res) => {
+  try {
+    const trainer = await UsersModel.findById(req.params.trainerId).select("-password");
+    if (!trainer) {
+      return res.status(404).json({ message: "Trainer not found" });
+    }
+    if (trainer.userType !== "trainer") {
+      return res.status(403).json({ message: "This user is not a trainer" });
+    }
+    res.status(200).json({ user: trainer });
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching trainer data", error: err.message });
+  }
+});
+
+// جلب بيانات الخدمة الخاصة بالمدرب
+app.get("/user/services/:trainerId", authMiddleware, async (req, res) => {
+  try {
+    const trainer = await UsersModel.findById(req.params.trainerId);
+    if (!trainer) {
+      return res.status(404).json({ message: "Trainer not found" });
+    }
+    const trainerServices = trainer.services.filter(s => s.type === "trainer");
+    if (trainerServices.length === 0) {
+      return res.status(404).json({ message: "Trainer service not found" });
+    }
+    const service = trainerServices[0]; // رجوع الخدمة الأولى كـ default
+    res.status(200).json({ service });
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching trainer service", error: err.message });
+  }
+});
+// تحديث بيانات المستخدم
 app.put("/user/update", authMiddleware, async (req, res) => {
   const { name, username, email } = req.body;
 
   try {
-    // التحقق من وجود كل الحقول
     if (!name || !username || !email) {
       return res.status(400).json({ message: "Name, username, and email are required" });
     }
     const existingUser = await UsersModel.findOne({
       $or: [{ email }, { username }],
-      _id: { $ne: req.user.userId }, // استثناء المستخدم الحالي
+      _id: { $ne: req.user.userId },
     });
     if (existingUser) {
       if (existingUser.email === email) {
@@ -334,7 +558,6 @@ app.put("/user/update", authMiddleware, async (req, res) => {
       }
     }
 
-    // البحث عن المستخدم وتحديث بياناته
     const user = await UsersModel.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -347,7 +570,6 @@ app.put("/user/update", authMiddleware, async (req, res) => {
 
     res.json({ message: "Profile updated successfully", user });
   } catch (err) {
-    // معالجة أخطاء الـ schema validation من mongoose
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((e) => e.message);
       return res.status(400).json({ message: messages.join(", ") });
@@ -356,8 +578,7 @@ app.put("/user/update", authMiddleware, async (req, res) => {
   }
 });
 
-
-// -------------------------------------------------------------------------------------------
+// جلب كل المنتجات
 app.get("/products", async (req, res) => {
   try {
     const products = await ProductModel.find();
@@ -367,8 +588,7 @@ app.get("/products", async (req, res) => {
   }
 });
 
-
-// ---------------------------------------------------------------------------------------------
+// جلب منتج معين
 app.get("/products/:id", async (req, res) => {
   try {
     const product = await ProductModel.findById(req.params.id);
@@ -381,8 +601,7 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
-
-// -----------------------------------------------------------------------------------------------
+// جلب أكل الكلاب
 app.get("/dogs-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "dogs-food" });
@@ -392,8 +611,7 @@ app.get("/dogs-food", async (req, res) => {
   }
 });
 
-
-// -----------------------------------------------------------------------------------------------
+// جلب أكل القطط
 app.get("/cats-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "cats-food" });
@@ -403,8 +621,7 @@ app.get("/cats-food", async (req, res) => {
   }
 });
 
-
-// ------------------------------------------------------------------------------------------------
+// جلب الإكسسوارات
 app.get("/accessories", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "accessories" });
@@ -414,8 +631,7 @@ app.get("/accessories", async (req, res) => {
   }
 });
 
-
-// --------------------------------------------------------------------------------------------------
+// إضافة منتجات
 app.post("/products", async (req, res) => {
   try {
     const products = req.body;
@@ -458,8 +674,7 @@ app.post("/products", async (req, res) => {
   }
 });
 
-
-// ---------------------------------------------------------------------------------------------------
+// إضافة متطلبات السفر
 app.post("/travel-requirements", async (req, res) => {
   try {
     const { country, documentsRequired, vaccinationsRequired, comfortTips, type } = req.body;
@@ -489,8 +704,7 @@ app.post("/travel-requirements", async (req, res) => {
   }
 });
 
-
-// -----------------------------------------------------------------------------------------------------------------
+// جلب متطلبات السفر
 app.get("/travel-requirements", async (req, res) => {
   try {
     const requirements = await TravelRequirementModel.find();
@@ -500,8 +714,7 @@ app.get("/travel-requirements", async (req, res) => {
   }
 });
 
-
-// -------------------------------------------------------------------------------------------------------------------
+// إضافة منتج للسلة
 app.post("/cart/add", authMiddleware, async (req, res) => {
   const { productId, quantity } = req.body;
 
@@ -538,8 +751,7 @@ app.post("/cart/add", authMiddleware, async (req, res) => {
   }
 });
 
-
-// -----------------------------------------------------------------------------------------
+// جلب السلة
 app.get("/cart", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -553,8 +765,7 @@ app.get("/cart", authMiddleware, async (req, res) => {
   }
 });
 
-
-// --------------------------------------------------------------------------------------------
+// إزالة منتج من السلة
 app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   const { productId } = req.params;
 
@@ -576,20 +787,8 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   }
 });
 
-// ---------------------------------------------------------------------------------------------------------
-
-
-
-
-// FTP config
-const ftpOptions = {
-  host: "92.113.18.144",
-  user: "u993113834",
-  password: "Mahxoud@000",
-};
-
-// 👇 Add image support here
-app.post("/community/posts", authMiddleware, upload.single("image"), async (req, res) => {
+// إضافة بوست
+app.post("/community/posts", authMiddleware, uploadPosts.single("image"), async (req, res) => {
   try {
     const { content } = req.body;
     if (!content) {
@@ -608,7 +807,6 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
       const fileName = Date.now() + "-" + req.file.originalname;
       const client = new ftp();
 
-      // Wrap FTP logic in a promise to use with await
       const uploadImageToFtp = () =>
         new Promise((resolve, reject) => {
           client.on("ready", () => {
@@ -626,11 +824,8 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
                   `/domains/express-elmadina.com/public_html/Pets_images/${fileName}`,
                   (putErr) => {
                     client.end();
-                    // fs.unlinkSync(filePath);
-
                     if (putErr) return reject(putErr);
 
-                    // ✅ Final image URL
                     const finalUrl = `https://express-elmadina.com/Pets_images/${fileName}`;
                     resolve(finalUrl);
                   }
@@ -640,7 +835,11 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
           });
 
           client.on("error", (err) => reject(err));
-          client.connect(ftpOptions);
+          client.connect({
+            host: "92.113.18.144",
+            user: "u993113834",
+            password: "Mahxoud@000",
+          });
         });
 
       imageUrl = await uploadImageToFtp();
@@ -650,7 +849,7 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
       content,
       author: req.user.userId,
       username: user.username,
-      imageUrl, // null if no image uploaded
+      imageUrl,
       likes: [],
       comments: [],
     });
@@ -663,7 +862,6 @@ app.post("/community/posts", authMiddleware, upload.single("image"), async (req,
   }
 });
 
-// ----------------------------------------------------------------------------------------------------
 // جلب كل البوستات
 app.get("/community/posts", async (req, res) => {
   try {
@@ -731,9 +929,6 @@ app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) =>
     res.status(500).json({ message: "Error adding comment", error: err.message });
   }
 });
-
-
-
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
