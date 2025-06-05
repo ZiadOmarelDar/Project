@@ -1,0 +1,1501 @@
+Animal,Breed,Age,Gender,Health Condition,Size,Color,Location,Training,Popularity,Price
+Hamster,Dwarf,4,Female,Healthy,Large,Grey,India,Basic Training,High,175.0
+Rabbit,Holland Lop,2,Female,Vaccinated,Medium,Spotted,Australia,Basic Training,High,160.0
+Bird,Macaw,6,Male,Healthy,Medium,White,Germany,Untrained,Medium,150.0
+Rabbit,Angora,3,Male,Special Needs,Large,Golden,USA,Untrained,Low,42.5
+Dog,Labrador,14,Female,Vaccinated,Medium,Spotted,Australia,Well Trained,Low,377.0
+Hamster,Campbell's,2,Male,Healthy,Medium,Golden,UK,Basic Training,Medium,95.0
+Cat,Bengal,10,Female,Special Needs,Small,Black,India,Basic Training,Low,75.0
+Cat,Maine Coon,8,Female,Healthy,Medium,Spotted,USA,Highly Trained,Medium,273.0
+Hamster,Roborovski,12,Female,Special Needs,Small,Spotted,USA,Well Trained,Medium,81.25
+Dog,Beagle,1,Female,Healthy,Large,Black,USA,Highly Trained,High,448.5
+Rabbit,Holland Lop,9,Female,Vaccinated,Small,Golden,Australia,Highly Trained,Low,97.5
+Cat,Sphynx,11,Female,Sick,Small,White,UK,Well Trained,Medium,186.55
+Hamster,Syrian,15,Female,Healthy,Medium,Grey,India,Well Trained,Low,143.0
+Hamster,Dwarf,3,Male,Sick,Medium,Brown,France,Basic Training,Low,35.0
+Hamster,Dwarf,14,Male,Special Needs,Large,Grey,India,Highly Trained,Medium,113.75
+Rabbit,Angora,4,Female,Sick,Medium,White,France,Highly Trained,Medium,109.2
+Cat,Sphynx,6,Female,Vaccinated,Small,Spotted,Canada,Highly Trained,Medium,234.0
+Hamster,Roborovski,9,Female,Special Needs,Small,White,France,Highly Trained,Medium,71.5
+Rabbit,Netherland Dwarf,12,Male,Special Needs,Small,Golden,France,Well Trained,Medium,91.0
+Dog,Golden Retriever,7,Male,Vaccinated,Large,Spotted,Canada,Well Trained,Low,357.5
+Cat,Maine Coon,7,Female,Vaccinated,Small,Black,Germany,Basic Training,Low,135.0
+Cat,Siamese,9,Female,Special Needs,Large,Golden,France,Basic Training,Low,92.5
+Rabbit,Holland Lop,8,Male,Vaccinated,Medium,Black,France,Well Trained,High,247.0
+Hamster,Campbell's,4,Female,Sick,Small,White,India,Well Trained,High,122.85
+Dog,Bulldog,9,Male,Sick,Small,Brown,France,Highly Trained,Medium,268.45
+Hamster,Syrian,8,Female,Sick,Large,Mixed,UK,Highly Trained,Low,86.45
+Bird,Cockatiel,13,Female,Healthy,Large,Black,Australia,Highly Trained,Medium,266.5
+Hamster,Syrian,7,Male,Special Needs,Small,Grey,France,Basic Training,Low,25.0
+Dog,Labrador,2,Male,Sick,Large,Golden,USA,Highly Trained,Low,227.5
+Dog,Bulldog,2,Male,Healthy,Medium,Brown,Canada,Well Trained,Medium,364.0
+Cat,Persian,2,Female,Sick,Small,Brown,USA,Untrained,High,147.0
+Hamster,Roborovski,7,Female,Vaccinated,Small,Golden,Canada,Basic Training,High,150.0
+Dog,Beagle,6,Male,Special Needs,Medium,Grey,USA,Untrained,High,175.0
+Hamster,Campbell's,10,Female,Sick,Large,Spotted,USA,Basic Training,Low,73.5
+Hamster,Roborovski,10,Male,Special Needs,Medium,Brown,USA,Highly Trained,Medium,87.75
+Hamster,Dwarf,3,Female,Healthy,Medium,Mixed,UK,Highly Trained,Medium,130.0
+Cat,Persian,10,Female,Vaccinated,Large,Spotted,France,Basic Training,Medium,240.0
+Dog,Golden Retriever,8,Male,Special Needs,Small,Brown,India,Basic Training,High,170.0
+Cat,Maine Coon,15,Male,Sick,Medium,Golden,Australia,Basic Training,High,206.5
+Cat,Sphynx,14,Female,Healthy,Small,Brown,Germany,Untrained,Low,170.0
+Cat,Maine Coon,8,Female,Healthy,Large,Mixed,Canada,Highly Trained,Low,234.0
+Rabbit,Mini Rex,5,Female,Healthy,Large,Black,Canada,Basic Training,High,195.0
+Cat,Persian,8,Female,Vaccinated,Medium,Golden,Australia,Basic Training,Medium,210.0
+Hamster,Campbell's,14,Male,Special Needs,Large,White,India,Basic Training,Low,62.5
+Hamster,Roborovski,10,Female,Vaccinated,Medium,Grey,Canada,Highly Trained,High,240.5
+Cat,Persian,5,Male,Sick,Small,Spotted,USA,Untrained,Low,87.5
+Hamster,Chinese,4,Male,Special Needs,Small,Brown,Germany,Untrained,High,67.5
+Rabbit,Holland Lop,9,Male,Healthy,Small,Black,USA,Basic Training,High,175.0
+Rabbit,Mini Rex,11,Female,Special Needs,Medium,Spotted,Australia,Well Trained,Low,68.25
+Dog,Beagle,8,Female,Sick,Large,Spotted,Canada,Basic Training,Low,196.0
+Dog,Bulldog,12,Female,Special Needs,Small,White,Canada,Well Trained,High,234.0
+Cat,Maine Coon,1,Female,Healthy,Medium,Spotted,USA,Basic Training,Low,125.0
+Bird,Cockatiel,9,Male,Special Needs,Small,Mixed,USA,Highly Trained,Low,61.75
+Cat,Siamese,7,Male,Special Needs,Small,Grey,UK,Well Trained,High,152.75
+Dog,Labrador,15,Female,Special Needs,Small,White,Australia,Basic Training,Medium,162.5
+Cat,Bengal,7,Male,Sick,Large,Spotted,Canada,Highly Trained,Medium,204.75
+Dog,Poodle,4,Male,Sick,Small,Mixed,France,Well Trained,High,291.2
+Cat,Bengal,10,Male,Healthy,Medium,Spotted,Canada,Highly Trained,Medium,286.0
+Bird,Canary,7,Male,Special Needs,Small,Spotted,USA,Untrained,Low,42.5
+Dog,Poodle,2,Male,Vaccinated,Medium,White,India,Highly Trained,Low,299.0
+Bird,Canary,12,Female,Sick,Medium,Grey,Germany,Well Trained,High,209.3
+Rabbit,Flemish Giant,11,Male,Special Needs,Medium,Golden,UK,Basic Training,Medium,77.5
+Rabbit,Holland Lop,3,Male,Special Needs,Medium,White,UK,Highly Trained,Low,42.25
+Bird,Cockatiel,8,Male,Healthy,Medium,Grey,India,Highly Trained,Low,143.0
+Cat,Sphynx,7,Male,Healthy,Small,Mixed,USA,Untrained,Low,135.0
+Bird,Canary,1,Male,Special Needs,Large,Grey,France,Basic Training,Low,47.5
+Rabbit,Flemish Giant,5,Male,Sick,Medium,Spotted,France,Well Trained,Medium,113.75
+Dog,Bulldog,13,Male,Sick,Medium,Brown,India,Well Trained,High,350.35
+Dog,Bulldog,15,Male,Healthy,Medium,Mixed,USA,Well Trained,Low,383.5
+Dog,Labrador,2,Female,Special Needs,Medium,Grey,Canada,Untrained,High,165.0
+Bird,Finch,8,Male,Sick,Large,Spotted,India,Well Trained,Medium,163.8
+Hamster,Dwarf,15,Female,Sick,Medium,Brown,Canada,Highly Trained,Low,100.1
+Rabbit,Flemish Giant,14,Male,Special Needs,Large,Mixed,UK,Well Trained,High,156.0
+Hamster,Chinese,14,Female,Vaccinated,Large,Mixed,UK,Untrained,Medium,175.0
+Cat,Bengal,11,Female,Vaccinated,Large,Spotted,Germany,Untrained,High,295.0
+Rabbit,Mini Rex,4,Male,Special Needs,Medium,Grey,Germany,Untrained,Medium,60.0
+Rabbit,Angora,12,Male,Sick,Small,Grey,Australia,Highly Trained,Low,81.9
+Rabbit,Mini Rex,12,Male,Vaccinated,Medium,Golden,India,Untrained,Medium,160.0
+Hamster,Roborovski,1,Female,Vaccinated,Small,White,France,Untrained,Low,20.0
+Rabbit,Angora,14,Female,Sick,Small,Brown,Australia,Basic Training,Low,70.0
+Dog,Labrador,1,Female,Vaccinated,Small,Golden,Germany,Untrained,Medium,255.0
+Rabbit,Flemish Giant,6,Female,Special Needs,Medium,Golden,India,Highly Trained,High,117.0
+Cat,Maine Coon,9,Female,Special Needs,Large,White,Australia,Well Trained,Low,120.25
+Rabbit,Angora,10,Male,Special Needs,Medium,Golden,Australia,Untrained,Low,50.0
+Hamster,Syrian,14,Male,Healthy,Medium,Black,India,Well Trained,High,266.5
+Bird,Canary,9,Female,Special Needs,Medium,Mixed,France,Untrained,Medium,82.5
+Cat,Sphynx,7,Female,Sick,Large,White,UK,Untrained,Medium,157.5
+Dog,Poodle,6,Male,Healthy,Small,White,USA,Untrained,Medium,280.0
+Cat,Persian,5,Male,Vaccinated,Large,Black,France,Well Trained,High,344.5
+Rabbit,Angora,2,Male,Special Needs,Large,Black,Australia,Highly Trained,Medium,84.5
+Cat,Bengal,7,Male,Sick,Large,Spotted,Germany,Highly Trained,Medium,204.75
+Hamster,Syrian,13,Male,Sick,Large,Grey,USA,Well Trained,Medium,154.7
+Dog,Bulldog,8,Male,Special Needs,Medium,Brown,USA,Highly Trained,Medium,201.5
+Cat,Maine Coon,7,Female,Sick,Large,Golden,Germany,Basic Training,Low,122.5
+Cat,Maine Coon,9,Female,Special Needs,Large,Black,Canada,Well Trained,Medium,152.75
+Bird,Canary,12,Male,Sick,Medium,Golden,India,Basic Training,Low,91.0
+Cat,Siamese,8,Female,Special Needs,Medium,Spotted,Germany,Basic Training,Medium,105.0
+Dog,Beagle,4,Male,Special Needs,Medium,White,UK,Untrained,Medium,145.0
+Bird,Macaw,2,Male,Healthy,Large,White,France,Untrained,Low,100.0
+Dog,Beagle,10,Male,Sick,Medium,Brown,Germany,Untrained,Medium,224.0
+Cat,Bengal,6,Male,Healthy,Medium,Golden,Germany,Basic Training,Medium,200.0
+Dog,Bulldog,11,Male,Special Needs,Small,Grey,Australia,Untrained,Low,127.5
+Dog,Beagle,1,Female,Special Needs,Large,Golden,USA,Basic Training,Low,122.5
+Rabbit,Netherland Dwarf,11,Male,Healthy,Large,Mixed,India,Highly Trained,Low,162.5
+Bird,Finch,11,Male,Healthy,Medium,Spotted,Canada,Highly Trained,Low,162.5
+Dog,Bulldog,11,Male,Sick,Large,Mixed,USA,Basic Training,Medium,241.5
+Dog,Poodle,8,Female,Special Needs,Large,Black,UK,Well Trained,Medium,214.5
+Cat,Bengal,10,Female,Vaccinated,Medium,Mixed,UK,Well Trained,High,351.0
+Dog,Poodle,12,Male,Sick,Small,Grey,USA,Well Trained,Medium,282.1
+Dog,Beagle,3,Male,Healthy,Large,White,India,Untrained,Low,255.0
+Cat,Siamese,15,Male,Healthy,Small,Mixed,France,Well Trained,Medium,292.5
+Rabbit,Mini Rex,4,Female,Special Needs,Medium,Golden,Canada,Well Trained,Medium,78.0
+Bird,Finch,13,Female,Healthy,Large,Grey,Germany,Untrained,Low,155.0
+Rabbit,Flemish Giant,2,Male,Vaccinated,Medium,Black,Australia,Well Trained,Medium,143.0
+Dog,Beagle,9,Male,Special Needs,Medium,Spotted,UK,Highly Trained,Low,172.25
+Rabbit,Mini Rex,11,Male,Vaccinated,Small,Black,UK,Highly Trained,High,240.5
+Bird,Parrot,8,Male,Healthy,Large,White,Canada,Well Trained,High,299.0
+Hamster,Dwarf,2,Female,Healthy,Small,Golden,Australia,Highly Trained,High,162.5
+Dog,Labrador,15,Male,Vaccinated,Small,Mixed,UK,Untrained,Medium,325.0
+Dog,Beagle,14,Female,Sick,Small,Golden,Australia,Well Trained,Low,245.7
+Rabbit,Netherland Dwarf,10,Male,Healthy,Large,Brown,UK,Untrained,Low,120.0
+Hamster,Campbell's,4,Female,Sick,Medium,Black,France,Basic Training,High,108.5
+Rabbit,Angora,12,Female,Healthy,Large,White,India,Well Trained,Medium,234.0
+Hamster,Chinese,8,Female,Special Needs,Large,Mixed,USA,Basic Training,Low,47.5
+Cat,Siamese,12,Female,Special Needs,Large,Mixed,Germany,Untrained,Medium,125.0
+Bird,Macaw,11,Male,Sick,Small,Black,France,Untrained,High,143.5
+Cat,Bengal,15,Male,Healthy,Small,Brown,UK,Untrained,Medium,225.0
+Cat,Persian,7,Female,Healthy,Medium,White,Canada,Highly Trained,Low,201.5
+Cat,Maine Coon,9,Male,Healthy,Medium,Brown,Canada,Highly Trained,Medium,279.5
+Rabbit,Netherland Dwarf,12,Male,Sick,Large,Black,Germany,Highly Trained,High,209.3
+Rabbit,Holland Lop,9,Female,Healthy,Large,Black,Australia,Untrained,Medium,165.0
+Cat,Sphynx,11,Female,Healthy,Medium,Spotted,Germany,Basic Training,Low,175.0
+Cat,Maine Coon,15,Female,Special Needs,Large,Brown,USA,Basic Training,Medium,132.5
+Bird,Cockatiel,1,Male,Healthy,Small,White,France,Basic Training,Low,55.0
+Dog,Poodle,4,Female,Healthy,Medium,White,Australia,Untrained,Low,240.0
+Dog,Golden Retriever,6,Female,Sick,Large,Black,India,Untrained,Low,189.0
+Dog,Labrador,8,Female,Special Needs,Small,Grey,India,Highly Trained,Low,156.0
+Cat,Sphynx,7,Male,Special Needs,Large,Black,India,Highly Trained,High,178.75
+Bird,Finch,14,Female,Healthy,Small,Brown,UK,Highly Trained,High,286.0
+Dog,Bulldog,10,Male,Healthy,Large,Spotted,France,Highly Trained,Medium,442.0
+Bird,Parrot,10,Female,Healthy,Large,Grey,USA,Well Trained,Medium,247.0
+Bird,Finch,9,Male,Special Needs,Large,Mixed,UK,Untrained,Low,67.5
+Cat,Bengal,14,Female,Special Needs,Medium,Spotted,UK,Untrained,Medium,120.0
+Cat,Bengal,10,Male,Healthy,Small,Black,Germany,Well Trained,High,325.0
+Rabbit,Holland Lop,8,Female,Vaccinated,Large,Mixed,Canada,Well Trained,Low,143.0
+Bird,Parrot,12,Male,Sick,Small,White,France,Highly Trained,High,191.1
+Cat,Persian,10,Female,Healthy,Large,Black,France,Well Trained,Low,247.0
+Rabbit,Netherland Dwarf,15,Male,Vaccinated,Small,Black,France,Untrained,High,205.0
+Bird,Parrot,7,Female,Sick,Small,White,UK,Basic Training,Medium,94.5
+Bird,Finch,14,Male,Special Needs,Large,Golden,France,Highly Trained,High,169.0
+Cat,Sphynx,15,Female,Special Needs,Large,White,Australia,Highly Trained,Low,139.75
+Dog,Beagle,1,Female,Healthy,Medium,Brown,Australia,Basic Training,Low,225.0
+Hamster,Roborovski,2,Male,Vaccinated,Medium,Brown,USA,Highly Trained,Medium,123.5
+Hamster,Campbell's,4,Female,Sick,Medium,Brown,Canada,Untrained,Medium,73.5
+Bird,Macaw,10,Male,Special Needs,Large,Spotted,Canada,Well Trained,Medium,123.5
+Bird,Canary,14,Female,Sick,Medium,Mixed,Canada,Highly Trained,Low,127.4
+Cat,Siamese,5,Male,Special Needs,Small,White,UK,Basic Training,Low,62.5
+Rabbit,Mini Rex,6,Male,Healthy,Small,Golden,India,Basic Training,High,160.0
+Bird,Cockatiel,5,Female,Sick,Large,Grey,Canada,Basic Training,Low,80.5
+Hamster,Chinese,10,Male,Healthy,Medium,Grey,India,Untrained,Medium,135.0
+Dog,Labrador,14,Male,Special Needs,Small,Golden,France,Untrained,High,185.0
+Hamster,Syrian,13,Male,Vaccinated,Medium,Golden,India,Basic Training,Medium,150.0
+Dog,Poodle,9,Male,Vaccinated,Large,Brown,Australia,Well Trained,High,500.5
+Cat,Maine Coon,2,Female,Healthy,Medium,Spotted,Australia,Highly Trained,Medium,234.0
+Bird,Parrot,10,Male,Vaccinated,Medium,Mixed,Germany,Untrained,Low,120.0
+Cat,Maine Coon,7,Male,Vaccinated,Small,Golden,India,Untrained,Low,135.0
+Bird,Cockatiel,8,Male,Sick,Large,Spotted,India,Untrained,Medium,126.0
+Cat,Persian,11,Female,Vaccinated,Large,Grey,Canada,Basic Training,High,295.0
+Bird,Cockatiel,14,Male,Vaccinated,Large,Black,France,Well Trained,Low,208.0
+Hamster,Syrian,12,Female,Vaccinated,Large,Mixed,India,Untrained,Medium,165.0
+Rabbit,Mini Rex,5,Female,Sick,Medium,Grey,France,Highly Trained,High,159.25
+Hamster,Dwarf,5,Male,Healthy,Large,Black,USA,Highly Trained,Low,104.0
+Bird,Finch,15,Female,Sick,Large,Golden,UK,Well Trained,High,241.15
+Dog,Bulldog,9,Female,Healthy,Small,Mixed,India,Untrained,Low,245.0
+Rabbit,Angora,2,Male,Special Needs,Medium,Brown,USA,Well Trained,High,104.0
+Hamster,Campbell's,10,Female,Healthy,Medium,Golden,USA,Untrained,High,185.0
+Cat,Siamese,9,Male,Sick,Large,Black,India,Basic Training,Medium,164.5
+Bird,Parrot,12,Female,Healthy,Large,Mixed,India,Untrained,High,250.0
+Bird,Canary,2,Male,Vaccinated,Medium,Grey,Canada,Basic Training,High,180.0
+Dog,Bulldog,15,Female,Healthy,Small,Golden,Germany,Highly Trained,High,487.5
+Rabbit,Holland Lop,2,Male,Special Needs,Small,Golden,Australia,Well Trained,High,91.0
+Bird,Cockatiel,12,Female,Healthy,Small,Brown,Canada,Basic Training,Medium,160.0
+Rabbit,Angora,10,Male,Special Needs,Medium,Spotted,USA,Well Trained,Low,65.0
+Rabbit,Netherland Dwarf,1,Male,Special Needs,Medium,Spotted,France,Basic Training,Medium,52.5
+Dog,Golden Retriever,5,Female,Vaccinated,Small,Brown,France,Well Trained,High,422.5
+Rabbit,Angora,7,Female,Sick,Small,Mixed,Canada,Untrained,Medium,80.5
+Rabbit,Mini Rex,13,Female,Special Needs,Medium,Mixed,UK,Highly Trained,High,139.75
+Bird,Parrot,13,Female,Sick,Large,White,India,Highly Trained,High,232.05
+Hamster,Dwarf,6,Female,Special Needs,Large,Grey,India,Well Trained,High,120.25
+Dog,Beagle,3,Male,Special Needs,Medium,Black,Australia,Basic Training,High,167.5
+Hamster,Syrian,14,Female,Healthy,Medium,Mixed,Germany,Highly Trained,Medium,201.5
+Dog,Labrador,4,Female,Healthy,Small,Mixed,USA,Well Trained,Medium,351.0
+Dog,Poodle,5,Female,Healthy,Small,White,USA,Basic Training,Low,225.0
+Bird,Parrot,3,Male,Healthy,Small,Golden,USA,Well Trained,Medium,149.5
+Cat,Persian,15,Female,Healthy,Large,Golden,UK,Highly Trained,Medium,344.5
+Bird,Macaw,5,Male,Special Needs,Medium,Spotted,India,Well Trained,High,126.75
+Hamster,Syrian,9,Male,Sick,Small,Black,Canada,Untrained,Low,42.0
+Hamster,Roborovski,1,Male,Special Needs,Small,Golden,Australia,Well Trained,High,78.0
+Dog,Golden Retriever,9,Male,Sick,Medium,Golden,Australia,Highly Trained,Medium,286.65
+Dog,Labrador,13,Male,Sick,Medium,Brown,India,Untrained,High,269.5
+Hamster,Roborovski,2,Male,Healthy,Medium,Brown,UK,Basic Training,Low,45.0
+Cat,Maine Coon,5,Male,Sick,Small,Mixed,UK,Basic Training,Medium,122.5
+Rabbit,Angora,2,Male,Vaccinated,Medium,Brown,UK,Basic Training,High,160.0
+Hamster,Roborovski,15,Female,Sick,Medium,Mixed,Canada,Well Trained,High,191.1
+Rabbit,Netherland Dwarf,14,Male,Sick,Medium,Spotted,USA,Untrained,High,154.0
+Dog,Poodle,8,Male,Special Needs,Large,Golden,Canada,Highly Trained,Low,182.0
+Hamster,Campbell's,5,Male,Special Needs,Small,Black,UK,Untrained,High,70.0
+Hamster,Dwarf,7,Male,Healthy,Medium,White,Australia,Untrained,High,170.0
+Dog,Labrador,3,Female,Special Needs,Medium,Golden,Australia,Untrained,Medium,142.5
+Rabbit,Holland Lop,13,Male,Special Needs,Large,White,UK,Well Trained,Medium,120.25
+Rabbit,Holland Lop,3,Female,Vaccinated,Small,Mixed,India,Highly Trained,Low,58.5
+Bird,Finch,2,Female,Vaccinated,Large,Spotted,Canada,Well Trained,High,260.0
+Hamster,Dwarf,11,Male,Sick,Large,Brown,Canada,Basic Training,High,147.0
+Dog,Bulldog,1,Female,Vaccinated,Large,Black,USA,Untrained,Medium,295.0
+Rabbit,Netherland Dwarf,12,Male,Sick,Medium,White,USA,Basic Training,Low,77.0
+Cat,Sphynx,15,Female,Sick,Small,Grey,UK,Untrained,High,192.5
+Dog,Bulldog,7,Female,Healthy,Small,Black,Germany,Highly Trained,Low,305.5
+Cat,Sphynx,15,Male,Sick,Large,White,India,Well Trained,High,286.65
+Cat,Sphynx,6,Female,Vaccinated,Small,White,USA,Untrained,Low,130.0
+Bird,Finch,10,Male,Healthy,Small,Mixed,UK,Well Trained,Medium,195.0
+Bird,Macaw,13,Female,Healthy,Medium,Spotted,India,Untrained,Low,135.0
+Hamster,Campbell's,3,Female,Sick,Large,White,USA,Well Trained,High,154.7
+Bird,Cockatiel,3,Male,Vaccinated,Small,White,USA,Untrained,High,165.0
+Dog,Labrador,2,Female,Special Needs,Medium,Golden,India,Highly Trained,Low,149.5
+Dog,Golden Retriever,3,Female,Healthy,Small,Mixed,Germany,Highly Trained,Low,279.5
+Cat,Persian,2,Female,Sick,Small,Mixed,India,Untrained,Low,77.0
+Dog,Labrador,1,Male,Sick,Small,Grey,India,Basic Training,High,213.5
+Rabbit,Flemish Giant,10,Male,Healthy,Large,Grey,Australia,Untrained,High,220.0
+Dog,Golden Retriever,4,Female,Special Needs,Small,Mixed,France,Highly Trained,Medium,175.5
+Hamster,Syrian,3,Female,Healthy,Medium,Black,UK,Highly Trained,Low,65.0
+Rabbit,Angora,15,Male,Special Needs,Medium,White,France,Untrained,Medium,87.5
+Rabbit,Flemish Giant,14,Male,Healthy,Large,Mixed,India,Highly Trained,Medium,247.0
+Bird,Parrot,6,Female,Sick,Small,Golden,UK,Basic Training,Medium,91.0
+Cat,Persian,13,Male,Healthy,Small,Spotted,Canada,Well Trained,Medium,279.5
+Cat,Bengal,11,Female,Sick,Medium,Grey,Germany,Untrained,High,192.5
+Rabbit,Mini Rex,11,Female,Sick,Medium,Mixed,Australia,Untrained,High,143.5
+Bird,Parrot,13,Female,Healthy,Large,Brown,USA,Well Trained,High,331.5
+Rabbit,Angora,8,Male,Healthy,Large,Grey,USA,Untrained,Low,110.0
+Dog,Beagle,14,Male,Vaccinated,Large,Black,India,Basic Training,Low,310.0
+Rabbit,Mini Rex,4,Female,Vaccinated,Medium,Black,Canada,Highly Trained,High,221.0
+Bird,Finch,13,Female,Healthy,Large,White,India,Basic Training,Medium,205.0
+Bird,Parrot,7,Female,Healthy,Medium,White,Australia,Highly Trained,Medium,201.5
+Hamster,Syrian,2,Male,Vaccinated,Small,Spotted,France,Well Trained,High,162.5
+Hamster,Syrian,15,Female,Sick,Medium,Black,Australia,Untrained,Medium,112.0
+Hamster,Dwarf,5,Male,Healthy,Small,Golden,Germany,Basic Training,High,140.0
+Dog,Golden Retriever,15,Male,Healthy,Large,Mixed,Australia,Untrained,High,415.0
+Dog,Poodle,3,Male,Vaccinated,Medium,Grey,France,Well Trained,High,435.5
+Dog,Labrador,9,Female,Special Needs,Large,Golden,Canada,Basic Training,Medium,167.5
+Bird,Canary,8,Male,Sick,Medium,White,UK,Well Trained,Medium,145.6
+Rabbit,Holland Lop,13,Female,Special Needs,Small,Brown,USA,Untrained,Low,47.5
+Rabbit,Angora,10,Female,Healthy,Large,Spotted,UK,Well Trained,Low,156.0
+Cat,Bengal,6,Male,Healthy,Medium,Black,UK,Basic Training,High,250.0
+Bird,Parrot,3,Male,Special Needs,Large,Spotted,USA,Basic Training,Medium,77.5
+Bird,Parrot,14,Male,Vaccinated,Large,Brown,Australia,Basic Training,Low,160.0
+Hamster,Chinese,13,Male,Vaccinated,Large,Brown,Australia,Untrained,High,220.0
+Rabbit,Angora,15,Female,Special Needs,Medium,Spotted,Canada,Well Trained,Medium,113.75
+Dog,Bulldog,15,Female,Sick,Small,Black,Germany,Highly Trained,Medium,295.75
+Cat,Siamese,8,Female,Special Needs,Medium,White,Australia,Untrained,High,130.0
+Hamster,Roborovski,10,Male,Sick,Large,Black,France,Untrained,Low,73.5
+Bird,Parrot,6,Male,Vaccinated,Large,Golden,Germany,Well Trained,High,286.0
+Rabbit,Holland Lop,15,Male,Sick,Small,Golden,USA,Untrained,Low,73.5
+Hamster,Chinese,4,Female,Healthy,Large,Spotted,UK,Well Trained,Medium,162.5
+Bird,Macaw,15,Male,Special Needs,Large,Spotted,Canada,Highly Trained,High,172.25
+Rabbit,Angora,13,Female,Healthy,Medium,Brown,Germany,Basic Training,High,215.0
+Cat,Maine Coon,8,Male,Sick,Small,Brown,France,Well Trained,High,218.4
+Hamster,Chinese,13,Female,Sick,Medium,Grey,Germany,Well Trained,Low,91.0
+Hamster,Dwarf,10,Female,Sick,Small,Brown,Australia,Well Trained,Medium,104.65
+Hamster,Dwarf,8,Male,Special Needs,Small,Mixed,France,Basic Training,Low,27.5
+Hamster,Dwarf,14,Female,Sick,Small,Spotted,India,Untrained,Medium,94.5
+Cat,Maine Coon,4,Male,Special Needs,Medium,Grey,France,Basic Training,High,120.0
+Rabbit,Flemish Giant,1,Female,Vaccinated,Medium,White,Australia,Well Trained,High,201.5
+Rabbit,Netherland Dwarf,4,Male,Special Needs,Small,Black,USA,Well Trained,High,97.5
+Rabbit,Netherland Dwarf,1,Male,Sick,Small,Black,Australia,Highly Trained,High,122.85
+Rabbit,Flemish Giant,1,Male,Vaccinated,Large,Spotted,France,Highly Trained,High,227.5
+Bird,Cockatiel,15,Male,Vaccinated,Medium,Brown,Germany,Untrained,High,245.0
+Dog,Golden Retriever,13,Female,Sick,Medium,Brown,Australia,Untrained,High,269.5
+Dog,Poodle,13,Male,Sick,Medium,Golden,India,Well Trained,Low,259.35
+Dog,Golden Retriever,12,Male,Healthy,Large,Golden,Australia,Well Trained,High,520.0
+Rabbit,Holland Lop,2,Female,Vaccinated,Medium,Golden,Germany,Well Trained,Low,78.0
+Dog,Poodle,9,Male,Vaccinated,Small,Brown,India,Highly Trained,Low,318.5
+Bird,Parrot,4,Female,Vaccinated,Small,Black,Canada,Highly Trained,Medium,156.0
+Hamster,Syrian,7,Female,Vaccinated,Medium,Mixed,UK,Untrained,Medium,120.0
+Rabbit,Angora,15,Male,Vaccinated,Small,Brown,France,Well Trained,High,266.5
+Cat,Persian,5,Female,Special Needs,Small,Mixed,USA,Well Trained,Low,81.25
+Hamster,Campbell's,4,Male,Special Needs,Large,White,Canada,Highly Trained,High,113.75
+Dog,Bulldog,8,Female,Sick,Small,Spotted,France,Highly Trained,High,309.4
+Hamster,Dwarf,12,Male,Healthy,Large,Brown,Germany,Basic Training,Low,115.0
+Hamster,Dwarf,14,Female,Vaccinated,Medium,White,India,Highly Trained,Low,136.5
+Dog,Beagle,8,Female,Special Needs,Medium,Golden,Germany,Basic Training,Medium,155.0
+Rabbit,Angora,5,Male,Vaccinated,Small,Golden,France,Basic Training,Medium,105.0
+Bird,Macaw,8,Male,Vaccinated,Medium,Golden,USA,Untrained,Low,110.0
+Cat,Bengal,3,Male,Healthy,Large,Black,India,Well Trained,Medium,266.5
+Bird,Canary,2,Male,Healthy,Large,Spotted,Germany,Highly Trained,High,260.0
+Hamster,Campbell's,14,Female,Vaccinated,Large,Golden,Australia,Basic Training,Medium,175.0
+Rabbit,Netherland Dwarf,3,Female,Vaccinated,Medium,Mixed,India,Untrained,High,165.0
+Rabbit,Holland Lop,13,Male,Healthy,Medium,Black,USA,Well Trained,Low,149.5
+Cat,Persian,1,Male,Vaccinated,Small,Brown,Canada,Basic Training,Low,105.0
+Dog,Bulldog,1,Female,Sick,Large,Grey,UK,Well Trained,Medium,268.45
+Dog,Bulldog,7,Male,Healthy,Medium,Grey,Germany,Highly Trained,Low,331.5
+Bird,Cockatiel,6,Male,Healthy,Medium,Brown,India,Untrained,Low,100.0
+Dog,Beagle,8,Female,Special Needs,Small,Black,Canada,Highly Trained,Low,156.0
+Hamster,Syrian,12,Male,Healthy,Small,Grey,Germany,Basic Training,Medium,125.0
+Dog,Bulldog,15,Female,Vaccinated,Small,Grey,USA,Basic Training,Low,275.0
+Dog,Bulldog,5,Male,Vaccinated,Large,Black,UK,Highly Trained,Medium,409.5
+Dog,Beagle,2,Male,Special Needs,Large,Grey,UK,Well Trained,Low,162.5
+Bird,Canary,1,Female,Sick,Small,Grey,India,Basic Training,Low,38.5
+Dog,Bulldog,2,Male,Sick,Medium,Brown,Australia,Well Trained,High,300.3
+Rabbit,Holland Lop,9,Male,Healthy,Medium,Mixed,UK,Highly Trained,Medium,188.5
+Bird,Parrot,4,Male,Sick,Medium,Mixed,Canada,Well Trained,Low,81.9
+Hamster,Campbell's,5,Female,Vaccinated,Medium,Spotted,Germany,Untrained,Medium,110.0
+Cat,Bengal,3,Female,Special Needs,Medium,White,India,Untrained,Low,67.5
+Rabbit,Flemish Giant,6,Male,Healthy,Small,Spotted,UK,Untrained,Low,60.0
+Cat,Maine Coon,10,Female,Special Needs,Medium,White,USA,Basic Training,Low,85.0
+Rabbit,Netherland Dwarf,6,Male,Healthy,Large,Grey,Australia,Basic Training,Low,100.0
+Cat,Persian,3,Male,Sick,Small,Mixed,Germany,Basic Training,High,150.5
+Hamster,Campbell's,5,Female,Vaccinated,Medium,Mixed,France,Untrained,Low,60.0
+Hamster,Roborovski,10,Male,Special Needs,Large,Grey,France,Well Trained,High,133.25
+Dog,Bulldog,7,Female,Special Needs,Medium,Brown,Canada,Untrained,High,177.5
+Rabbit,Mini Rex,2,Female,Sick,Medium,Brown,India,Untrained,Medium,77.0
+Bird,Canary,1,Male,Healthy,Medium,White,Germany,Untrained,Medium,125.0
+Cat,Bengal,5,Male,Special Needs,Large,Grey,Australia,Highly Trained,High,172.25
+Rabbit,Flemish Giant,1,Female,Healthy,Large,Black,UK,Untrained,Medium,125.0
+Rabbit,Angora,12,Male,Sick,Large,Golden,USA,Well Trained,High,209.3
+Hamster,Roborovski,15,Male,Vaccinated,Medium,Spotted,Germany,Untrained,High,210.0
+Bird,Finch,5,Male,Vaccinated,Small,Grey,Australia,Well Trained,Low,97.5
+Cat,Maine Coon,13,Female,Sick,Medium,Spotted,Australia,Untrained,Medium,164.5
+Hamster,Campbell's,3,Female,Special Needs,Large,Spotted,India,Well Trained,Low,45.5
+Cat,Persian,13,Male,Vaccinated,Small,Mixed,Canada,Basic Training,Low,165.0
+Cat,Maine Coon,10,Male,Healthy,Large,Black,Germany,Highly Trained,Low,247.0
+Cat,Maine Coon,4,Male,Vaccinated,Medium,Grey,Australia,Basic Training,Low,140.0
+Dog,Bulldog,4,Male,Healthy,Small,Spotted,France,Well Trained,Low,286.0
+Cat,Siamese,10,Female,Sick,Small,Golden,Australia,Untrained,Medium,140.0
+Cat,Siamese,10,Female,Special Needs,Medium,Black,France,Highly Trained,High,175.5
+Cat,Sphynx,8,Male,Sick,Large,Golden,UK,Well Trained,Low,163.8
+Rabbit,Flemish Giant,10,Male,Healthy,Large,Golden,India,Untrained,High,220.0
+Dog,Poodle,11,Male,Sick,Large,Spotted,India,Highly Trained,Low,268.45
+Hamster,Chinese,1,Male,Healthy,Small,White,India,Untrained,High,120.0
+Cat,Persian,14,Male,Sick,Large,Golden,USA,Basic Training,High,217.0
+Cat,Persian,13,Female,Vaccinated,Large,Mixed,France,Well Trained,Medium,331.5
+Dog,Poodle,8,Female,Special Needs,Small,Golden,USA,Basic Training,Medium,145.0
+Dog,Bulldog,13,Male,Vaccinated,Small,Spotted,UK,Well Trained,Low,344.5
+Dog,Labrador,7,Female,Sick,Small,Golden,India,Well Trained,Medium,259.35
+Rabbit,Flemish Giant,8,Female,Sick,Medium,Golden,Canada,Untrained,Medium,98.0
+Bird,Cockatiel,3,Female,Vaccinated,Small,Brown,France,Highly Trained,Medium,149.5
+Rabbit,Holland Lop,13,Male,Healthy,Large,Mixed,Australia,Well Trained,High,305.5
+Hamster,Syrian,6,Male,Special Needs,Large,Mixed,France,Highly Trained,Medium,87.75
+Dog,Labrador,12,Female,Special Needs,Large,Golden,Germany,Highly Trained,Medium,227.5
+Cat,Persian,12,Male,Healthy,Small,Grey,India,Well Trained,Medium,273.0
+Cat,Maine Coon,11,Male,Sick,Small,Mixed,UK,Basic Training,High,178.5
+Bird,Macaw,15,Male,Vaccinated,Medium,Black,UK,Highly Trained,High,318.5
+Cat,Siamese,12,Male,Healthy,Small,Black,France,Untrained,High,260.0
+Rabbit,Mini Rex,11,Female,Healthy,Large,Grey,Canada,Basic Training,High,225.0
+Cat,Siamese,6,Female,Vaccinated,Medium,White,UK,Highly Trained,High,325.0
+Bird,Parrot,13,Female,Special Needs,Small,Spotted,France,Untrained,Medium,82.5
+Hamster,Campbell's,8,Male,Special Needs,Large,Spotted,Canada,Basic Training,Medium,72.5
+Bird,Cockatiel,5,Male,Special Needs,Small,Grey,USA,Well Trained,Medium,81.25
+Rabbit,Holland Lop,12,Female,Healthy,Large,Spotted,UK,Highly Trained,Low,169.0
+Bird,Parrot,4,Male,Sick,Medium,Golden,France,Basic Training,Low,63.0
+Bird,Cockatiel,1,Male,Healthy,Medium,Spotted,USA,Untrained,High,175.0
+Dog,Beagle,13,Female,Sick,Small,Mixed,India,Untrained,High,255.5
+Dog,Golden Retriever,11,Female,Vaccinated,Small,Mixed,USA,Highly Trained,Medium,396.5
+Cat,Bengal,4,Male,Healthy,Medium,Mixed,France,Highly Trained,Medium,247.0
+Hamster,Campbell's,13,Male,Vaccinated,Large,Black,Germany,Basic Training,Low,120.0
+Cat,Bengal,6,Male,Healthy,Small,White,Germany,Untrained,High,230.0
+Hamster,Syrian,5,Male,Vaccinated,Small,White,USA,Highly Trained,Medium,117.0
+Hamster,Roborovski,1,Female,Sick,Large,Black,Canada,Well Trained,High,145.6
+Rabbit,Netherland Dwarf,6,Male,Sick,Large,Golden,USA,Well Trained,Medium,136.5
+Cat,Persian,9,Female,Healthy,Medium,Grey,France,Untrained,High,265.0
+Hamster,Syrian,4,Female,Healthy,Medium,Brown,India,Well Trained,High,201.5
+Cat,Persian,10,Male,Sick,Medium,Mixed,France,Basic Training,Low,119.0
+Hamster,Campbell's,15,Male,Special Needs,Large,Grey,Canada,Untrained,Medium,90.0
+Hamster,Dwarf,12,Male,Healthy,Large,Black,Canada,Highly Trained,High,279.5
+Cat,Sphynx,6,Female,Sick,Large,Grey,USA,Basic Training,High,189.0
+Hamster,Chinese,15,Male,Vaccinated,Medium,Grey,Germany,Highly Trained,Medium,208.0
+Dog,Golden Retriever,9,Male,Healthy,Large,White,Canada,Untrained,Medium,335.0
+Bird,Canary,3,Male,Vaccinated,Medium,Mixed,Germany,Highly Trained,High,240.5
+Hamster,Roborovski,9,Female,Vaccinated,Large,Spotted,France,Well Trained,Medium,195.0
+Rabbit,Netherland Dwarf,1,Female,Special Needs,Small,Brown,UK,Basic Training,Low,17.5
+Bird,Finch,8,Female,Healthy,Medium,White,Australia,Highly Trained,Low,143.0
+Dog,Labrador,11,Female,Vaccinated,Medium,Brown,France,Basic Training,High,375.0
+Cat,Maine Coon,15,Female,Sick,Large,Mixed,USA,Well Trained,Low,195.65
+Rabbit,Mini Rex,7,Female,Healthy,Medium,Black,USA,Untrained,Medium,135.0
+Dog,Poodle,3,Female,Sick,Medium,Black,France,Untrained,Low,164.5
+Bird,Finch,6,Male,Healthy,Medium,Grey,UK,Highly Trained,Medium,195.0
+Dog,Beagle,14,Male,Sick,Small,Spotted,India,Highly Trained,High,336.7
+Cat,Bengal,6,Male,Sick,Small,Grey,UK,Basic Training,Medium,126.0
+Cat,Siamese,10,Male,Healthy,Large,Black,France,Well Trained,Low,247.0
+Cat,Bengal,3,Female,Sick,Medium,Golden,Germany,Basic Training,Low,94.5
+Bird,Macaw,4,Female,Sick,Medium,Brown,Australia,Basic Training,Medium,98.0
+Rabbit,Angora,11,Female,Special Needs,Large,White,Australia,Basic Training,Medium,87.5
+Hamster,Dwarf,15,Female,Healthy,Small,Black,Australia,Basic Training,High,190.0
+Bird,Macaw,10,Female,Healthy,Large,Mixed,USA,Untrained,Medium,190.0
+Bird,Finch,3,Male,Special Needs,Medium,Golden,Australia,Highly Trained,Medium,87.75
+Hamster,Syrian,8,Male,Sick,Large,Brown,Canada,Basic Training,Low,66.5
+Dog,Bulldog,8,Female,Special Needs,Large,White,Germany,Basic Training,High,190.0
+Dog,Golden Retriever,9,Male,Special Needs,Large,Brown,UK,Well Trained,Low,185.25
+Dog,Bulldog,13,Female,Healthy,Large,Mixed,Australia,Basic Training,Low,305.0
+Rabbit,Mini Rex,14,Female,Special Needs,Large,Golden,Canada,Basic Training,Low,70.0
+Rabbit,Mini Rex,1,Male,Vaccinated,Medium,Mixed,Canada,Basic Training,Medium,105.0
+Dog,Beagle,11,Female,Sick,Medium,Grey,USA,Untrained,Medium,227.5
+Cat,Sphynx,10,Female,Vaccinated,Medium,Golden,Australia,Highly Trained,Medium,286.0
+Rabbit,Holland Lop,11,Male,Special Needs,Medium,Spotted,Germany,Basic Training,Medium,77.5
+Bird,Macaw,10,Female,Healthy,Small,Black,USA,Well Trained,Medium,195.0
+Rabbit,Flemish Giant,3,Male,Sick,Large,White,UK,Untrained,Medium,94.5
+Hamster,Syrian,11,Female,Sick,Medium,Black,Canada,Untrained,High,133.0
+Rabbit,Angora,2,Female,Healthy,Small,Golden,India,Basic Training,Low,40.0
+Bird,Parrot,3,Male,Vaccinated,Small,Grey,UK,Highly Trained,Low,84.5
+Cat,Sphynx,6,Female,Special Needs,Medium,Black,France,Basic Training,Low,75.0
+Hamster,Roborovski,15,Female,Special Needs,Large,Brown,USA,Well Trained,Medium,117.0
+Hamster,Campbell's,4,Female,Sick,Medium,White,Germany,Basic Training,Low,38.5
+Dog,Labrador,15,Female,Sick,Medium,Spotted,UK,Highly Trained,Low,268.45
+Rabbit,Flemish Giant,2,Male,Healthy,Small,Mixed,Canada,Highly Trained,Medium,117.0
+Cat,Persian,11,Female,Vaccinated,Medium,White,UK,Well Trained,Low,227.5
+Dog,Poodle,1,Male,Healthy,Medium,Mixed,UK,Highly Trained,Medium,357.5
+Bird,Canary,1,Female,Sick,Small,White,USA,Well Trained,Low,50.05
+Dog,Bulldog,6,Male,Vaccinated,Small,Mixed,India,Well Trained,Low,299.0
+Bird,Cockatiel,14,Male,Sick,Large,Golden,USA,Untrained,Medium,147.0
+Rabbit,Netherland Dwarf,13,Female,Healthy,Small,Golden,India,Basic Training,Low,95.0
+Rabbit,Angora,5,Female,Healthy,Large,Grey,Australia,Highly Trained,Low,123.5
+Hamster,Chinese,10,Male,Special Needs,Large,Grey,USA,Untrained,Low,52.5
+Bird,Parrot,10,Female,Special Needs,Small,Grey,Australia,Highly Trained,High,130.0
+Hamster,Roborovski,3,Female,Sick,Small,Brown,USA,Highly Trained,Low,27.3
+Cat,Bengal,15,Male,Vaccinated,Medium,Golden,India,Highly Trained,Low,253.5
+Hamster,Chinese,12,Female,Sick,Small,Grey,USA,Well Trained,Medium,113.75
+Dog,Beagle,1,Female,Sick,Medium,Golden,France,Well Trained,Medium,250.25
+Bird,Parrot,12,Male,Healthy,Medium,Brown,USA,Highly Trained,Medium,234.0
+Dog,Bulldog,7,Male,Special Needs,Medium,Brown,India,Well Trained,Medium,198.25
+Dog,Beagle,5,Female,Vaccinated,Small,Black,Canada,Highly Trained,High,422.5
+Rabbit,Angora,10,Female,Healthy,Small,Mixed,USA,Well Trained,Low,104.0
+Hamster,Chinese,15,Female,Healthy,Small,Brown,Canada,Highly Trained,High,247.0
+Bird,Finch,14,Male,Vaccinated,Small,Mixed,India,Basic Training,High,220.0
+Bird,Parrot,8,Female,Healthy,Medium,Brown,USA,Well Trained,Medium,208.0
+Bird,Finch,10,Male,Sick,Large,Golden,USA,Basic Training,High,168.0
+Bird,Cockatiel,14,Male,Special Needs,Large,Spotted,Canada,Highly Trained,Low,104.0
+Rabbit,Holland Lop,3,Female,Vaccinated,Medium,Grey,USA,Highly Trained,Low,84.5
+Bird,Parrot,5,Male,Sick,Large,Brown,USA,Highly Trained,Medium,150.15
+Dog,Labrador,1,Female,Special Needs,Small,Brown,Germany,Basic Training,Low,102.5
+Bird,Parrot,9,Male,Special Needs,Medium,Grey,Australia,Untrained,Low,57.5
+Bird,Cockatiel,2,Male,Sick,Medium,Golden,USA,Untrained,High,126.0
+Dog,Golden Retriever,15,Male,Sick,Large,Brown,France,Highly Trained,High,377.65
+Hamster,Dwarf,5,Male,Vaccinated,Medium,White,Canada,Untrained,Medium,110.0
+Dog,Beagle,3,Female,Vaccinated,Small,White,UK,Highly Trained,Medium,344.5
+Hamster,Dwarf,8,Female,Healthy,Small,White,UK,Highly Trained,High,201.5
+Bird,Cockatiel,11,Male,Healthy,Medium,Mixed,Germany,Highly Trained,Low,162.5
+Dog,Labrador,13,Female,Sick,Small,White,India,Highly Trained,Low,241.15
+Cat,Sphynx,6,Male,Special Needs,Medium,White,France,Highly Trained,Low,97.5
+Dog,Bulldog,13,Male,Sick,Small,Brown,USA,Untrained,High,255.5
+Dog,Labrador,13,Female,Healthy,Small,Golden,Canada,Highly Trained,High,474.5
+Cat,Persian,2,Male,Sick,Small,Brown,Canada,Well Trained,High,191.1
+Rabbit,Netherland Dwarf,15,Female,Sick,Large,Black,France,Well Trained,Medium,177.45
+Cat,Persian,13,Male,Special Needs,Small,Golden,Australia,Highly Trained,Low,107.25
+Rabbit,Flemish Giant,1,Male,Vaccinated,Large,Black,Canada,Untrained,Low,75.0
+Bird,Canary,11,Female,Sick,Large,Golden,Canada,Well Trained,Medium,177.45
+Dog,Beagle,6,Male,Sick,Small,Mixed,USA,Untrained,Medium,196.0
+Rabbit,Flemish Giant,4,Female,Special Needs,Medium,White,USA,Basic Training,High,85.0
+Cat,Siamese,4,Male,Healthy,Small,Mixed,USA,Basic Training,Medium,170.0
+Rabbit,Flemish Giant,15,Male,Healthy,Small,Mixed,USA,Well Trained,Low,136.5
+Dog,Bulldog,3,Female,Vaccinated,Small,Black,UK,Basic Training,Medium,265.0
+Cat,Maine Coon,14,Female,Healthy,Small,Spotted,Germany,Basic Training,High,270.0
+Hamster,Roborovski,5,Male,Healthy,Medium,Mixed,India,Basic Training,High,160.0
+Bird,Parrot,9,Male,Special Needs,Medium,Black,Germany,Highly Trained,High,139.75
+Bird,Cockatiel,12,Male,Healthy,Medium,Golden,USA,Untrained,Medium,180.0
+Hamster,Dwarf,10,Female,Special Needs,Small,White,India,Untrained,High,82.5
+Bird,Parrot,9,Male,Vaccinated,Medium,Black,Australia,Well Trained,Low,149.5
+Dog,Bulldog,13,Male,Special Needs,Medium,White,Germany,Well Trained,Low,185.25
+Dog,Poodle,5,Female,Vaccinated,Medium,Grey,USA,Basic Training,High,345.0
+Bird,Parrot,10,Male,Special Needs,Small,Brown,Canada,Highly Trained,Low,65.0
+Dog,Bulldog,6,Male,Healthy,Medium,White,Australia,Basic Training,Low,250.0
+Bird,Canary,5,Female,Special Needs,Medium,Golden,India,Untrained,Low,47.5
+Dog,Bulldog,10,Male,Sick,Medium,Grey,Australia,Highly Trained,Low,245.7
+Dog,Golden Retriever,11,Female,Healthy,Medium,Brown,France,Highly Trained,High,487.5
+Dog,Bulldog,13,Male,Special Needs,Small,Golden,France,Basic Training,High,182.5
+Rabbit,Angora,3,Female,Vaccinated,Small,Grey,India,Basic Training,High,145.0
+Cat,Bengal,4,Female,Sick,Small,Grey,Germany,Well Trained,Low,109.2
+Dog,Labrador,10,Female,Healthy,Large,White,UK,Well Trained,High,507.0
+Cat,Sphynx,10,Female,Healthy,Small,Spotted,France,Basic Training,Low,150.0
+Hamster,Campbell's,11,Female,Vaccinated,Small,Golden,India,Highly Trained,Medium,156.0
+Dog,Labrador,6,Female,Special Needs,Large,Black,France,Highly Trained,Medium,208.0
+Hamster,Chinese,5,Female,Vaccinated,Large,Mixed,UK,Highly Trained,Low,104.0
+Bird,Parrot,2,Male,Sick,Large,Mixed,Canada,Well Trained,Low,91.0
+Bird,Canary,1,Male,Vaccinated,Medium,White,India,Well Trained,Medium,162.5
+Dog,Poodle,7,Female,Vaccinated,Small,Spotted,UK,Well Trained,Medium,370.5
+Dog,Beagle,10,Male,Special Needs,Small,Golden,India,Highly Trained,Low,162.5
+Rabbit,Mini Rex,1,Male,Special Needs,Medium,Golden,Canada,Untrained,Low,27.5
+Bird,Cockatiel,11,Male,Special Needs,Small,Brown,Australia,Well Trained,High,133.25
+Bird,Finch,13,Male,Vaccinated,Medium,Golden,USA,Untrained,Low,135.0
+Bird,Parrot,12,Female,Healthy,Medium,Mixed,Australia,Well Trained,Low,169.0
+Bird,Finch,6,Male,Vaccinated,Large,Golden,France,Well Trained,High,286.0
+Dog,Labrador,13,Female,Healthy,Medium,Spotted,Germany,Highly Trained,Medium,435.5
+Rabbit,Flemish Giant,12,Male,Special Needs,Medium,Mixed,Canada,Well Trained,Medium,104.0
+Rabbit,Flemish Giant,3,Female,Sick,Small,White,Canada,Basic Training,Low,31.5
+Cat,Maine Coon,10,Male,Sick,Large,Black,USA,Untrained,Medium,168.0
+Hamster,Campbell's,13,Male,Vaccinated,Large,Mixed,Germany,Well Trained,Low,156.0
+Bird,Parrot,2,Male,Healthy,Large,Golden,UK,Well Trained,Low,130.0
+Bird,Macaw,2,Female,Special Needs,Small,Grey,France,Highly Trained,Medium,71.5
+Hamster,Chinese,9,Female,Special Needs,Small,Golden,Australia,Well Trained,High,104.0
+Hamster,Syrian,6,Female,Vaccinated,Large,Black,USA,Untrained,High,185.0
+Dog,Bulldog,1,Male,Vaccinated,Small,White,Australia,Highly Trained,Low,266.5
+Dog,Labrador,6,Female,Vaccinated,Medium,White,India,Basic Training,Low,250.0
+Rabbit,Angora,8,Female,Healthy,Small,Black,Australia,Highly Trained,Medium,156.0
+Hamster,Chinese,11,Female,Vaccinated,Small,Mixed,France,Basic Training,Low,70.0
+Bird,Finch,5,Male,Sick,Medium,Grey,France,Well Trained,Low,86.45
+Cat,Maine Coon,7,Female,Vaccinated,Large,Spotted,Australia,Well Trained,Low,227.5
+Bird,Cockatiel,7,Female,Vaccinated,Large,White,Canada,Basic Training,High,225.0
+Bird,Canary,7,Male,Healthy,Medium,Black,Australia,Basic Training,Medium,155.0
+Dog,Poodle,12,Male,Sick,Small,Grey,France,Untrained,High,252.0
+Dog,Beagle,4,Male,Special Needs,Large,Golden,UK,Well Trained,Medium,201.5
+Cat,Sphynx,8,Male,Vaccinated,Medium,Black,Australia,Highly Trained,High,338.0
+Bird,Parrot,8,Female,Special Needs,Large,Brown,France,Basic Training,Medium,90.0
+Bird,Parrot,3,Female,Special Needs,Medium,Grey,UK,Basic Training,Medium,67.5
+Bird,Canary,15,Female,Healthy,Small,Black,USA,Well Trained,Low,162.5
+Cat,Sphynx,3,Male,Sick,Small,Black,France,Basic Training,Low,80.5
+Cat,Bengal,14,Female,Sick,Medium,Grey,UK,Basic Training,Medium,168.0
+Dog,Beagle,14,Male,Healthy,Large,Brown,Australia,Basic Training,Low,310.0
+Hamster,Campbell's,1,Male,Sick,Small,White,India,Well Trained,Low,18.2
+Dog,Poodle,8,Female,Special Needs,Medium,Brown,UK,Basic Training,High,180.0
+Rabbit,Flemish Giant,6,Female,Healthy,Small,Brown,Australia,Untrained,Low,60.0
+Bird,Canary,11,Female,Sick,Medium,White,UK,Untrained,Medium,122.5
+Cat,Siamese,2,Male,Special Needs,Large,Black,Canada,Well Trained,High,162.5
+Dog,Beagle,3,Male,Special Needs,Large,White,Germany,Well Trained,Medium,198.25
+Dog,Poodle,15,Female,Healthy,Large,Black,India,Untrained,High,415.0
+Hamster,Chinese,12,Female,Healthy,Medium,Golden,USA,Highly Trained,High,253.5
+Bird,Finch,10,Male,Vaccinated,Medium,Mixed,France,Highly Trained,High,286.0
+Dog,Golden Retriever,3,Female,Sick,Medium,Grey,Canada,Well Trained,Medium,259.35
+Dog,Beagle,8,Female,Vaccinated,Large,Black,Germany,Highly Trained,Low,364.0
+Hamster,Roborovski,7,Female,Healthy,Small,Mixed,Canada,Basic Training,Low,50.0
+Hamster,Dwarf,4,Female,Sick,Large,Golden,USA,Untrained,High,122.5
+Rabbit,Netherland Dwarf,15,Male,Special Needs,Medium,Grey,Australia,Basic Training,Low,62.5
+Rabbit,Mini Rex,13,Male,Healthy,Medium,White,Germany,Highly Trained,Low,149.5
+Dog,Poodle,4,Male,Vaccinated,Medium,White,Germany,Highly Trained,High,442.0
+Rabbit,Angora,12,Male,Sick,Small,Mixed,India,Basic Training,High,133.0
+Bird,Cockatiel,1,Male,Special Needs,Small,Mixed,Germany,Highly Trained,High,100.75
+Rabbit,Mini Rex,6,Female,Special Needs,Small,Golden,Canada,Untrained,Low,30.0
+Hamster,Syrian,13,Female,Special Needs,Medium,Mixed,USA,Highly Trained,Medium,97.5
+Dog,Beagle,3,Male,Sick,Small,Black,Germany,Well Trained,Medium,241.15
+Dog,Poodle,11,Female,Vaccinated,Medium,Grey,India,Basic Training,Low,275.0
+Dog,Golden Retriever,10,Female,Healthy,Medium,Golden,Germany,Untrained,Low,270.0
+Bird,Finch,9,Female,Sick,Medium,Brown,France,Highly Trained,Medium,150.15
+Dog,Bulldog,3,Female,Vaccinated,Medium,Mixed,France,Untrained,Medium,285.0
+Rabbit,Angora,15,Male,Sick,Medium,Black,UK,Well Trained,Medium,159.25
+Hamster,Dwarf,4,Male,Vaccinated,Small,White,Canada,Well Trained,Low,45.5
+Bird,Canary,14,Female,Sick,Medium,Brown,UK,Untrained,Medium,133.0
+Rabbit,Holland Lop,10,Female,Sick,Large,Black,Germany,Highly Trained,Medium,154.7
+Bird,Canary,9,Male,Healthy,Medium,Golden,France,Highly Trained,Medium,214.5
+Cat,Sphynx,1,Male,Special Needs,Medium,Black,UK,Untrained,High,112.5
+Dog,Labrador,4,Male,Vaccinated,Medium,Spotted,France,Untrained,Medium,290.0
+Dog,Golden Retriever,5,Female,Special Needs,Medium,Mixed,India,Well Trained,Low,159.25
+Dog,Golden Retriever,11,Female,Sick,Large,Black,Australia,Basic Training,High,276.5
+Bird,Parrot,13,Male,Special Needs,Medium,Spotted,USA,Basic Training,Low,67.5
+Cat,Bengal,9,Female,Special Needs,Medium,Black,India,Well Trained,High,172.25
+Rabbit,Flemish Giant,11,Female,Special Needs,Large,Black,France,Highly Trained,Low,81.25
+Bird,Cockatiel,8,Female,Special Needs,Large,Grey,Canada,Basic Training,Low,65.0
+Bird,Finch,3,Female,Special Needs,Large,Golden,Canada,Untrained,High,102.5
+Hamster,Roborovski,11,Male,Healthy,Large,Golden,USA,Highly Trained,Low,143.0
+Rabbit,Angora,8,Male,Sick,Medium,Mixed,USA,Highly Trained,Medium,127.4
+Cat,Persian,7,Female,Vaccinated,Medium,White,France,Basic Training,High,255.0
+Hamster,Roborovski,8,Female,Sick,Small,Black,Canada,Untrained,Medium,73.5
+Hamster,Campbell's,15,Female,Sick,Small,Brown,India,Untrained,High,133.0
+Dog,Golden Retriever,7,Female,Vaccinated,Medium,Black,UK,Well Trained,Low,331.5
+Hamster,Dwarf,13,Female,Vaccinated,Large,Grey,Australia,Well Trained,Low,156.0
+Dog,Golden Retriever,12,Male,Vaccinated,Small,Mixed,USA,Basic Training,High,360.0
+Rabbit,Mini Rex,7,Female,Healthy,Large,Grey,Australia,Untrained,Medium,155.0
+Rabbit,Flemish Giant,11,Female,Sick,Medium,Grey,Australia,Highly Trained,Low,95.55
+Dog,Bulldog,1,Female,Healthy,Medium,White,Australia,Basic Training,Low,225.0
+Dog,Bulldog,2,Male,Healthy,Small,Black,USA,Untrained,Medium,260.0
+Rabbit,Netherland Dwarf,9,Male,Sick,Small,Spotted,USA,Highly Trained,Medium,113.75
+Cat,Persian,10,Male,Healthy,Small,Brown,India,Well Trained,High,325.0
+Cat,Maine Coon,2,Female,Healthy,Medium,Golden,USA,Highly Trained,High,299.0
+Cat,Persian,15,Male,Vaccinated,Small,Spotted,Australia,Well Trained,High,357.5
+Bird,Finch,13,Male,Special Needs,Small,Mixed,France,Basic Training,Low,57.5
+Hamster,Campbell's,5,Female,Sick,Medium,Golden,Australia,Untrained,Medium,77.0
+Rabbit,Netherland Dwarf,12,Male,Sick,Medium,Golden,Germany,Well Trained,High,191.1
+Cat,Maine Coon,8,Female,Vaccinated,Large,Black,Australia,Highly Trained,High,364.0
+Rabbit,Netherland Dwarf,14,Female,Healthy,Medium,Black,USA,Untrained,Medium,170.0
+Dog,Labrador,10,Female,Healthy,Medium,Black,Germany,Well Trained,Medium,416.0
+Dog,Bulldog,3,Male,Special Needs,Medium,Mixed,UK,Untrained,Low,117.5
+Rabbit,Holland Lop,13,Male,Healthy,Large,Brown,Germany,Untrained,Medium,185.0
+Cat,Maine Coon,4,Male,Sick,Small,Grey,France,Highly Trained,Medium,154.7
+Bird,Cockatiel,12,Male,Sick,Small,Spotted,Germany,Well Trained,High,191.1
+Cat,Persian,6,Male,Special Needs,Medium,Black,Canada,Untrained,Medium,100.0
+Cat,Bengal,2,Female,Vaccinated,Small,Black,UK,Basic Training,Low,110.0
+Cat,Sphynx,10,Female,Healthy,Large,Spotted,Australia,Well Trained,Medium,312.0
+Bird,Cockatiel,2,Female,Vaccinated,Large,Spotted,USA,Well Trained,Medium,195.0
+Hamster,Dwarf,3,Male,Sick,Large,White,UK,Basic Training,High,119.0
+Hamster,Syrian,4,Male,Special Needs,Small,Golden,India,Untrained,High,67.5
+Rabbit,Netherland Dwarf,2,Male,Healthy,Medium,Golden,USA,Well Trained,Medium,143.0
+Bird,Macaw,3,Female,Healthy,Small,White,Australia,Basic Training,High,165.0
+Hamster,Dwarf,6,Male,Sick,Small,Black,USA,Untrained,Low,31.5
+Hamster,Campbell's,7,Male,Sick,Medium,White,UK,Untrained,High,119.0
+Bird,Finch,3,Male,Special Needs,Large,Mixed,India,Highly Trained,Medium,100.75
+Hamster,Roborovski,4,Female,Healthy,Medium,Black,Canada,Untrained,Medium,105.0
+Rabbit,Mini Rex,10,Male,Healthy,Large,Mixed,Australia,Well Trained,Low,156.0
+Dog,Bulldog,13,Male,Healthy,Medium,Mixed,France,Basic Training,Low,285.0
+Rabbit,Angora,9,Female,Vaccinated,Large,Black,Germany,Highly Trained,High,279.5
+Rabbit,Netherland Dwarf,15,Female,Special Needs,Large,Golden,Germany,Untrained,Medium,97.5
+Cat,Sphynx,3,Male,Vaccinated,Large,Black,Australia,Basic Training,High,255.0
+Dog,Poodle,8,Male,Special Needs,Small,Mixed,India,Highly Trained,Medium,188.5
+Dog,Poodle,15,Female,Vaccinated,Small,Black,Germany,Untrained,High,375.0
+Hamster,Roborovski,3,Male,Vaccinated,Medium,White,France,Basic Training,High,150.0
+Cat,Bengal,2,Female,Healthy,Large,Brown,UK,Well Trained,Medium,260.0
+Rabbit,Angora,3,Female,Sick,Large,Mixed,India,Basic Training,Low,59.5
+Rabbit,Netherland Dwarf,13,Male,Healthy,Small,Black,Australia,Untrained,Low,95.0
+Bird,Finch,4,Female,Sick,Small,Mixed,France,Highly Trained,Low,63.7
+Hamster,Chinese,14,Female,Sick,Medium,White,UK,Well Trained,High,186.55
+Dog,Poodle,8,Female,Healthy,Medium,Brown,Germany,Untrained,Medium,310.0
+Bird,Canary,13,Female,Special Needs,Medium,Spotted,Germany,Untrained,High,117.5
+Hamster,Campbell's,13,Male,Special Needs,Large,Black,Germany,Untrained,High,110.0
+Cat,Maine Coon,9,Female,Vaccinated,Small,Spotted,USA,Highly Trained,Low,188.5
+Bird,Parrot,3,Male,Healthy,Small,Spotted,Canada,Highly Trained,High,214.5
+Bird,Cockatiel,10,Female,Special Needs,Small,Spotted,Canada,Highly Trained,Low,65.0
+Hamster,Campbell's,4,Female,Vaccinated,Medium,Spotted,Australia,Untrained,Medium,105.0
+Dog,Poodle,6,Female,Special Needs,Small,Spotted,USA,Well Trained,High,214.5
+Dog,Golden Retriever,6,Female,Special Needs,Large,Brown,USA,Well Trained,Low,175.5
+Bird,Cockatiel,7,Female,Vaccinated,Large,Golden,France,Untrained,Medium,175.0
+Bird,Finch,10,Male,Healthy,Small,White,USA,Well Trained,Medium,195.0
+Cat,Sphynx,10,Female,Sick,Large,Golden,UK,Highly Trained,Medium,218.4
+Hamster,Campbell's,14,Female,Sick,Small,Grey,UK,Well Trained,Medium,122.85
+Hamster,Dwarf,12,Male,Healthy,Medium,Grey,India,Basic Training,High,195.0
+Hamster,Roborovski,12,Male,Healthy,Large,Mixed,France,Untrained,High,215.0
+Hamster,Roborovski,11,Female,Special Needs,Small,White,France,Untrained,Medium,60.0
+Dog,Golden Retriever,5,Male,Special Needs,Small,Grey,France,Basic Training,High,162.5
+Hamster,Campbell's,1,Female,Healthy,Large,Mixed,Australia,Untrained,Medium,110.0
+Cat,Persian,9,Female,Healthy,Small,White,India,Well Trained,High,318.5
+Rabbit,Mini Rex,14,Male,Special Needs,Medium,Golden,Australia,Basic Training,High,110.0
+Bird,Canary,15,Female,Special Needs,Small,Spotted,UK,Highly Trained,Low,81.25
+Dog,Beagle,12,Female,Healthy,Small,Black,UK,Well Trained,High,468.0
+Dog,Poodle,13,Male,Vaccinated,Large,Mixed,USA,Well Trained,Low,396.5
+Cat,Sphynx,8,Female,Vaccinated,Large,White,France,Basic Training,Low,180.0
+Dog,Bulldog,14,Male,Vaccinated,Medium,White,Australia,Untrained,Low,290.0
+Hamster,Campbell's,10,Male,Vaccinated,Small,Black,UK,Highly Trained,Medium,149.5
+Cat,Sphynx,2,Male,Vaccinated,Medium,Black,France,Well Trained,Medium,234.0
+Cat,Sphynx,8,Male,Sick,Large,Black,Canada,Well Trained,Medium,209.3
+Cat,Sphynx,12,Female,Vaccinated,Small,Spotted,France,Basic Training,High,260.0
+Bird,Canary,4,Male,Vaccinated,Small,Spotted,USA,Highly Trained,High,221.0
+Rabbit,Angora,5,Male,Healthy,Small,Grey,India,Basic Training,High,155.0
+Bird,Finch,4,Female,Special Needs,Medium,Black,USA,Basic Training,Low,45.0
+Hamster,Chinese,5,Female,Special Needs,Large,Mixed,Australia,Highly Trained,Low,52.0
+Bird,Cockatiel,15,Female,Special Needs,Medium,Brown,USA,Untrained,Low,72.5
+Rabbit,Netherland Dwarf,5,Female,Healthy,Large,Golden,Canada,Untrained,Low,95.0
+Bird,Finch,2,Male,Sick,Small,Black,Australia,Highly Trained,Medium,100.1
+Rabbit,Netherland Dwarf,6,Male,Special Needs,Medium,Spotted,India,Highly Trained,Medium,84.5
+Hamster,Syrian,9,Male,Vaccinated,Large,Grey,France,Untrained,Low,100.0
+Rabbit,Holland Lop,7,Female,Special Needs,Large,Golden,Australia,Untrained,Low,52.5
+Rabbit,Netherland Dwarf,7,Female,Healthy,Medium,Mixed,India,Highly Trained,Low,110.5
+Dog,Poodle,13,Female,Healthy,Small,White,Australia,Well Trained,High,474.5
+Rabbit,Flemish Giant,2,Female,Healthy,Small,Spotted,UK,Well Trained,Medium,117.0
+Rabbit,Mini Rex,1,Male,Vaccinated,Large,Black,Australia,Untrained,Low,75.0
+Rabbit,Angora,3,Female,Sick,Large,Grey,India,Untrained,Low,59.5
+Rabbit,Netherland Dwarf,14,Male,Special Needs,Large,Mixed,Australia,Basic Training,Medium,95.0
+Dog,Bulldog,5,Male,Special Needs,Small,White,India,Well Trained,High,211.25
+Bird,Cockatiel,10,Male,Sick,Small,Spotted,Canada,Basic Training,Medium,105.0
+Bird,Canary,12,Female,Healthy,Medium,White,Australia,Highly Trained,Low,169.0
+Dog,Bulldog,7,Male,Special Needs,Medium,Grey,Canada,Untrained,High,177.5
+Hamster,Chinese,11,Male,Healthy,Medium,Mixed,Australia,Untrained,Low,90.0
+Dog,Poodle,15,Male,Special Needs,Medium,White,Germany,Highly Trained,Medium,224.25
+Bird,Macaw,15,Male,Sick,Small,Spotted,Canada,Highly Trained,Medium,159.25
+Dog,Golden Retriever,3,Female,Healthy,Medium,Black,Australia,Basic Training,High,335.0
+Bird,Cockatiel,6,Male,Vaccinated,Medium,Black,Australia,Basic Training,Medium,150.0
+Cat,Bengal,13,Female,Vaccinated,Small,Brown,UK,Highly Trained,Low,214.5
+Hamster,Dwarf,12,Female,Special Needs,Medium,Golden,Germany,Untrained,Low,47.5
+Hamster,Campbell's,13,Male,Healthy,Medium,Grey,Australia,Basic Training,Low,100.0
+Cat,Maine Coon,8,Female,Healthy,Small,Brown,Australia,Basic Training,Low,140.0
+Hamster,Roborovski,1,Female,Sick,Small,Mixed,Australia,Untrained,High,84.0
+Dog,Bulldog,12,Male,Special Needs,Medium,Golden,UK,Well Trained,Medium,214.5
+Rabbit,Angora,5,Female,Sick,Medium,Brown,Australia,Well Trained,High,159.25
+Rabbit,Flemish Giant,12,Female,Special Needs,Large,Mixed,USA,Untrained,Medium,90.0
+Rabbit,Flemish Giant,13,Female,Healthy,Large,Golden,Canada,Untrained,High,235.0
+Bird,Parrot,5,Male,Special Needs,Large,Golden,UK,Basic Training,Medium,82.5
+Cat,Maine Coon,3,Male,Vaccinated,Medium,Mixed,Australia,Well Trained,Low,175.5
+Bird,Parrot,5,Female,Healthy,Large,Spotted,UK,Untrained,Medium,165.0
+Cat,Maine Coon,9,Male,Special Needs,Large,Black,USA,Untrained,High,142.5
+Dog,Poodle,9,Male,Sick,Small,Black,Germany,Well Trained,High,313.95
+Dog,Golden Retriever,9,Male,Sick,Large,Spotted,Australia,Highly Trained,High,350.35
+Rabbit,Flemish Giant,2,Male,Healthy,Medium,Golden,Australia,Highly Trained,Medium,143.0
+Rabbit,Angora,15,Female,Special Needs,Medium,Brown,Canada,Highly Trained,Low,81.25
+Bird,Canary,12,Male,Vaccinated,Medium,Black,UK,Highly Trained,Low,169.0
+Bird,Macaw,5,Male,Healthy,Small,Grey,Germany,Highly Trained,Low,97.5
+Bird,Finch,2,Female,Healthy,Large,Golden,India,Untrained,Medium,150.0
+Dog,Poodle,9,Female,Special Needs,Large,Spotted,France,Well Trained,High,250.25
+Rabbit,Netherland Dwarf,5,Male,Healthy,Small,Brown,Australia,Untrained,High,155.0
+Dog,Labrador,13,Male,Sick,Medium,Black,Germany,Untrained,High,269.5
+Rabbit,Flemish Giant,6,Male,Special Needs,Small,Brown,Germany,Untrained,Low,30.0
+Cat,Persian,6,Female,Vaccinated,Medium,Grey,India,Untrained,Medium,200.0
+Cat,Sphynx,9,Female,Vaccinated,Large,White,Australia,Highly Trained,Low,240.5
+Rabbit,Flemish Giant,6,Female,Healthy,Large,Mixed,France,Basic Training,Medium,150.0
+Rabbit,Angora,5,Male,Sick,Medium,Mixed,Australia,Basic Training,Medium,87.5
+Rabbit,Netherland Dwarf,6,Male,Healthy,Large,White,France,Highly Trained,Medium,195.0
+Dog,Labrador,10,Male,Vaccinated,Medium,Black,Germany,Basic Training,Low,270.0
+Cat,Bengal,13,Female,Sick,Small,Golden,USA,Highly Trained,Medium,195.65
+Cat,Maine Coon,13,Female,Healthy,Large,Mixed,India,Basic Training,Medium,255.0
+Cat,Siamese,10,Male,Healthy,Small,Brown,India,Highly Trained,Medium,260.0
+Dog,Labrador,8,Female,Sick,Small,White,Australia,Highly Trained,Medium,263.9
+Hamster,Roborovski,8,Female,Vaccinated,Large,Black,Canada,Untrained,Low,95.0
+Dog,Golden Retriever,11,Male,Vaccinated,Small,Spotted,Australia,Highly Trained,Low,331.5
+Dog,Poodle,6,Male,Healthy,Small,Brown,India,Basic Training,Low,230.0
+Hamster,Dwarf,7,Female,Special Needs,Medium,Black,Australia,Untrained,Low,35.0
+Cat,Maine Coon,13,Female,Sick,Medium,Brown,Australia,Well Trained,Low,168.35
+Bird,Macaw,1,Male,Vaccinated,Large,Spotted,Germany,Highly Trained,High,253.5
+Cat,Siamese,9,Female,Special Needs,Large,Brown,India,Highly Trained,High,185.25
+Hamster,Chinese,12,Male,Special Needs,Small,Brown,Germany,Basic Training,Medium,62.5
+Hamster,Campbell's,9,Female,Sick,Large,Spotted,Canada,Basic Training,Low,70.0
+Hamster,Campbell's,4,Female,Special Needs,Large,Mixed,Australia,Highly Trained,Low,48.75
+Dog,Golden Retriever,13,Female,Healthy,Large,Spotted,Germany,Untrained,Medium,355.0
+Hamster,Syrian,5,Female,Healthy,Medium,White,USA,Highly Trained,Low,78.0
+Cat,Persian,8,Male,Healthy,Large,Brown,France,Basic Training,Low,180.0
+Hamster,Campbell's,4,Female,Sick,Large,White,France,Untrained,High,122.5
+Dog,Beagle,3,Female,Sick,Small,Black,India,Untrained,Medium,185.5
+Cat,Bengal,4,Female,Healthy,Medium,Black,Canada,Highly Trained,Medium,247.0
+Bird,Macaw,9,Female,Healthy,Medium,Mixed,Australia,Basic Training,High,215.0
+Rabbit,Angora,13,Female,Healthy,Small,Grey,USA,Well Trained,High,253.5
+Hamster,Chinese,6,Male,Healthy,Large,Brown,Germany,Untrained,High,185.0
+Dog,Poodle,7,Female,Special Needs,Small,Brown,Australia,Well Trained,High,217.75
+Bird,Parrot,13,Female,Sick,Large,Spotted,USA,Basic Training,Low,108.5
+Bird,Parrot,10,Male,Healthy,Large,Spotted,USA,Well Trained,Medium,247.0
+Cat,Bengal,12,Male,Healthy,Small,Black,USA,Highly Trained,Low,208.0
+Dog,Poodle,7,Male,Sick,Large,Spotted,UK,Untrained,High,262.5
+Hamster,Syrian,11,Male,Special Needs,Large,White,France,Highly Trained,High,136.5
+Dog,Bulldog,5,Male,Sick,Medium,Spotted,Australia,Highly Trained,Medium,268.45
+Cat,Persian,1,Male,Special Needs,Large,Brown,France,Well Trained,Low,94.25
+Bird,Parrot,5,Male,Sick,Large,Mixed,USA,Untrained,Low,80.5
+Hamster,Roborovski,14,Female,Vaccinated,Medium,Grey,Germany,Basic Training,Medium,155.0
+Rabbit,Holland Lop,3,Female,Vaccinated,Small,Brown,India,Highly Trained,High,188.5
+Hamster,Syrian,10,Male,Sick,Small,Mixed,Australia,Well Trained,Low,59.15
+Cat,Siamese,12,Female,Healthy,Medium,Black,USA,Untrained,Low,180.0
+Hamster,Campbell's,14,Male,Healthy,Large,Black,Germany,Highly Trained,Medium,227.5
+Bird,Canary,14,Female,Sick,Small,White,Germany,Untrained,Low,84.0
+Cat,Siamese,10,Female,Special Needs,Large,Spotted,Canada,Highly Trained,High,188.5
+Bird,Finch,15,Female,Special Needs,Large,Black,Germany,Highly Trained,Medium,139.75
+Hamster,Campbell's,4,Male,Sick,Large,White,France,Untrained,High,122.5
+Bird,Parrot,5,Female,Special Needs,Large,Brown,USA,Untrained,High,107.5
+Cat,Maine Coon,3,Female,Healthy,Medium,Spotted,USA,Highly Trained,High,305.5
+Bird,Cockatiel,5,Female,Sick,Large,Grey,Canada,Highly Trained,Low,104.65
+Hamster,Roborovski,7,Female,Vaccinated,Small,Black,France,Highly Trained,Medium,130.0
+Cat,Maine Coon,14,Female,Sick,Small,Spotted,Germany,Untrained,Medium,154.0
+Hamster,Chinese,3,Male,Healthy,Small,Golden,USA,Untrained,Low,30.0
+Dog,Poodle,2,Female,Vaccinated,Small,Brown,India,Highly Trained,High,403.0
+Hamster,Chinese,7,Female,Sick,Small,Grey,Germany,Basic Training,High,105.0
+Rabbit,Angora,15,Female,Sick,Small,Mixed,France,Well Trained,High,186.55
+Hamster,Chinese,6,Male,Special Needs,Medium,Grey,Germany,Untrained,High,82.5
+Bird,Macaw,2,Male,Healthy,Large,Brown,France,Well Trained,Low,130.0
+Rabbit,Netherland Dwarf,6,Male,Special Needs,Medium,Mixed,UK,Basic Training,High,90.0
+Dog,Golden Retriever,5,Female,Special Needs,Large,Golden,France,Highly Trained,High,237.25
+Dog,Beagle,12,Female,Sick,Small,Golden,India,Untrained,Medium,217.0
+Dog,Beagle,8,Male,Sick,Small,Golden,Canada,Highly Trained,Low,218.4
+Hamster,Dwarf,11,Male,Sick,Small,Golden,Germany,Basic Training,Medium,84.0
+Rabbit,Holland Lop,11,Female,Healthy,Medium,Brown,Canada,Untrained,High,205.0
+Dog,Poodle,1,Female,Vaccinated,Medium,Spotted,Germany,Basic Training,Medium,275.0
+Dog,Beagle,12,Male,Special Needs,Large,White,Germany,Untrained,Low,150.0
+Dog,Beagle,7,Male,Special Needs,Medium,Brown,India,Well Trained,High,230.75
+Dog,Labrador,8,Female,Special Needs,Large,Golden,UK,Untrained,High,190.0
+Bird,Parrot,12,Female,Vaccinated,Medium,Black,UK,Well Trained,Medium,234.0
+Cat,Maine Coon,7,Female,Vaccinated,Large,White,USA,Highly Trained,Medium,292.5
+Rabbit,Angora,15,Male,Vaccinated,Small,White,Australia,Untrained,Medium,155.0
+Hamster,Campbell's,10,Female,Special Needs,Large,Spotted,Canada,Highly Trained,Low,68.25
+Cat,Maine Coon,8,Female,Healthy,Medium,Black,UK,Untrained,Medium,210.0
+Cat,Sphynx,2,Female,Healthy,Large,Golden,UK,Highly Trained,Low,195.0
+Hamster,Campbell's,11,Female,Vaccinated,Small,White,Germany,Basic Training,Low,70.0
+Cat,Sphynx,4,Female,Healthy,Medium,Mixed,Canada,Well Trained,Low,182.0
+Rabbit,Angora,13,Female,Sick,Small,Golden,Canada,Untrained,High,136.5
+Bird,Finch,13,Female,Sick,Medium,Golden,India,Untrained,Low,94.5
+Hamster,Dwarf,4,Male,Vaccinated,Medium,Spotted,Germany,Basic Training,Low,55.0
+Dog,Bulldog,6,Female,Sick,Small,Golden,France,Basic Training,High,231.0
+Rabbit,Angora,2,Male,Vaccinated,Small,Golden,USA,Basic Training,High,140.0
+Cat,Sphynx,2,Female,Sick,Large,Mixed,India,Basic Training,Low,105.0
+Hamster,Campbell's,9,Female,Sick,Small,Spotted,Canada,Basic Training,Low,42.0
+Bird,Parrot,2,Female,Healthy,Small,Mixed,USA,Highly Trained,Low,78.0
+Dog,Golden Retriever,9,Female,Special Needs,Medium,Golden,France,Basic Training,Low,132.5
+Cat,Maine Coon,13,Male,Special Needs,Medium,White,Canada,Highly Trained,Low,120.25
+Bird,Cockatiel,6,Male,Sick,Medium,Brown,Australia,Well Trained,Low,91.0
+Dog,Poodle,1,Female,Sick,Large,Golden,India,Well Trained,High,313.95
+Rabbit,Netherland Dwarf,15,Male,Vaccinated,Small,Brown,UK,Untrained,Medium,155.0
+Bird,Macaw,1,Male,Special Needs,Medium,Brown,USA,Untrained,High,87.5
+Dog,Golden Retriever,13,Male,Healthy,Small,Black,Germany,Basic Training,Low,265.0
+Rabbit,Netherland Dwarf,13,Male,Vaccinated,Large,Mixed,UK,Well Trained,High,305.5
+Bird,Macaw,12,Male,Special Needs,Large,Mixed,India,Basic Training,Medium,100.0
+Cat,Maine Coon,12,Male,Healthy,Small,Mixed,France,Highly Trained,High,338.0
+Cat,Maine Coon,8,Female,Special Needs,Medium,Brown,UK,Basic Training,Medium,105.0
+Rabbit,Flemish Giant,7,Male,Vaccinated,Large,Spotted,France,Well Trained,High,266.5
+Cat,Maine Coon,13,Male,Special Needs,Medium,Spotted,Australia,Untrained,Low,92.5
+Bird,Parrot,2,Male,Sick,Small,White,USA,Highly Trained,Low,54.6
+Cat,Maine Coon,14,Male,Special Needs,Large,Mixed,Australia,Basic Training,Low,105.0
+Dog,Golden Retriever,7,Female,Healthy,Medium,Spotted,Germany,Untrained,High,355.0
+Hamster,Dwarf,5,Female,Healthy,Large,Grey,France,Highly Trained,Low,104.0
+Bird,Cockatiel,9,Female,Healthy,Small,Spotted,USA,Untrained,Low,95.0
+Bird,Parrot,2,Female,Special Needs,Small,Golden,USA,Well Trained,Low,39.0
+Hamster,Dwarf,8,Male,Healthy,Medium,Spotted,USA,Untrained,Medium,125.0
+Rabbit,Angora,12,Male,Vaccinated,Medium,Black,Germany,Well Trained,Low,143.0
+Dog,Bulldog,11,Male,Sick,Small,Mixed,India,Highly Trained,Medium,277.55
+Rabbit,Netherland Dwarf,12,Male,Vaccinated,Medium,Spotted,UK,Untrained,Medium,160.0
+Dog,Labrador,8,Male,Healthy,Large,Golden,India,Basic Training,Low,280.0
+Dog,Golden Retriever,7,Male,Sick,Large,Spotted,USA,Well Trained,Low,250.25
+Cat,Persian,11,Female,Healthy,Medium,Spotted,USA,Well Trained,Low,227.5
+Rabbit,Netherland Dwarf,9,Male,Sick,Large,Golden,Germany,Untrained,Low,80.5
+Cat,Persian,11,Female,Healthy,Small,Golden,UK,Highly Trained,High,331.5
+Rabbit,Angora,3,Female,Vaccinated,Large,Grey,India,Basic Training,Medium,135.0
+Cat,Maine Coon,12,Female,Healthy,Small,Grey,India,Highly Trained,High,338.0
+Rabbit,Mini Rex,14,Female,Vaccinated,Large,Black,USA,Highly Trained,Low,182.0
+Bird,Canary,7,Female,Special Needs,Medium,Spotted,Canada,Basic Training,High,102.5
+Dog,Golden Retriever,4,Female,Healthy,Small,Golden,Germany,Well Trained,Medium,351.0
+Cat,Persian,2,Female,Healthy,Large,White,USA,Basic Training,Low,150.0
+Dog,Beagle,10,Female,Special Needs,Medium,White,USA,Basic Training,High,185.0
+Rabbit,Holland Lop,15,Female,Vaccinated,Medium,Golden,India,Basic Training,High,225.0
+Rabbit,Flemish Giant,4,Female,Vaccinated,Medium,Brown,Australia,Well Trained,High,221.0
+Hamster,Roborovski,7,Female,Sick,Medium,Brown,USA,Untrained,High,119.0
+Bird,Parrot,2,Male,Special Needs,Small,White,USA,Untrained,High,80.0
+Dog,Poodle,12,Female,Special Needs,Medium,Mixed,France,Basic Training,High,190.0
+Hamster,Dwarf,14,Male,Healthy,Large,Black,UK,Basic Training,High,225.0
+Dog,Labrador,8,Male,Special Needs,Small,White,USA,Highly Trained,High,221.0
+Rabbit,Angora,2,Male,Sick,Medium,Mixed,France,Basic Training,High,112.0
+Bird,Canary,9,Male,Vaccinated,Small,Brown,France,Well Trained,High,253.5
+Bird,Parrot,9,Female,Vaccinated,Small,Mixed,Germany,Untrained,High,195.0
+Bird,Parrot,6,Male,Special Needs,Medium,Grey,USA,Well Trained,Low,65.0
+Dog,Bulldog,7,Male,Healthy,Small,Mixed,Australia,Well Trained,Low,305.5
+Bird,Finch,9,Male,Sick,Medium,Brown,France,Basic Training,Low,80.5
+Hamster,Chinese,4,Male,Special Needs,Large,Brown,Germany,Basic Training,Low,37.5
+Bird,Parrot,11,Female,Sick,Small,Mixed,France,Basic Training,High,143.5
+Dog,Labrador,8,Male,Healthy,Medium,White,UK,Highly Trained,Low,338.0
+Hamster,Campbell's,12,Male,Special Needs,Medium,Black,Australia,Basic Training,High,97.5
+Cat,Bengal,6,Male,Sick,Small,Mixed,UK,Highly Trained,Medium,163.8
+Dog,Labrador,10,Female,Vaccinated,Medium,Spotted,France,Well Trained,High,481.0
+Hamster,Chinese,7,Male,Vaccinated,Small,White,UK,Well Trained,Medium,130.0
+Dog,Bulldog,1,Male,Sick,Large,Black,Australia,Well Trained,Low,222.95
+Hamster,Roborovski,8,Male,Special Needs,Small,Golden,UK,Well Trained,Low,35.75
+Bird,Finch,8,Female,Vaccinated,Small,Grey,USA,Highly Trained,Medium,182.0
+Hamster,Dwarf,7,Male,Special Needs,Medium,Spotted,USA,Well Trained,Low,45.5
+Cat,Bengal,15,Male,Sick,Medium,White,France,Untrained,Medium,171.5
+Cat,Sphynx,12,Female,Vaccinated,Large,Grey,USA,Highly Trained,Low,260.0
+Rabbit,Flemish Giant,6,Female,Vaccinated,Medium,White,France,Untrained,High,180.0
+Rabbit,Angora,7,Male,Healthy,Small,Brown,Germany,Well Trained,High,214.5
+Dog,Poodle,14,Male,Sick,Large,Mixed,UK,Highly Trained,Low,282.1
+Hamster,Syrian,13,Female,Sick,Large,Golden,Australia,Untrained,Medium,119.0
+Dog,Labrador,1,Female,Healthy,Medium,Golden,USA,Well Trained,Medium,357.5
+Cat,Sphynx,5,Male,Sick,Large,Grey,UK,Untrained,High,185.5
+Hamster,Syrian,6,Male,Special Needs,Large,Golden,Germany,Basic Training,Medium,67.5
+Bird,Parrot,7,Female,Sick,Medium,Mixed,France,Well Trained,Low,95.55
+Rabbit,Holland Lop,2,Female,Special Needs,Large,Spotted,USA,Untrained,Medium,65.0
+Cat,Persian,13,Male,Special Needs,Large,White,Australia,Basic Training,High,152.5
+Cat,Maine Coon,11,Male,Sick,Large,White,Australia,Basic Training,Medium,171.5
+Rabbit,Mini Rex,15,Female,Sick,Medium,Black,Germany,Highly Trained,Low,113.75
+Bird,Macaw,13,Male,Special Needs,Small,Mixed,France,Well Trained,High,139.75
+Rabbit,Mini Rex,8,Male,Healthy,Large,White,France,Untrained,Low,110.0
+Bird,Cockatiel,13,Male,Healthy,Small,Grey,Germany,Basic Training,Low,115.0
+Rabbit,Mini Rex,7,Male,Vaccinated,Small,Spotted,France,Untrained,Low,65.0
+Bird,Cockatiel,15,Male,Sick,Medium,Black,Australia,Highly Trained,Low,131.95
+Bird,Parrot,12,Female,Vaccinated,Small,Golden,India,Highly Trained,Low,143.0
+Hamster,Chinese,6,Male,Sick,Medium,Mixed,USA,Untrained,High,115.5
+Dog,Poodle,7,Female,Vaccinated,Medium,Black,Canada,Highly Trained,High,461.5
+Hamster,Roborovski,4,Male,Vaccinated,Large,Brown,India,Untrained,Low,75.0
+Hamster,Dwarf,4,Male,Vaccinated,Large,Grey,Canada,Basic Training,Low,75.0
+Bird,Macaw,11,Male,Special Needs,Small,White,Australia,Basic Training,Low,52.5
+Dog,Labrador,13,Male,Healthy,Small,Spotted,Germany,Untrained,High,365.0
+Dog,Beagle,15,Female,Vaccinated,Small,Golden,Australia,Basic Training,Medium,325.0
+Hamster,Chinese,14,Male,Vaccinated,Small,Mixed,Canada,Untrained,Medium,135.0
+Dog,Bulldog,7,Female,Sick,Large,Mixed,France,Highly Trained,Medium,295.75
+Dog,Poodle,4,Male,Vaccinated,Large,Grey,Australia,Untrained,Medium,310.0
+Hamster,Roborovski,4,Male,Healthy,Large,White,USA,Well Trained,High,227.5
+Cat,Siamese,11,Male,Healthy,Large,Brown,Australia,Well Trained,Medium,318.5
+Hamster,Roborovski,12,Female,Special Needs,Small,Black,Germany,Untrained,High,87.5
+Hamster,Syrian,13,Female,Sick,Large,Black,France,Basic Training,High,154.0
+Cat,Bengal,6,Female,Healthy,Medium,Grey,India,Basic Training,Low,150.0
+Hamster,Syrian,4,Female,Vaccinated,Medium,White,Germany,Untrained,Medium,105.0
+Cat,Maine Coon,7,Male,Sick,Small,White,Canada,Highly Trained,Medium,168.35
+Dog,Golden Retriever,15,Female,Healthy,Small,Black,UK,Untrained,Low,275.0
+Dog,Golden Retriever,11,Female,Special Needs,Large,Grey,India,Untrained,Medium,172.5
+Cat,Bengal,15,Male,Vaccinated,Medium,Brown,Germany,Basic Training,Medium,245.0
+Dog,Poodle,15,Male,Sick,Large,Grey,Canada,Highly Trained,High,377.65
+Bird,Canary,1,Female,Healthy,Large,Mixed,India,Highly Trained,High,253.5
+Cat,Sphynx,2,Female,Vaccinated,Large,Grey,India,Basic Training,Medium,200.0
+Dog,Labrador,8,Female,Sick,Large,Spotted,France,Well Trained,Medium,300.3
+Dog,Bulldog,9,Female,Special Needs,Large,Brown,UK,Basic Training,High,192.5
+Dog,Labrador,10,Male,Vaccinated,Small,Brown,Canada,Untrained,High,350.0
+Dog,Golden Retriever,5,Female,Healthy,Small,White,Germany,Well Trained,Medium,357.5
+Hamster,Syrian,8,Male,Special Needs,Medium,Golden,France,Basic Training,Low,37.5
+Rabbit,Holland Lop,4,Female,Vaccinated,Small,Black,UK,Untrained,High,150.0
+Bird,Macaw,9,Male,Sick,Large,Mixed,Canada,Highly Trained,Medium,168.35
+Cat,Persian,12,Male,Healthy,Medium,Spotted,Germany,Well Trained,Medium,299.0
+Cat,Bengal,12,Male,Vaccinated,Large,Brown,Canada,Highly Trained,High,390.0
+Bird,Canary,8,Female,Special Needs,Small,Spotted,USA,Untrained,Medium,70.0
+Cat,Bengal,7,Male,Healthy,Large,Black,Canada,Highly Trained,High,357.5
+Bird,Finch,8,Female,Special Needs,Small,Spotted,USA,Basic Training,Medium,70.0
+Bird,Cockatiel,4,Male,Special Needs,Large,Black,UK,Well Trained,Medium,104.0
+Bird,Macaw,11,Male,Sick,Medium,Mixed,France,Untrained,High,157.5
+Hamster,Roborovski,5,Male,Special Needs,Medium,Mixed,India,Well Trained,High,104.0
+Rabbit,Mini Rex,13,Female,Healthy,Large,Golden,Australia,Basic Training,High,235.0
+Hamster,Chinese,15,Female,Vaccinated,Large,Brown,USA,Basic Training,Low,130.0
+Dog,Golden Retriever,9,Female,Special Needs,Small,Black,Canada,Highly Trained,Low,159.25
+Hamster,Campbell's,6,Male,Special Needs,Large,Brown,India,Untrained,Medium,67.5
+Hamster,Chinese,15,Female,Sick,Large,Spotted,USA,Well Trained,High,209.3
+Cat,Bengal,3,Male,Special Needs,Small,Golden,India,Highly Trained,Low,74.75
+Dog,Beagle,9,Male,Special Needs,Large,White,Germany,Well Trained,High,250.25
+Hamster,Campbell's,4,Female,Vaccinated,Large,Mixed,USA,Basic Training,Low,75.0
+Dog,Labrador,3,Female,Sick,Small,Brown,India,Well Trained,Low,195.65
+Rabbit,Angora,15,Female,Special Needs,Medium,White,Canada,Highly Trained,High,146.25
+Rabbit,Netherland Dwarf,1,Female,Special Needs,Small,White,Australia,Untrained,Medium,42.5
+Hamster,Chinese,8,Male,Sick,Medium,Golden,Canada,Basic Training,Medium,87.5
+Dog,Poodle,8,Male,Special Needs,Small,White,Canada,Highly Trained,Low,156.0
+Bird,Cockatiel,2,Male,Sick,Large,White,Australia,Highly Trained,High,182.0
+Bird,Finch,9,Female,Special Needs,Large,Spotted,Germany,Untrained,High,117.5
+Rabbit,Holland Lop,6,Female,Sick,Small,Spotted,Germany,Basic Training,High,112.0
+Dog,Bulldog,7,Male,Sick,Small,White,USA,Untrained,Low,164.5
+Dog,Poodle,1,Male,Sick,Small,Black,UK,Well Trained,Medium,232.05
+Rabbit,Holland Lop,4,Male,Vaccinated,Large,White,Australia,Untrained,High,190.0
+Rabbit,Angora,9,Male,Special Needs,Small,Mixed,India,Untrained,Medium,62.5
+Bird,Finch,10,Male,Special Needs,Small,Mixed,France,Untrained,Low,50.0
+Dog,Labrador,14,Female,Special Needs,Large,Brown,Germany,Untrained,High,205.0
+Dog,Poodle,14,Male,Special Needs,Large,Spotted,Australia,Basic Training,Medium,180.0
+Hamster,Chinese,12,Male,Vaccinated,Medium,Mixed,UK,Basic Training,High,195.0
+Bird,Macaw,1,Female,Healthy,Large,Golden,UK,Well Trained,Medium,188.5
+Bird,Canary,3,Male,Sick,Small,Brown,Australia,Untrained,High,115.5
+Hamster,Campbell's,12,Male,Special Needs,Medium,Spotted,France,Well Trained,High,126.75
+Rabbit,Holland Lop,14,Male,Healthy,Medium,Black,Canada,Untrained,High,220.0
+Rabbit,Flemish Giant,10,Female,Vaccinated,Large,White,Australia,Untrained,High,220.0
+Rabbit,Mini Rex,15,Male,Healthy,Small,Black,France,Basic Training,Low,105.0
+Rabbit,Holland Lop,7,Male,Vaccinated,Large,Brown,UK,Highly Trained,High,266.5
+Hamster,Syrian,10,Male,Sick,Small,White,Canada,Basic Training,Low,45.5
+Rabbit,Netherland Dwarf,5,Male,Healthy,Small,Golden,UK,Basic Training,Low,55.0
+Dog,Beagle,1,Male,Healthy,Large,Brown,France,Untrained,High,345.0
+Bird,Canary,8,Male,Sick,Small,Spotted,India,Basic Training,High,133.0
+Dog,Labrador,6,Male,Sick,Large,Black,UK,Well Trained,Medium,291.2
+Rabbit,Holland Lop,5,Male,Healthy,Medium,Black,Germany,Highly Trained,Medium,162.5
+Cat,Siamese,6,Male,Sick,Large,Mixed,France,Basic Training,High,189.0
+Dog,Bulldog,9,Male,Special Needs,Medium,White,India,Well Trained,Medium,204.75
+Rabbit,Angora,14,Female,Sick,Small,Mixed,India,Highly Trained,Medium,136.5
+Hamster,Campbell's,15,Female,Special Needs,Small,Grey,UK,Well Trained,Low,58.5
+Rabbit,Mini Rex,14,Male,Vaccinated,Small,White,USA,Basic Training,Low,100.0
+Dog,Golden Retriever,10,Female,Vaccinated,Large,Black,Australia,Basic Training,Low,290.0
+Hamster,Dwarf,10,Female,Vaccinated,Small,Golden,France,Basic Training,Low,65.0
+Rabbit,Netherland Dwarf,2,Female,Sick,Large,Grey,UK,Highly Trained,High,163.8
+Hamster,Roborovski,12,Male,Special Needs,Medium,Spotted,Canada,Well Trained,Medium,94.25
+Dog,Poodle,8,Male,Special Needs,Small,Brown,France,Basic Training,Low,120.0
+Bird,Macaw,9,Male,Special Needs,Small,Mixed,USA,Untrained,Low,47.5
+Dog,Golden Retriever,3,Female,Vaccinated,Small,Spotted,Australia,Highly Trained,High,409.5
+Dog,Bulldog,6,Female,Sick,Medium,Black,Canada,Well Trained,Low,227.5
+Cat,Persian,7,Male,Vaccinated,Medium,Black,India,Highly Trained,Low,201.5
+Cat,Siamese,5,Female,Vaccinated,Medium,Golden,Germany,Highly Trained,High,318.5
+Dog,Labrador,10,Female,Special Needs,Small,Brown,Australia,Well Trained,High,227.5
+Bird,Cockatiel,10,Female,Sick,Medium,Grey,Germany,Highly Trained,Low,109.2
+Dog,Beagle,3,Female,Sick,Medium,Grey,Germany,Well Trained,Medium,259.35
+Hamster,Chinese,3,Male,Sick,Small,White,Australia,Basic Training,High,91.0
+Rabbit,Angora,5,Female,Vaccinated,Small,Mixed,Australia,Highly Trained,Low,71.5
+Dog,Golden Retriever,12,Female,Healthy,Small,Brown,Germany,Basic Training,Low,260.0
+Hamster,Chinese,5,Female,Special Needs,Large,White,Australia,Untrained,Medium,65.0
+Bird,Macaw,6,Female,Special Needs,Large,Golden,Germany,Highly Trained,High,143.0
+Dog,Beagle,1,Male,Special Needs,Medium,White,UK,Untrained,Medium,137.5
+Rabbit,Flemish Giant,12,Female,Healthy,Large,Mixed,Australia,Basic Training,High,230.0
+Dog,Golden Retriever,11,Female,Healthy,Small,Brown,Canada,Highly Trained,Medium,396.5
+Bird,Canary,2,Female,Vaccinated,Large,Spotted,France,Basic Training,Low,100.0
+Hamster,Syrian,12,Female,Sick,Small,Brown,Germany,Highly Trained,Low,68.25
+Cat,Siamese,5,Female,Special Needs,Small,Black,France,Untrained,Low,62.5
+Hamster,Syrian,10,Female,Healthy,Medium,Black,UK,Basic Training,Low,85.0
+Dog,Beagle,4,Male,Vaccinated,Large,Brown,Australia,Untrained,Low,260.0
+Dog,Bulldog,2,Male,Healthy,Medium,Brown,UK,Well Trained,Medium,364.0
+Bird,Cockatiel,1,Female,Vaccinated,Medium,White,India,Well Trained,Low,97.5
+Rabbit,Netherland Dwarf,5,Male,Healthy,Medium,White,Canada,Well Trained,High,227.5
+Rabbit,Angora,9,Female,Sick,Medium,White,Germany,Untrained,Low,66.5
+Bird,Finch,6,Female,Healthy,Large,Grey,UK,Untrained,High,220.0
+Rabbit,Angora,6,Male,Healthy,Medium,Grey,Australia,Basic Training,High,180.0
+Rabbit,Netherland Dwarf,1,Female,Healthy,Medium,Brown,Germany,Untrained,High,155.0
+Rabbit,Mini Rex,8,Male,Healthy,Small,White,UK,Highly Trained,Low,91.0
+Dog,Bulldog,15,Male,Healthy,Small,Grey,France,Basic Training,Low,275.0
+Cat,Bengal,7,Female,Vaccinated,Small,Black,Canada,Well Trained,Medium,240.5
+Dog,Bulldog,4,Male,Special Needs,Large,White,Germany,Highly Trained,Low,169.0
+Bird,Finch,6,Male,Healthy,Small,Grey,UK,Well Trained,Low,104.0
+Dog,Bulldog,8,Female,Sick,Medium,Golden,UK,Highly Trained,Low,236.6
+Hamster,Campbell's,13,Female,Healthy,Medium,Grey,India,Untrained,Medium,150.0
+Cat,Persian,7,Male,Healthy,Small,Black,France,Well Trained,Low,175.5
+Bird,Finch,1,Male,Vaccinated,Small,Spotted,USA,Highly Trained,Low,71.5
+Rabbit,Netherland Dwarf,7,Male,Vaccinated,Small,Spotted,India,Basic Training,Low,65.0
+Cat,Sphynx,13,Female,Special Needs,Large,Black,France,Untrained,Medium,127.5
+Dog,Bulldog,13,Female,Healthy,Medium,Black,France,Well Trained,Low,370.5
+Hamster,Syrian,7,Male,Vaccinated,Medium,White,Australia,Untrained,High,170.0
+Bird,Macaw,4,Female,Special Needs,Small,Grey,Australia,Basic Training,Low,35.0
+Bird,Canary,4,Female,Healthy,Small,Brown,France,Basic Training,High,170.0
+Hamster,Campbell's,1,Female,Vaccinated,Small,Golden,UK,Untrained,Medium,70.0
+Rabbit,Netherland Dwarf,5,Female,Healthy,Medium,Mixed,USA,Highly Trained,High,227.5
+Rabbit,Netherland Dwarf,7,Male,Healthy,Large,Grey,France,Basic Training,Medium,155.0
+Hamster,Roborovski,2,Male,Special Needs,Large,White,India,Untrained,Medium,57.5
+Rabbit,Flemish Giant,4,Male,Vaccinated,Large,Spotted,Canada,Basic Training,Medium,140.0
+Hamster,Dwarf,12,Female,Sick,Medium,White,Australia,Basic Training,Low,66.5
+Hamster,Chinese,10,Female,Sick,Medium,Grey,Canada,Untrained,High,129.5
+Dog,Bulldog,12,Female,Healthy,Small,Brown,UK,Highly Trained,Medium,403.0
+Dog,Poodle,7,Male,Vaccinated,Large,Grey,UK,Highly Trained,Low,357.5
+Bird,Finch,3,Male,Vaccinated,Medium,Brown,UK,Basic Training,High,185.0
+Rabbit,Flemish Giant,8,Female,Vaccinated,Large,Mixed,UK,Untrained,Medium,160.0
+Bird,Canary,15,Male,Sick,Large,White,India,Well Trained,Medium,195.65
+Dog,Golden Retriever,1,Female,Vaccinated,Medium,Spotted,USA,Highly Trained,High,422.5
+Rabbit,Mini Rex,10,Female,Vaccinated,Small,Golden,Canada,Untrained,High,180.0
+Bird,Cockatiel,2,Female,Sick,Small,Spotted,UK,Highly Trained,Low,54.6
+Cat,Bengal,8,Female,Healthy,Small,Spotted,Canada,Basic Training,Low,140.0
+Cat,Siamese,6,Female,Vaccinated,Large,Mixed,France,Untrained,High,270.0
+Hamster,Roborovski,12,Male,Sick,Medium,Spotted,Canada,Untrained,Low,66.5
+Cat,Sphynx,13,Female,Special Needs,Small,White,USA,Basic Training,High,132.5
+Rabbit,Mini Rex,3,Male,Special Needs,Small,Black,India,Basic Training,Low,22.5
+Rabbit,Flemish Giant,8,Male,Healthy,Small,Brown,USA,Well Trained,Medium,156.0
+Bird,Canary,13,Female,Vaccinated,Medium,White,USA,Basic Training,Low,135.0
+Hamster,Dwarf,8,Male,Sick,Small,White,France,Untrained,High,108.5
+Bird,Parrot,9,Male,Sick,Small,Brown,Canada,Well Trained,High,177.45
+Rabbit,Angora,1,Male,Sick,Medium,Grey,UK,Well Trained,Low,50.05
+Bird,Macaw,4,Female,Healthy,Small,Brown,Canada,Basic Training,High,170.0
+Cat,Maine Coon,12,Female,Vaccinated,Medium,Black,India,Highly Trained,Medium,299.0
+Dog,Golden Retriever,1,Male,Healthy,Medium,Mixed,Germany,Basic Training,Low,225.0
+Hamster,Roborovski,8,Female,Healthy,Small,Golden,France,Untrained,Low,55.0
+Hamster,Syrian,5,Male,Sick,Medium,Mixed,USA,Basic Training,High,112.0
+Bird,Macaw,2,Female,Special Needs,Small,Grey,USA,Highly Trained,Medium,71.5
+Bird,Cockatiel,5,Female,Special Needs,Large,Mixed,France,Untrained,Low,57.5
+Bird,Finch,10,Female,Sick,Large,Grey,Australia,Well Trained,Medium,172.9
+Rabbit,Angora,5,Male,Special Needs,Medium,Spotted,Australia,Well Trained,Low,48.75
+Cat,Sphynx,8,Male,Vaccinated,Medium,Golden,USA,Well Trained,High,338.0
+Bird,Cockatiel,2,Male,Healthy,Large,Golden,France,Well Trained,Medium,195.0
+Rabbit,Flemish Giant,10,Female,Healthy,Medium,Brown,France,Basic Training,Medium,150.0
+Hamster,Campbell's,9,Male,Vaccinated,Medium,White,India,Well Trained,Medium,169.0
+Hamster,Roborovski,4,Female,Vaccinated,Medium,Grey,India,Well Trained,High,201.5
+Dog,Golden Retriever,11,Male,Sick,Large,Golden,India,Well Trained,High,359.45
+Bird,Canary,10,Female,Vaccinated,Medium,Black,India,Basic Training,Medium,170.0
+Hamster,Dwarf,11,Male,Sick,Medium,White,USA,Basic Training,Low,63.0
+Bird,Macaw,1,Female,Healthy,Small,Spotted,Germany,Highly Trained,High,201.5
+Hamster,Roborovski,5,Female,Sick,Medium,Brown,Canada,Well Trained,Medium,100.1
+Bird,Macaw,15,Male,Special Needs,Small,Spotted,USA,Highly Trained,Medium,113.75
+Bird,Parrot,13,Female,Vaccinated,Small,Golden,UK,Untrained,Low,115.0
+Dog,Beagle,7,Female,Special Needs,Large,Brown,Australia,Basic Training,Medium,162.5
+Bird,Finch,11,Female,Vaccinated,Small,Brown,France,Highly Trained,Low,136.5
+Bird,Macaw,11,Male,Vaccinated,Large,Grey,Australia,Untrained,High,245.0
+Cat,Persian,1,Male,Healthy,Medium,White,USA,Well Trained,Medium,227.5
+Rabbit,Mini Rex,10,Male,Special Needs,Large,Spotted,France,Untrained,High,110.0
+Dog,Golden Retriever,14,Male,Healthy,Medium,Black,India,Untrained,Low,290.0
+Rabbit,Mini Rex,1,Male,Vaccinated,Medium,Golden,UK,Highly Trained,High,201.5
+Bird,Canary,9,Female,Sick,Medium,White,India,Well Trained,Low,104.65
+Cat,Bengal,15,Male,Healthy,Large,Golden,Canada,Highly Trained,Low,279.5
+Hamster,Campbell's,4,Male,Healthy,Medium,Brown,UK,Basic Training,High,155.0
+Cat,Sphynx,6,Female,Special Needs,Large,Mixed,Australia,Highly Trained,Low,110.5
+Dog,Bulldog,8,Female,Special Needs,Medium,Golden,Germany,Highly Trained,Medium,201.5
+Dog,Poodle,10,Male,Sick,Large,Spotted,Australia,Untrained,Medium,238.0
+Bird,Finch,7,Female,Vaccinated,Large,Spotted,France,Basic Training,Low,125.0
+Bird,Finch,2,Female,Special Needs,Small,Black,France,Untrained,Low,30.0
+Dog,Golden Retriever,13,Male,Special Needs,Large,Golden,India,Well Trained,Low,198.25
+Dog,Poodle,10,Male,Sick,Medium,Spotted,Canada,Highly Trained,High,336.7
+Hamster,Campbell's,9,Female,Healthy,Medium,Brown,USA,Highly Trained,Low,104.0
+Cat,Siamese,14,Female,Vaccinated,Small,Black,Canada,Highly Trained,Low,221.0
+Dog,Bulldog,12,Female,Healthy,Large,Black,France,Well Trained,Low,390.0
+Hamster,Chinese,11,Male,Healthy,Medium,Mixed,Canada,Untrained,Low,90.0
+Dog,Golden Retriever,10,Male,Vaccinated,Small,Black,Germany,Basic Training,Low,250.0
+Hamster,Dwarf,15,Male,Sick,Large,Black,India,Well Trained,Medium,163.8
+Rabbit,Netherland Dwarf,10,Male,Special Needs,Small,Mixed,UK,Basic Training,Medium,65.0
+Bird,Finch,10,Male,Sick,Small,Brown,UK,Basic Training,Medium,105.0
+Bird,Finch,10,Female,Special Needs,Medium,Spotted,France,Basic Training,High,110.0
+Rabbit,Angora,8,Female,Healthy,Medium,Black,UK,Well Trained,High,247.0
+Cat,Bengal,8,Female,Special Needs,Medium,Grey,USA,Untrained,Low,80.0
+Cat,Siamese,3,Female,Healthy,Small,Mixed,USA,Well Trained,High,279.5
+Rabbit,Flemish Giant,1,Male,Vaccinated,Medium,Mixed,UK,Basic Training,High,155.0
+Bird,Cockatiel,10,Female,Special Needs,Small,Golden,Germany,Highly Trained,High,130.0
+Bird,Macaw,13,Male,Vaccinated,Large,Grey,USA,Untrained,Medium,205.0
+Bird,Canary,8,Female,Sick,Large,White,Canada,Basic Training,Low,91.0
+Bird,Macaw,10,Male,Healthy,Medium,Grey,Canada,Well Trained,Low,156.0
+Hamster,Dwarf,5,Male,Special Needs,Small,Black,Canada,Untrained,Low,20.0
+Hamster,Roborovski,2,Male,Special Needs,Large,Golden,USA,Well Trained,Low,42.25
+Cat,Sphynx,9,Male,Sick,Medium,White,Australia,Highly Trained,Low,150.15
+Cat,Maine Coon,4,Male,Special Needs,Large,Golden,Australia,Untrained,Medium,105.0
+Cat,Bengal,2,Male,Vaccinated,Medium,Spotted,Australia,Highly Trained,Medium,234.0
+Dog,Golden Retriever,10,Male,Special Needs,Large,White,USA,Untrained,High,195.0
+Hamster,Campbell's,1,Female,Sick,Small,Mixed,India,Well Trained,Low,18.2
+Rabbit,Flemish Giant,8,Male,Sick,Large,White,Germany,Untrained,Medium,112.0
+Bird,Canary,9,Female,Sick,Medium,White,Australia,Highly Trained,Low,104.65
+Dog,Labrador,15,Female,Healthy,Medium,Golden,Australia,Untrained,High,395.0
+Rabbit,Netherland Dwarf,15,Male,Healthy,Medium,White,Germany,Untrained,Low,125.0
+Bird,Macaw,9,Female,Healthy,Small,Brown,UK,Well Trained,Low,123.5
+Cat,Maine Coon,6,Female,Vaccinated,Large,Black,UK,Highly Trained,Medium,286.0
+Bird,Canary,3,Female,Special Needs,Small,Black,Australia,Well Trained,High,107.25
+Rabbit,Netherland Dwarf,5,Female,Sick,Medium,Golden,France,Untrained,Medium,87.5
+Rabbit,Angora,10,Male,Healthy,Large,Golden,USA,Untrained,Low,120.0
+Hamster,Roborovski,15,Male,Healthy,Large,Golden,Germany,Basic Training,Medium,180.0
+Rabbit,Flemish Giant,12,Male,Healthy,Medium,Golden,India,Well Trained,High,273.0
+Rabbit,Mini Rex,4,Male,Special Needs,Small,Brown,Australia,Basic Training,Medium,50.0
+Bird,Cockatiel,10,Female,Sick,Small,Mixed,Australia,Basic Training,Medium,105.0
+Dog,Bulldog,6,Male,Special Needs,Small,Brown,Canada,Basic Training,Medium,140.0
+Bird,Parrot,2,Female,Special Needs,Small,Mixed,India,Well Trained,Medium,71.5
+Bird,Canary,2,Male,Sick,Large,Spotted,Australia,Untrained,Medium,105.0
+Rabbit,Holland Lop,1,Male,Sick,Small,Spotted,UK,Well Trained,Medium,77.35
+Dog,Beagle,11,Male,Sick,Large,Mixed,UK,Highly Trained,High,359.45
+Cat,Maine Coon,3,Male,Healthy,Small,Spotted,Canada,Basic Training,High,215.0
+Cat,Bengal,14,Female,Vaccinated,Large,Grey,Germany,Highly Trained,High,403.0
+Hamster,Chinese,11,Female,Vaccinated,Small,White,France,Well Trained,Low,91.0
+Hamster,Chinese,8,Female,Healthy,Medium,Black,Canada,Well Trained,Medium,162.5
+Hamster,Chinese,13,Male,Healthy,Large,Black,Australia,Basic Training,Low,120.0
+Rabbit,Holland Lop,13,Female,Special Needs,Small,Brown,Germany,Highly Trained,Medium,94.25
+Rabbit,Mini Rex,2,Female,Vaccinated,Small,Black,India,Well Trained,Low,52.0
+Dog,Beagle,1,Female,Sick,Medium,Mixed,Germany,Well Trained,High,295.75
+Dog,Beagle,12,Female,Sick,Small,White,USA,Untrained,Low,182.0
+Rabbit,Flemish Giant,2,Male,Vaccinated,Large,White,USA,Untrained,Low,80.0
+Hamster,Chinese,15,Female,Special Needs,Small,Golden,Australia,Highly Trained,Low,58.5
+Hamster,Campbell's,10,Male,Healthy,Small,White,Germany,Well Trained,High,214.5
+Rabbit,Flemish Giant,9,Female,Healthy,Small,Brown,USA,Basic Training,High,175.0
+Hamster,Dwarf,14,Female,Vaccinated,Small,Black,India,Untrained,Low,85.0
+Cat,Bengal,3,Male,Special Needs,Small,Golden,UK,Well Trained,High,139.75
+Hamster,Roborovski,15,Female,Sick,Large,Spotted,Australia,Untrained,High,161.0
+Cat,Persian,12,Female,Special Needs,Large,White,Canada,Basic Training,Low,100.0
+Dog,Poodle,14,Female,Healthy,Small,Golden,Canada,Basic Training,Medium,320.0
+Cat,Bengal,12,Male,Special Needs,Medium,Grey,Germany,Highly Trained,Medium,149.5
+Rabbit,Holland Lop,2,Female,Healthy,Small,White,Canada,Well Trained,Medium,117.0
+Hamster,Roborovski,7,Male,Sick,Medium,Grey,Australia,Highly Trained,Medium,109.2
+Hamster,Campbell's,10,Female,Vaccinated,Medium,Brown,France,Highly Trained,High,240.5
+Rabbit,Flemish Giant,9,Male,Sick,Large,Mixed,UK,Basic Training,Low,80.5
+Hamster,Roborovski,2,Male,Vaccinated,Medium,Mixed,Australia,Highly Trained,Low,58.5
+Dog,Labrador,7,Female,Healthy,Large,Grey,USA,Well Trained,High,487.5
+Hamster,Chinese,7,Male,Healthy,Small,Spotted,Australia,Highly Trained,Medium,130.0
+Dog,Golden Retriever,15,Male,Vaccinated,Small,Black,UK,Highly Trained,Low,357.5
+Cat,Siamese,15,Female,Healthy,Medium,White,India,Untrained,Low,195.0
+Dog,Golden Retriever,14,Female,Sick,Medium,Mixed,USA,Well Trained,Medium,309.4
+Hamster,Syrian,13,Male,Healthy,Large,Mixed,Australia,Untrained,High,220.0
+Hamster,Dwarf,5,Female,Sick,Large,Golden,France,Basic Training,High,126.0
+Cat,Bengal,12,Male,Special Needs,Small,Spotted,UK,Basic Training,Low,80.0
+Bird,Finch,10,Male,Healthy,Large,Mixed,India,Basic Training,Medium,190.0
+Bird,Canary,9,Male,Vaccinated,Medium,Black,Germany,Basic Training,High,215.0
+Bird,Cockatiel,1,Female,Special Needs,Large,Black,Canada,Highly Trained,Medium,94.25
+Rabbit,Mini Rex,4,Male,Sick,Small,Mixed,France,Basic Training,Medium,70.0
+Bird,Cockatiel,15,Male,Sick,Medium,Spotted,Canada,Highly Trained,High,222.95
+Cat,Persian,11,Male,Vaccinated,Large,Brown,India,Basic Training,High,295.0
+Cat,Persian,15,Female,Sick,Small,Mixed,UK,Untrained,Low,122.5
+Hamster,Syrian,12,Female,Vaccinated,Medium,Mixed,Germany,Basic Training,Low,95.0
+Hamster,Syrian,3,Male,Sick,Medium,Spotted,UK,Untrained,Medium,70.0
+Cat,Sphynx,10,Male,Vaccinated,Large,Brown,USA,Well Trained,Medium,312.0
+Bird,Parrot,3,Male,Special Needs,Small,Mixed,UK,Highly Trained,Low,42.25
+Dog,Poodle,15,Male,Healthy,Small,Grey,UK,Well Trained,Low,357.5
+Bird,Finch,1,Male,Special Needs,Large,Brown,Australia,Well Trained,Low,61.75
+Cat,Persian,14,Female,Healthy,Medium,Spotted,India,Highly Trained,Low,247.0
+Dog,Poodle,6,Female,Special Needs,Medium,Golden,UK,Highly Trained,Low,162.5
+Hamster,Dwarf,8,Male,Healthy,Large,Golden,Australia,Well Trained,Low,123.5
+Cat,Siamese,5,Female,Vaccinated,Large,Brown,France,Well Trained,Low,214.5
+Cat,Maine Coon,11,Female,Special Needs,Small,Spotted,Australia,Well Trained,Low,100.75
+Rabbit,Flemish Giant,4,Male,Healthy,Large,Spotted,France,Highly Trained,Medium,182.0
+Rabbit,Netherland Dwarf,3,Male,Sick,Small,Grey,Germany,Untrained,Medium,66.5
+Bird,Macaw,7,Female,Special Needs,Large,Spotted,UK,Untrained,High,112.5
+Rabbit,Angora,13,Female,Healthy,Small,Grey,Germany,Untrained,High,195.0
+Rabbit,Mini Rex,2,Male,Special Needs,Medium,Spotted,Canada,Well Trained,Low,39.0
+Dog,Poodle,12,Female,Vaccinated,Small,Brown,UK,Well Trained,High,468.0
+Dog,Golden Retriever,1,Female,Special Needs,Medium,Spotted,France,Untrained,High,162.5
+Dog,Bulldog,10,Male,Healthy,Small,Golden,France,Untrained,High,350.0
+Bird,Parrot,4,Female,Sick,Medium,Golden,Australia,Basic Training,Low,63.0
+Hamster,Chinese,12,Male,Special Needs,Large,Black,UK,Well Trained,Low,74.75
+Hamster,Chinese,5,Male,Special Needs,Large,Grey,India,Basic Training,Low,40.0
+Dog,Golden Retriever,14,Female,Sick,Large,Grey,UK,Basic Training,Medium,252.0
+Hamster,Roborovski,4,Male,Sick,Small,White,Canada,Well Trained,Medium,77.35
+Dog,Golden Retriever,11,Male,Special Needs,Small,Black,Canada,Untrained,High,177.5
+Hamster,Dwarf,3,Male,Healthy,Small,Mixed,Canada,Well Trained,Low,39.0
+Bird,Finch,15,Female,Special Needs,Large,Golden,India,Well Trained,Medium,139.75
+Dog,Labrador,12,Male,Vaccinated,Medium,Spotted,India,Well Trained,Low,364.0
+Bird,Parrot,14,Female,Special Needs,Medium,Black,Canada,Untrained,High,120.0
+Dog,Beagle,9,Female,Sick,Small,Golden,Germany,Highly Trained,Medium,268.45
+Bird,Cockatiel,2,Male,Sick,Large,Grey,UK,Well Trained,Low,91.0
+Cat,Siamese,1,Female,Vaccinated,Medium,Golden,Australia,Basic Training,Low,125.0
+Cat,Sphynx,10,Male,Sick,Large,White,France,Well Trained,Low,172.9
+Cat,Maine Coon,1,Female,Special Needs,Medium,Black,France,Well Trained,Medium,113.75
+Dog,Labrador,7,Female,Vaccinated,Large,Grey,France,Well Trained,Low,357.5
+Cat,Bengal,2,Female,Healthy,Medium,Spotted,Canada,Basic Training,Medium,180.0
+Cat,Siamese,8,Female,Vaccinated,Medium,Spotted,UK,Basic Training,Low,160.0
+Hamster,Chinese,6,Female,Sick,Medium,Brown,Australia,Basic Training,Medium,80.5
+Dog,Golden Retriever,15,Male,Sick,Large,Brown,Canada,Highly Trained,Low,286.65
+Rabbit,Netherland Dwarf,10,Female,Vaccinated,Small,Black,Canada,Well Trained,High,234.0
+Rabbit,Angora,6,Male,Healthy,Medium,Brown,France,Basic Training,Low,80.0
+Cat,Siamese,13,Female,Sick,Small,Spotted,Germany,Well Trained,Medium,195.65
+Hamster,Campbell's,3,Female,Sick,Small,Black,Canada,Highly Trained,High,118.3
+Rabbit,Netherland Dwarf,13,Male,Sick,Small,Black,USA,Well Trained,Medium,131.95
+Bird,Macaw,14,Female,Healthy,Small,Black,Germany,Well Trained,Low,156.0
+Bird,Finch,8,Female,Special Needs,Large,Black,Canada,Well Trained,Low,84.5
+Hamster,Campbell's,4,Male,Special Needs,Small,White,USA,Highly Trained,High,87.75
+Rabbit,Netherland Dwarf,1,Female,Sick,Large,Brown,Canada,Well Trained,High,159.25
+Cat,Bengal,12,Female,Sick,Large,Spotted,Germany,Basic Training,Low,140.0
+Bird,Finch,6,Male,Sick,Large,Golden,UK,Well Trained,High,200.2
+Dog,Labrador,15,Female,Sick,Small,Brown,Australia,Basic Training,Low,192.5
+Cat,Bengal,9,Female,Healthy,Large,Spotted,India,Well Trained,Medium,305.5
+Bird,Canary,7,Female,Vaccinated,Large,White,India,Untrained,Medium,175.0
+Cat,Bengal,4,Female,Vaccinated,Large,Grey,UK,Untrained,High,260.0
+Dog,Bulldog,5,Male,Vaccinated,Medium,Grey,USA,Highly Trained,Low,318.5
+Dog,Bulldog,5,Male,Healthy,Small,White,Canada,Well Trained,High,422.5
+Dog,Labrador,5,Female,Vaccinated,Small,Grey,UK,Untrained,High,325.0
+Dog,Bulldog,8,Female,Vaccinated,Small,Grey,Australia,Basic Training,Low,240.0
+Bird,Macaw,8,Male,Vaccinated,Large,Mixed,USA,Well Trained,Medium,234.0
+Dog,Golden Retriever,8,Male,Sick,Small,Spotted,France,Highly Trained,Medium,263.9
+Hamster,Syrian,10,Male,Sick,Small,Brown,Australia,Highly Trained,High,150.15
+Cat,Sphynx,8,Female,Special Needs,Small,White,Canada,Basic Training,High,120.0
+Hamster,Roborovski,12,Male,Special Needs,Medium,Brown,UK,Untrained,Medium,72.5
+Bird,Cockatiel,12,Female,Special Needs,Small,Golden,USA,Highly Trained,Low,71.5
+Bird,Canary,13,Male,Healthy,Medium,Black,UK,Well Trained,Low,175.5
+Rabbit,Holland Lop,12,Female,Special Needs,Medium,Mixed,France,Untrained,Medium,80.0
+Hamster,Dwarf,13,Female,Special Needs,Large,Black,France,Basic Training,Low,60.0
+Cat,Siamese,10,Male,Sick,Medium,Brown,India,Untrained,Low,119.0
+Hamster,Roborovski,9,Male,Healthy,Medium,Mixed,Australia,Basic Training,Low,80.0
+Rabbit,Netherland Dwarf,13,Male,Sick,Large,Mixed,Canada,Well Trained,High,213.85
+Hamster,Roborovski,1,Female,Special Needs,Large,Spotted,India,Basic Training,Medium,55.0
+Bird,Finch,7,Female,Vaccinated,Large,White,France,Highly Trained,Low,162.5
+Hamster,Chinese,12,Male,Vaccinated,Medium,Golden,USA,Basic Training,Low,95.0
+Cat,Maine Coon,15,Female,Special Needs,Large,Black,Germany,Untrained,High,157.5
+Rabbit,Holland Lop,7,Female,Special Needs,Large,Spotted,Canada,Untrained,High,102.5
+Dog,Poodle,3,Female,Healthy,Small,Brown,France,Untrained,High,315.0
+Dog,Bulldog,6,Male,Healthy,Medium,White,India,Basic Training,Medium,300.0
+Dog,Labrador,6,Female,Sick,Medium,Spotted,UK,Untrained,Low,175.0
+Bird,Parrot,10,Female,Vaccinated,Large,White,USA,Well Trained,High,312.0
+Rabbit,Angora,3,Male,Vaccinated,Large,Spotted,USA,Highly Trained,Low,110.5
+Dog,Golden Retriever,7,Female,Vaccinated,Large,White,Germany,Highly Trained,High,487.5
+Bird,Cockatiel,4,Female,Sick,Medium,White,Canada,Well Trained,Medium,127.4
+Bird,Macaw,1,Male,Vaccinated,Medium,Spotted,Germany,Untrained,Low,75.0
+Rabbit,Angora,15,Male,Healthy,Large,Mixed,France,Highly Trained,Low,188.5
+Bird,Macaw,5,Female,Special Needs,Medium,Spotted,Canada,Well Trained,High,126.75
+Cat,Maine Coon,8,Female,Sick,Medium,Grey,Germany,Well Trained,Medium,191.1
+Bird,Finch,5,Male,Healthy,Small,Spotted,Germany,Basic Training,Medium,125.0
+Bird,Finch,9,Male,Healthy,Small,Golden,India,Untrained,High,195.0
+Hamster,Syrian,12,Female,Healthy,Large,White,UK,Untrained,Medium,165.0
+Bird,Finch,11,Female,Vaccinated,Medium,Golden,France,Untrained,Medium,175.0
+Cat,Bengal,2,Female,Vaccinated,Medium,Golden,Canada,Untrained,Medium,180.0
+Dog,Golden Retriever,8,Female,Sick,Medium,Spotted,India,Highly Trained,Low,236.6
+Dog,Poodle,3,Female,Vaccinated,Medium,Golden,Canada,Basic Training,High,335.0
+Dog,Bulldog,13,Male,Sick,Medium,Mixed,Germany,Basic Training,Medium,234.5
+Hamster,Chinese,12,Male,Special Needs,Small,Golden,Canada,Untrained,Low,37.5
+Bird,Finch,11,Female,Healthy,Small,Brown,UK,Untrained,Low,105.0
+Bird,Canary,12,Male,Sick,Small,Grey,UK,Basic Training,Medium,112.0
+Cat,Sphynx,11,Female,Vaccinated,Medium,Brown,France,Highly Trained,Low,227.5
+Hamster,Chinese,10,Male,Vaccinated,Medium,Mixed,USA,Basic Training,Low,85.0
+Dog,Bulldog,6,Male,Vaccinated,Small,Spotted,UK,Well Trained,Low,299.0
+Cat,Bengal,14,Male,Healthy,Small,Spotted,France,Highly Trained,Medium,286.0
+Bird,Parrot,12,Male,Vaccinated,Large,Spotted,UK,Highly Trained,Medium,260.0
+Dog,Beagle,2,Female,Sick,Small,Black,Canada,Well Trained,Low,191.1
+Cat,Sphynx,4,Female,Vaccinated,Large,Black,France,Highly Trained,Medium,273.0
+Hamster,Roborovski,7,Female,Sick,Small,Black,USA,Highly Trained,Low,45.5
+Bird,Macaw,8,Male,Special Needs,Large,Brown,India,Well Trained,Low,84.5
+Hamster,Roborovski,8,Female,Special Needs,Medium,Black,Germany,Untrained,Low,37.5
+Bird,Cockatiel,12,Female,Vaccinated,Small,Mixed,India,Well Trained,Medium,208.0
+Dog,Golden Retriever,1,Male,Sick,Large,Brown,India,Untrained,Low,171.5
+Rabbit,Mini Rex,15,Male,Sick,Medium,Black,France,Untrained,Medium,122.5
+Cat,Persian,10,Female,Sick,Medium,Black,Germany,Untrained,Medium,154.0
+Bird,Canary,6,Male,Healthy,Large,White,Australia,Basic Training,Low,120.0
+Rabbit,Netherland Dwarf,12,Female,Special Needs,Large,Golden,USA,Basic Training,Low,65.0
+Hamster,Syrian,9,Male,Special Needs,Small,Grey,Australia,Basic Training,Low,30.0
+Rabbit,Mini Rex,4,Male,Vaccinated,Large,Black,France,Well Trained,Low,117.0
+Dog,Poodle,15,Female,Special Needs,Small,Black,Canada,Basic Training,High,187.5
+Dog,Poodle,5,Female,Vaccinated,Small,White,Canada,Well Trained,Medium,357.5
+Bird,Finch,11,Male,Sick,Small,Golden,USA,Well Trained,High,186.55
+Hamster,Campbell's,11,Female,Vaccinated,Large,Brown,France,Highly Trained,Medium,208.0
+Dog,Labrador,4,Female,Healthy,Large,Brown,Australia,Basic Training,Medium,310.0
+Cat,Maine Coon,11,Male,Healthy,Large,Spotted,USA,Well Trained,Medium,318.5
+Hamster,Dwarf,5,Female,Healthy,Small,Brown,UK,Basic Training,Medium,90.0
+Bird,Parrot,7,Female,Vaccinated,Large,Mixed,USA,Basic Training,High,225.0
+Rabbit,Flemish Giant,2,Male,Sick,Small,Spotted,USA,Highly Trained,High,127.4
+Bird,Canary,1,Male,Special Needs,Medium,Golden,France,Untrained,Low,37.5
+Bird,Parrot,14,Male,Sick,Small,Grey,France,Well Trained,Medium,154.7
+Hamster,Chinese,9,Female,Sick,Medium,Black,India,Basic Training,High,126.0
+Dog,Bulldog,6,Female,Sick,Small,Brown,Australia,Basic Training,Low,161.0
+Rabbit,Netherland Dwarf,5,Female,Healthy,Medium,White,USA,Well Trained,Low,97.5
+Dog,Golden Retriever,13,Female,Special Needs,Medium,Brown,Germany,Well Trained,Medium,217.75
+Dog,Poodle,10,Female,Healthy,Large,Brown,France,Basic Training,Medium,340.0
+Cat,Bengal,7,Male,Vaccinated,Medium,White,Germany,Well Trained,High,331.5
+Rabbit,Flemish Giant,13,Male,Special Needs,Medium,Brown,Canada,Basic Training,Medium,82.5
+Bird,Macaw,13,Male,Healthy,Large,Mixed,UK,Well Trained,Low,201.5
+Hamster,Campbell's,2,Female,Sick,Large,Black,UK,Untrained,Low,45.5
+Hamster,Syrian,12,Female,Vaccinated,Large,Mixed,Australia,Highly Trained,High,279.5
+Hamster,Roborovski,4,Female,Healthy,Medium,White,USA,Basic Training,High,155.0
+Hamster,Roborovski,1,Male,Healthy,Medium,White,France,Untrained,Low,40.0
+Rabbit,Angora,9,Male,Special Needs,Small,Black,Germany,Highly Trained,High,113.75
+Cat,Bengal,4,Female,Special Needs,Small,Black,France,Highly Trained,Medium,110.5
+Rabbit,Flemish Giant,13,Male,Sick,Large,Brown,UK,Well Trained,High,213.85
+Hamster,Dwarf,7,Male,Vaccinated,Small,Black,France,Well Trained,High,195.0
+Cat,Maine Coon,1,Male,Special Needs,Medium,Black,USA,Well Trained,High,146.25
+Cat,Maine Coon,10,Female,Vaccinated,Small,Mixed,Canada,Highly Trained,High,325.0
+Rabbit,Flemish Giant,13,Female,Special Needs,Medium,Black,Australia,Basic Training,Low,57.5
+Bird,Parrot,6,Female,Vaccinated,Medium,Brown,Australia,Untrained,Medium,150.0
+Rabbit,Flemish Giant,14,Male,Sick,Large,White,Germany,Basic Training,Medium,133.0
+Cat,Siamese,1,Female,Sick,Medium,Spotted,Australia,Basic Training,High,157.5
+Dog,Poodle,6,Female,Sick,Medium,Mixed,France,Well Trained,Medium,273.0
+Rabbit,Holland Lop,8,Female,Sick,Medium,Black,France,Well Trained,High,172.9
+Bird,Finch,7,Female,Healthy,Large,Spotted,USA,Basic Training,Medium,175.0
+Bird,Parrot,15,Female,Vaccinated,Large,Golden,UK,Highly Trained,Low,214.5
+Bird,Macaw,6,Male,Healthy,Large,White,USA,Highly Trained,Low,156.0
+Dog,Labrador,8,Female,Healthy,Small,Mixed,Australia,Basic Training,High,340.0
+Hamster,Roborovski,6,Female,Healthy,Medium,Black,USA,Highly Trained,Low,84.5
+Rabbit,Mini Rex,14,Male,Sick,Small,Grey,UK,Untrained,Low,70.0
+Hamster,Campbell's,4,Female,Sick,Large,Black,India,Untrained,High,122.5
+Dog,Golden Retriever,10,Male,Vaccinated,Medium,Mixed,Australia,Untrained,Medium,320.0
+Hamster,Chinese,10,Male,Special Needs,Small,Spotted,UK,Well Trained,Medium,74.75
+Rabbit,Angora,5,Female,Vaccinated,Large,Brown,Australia,Well Trained,High,253.5
+Dog,Bulldog,7,Female,Vaccinated,Small,Black,UK,Well Trained,Medium,370.5
+Cat,Sphynx,6,Male,Healthy,Medium,Mixed,USA,Well Trained,High,325.0
+Hamster,Roborovski,1,Female,Vaccinated,Small,Golden,Germany,Basic Training,High,120.0
+Dog,Bulldog,14,Male,Special Needs,Medium,Black,Germany,Well Trained,High,253.5
+Rabbit,Holland Lop,5,Male,Sick,Small,Mixed,Australia,Basic Training,Low,38.5
+Hamster,Roborovski,10,Female,Special Needs,Small,Brown,UK,Well Trained,Medium,74.75
+Dog,Beagle,1,Male,Vaccinated,Small,White,Australia,Highly Trained,High,396.5
+Cat,Siamese,7,Female,Sick,Large,Black,Germany,Untrained,High,192.5
+Bird,Canary,8,Male,Special Needs,Large,Grey,UK,Untrained,High,115.0
+Rabbit,Holland Lop,13,Male,Sick,Small,Brown,Germany,Untrained,Medium,101.5
+Hamster,Roborovski,3,Female,Sick,Medium,Grey,UK,Well Trained,High,136.5
+Dog,Beagle,5,Male,Vaccinated,Small,Grey,Australia,Untrained,Medium,275.0
+Cat,Bengal,12,Male,Vaccinated,Small,Grey,Canada,Highly Trained,Low,208.0
+Hamster,Dwarf,7,Male,Special Needs,Large,Mixed,USA,Untrained,Low,45.0
+Dog,Bulldog,14,Male,Special Needs,Large,White,Canada,Basic Training,High,205.0
+Cat,Maine Coon,15,Male,Vaccinated,Small,Mixed,UK,Well Trained,Medium,292.5
+Cat,Siamese,2,Female,Special Needs,Large,White,India,Well Trained,High,162.5
+Dog,Poodle,2,Female,Special Needs,Large,Brown,USA,Highly Trained,High,227.5
+Hamster,Syrian,12,Female,Vaccinated,Large,Brown,Australia,Well Trained,Medium,214.5
+Bird,Cockatiel,9,Female,Special Needs,Large,Grey,India,Highly Trained,Medium,120.25
+Bird,Macaw,7,Female,Sick,Large,Spotted,Australia,Highly Trained,High,204.75
+Cat,Persian,3,Male,Healthy,Medium,Spotted,Australia,Highly Trained,High,305.5
+Bird,Macaw,6,Female,Sick,Small,Brown,USA,Well Trained,Low,72.8
+Cat,Bengal,14,Female,Sick,Small,White,France,Untrained,Low,119.0
+Hamster,Chinese,15,Male,Sick,Medium,White,Germany,Untrained,Medium,112.0
+Cat,Persian,1,Female,Healthy,Large,Mixed,France,Well Trained,High,318.5
+Cat,Bengal,3,Female,Sick,Medium,White,India,Basic Training,Low,94.5
+Dog,Beagle,6,Female,Special Needs,Small,Golden,India,Untrained,Medium,140.0
+Cat,Persian,7,Male,Sick,Medium,Grey,Canada,Well Trained,Low,141.05
+Cat,Maine Coon,8,Female,Sick,Small,Grey,India,Well Trained,Medium,172.9
+Hamster,Campbell's,14,Male,Vaccinated,Small,Spotted,Germany,Untrained,Low,85.0
+Bird,Parrot,15,Male,Vaccinated,Small,Mixed,Canada,Untrained,Low,125.0
+Cat,Maine Coon,11,Male,Sick,Medium,Brown,USA,Untrained,Low,122.5
+Dog,Poodle,7,Female,Healthy,Small,Mixed,UK,Untrained,High,335.0
+Dog,Bulldog,7,Female,Sick,Large,White,Australia,Highly Trained,High,341.25
+Cat,Siamese,12,Male,Vaccinated,Large,White,India,Highly Trained,Low,260.0
+Rabbit,Netherland Dwarf,10,Female,Vaccinated,Small,White,Australia,Well Trained,Low,104.0
+Rabbit,Mini Rex,3,Female,Healthy,Large,White,India,Untrained,Low,85.0
+Bird,Cockatiel,1,Female,Special Needs,Large,Mixed,India,Basic Training,High,97.5
+Dog,Poodle,9,Male,Special Needs,Medium,Spotted,France,Untrained,Medium,157.5
+Dog,Bulldog,1,Male,Sick,Small,Spotted,Germany,Highly Trained,High,277.55
+Cat,Bengal,1,Male,Special Needs,Medium,Brown,USA,Basic Training,Medium,87.5
+Rabbit,Angora,7,Female,Vaccinated,Small,Mixed,France,Well Trained,Low,84.5
+Cat,Bengal,9,Female,Vaccinated,Medium,Spotted,Australia,Untrained,Low,165.0
+Cat,Bengal,14,Male,Vaccinated,Large,Grey,USA,Basic Training,High,310.0
+Cat,Sphynx,1,Female,Vaccinated,Large,Golden,Canada,Untrained,High,245.0
+Bird,Macaw,9,Male,Sick,Medium,Spotted,UK,Well Trained,Low,104.65
+Rabbit,Mini Rex,5,Female,Healthy,Large,Golden,India,Untrained,Medium,145.0
+Bird,Parrot,11,Male,Healthy,Medium,Spotted,India,Well Trained,High,292.5
+Hamster,Chinese,14,Female,Vaccinated,Small,Golden,USA,Untrained,Low,85.0
+Rabbit,Angora,4,Female,Vaccinated,Medium,White,France,Highly Trained,Medium,156.0
+Cat,Persian,5,Female,Sick,Large,Brown,UK,Well Trained,Medium,195.65
+Cat,Sphynx,10,Male,Sick,Large,Black,USA,Well Trained,High,263.9
+Rabbit,Angora,15,Male,Vaccinated,Medium,White,France,Untrained,Medium,175.0
+Dog,Poodle,8,Male,Vaccinated,Small,Brown,Australia,Untrained,Low,240.0
+Hamster,Syrian,2,Female,Healthy,Medium,Spotted,UK,Well Trained,Medium,123.5
+Hamster,Dwarf,4,Female,Sick,Large,White,France,Highly Trained,Low,68.25
+Hamster,Chinese,7,Female,Healthy,Medium,Spotted,UK,Highly Trained,High,221.0
+Hamster,Dwarf,1,Female,Special Needs,Medium,Mixed,UK,Untrained,Low,20.0
+Cat,Sphynx,11,Female,Sick,Small,Mixed,India,Well Trained,High,232.05
+Hamster,Roborovski,12,Female,Healthy,Small,Spotted,USA,Highly Trained,High,227.5
+Hamster,Campbell's,4,Female,Vaccinated,Small,Mixed,Canada,Basic Training,Low,35.0
+Dog,Golden Retriever,2,Female,Special Needs,Medium,Mixed,France,Well Trained,Low,149.5
+Cat,Bengal,5,Female,Sick,Medium,Golden,Germany,Basic Training,Low,101.5
+Rabbit,Holland Lop,6,Male,Healthy,Large,Brown,USA,Basic Training,High,200.0
+Hamster,Dwarf,9,Male,Special Needs,Small,Spotted,India,Basic Training,High,80.0
+Dog,Bulldog,3,Female,Healthy,Small,White,Canada,Well Trained,Medium,344.5
+Dog,Bulldog,15,Female,Special Needs,Large,Black,India,Basic Training,Medium,182.5
+Rabbit,Flemish Giant,4,Male,Special Needs,Small,White,UK,Well Trained,High,97.5
+Rabbit,Mini Rex,2,Female,Healthy,Large,Spotted,India,Untrained,High,180.0
+Rabbit,Flemish Giant,8,Male,Sick,Large,White,Canada,Highly Trained,Medium,145.6
+Hamster,Syrian,11,Male,Special Needs,Small,White,India,Highly Trained,Medium,78.0
+Hamster,Roborovski,4,Female,Special Needs,Large,Black,Australia,Highly Trained,Medium,81.25
+Hamster,Dwarf,5,Female,Sick,Medium,Mixed,UK,Well Trained,High,145.6
+Dog,Labrador,5,Male,Sick,Small,Mixed,France,Basic Training,Low,157.5
+Bird,Canary,15,Female,Healthy,Medium,Spotted,USA,Basic Training,Low,145.0
+Hamster,Roborovski,14,Female,Sick,Small,Golden,France,Basic Training,Low,59.5
+Bird,Cockatiel,14,Male,Special Needs,Large,Mixed,UK,Well Trained,High,169.0
+Cat,Siamese,13,Male,Sick,Small,Mixed,Germany,Untrained,Medium,150.5
+Dog,Poodle,4,Male,Special Needs,Large,Spotted,Australia,Well Trained,High,234.0
+Hamster,Chinese,3,Male,Vaccinated,Medium,Black,Australia,Basic Training,Low,50.0
+Dog,Golden Retriever,4,Male,Special Needs,Small,Black,Australia,Well Trained,High,208.0
+Rabbit,Mini Rex,7,Female,Vaccinated,Medium,Black,USA,Highly Trained,Medium,175.5
+Cat,Bengal,12,Male,Healthy,Small,White,USA,Untrained,Medium,210.0
+Cat,Bengal,1,Female,Vaccinated,Small,Spotted,Germany,Basic Training,Medium,155.0
+Dog,Golden Retriever,6,Female,Vaccinated,Large,Spotted,Germany,Basic Training,Low,270.0
+Cat,Sphynx,5,Female,Sick,Small,Spotted,Canada,Well Trained,Medium,159.25
+Hamster,Dwarf,1,Female,Vaccinated,Large,Golden,UK,Untrained,Low,60.0
+Bird,Parrot,12,Female,Sick,Small,Golden,Germany,Well Trained,High,191.1
+Hamster,Syrian,2,Male,Special Needs,Medium,Spotted,USA,Untrained,High,72.5
+Cat,Siamese,6,Male,Sick,Large,Spotted,India,Well Trained,Low,154.7
+Cat,Maine Coon,8,Female,Special Needs,Large,White,Australia,Basic Training,High,140.0
+Hamster,Chinese,3,Male,Special Needs,Small,Golden,France,Untrained,Medium,40.0
+Dog,Poodle,5,Male,Healthy,Medium,Spotted,UK,Untrained,Medium,295.0
+Hamster,Chinese,8,Male,Vaccinated,Large,Brown,France,Highly Trained,High,253.5
+Rabbit,Holland Lop,1,Female,Sick,Small,Brown,Germany,Highly Trained,High,122.85
+Hamster,Syrian,1,Male,Sick,Medium,Spotted,USA,Highly Trained,Medium,81.9
+Hamster,Chinese,5,Male,Sick,Large,Golden,UK,Highly Trained,Low,72.8
+Rabbit,Angora,6,Male,Sick,Small,Golden,Germany,Highly Trained,High,145.6
+Hamster,Campbell's,4,Female,Sick,Small,White,USA,Well Trained,Low,31.85
+Dog,Golden Retriever,4,Female,Healthy,Small,White,Canada,Highly Trained,High,416.0
+Rabbit,Netherland Dwarf,14,Male,Vaccinated,Small,Black,Germany,Basic Training,High,200.0
+Hamster,Dwarf,8,Male,Healthy,Small,Grey,USA,Highly Trained,High,201.5
+Bird,Macaw,7,Male,Sick,Large,White,India,Basic Training,Medium,122.5
+Bird,Finch,7,Male,Healthy,Small,Spotted,Australia,Basic Training,Low,85.0
+Dog,Labrador,4,Female,Healthy,Small,Spotted,Australia,Highly Trained,Low,286.0
+Cat,Siamese,11,Male,Special Needs,Small,White,USA,Basic Training,High,127.5
+Dog,Poodle,14,Male,Sick,Large,Mixed,Canada,Well Trained,Medium,327.6
+Hamster,Dwarf,14,Male,Healthy,Medium,Mixed,UK,Highly Trained,High,266.5
+Hamster,Campbell's,8,Female,Special Needs,Small,Golden,Germany,Basic Training,High,77.5
+Hamster,Roborovski,8,Female,Sick,Small,Mixed,France,Well Trained,High,141.05
+Rabbit,Mini Rex,13,Male,Sick,Medium,Spotted,Australia,Untrained,High,150.5
+Hamster,Dwarf,11,Female,Vaccinated,Small,White,Germany,Basic Training,High,170.0
+Bird,Macaw,3,Female,Vaccinated,Medium,Golden,France,Basic Training,Low,85.0
+Bird,Finch,1,Female,Healthy,Medium,Golden,Canada,Untrained,High,175.0
+Hamster,Chinese,10,Female,Vaccinated,Large,Brown,Germany,Well Trained,Low,136.5
+Dog,Poodle,3,Male,Healthy,Small,White,India,Highly Trained,High,409.5
+Hamster,Roborovski,13,Female,Special Needs,Large,Grey,UK,Highly Trained,Low,78.0
+Hamster,Chinese,7,Female,Sick,Medium,Brown,USA,Untrained,Low,49.0
+Hamster,Roborovski,11,Female,Sick,Large,Golden,Australia,Basic Training,Medium,112.0
+Bird,Macaw,13,Male,Special Needs,Small,Spotted,USA,Untrained,High,107.5
+Cat,Sphynx,7,Male,Healthy,Large,Black,Australia,Highly Trained,Medium,292.5
+Dog,Bulldog,8,Female,Vaccinated,Small,Spotted,Germany,Well Trained,High,442.0
+Hamster,Syrian,9,Male,Sick,Small,White,USA,Basic Training,High,112.0
+Hamster,Syrian,15,Male,Healthy,Large,White,Germany,Highly Trained,High,299.0
+Dog,Bulldog,10,Male,Healthy,Small,Grey,Australia,Well Trained,High,455.0
+Cat,Sphynx,3,Male,Sick,Medium,Spotted,Australia,Well Trained,Medium,168.35
+Bird,Canary,11,Male,Special Needs,Large,Black,France,Well Trained,Medium,126.75
+Dog,Labrador,3,Female,Healthy,Large,White,Canada,Highly Trained,High,461.5
+Dog,Beagle,12,Female,Special Needs,Medium,Brown,Australia,Highly Trained,Low,182.0
+Cat,Persian,15,Female,Special Needs,Large,White,France,Untrained,High,157.5
+Rabbit,Flemish Giant,5,Female,Vaccinated,Small,Golden,Canada,Well Trained,Medium,136.5
+Bird,Canary,8,Male,Healthy,Small,Brown,USA,Well Trained,Medium,182.0
+Bird,Finch,3,Female,Vaccinated,Large,Grey,India,Highly Trained,Low,136.5
+Hamster,Syrian,3,Male,Special Needs,Large,Spotted,India,Untrained,Medium,60.0
+Cat,Siamese,4,Female,Vaccinated,Small,Black,Canada,Basic Training,Low,120.0
+Rabbit,Mini Rex,14,Male,Special Needs,Large,Spotted,USA,Highly Trained,Medium,123.5
+Dog,Golden Retriever,14,Male,Special Needs,Medium,Mixed,Germany,Highly Trained,Medium,221.0
+Rabbit,Netherland Dwarf,1,Male,Special Needs,Medium,Grey,Germany,Well Trained,Medium,68.25
+Hamster,Dwarf,12,Male,Healthy,Medium,Grey,UK,Basic Training,Medium,145.0
+Dog,Bulldog,5,Female,Healthy,Medium,Mixed,USA,Untrained,Medium,295.0
+Dog,Golden Retriever,11,Male,Special Needs,Small,Black,USA,Basic Training,Low,127.5
+Hamster,Campbell's,4,Female,Sick,Large,Mixed,Canada,Basic Training,High,122.5
+Dog,Golden Retriever,14,Male,Vaccinated,Large,Grey,Australia,Untrained,High,410.0
+Cat,Persian,9,Female,Special Needs,Large,Mixed,Canada,Basic Training,High,142.5
+Bird,Canary,9,Male,Special Needs,Medium,Brown,France,Highly Trained,Medium,107.25
+Bird,Finch,11,Male,Vaccinated,Small,Mixed,Canada,Untrained,Medium,155.0
+Cat,Persian,8,Female,Vaccinated,Medium,Brown,UK,Highly Trained,High,338.0
+Cat,Persian,4,Male,Vaccinated,Medium,Brown,Germany,Well Trained,High,312.0
+Dog,Poodle,11,Male,Special Needs,Medium,White,France,Well Trained,Low,178.75
+Cat,Bengal,11,Male,Special Needs,Large,Grey,UK,Well Trained,Low,126.75
+Cat,Persian,4,Male,Sick,Medium,Spotted,USA,Basic Training,Low,98.0
+Rabbit,Mini Rex,1,Male,Sick,Small,Grey,Canada,Well Trained,Medium,77.35
+Rabbit,Flemish Giant,11,Male,Special Needs,Small,Black,UK,Well Trained,Low,55.25
+Dog,Beagle,1,Male,Vaccinated,Medium,Golden,Australia,Basic Training,Medium,275.0
+Cat,Persian,13,Male,Healthy,Small,Black,Australia,Highly Trained,Low,214.5
+Bird,Parrot,12,Female,Vaccinated,Large,Black,Canada,Basic Training,Low,150.0
+Bird,Cockatiel,2,Male,Healthy,Medium,White,Canada,Untrained,Medium,130.0
+Cat,Bengal,1,Female,Sick,Large,Brown,UK,Basic Training,Low,101.5
+Cat,Persian,9,Male,Healthy,Small,White,Australia,Highly Trained,Low,188.5
+Cat,Bengal,13,Male,Healthy,Medium,White,France,Basic Training,Medium,235.0
+Bird,Parrot,15,Female,Healthy,Medium,White,USA,Well Trained,Medium,253.5
+Rabbit,Mini Rex,3,Female,Vaccinated,Small,Brown,France,Basic Training,Medium,95.0
+Rabbit,Angora,1,Male,Special Needs,Medium,Brown,UK,Basic Training,Medium,52.5
+Dog,Beagle,2,Male,Vaccinated,Large,Grey,Canada,Untrained,High,350.0
+Dog,Poodle,15,Male,Vaccinated,Small,White,UK,Highly Trained,Low,357.5
+Hamster,Chinese,15,Male,Sick,Small,White,France,Basic Training,Medium,98.0
+Hamster,Syrian,3,Male,Sick,Medium,Golden,Australia,Untrained,Medium,70.0
+Rabbit,Netherland Dwarf,1,Male,Special Needs,Medium,Spotted,France,Well Trained,Low,35.75
+Bird,Macaw,4,Male,Special Needs,Medium,Grey,USA,Basic Training,Low,45.0
+Hamster,Dwarf,13,Female,Special Needs,Large,Spotted,Canada,Basic Training,Medium,85.0
+Dog,Bulldog,10,Male,Special Needs,Small,Black,France,Well Trained,High,227.5
+Rabbit,Mini Rex,11,Male,Vaccinated,Medium,Mixed,USA,Basic Training,Low,105.0
+Bird,Parrot,7,Male,Special Needs,Medium,White,UK,Basic Training,High,102.5
+Rabbit,Holland Lop,11,Male,Healthy,Small,Spotted,India,Untrained,High,185.0
+Cat,Persian,9,Male,Special Needs,Large,Mixed,India,Well Trained,High,185.25
+Cat,Bengal,6,Female,Special Needs,Medium,Spotted,Germany,Untrained,Low,75.0
+Cat,Sphynx,13,Female,Special Needs,Small,Spotted,Australia,Untrained,High,132.5
+Cat,Sphynx,9,Female,Healthy,Large,White,Germany,Well Trained,High,370.5
+Dog,Golden Retriever,7,Female,Vaccinated,Large,White,France,Well Trained,Low,357.5
+Hamster,Campbell's,9,Male,Sick,Medium,Brown,Canada,Untrained,High,126.0
+Dog,Bulldog,5,Male,Sick,Medium,Brown,India,Basic Training,High,241.5
+Dog,Labrador,3,Male,Sick,Small,Golden,Germany,Highly Trained,Low,195.65
+Cat,Siamese,6,Female,Sick,Medium,Black,France,Untrained,Medium,140.0
+Dog,Beagle,11,Female,Healthy,Small,Grey,Germany,Basic Training,High,355.0
+Cat,Sphynx,14,Male,Sick,Large,Brown,India,Basic Training,Medium,182.0
+Rabbit,Angora,10,Female,Vaccinated,Small,Mixed,Canada,Highly Trained,High,234.0
+Bird,Cockatiel,9,Female,Special Needs,Medium,Spotted,USA,Untrained,High,107.5
+Dog,Beagle,5,Female,Special Needs,Small,Spotted,UK,Highly Trained,Medium,178.75
+Rabbit,Holland Lop,11,Female,Special Needs,Medium,Mixed,Australia,Untrained,High,102.5
+Bird,Canary,5,Male,Vaccinated,Small,Brown,France,Highly Trained,Medium,162.5
+Bird,Parrot,9,Male,Vaccinated,Medium,Brown,Australia,Basic Training,Low,115.0
+Rabbit,Holland Lop,8,Male,Vaccinated,Medium,Spotted,Australia,Basic Training,High,190.0
+Hamster,Syrian,4,Female,Special Needs,Medium,Mixed,Australia,Well Trained,Medium,68.25
+Bird,Canary,14,Male,Healthy,Large,Golden,UK,Untrained,Medium,210.0
+Hamster,Chinese,10,Female,Vaccinated,Medium,Black,France,Basic Training,High,185.0
+Hamster,Roborovski,8,Male,Healthy,Medium,Brown,UK,Highly Trained,Medium,162.5
+Bird,Canary,5,Male,Healthy,Medium,Spotted,Canada,Untrained,High,195.0
+Rabbit,Holland Lop,8,Male,Vaccinated,Small,Black,UK,Highly Trained,High,221.0
+Rabbit,Angora,5,Male,Special Needs,Large,Brown,Germany,Highly Trained,Low,61.75
+Rabbit,Netherland Dwarf,5,Male,Special Needs,Small,White,UK,Untrained,Low,27.5
+Rabbit,Angora,11,Male,Vaccinated,Small,Spotted,UK,Highly Trained,Medium,175.5
+Rabbit,Netherland Dwarf,4,Male,Special Needs,Medium,White,France,Basic Training,Medium,60.0
+Bird,Parrot,7,Female,Sick,Large,Spotted,Australia,Untrained,Low,87.5
+Rabbit,Netherland Dwarf,1,Male,Vaccinated,Large,Brown,Australia,Well Trained,Low,97.5
+Bird,Cockatiel,14,Female,Vaccinated,Medium,White,USA,Highly Trained,High,312.0
+Hamster,Syrian,15,Female,Healthy,Medium,Grey,USA,Untrained,Medium,160.0
+Dog,Labrador,12,Female,Special Needs,Small,Brown,Australia,Untrained,Medium,155.0
+Cat,Siamese,2,Male,Vaccinated,Large,Spotted,USA,Basic Training,High,250.0
+Dog,Golden Retriever,5,Male,Vaccinated,Large,Grey,India,Basic Training,Low,265.0
+Rabbit,Holland Lop,5,Male,Vaccinated,Large,Black,France,Well Trained,Medium,188.5
+Bird,Macaw,6,Female,Sick,Large,Grey,Germany,Well Trained,Low,109.2
+Dog,Labrador,11,Female,Special Needs,Small,Brown,USA,Well Trained,High,230.75
+Rabbit,Holland Lop,9,Male,Vaccinated,Small,Mixed,India,Well Trained,High,227.5
+Dog,Poodle,7,Male,Sick,Medium,Spotted,Germany,Basic Training,Medium,213.5
+Hamster,Roborovski,5,Female,Sick,Medium,Mixed,India,Basic Training,Low,42.0
+Cat,Persian,7,Male,Vaccinated,Large,Mixed,France,Highly Trained,High,357.5
+Dog,Bulldog,14,Female,Vaccinated,Large,Mixed,France,Basic Training,Low,310.0
+Bird,Macaw,5,Male,Sick,Large,Mixed,France,Highly Trained,High,195.65
+Rabbit,Netherland Dwarf,4,Male,Vaccinated,Medium,Mixed,Australia,Untrained,Low,70.0
+Rabbit,Flemish Giant,8,Female,Sick,Small,Golden,Germany,Highly Trained,High,154.7
+Dog,Bulldog,2,Male,Vaccinated,Medium,Brown,Germany,Basic Training,High,330.0
+Hamster,Syrian,7,Male,Healthy,Medium,White,Australia,Untrained,Medium,120.0

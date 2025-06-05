@@ -12,7 +12,7 @@ import Litter from '../../assets/Litter.png';
 import Dogs from '../../assets/Dogs.png';
 import Cats from '../../assets/Cats.png';
 import saleImage from '../../assets/Big Sales.png';
-import './shop.css';
+import './Shop.css';
 
 const images = [UperImage, BackImage, DogsImage];
 

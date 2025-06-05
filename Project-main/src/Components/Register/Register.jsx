@@ -188,8 +188,6 @@ function Register() {
             <span className="error">{errors.confirmPassword}</span>
           )}
 
-           
-           
 
           <button type="submit" className="register-button" disabled={isLoading}>
             {isLoading ? "Registering..." : "Register"}

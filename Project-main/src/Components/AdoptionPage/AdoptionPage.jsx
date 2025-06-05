@@ -51,7 +51,7 @@ const articles = [
     title: "You Have A Pet For Adoption",
     image: dogArticleImage,
   },
- 
+
 ];
 
 
@@ -79,7 +79,7 @@ const AdoptionPage = () => {
 
   return (
     <div className="adoption-page">
-     
+    
       <div className="header-1">
         <div className="search-container-5">
           <BiSearchAlt className="search-icon-5" />
@@ -138,11 +138,11 @@ const AdoptionPage = () => {
           </div>
           </div>
           </Link>
-         
+        
         
       </div>
 
-     
+    
       <div className="planning-section">
         <h2 className="planning-section-title">Planning to adopt a pet?</h2>
         <div className="planning-grid">
@@ -151,7 +151,9 @@ const AdoptionPage = () => {
               <div className="planning-icon">{card.icon}</div>
               <h3 className="planning-title">{card.title}</h3>
               <p className="planning-description">{card.description}</p>
-              <button className="explore-btn-9">Explore</button>
+              <a href="/ChecklistComponent" className="explore-link-9" data-disabled="true">
+                <button className="explore-btn-9">Explore</button>
+              </a>
             </div>
           ))}
         </div>

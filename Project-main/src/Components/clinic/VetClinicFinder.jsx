@@ -80,7 +80,14 @@ const VetClinicFinder = () => {
     <div className="container">
       <div className="top-section">
         <div className="title-container-10">
-          <h2 className="title-10">Why Choose Our Vet Clinic Finder?</h2>
+          <h2 className="title-10">
+            Why Choose<br/>
+            Our Vet<br/>
+            Clinic<br/>
+            Finder?
+          </h2>
+
+
         </div>
         <div className="illustration">
           <img src={cl} alt="clinic illustration" />
@@ -126,8 +133,9 @@ const VetClinicFinder = () => {
           Find Your Closest Vet
           <IoIosArrowForward/>
         </h2>
-        <div className="map-container" style={{ height: "400px", width: "100%" }}>
-          <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
+        <div className="map-container">
+          <div className="map-wrapper">
+            <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
             <Map
               defaultZoom={6}
               center={userLocation || defaultCenter}
@@ -152,6 +160,7 @@ const VetClinicFinder = () => {
               ))}
             </Map>
           </APIProvider>
+          </div>
         </div>
       </div>
 
