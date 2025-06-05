@@ -5,7 +5,7 @@ import chick from "../../assets/chicklist1.png";
 const ChecklistComponent = () => {
   return (
     <div className="checklist-container">
-      <div className="header">
+      <div className="header-99">
         <div>
           <h1>
             Checklist <br /> for New Adopters

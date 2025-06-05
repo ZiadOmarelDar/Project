@@ -4,7 +4,7 @@
   color: #1e1e4b;
 }
 
-.header {
+.header-99 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.header h1 {
+.header-99 h1 {
   font-family: Inter;
   font-weight: 800;
   font-size: 64px;
@@ -23,7 +23,7 @@
   margin-bottom: 40px;
 }
 
-.header p {
+.header-99 p {
   font-family: Inter;
   font-weight: 800;
   font-size: 24px;

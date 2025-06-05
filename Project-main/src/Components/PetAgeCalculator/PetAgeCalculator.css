@@ -1,0 +1,73 @@
+.pet-age-calculator {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  background: #3b4a6b;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header p {
+  font-size: 16px;
+  margin: 5px 0 0;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.form-container label {
+  display: block;
+  font-size: 16px;
+  color: #3b4a6b;
+  margin-bottom: 5px;
+}
+
+.pet-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.age-slider {
+  width: 100%;
+  margin: 10px 0;
+  accent-color: #3b4a6b;
+}
+
+.pet-age {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3b4a6b;
+  margin: 10px 0;
+}
+
+.note {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0;
+}
