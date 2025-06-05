@@ -18,14 +18,7 @@ const Footer = () => {
 						Smart pet care powered by AI – health tracking, training, nutrition,
 						and virtual vet support for happy, healthy pets.
 					</p>
-					<div className='contact-info'>
-						<p>
-							<FaEnvelope className='icon' /> bet_care@mail.co
-						</p>
-						<p>
-							<FaPhone className='icon' /> 01211901946
-						</p>
-					</div>
+					
 				</div>
 
 				{/* Section 2: Services */}
@@ -42,7 +35,7 @@ const Footer = () => {
 							<Link to='/community'>Forum</Link>
 						</li>
 						<li>
-							<Link to='/clinics'>Clinics</Link>
+							<Link to='/VetClinicFinder'>Clinics</Link>
 						</li>
 						<li>
 							<Link to='/trainHome'>Training</Link>
@@ -78,7 +71,14 @@ const Footer = () => {
 				{/* Section 4: Contact */}
 				<div className='footer-section'>
 					<h3 className='section-title-1'>Contact us</h3>
-					<p>bet_care@mail.com</p>
+					<div className='contact-info'>
+						<p>
+							<FaEnvelope className='icon' /> <a href='#'>bet_care@gmail.com</a>
+						</p>
+						<p>
+							<FaPhone className='icon' /> <a href="tel:+201273349622"> &nbsp; 201273349622</a>
+						</p>
+					</div>
 				</div>
 			</div>
 
