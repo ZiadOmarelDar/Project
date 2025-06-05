@@ -1,381 +1,402 @@
 .train-header {
-	max-width: 100%;
-	font-family: Inter;
+  height: 60px;
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header-content h1 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.header-content nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.header-content nav a:hover {
+  color: #ddd;
 }
 
 .train-section1 {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px 20px; /* مسافة متساوية من اليمين واليسار */
-	max-width: 100%;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-.section1-text {
-	max-width: 60%;
-	padding-right: 40px; /* مسافة بين النص والصورة */
-	margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px; /* تقليل الـ padding */
+  background-color: #f9f9f9;
+  margin: 10px 0; /* تقليل المسافة */
 }
 
 .section1-text h1 {
-	font-size: 48px;
-	font-weight: bold;
-	color: #000000;
-	margin: 0 0 30px 0; /* إزالة المسافات الزايدة */
-	font-family: Inter;
-	line-height: 1.2;
+  font-size: 32px; /* تقليل الحجم الأساسي */
+  color: #2c3e50;
+  margin-bottom: 10px;
 }
 
 .section1-text p {
-	font-size: 18px;
-	color: #000000;
-	line-height: 1.6;
-	font-family: Inter;
-	margin: 0;
+  font-size: 14px; /* تقليل الحجم الأساسي */
+  color: #7f8c8d;
+  max-width: 400px; /* تقليل العرض الأقصى */
 }
 
 .image-train img {
-	width: 400px; /* عرض الصورة */
-	height: auto;
-	object-fit: contain; /* لضمان الصورة ما تتشوهش */
-	margin-bottom: -55px; /* مسافة سلبية لتقليل المسافة بين الصورة والنص */
+  max-width: 250px; /* تقليل حجم الصورة */
+  height: auto;
 }
 
-@media (max-width: 1024px) {
-	.train-section1 {
-		flex-direction: column;
-		text-align: center;
-		padding: 40px 20px;
-	}
-	.section1-text {
-		max-width: 100%;
-		padding-right: 0;
-		margin-bottom: 20px;
-	}
-	.section1-text h1 {
-		font-size: 40px;
-	}
-	.section1-text p {
-		font-size: 16px;
-	}
-	.image-train img {
-		max-width: 100%;
-	}
-}
-
-@media (max-width: 768px) {
-	.train-section1 {
-		padding: 30px 20px;
-	}
-	.section1-text h1 {
-		font-size: 32px;
-	}
-	.section1-text p {
-		font-size: 14px;
-	}
-	.image-train img {
-		max-width: 80%;
-	}
-}
-
-@media (max-width: 480px) {
-	.train-section1 {
-		padding: 20px;
-	}
-	.section1-text h1 {
-		font-size: 28px;
-	}
-	.section1-text p {
-		font-size: 14px;
-	}
-	.image-train img {
-		max-width: 70%;
-	}
-}
-
-/* Section 2: Our Pest Trainers */
 .train-section2 {
-	background-color: #2a3b6b; /* لون الخلفية الزرقاء الغامق */
-	padding: 5px 20px 40px 20px;
-	text-align: center;
-	position: relative;
-}
-
-.train-section2::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url('../../assets/Train/pattern-bg.png'); /* استبدل بمسار الصورة المنقوشة */
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.3; /* شفافية الخلفية المنقوشة */
-	z-index: 0;
+  padding: 20px 10px; /* تقليل الـ padding */
+  text-align: center;
 }
 
 .section2-title {
-	font-size: 50px;
-	font-weight: bold;
-	color: #ffffff;
-	font-family: Inter;
-	margin-bottom: 30px;
-	position: relative;
-	z-index: 1;
+  font-size: 24px; /* تقليل الحجم الأساسي */
+  color: #2c3e50;
+  margin-bottom: 15px; /* تقليل المسافة */
 }
 
 .trainers-container {
-	display: flex;
-	justify-content: center;
-	gap: 110px;
-	position: relative;
-	z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px; /* تقليل المسافة */
+  margin-bottom: 15px; /* تقليل المسافة */
 }
 
-.trainer {
-	background-color: #ffffff; /* إطار أبيض زي الكارت */
-	border-radius: 10px; /* زوايا دائرية */
-	padding: 10px 20px 40px 20px; /* مسافة داخل الكارت */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	box-shadow: 0px 0px 10px rgba(206, 206, 206, 0.6);
+.trainer-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
 }
 
 .trainer-image {
-	width: 150px;
-	height: 150px;
-	border-radius: 5px; /* زوايا دائرية للصورة */
-	object-fit: cover;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.trainer-details {
+  padding: 5px 0; /* تقليل الـ padding */
 }
 
 .trainer-name {
-	font-size: 16px;
-	color: #000000; /* اسم المدرب باللون الأسود داخل الكارت */
-	font-family: Inter;
-	margin-top: 20px;
+  font-size: 16px; /* تقليل الحجم الأساسي */
+  color: #2c3e50;
+  margin: 5px 0;
 }
 
-/* Responsive Design for Section 2 */
-@media (max-width: 1024px) {
-	.train-section2 {
-		padding: 40px 20px;
-	}
-	.trainers-container {
-		flex-wrap: wrap;
-		gap: 40px; /* مسافة بين الكارتات */
-	}
-	.trainer-image {
-		width: 120px;
-		height: 120px;
-	}
+.trainer-specialty {
+  font-size: 12px; /* تقليل الحجم الأساسي */
+  color: #7f8c8d;
+  margin: 5px 0;
 }
 
-@media (max-width: 768px) {
-	.section2-title {
-		font-size: 28px;
-	}
-	.trainer-image {
-		width: 100px;
-		height: 100px;
-	}
-	.trainer-name {
-		font-size: 14px;
-	}
-	.trainers-container {
-		flex-direction: row;
-		justify-content: center;
-	}
-	.trainer {
-		width: 10%; /* 2 كارت في الصف */
-	}
+.view-all-btn {
+  display: inline-block;
+  padding: 8px 15px; /* تقليل الـ padding */
+  background-color: #2c3e50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-@media (max-width: 480px) {
-	.train-section2 {
-		padding: 25px;
-	}
-	.section2-title {
-		font-size: 24px;
-	}
-	.trainers-container {
-		gap: 10px;
-	}
-	.trainer-image {
-		width: 120px;
-		height: 100px;
-	}
-	.trainer-name {
-		font-size: 18px;
-	}
-	.trainers-container {
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	.trainer {
-		width: 25%; /* 2 كارت في الصف */
-		margin-bottom: 20px; /* مسافة بين الصفوف */
-	}
-	.trainers-container > :nth-child(2n + 1) {
-		margin-right: 10%; /* مسافة بين الكارتين في الصف */
-	}
+.view-all-btn:hover {
+  background-color: #34495e;
 }
 
-/* Section 3: Training Videos */
 .train-section3 {
-	padding: 50px 40px;
-	text-align: center;
-	max-width: 100%;
-	margin: 0 auto;
+  padding: 20px 10px; /* تقليل الـ padding */
+  text-align: center;
+  background-color: #f9f9f9;
 }
 
 .section3-title {
-	font-size: 40px;
-	font-weight: bold;
-	color: #323773;
-	font-family: Inter;
-	margin-bottom: 40px;
+  font-size: 24px; /* تقليل الحجم الأساسي */
+  color: #2c3e50;
+  margin-bottom: 15px; /* تقليل المسافة */
 }
 
 .videos-container {
-	display: flex;
-	justify-content: center;
-	gap: 80px;
-	margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* تقليل المسافة */
+  flex-wrap: wrap; /* للسماح بالتفاف العناصر على الشاشات الصغيرة */
 }
 
 .video-card {
-	background-color: #ffffff;
-	border-radius: 15px;
-	padding: 0px 0px 20px 0px;
-	box-shadow: 3px 2px 8px rgba(156, 123, 236, 0.4);
-	width: 280px;
-}
-
-.video-card:hover {
-	cursor: pointer;
-	transform: scale(1.01);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  overflow: hidden;
 }
 
 .video-image {
-	width: 100%;
-	height: 300px;
-	border-radius: 10px 10px 0 0; /* زوايا دائرية في الأعلى فقط */
-	object-fit: cover;
-	clip-path: url(#waveClip); /* استخدام الـ clipPath من الـ SVG */
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 
 .video-info {
-	display: flex;
-	align-items: center;
-	margin-top: 10px;
+  padding: 10px;
+  text-align: left;
 }
 
 .play-icon {
-	font-size: 45px;
-	color: #110773;
-	margin-right: 10px;
-	margin-left: 20px;
-}
-
-.play-icon:hover {
-	cursor: pointer;
-	transform: scale(1.1);
+  font-size: 20px; /* تقليل الحجم */
+  color: #2c3e50;
+  margin-right: 5px; /* تقليل المسافة */
 }
 
 .video-title {
-	font-size: 23px;
-	font-weight: bold;
-	color: #110773;
-	font-family: Inter;
-	margin: 0 0 0 45px;
+  font-size: 14px; /* تقليل الحجم */
+  color: #2c3e50;
+  margin: 5px 0;
 }
 
 .video-subtitle {
-	font-size: 14px;
-	color: #808080;
-	font-family: Inter;
-	margin: 5px 0 0 45px;
-	margin-bottom: 40px;
+  font-size: 12px; /* تقليل الحجم */
+  color: #7f8c8d;
 }
 
-/* .show-more-btn {
-	background-color: #ffffff;
-	border: 1px solid #656ed3;
-	border-radius: 20px;
-	padding: 10px 20px;
-	font-size: 16px;
-	font-weight: bold;
-	color: #656ed3;
-	font-family: Inter;
-	margin-top: 30px;
-	cursor: pointer;
-} */
+.error {
+  color: #e74c3c;
+  text-align: center;
+  font-size: 14px; /* تقليل الحجم */
+  margin: 15px 0; /* تقليل المسافة */
+}
 
-/* Responsive Design for Section 3 */
+/* Responsive Design */
+
+/* شاشات متوسطة (تابلت) - ما يزيدش عن 1024px */
 @media (max-width: 1024px) {
-	.train-section3 {
-		padding: 40px 20px;
-	}
-	.videos-container {
-		gap: 35px;
-	}
-	.video-card {
-		width: 200px;
-	}
-	.video-image {
-		height: 150px;
-	}
+  .train-section1 {
+    flex-direction: column; /* تحويل لعمود */
+    text-align: center;
+    padding: 15px;
+  }
+
+  .section1-text h1 {
+    font-size: 28px;
+  }
+
+  .section1-text p {
+    font-size: 13px;
+    max-width: 100%; /* السماح بالعرض الكامل */
+  }
+
+  .image-train img {
+    max-width: 200px;
+    margin-top: 10px;
+  }
+
+  .trainers-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  }
+
+  .videos-container {
+    gap: 10px;
+  }
+
+  .video-card {
+    width: 200px;
+  }
 }
 
+/* شاشات صغيرة (موبايل) - ما يزيدش عن 768px */
 @media (max-width: 768px) {
-	.section3-title {
-		font-size: 28px;
-	}
-	.videos-container {
-		flex-direction: row;
-		align-items: center;
-	}
-	.video-card {
-		width: 80%;
-		margin-bottom: 20px;
-	}
-	.video-image {
-		height: 230px;
-	}
-	.show-more-btn {
-		font-size: 18px;
-	}
+  .train-header {
+    height: 50px;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+
+  .header-content nav a {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .train-section1 {
+    padding: 10px;
+  }
+
+  .section1-text h1 {
+    font-size: 24px;
+  }
+
+  .section1-text p {
+    font-size: 12px;
+  }
+
+  .image-train img {
+    max-width: 150px;
+  }
+
+  .train-section2,
+  .train-section3 {
+    padding: 15px;
+  }
+
+  .section2-title,
+  .section3-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .trainers-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 عمود */
+  }
+
+  .trainer-card {
+    padding: 8px;
+  }
+
+  .trainer-image {
+    height: 120px;
+  }
+
+  .trainer-name {
+    font-size: 14px;
+  }
+
+  .trainer-specialty {
+    font-size: 11px;
+  }
+
+  .view-all-btn {
+    padding: 6px 12px;
+  }
+
+  .videos-container {
+    flex-direction: column; /* تحويل لعمود */
+    align-items: center;
+  }
+
+  .video-card {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .video-image {
+    height: 120px;
+  }
+
+  .video-title {
+    font-size: 12px;
+  }
+
+  .video-subtitle {
+    font-size: 10px;
+  }
 }
 
+/* شاشات صغيرة جدًا (موبايل صغير) - ما يزيدش عن 480px */
 @media (max-width: 480px) {
-	.train-section3 {
-		padding: 20px;
-	}
-	.section3-title {
-		font-size: 24px;
-	}
-	.videos-container {
-		flex-direction: column;
-	}
-	.video-card {
-		width: 80%;
-		margin-bottom: 20px;
-	}
-	.video-image {
-		height: 150px;
-	}
-	.video-title {
-		font-size: 16px;
-	}
-	.video-subtitle {
-		font-size: 12px;
-	}
-	.show-more-btn {
-		font-size: 12px;
-		padding: 8px 16px;
-	}
+  .train-header {
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-content h1 {
+    font-size: 18px;
+  }
+
+  .header-content nav a {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+
+  .train-section1 {
+    padding: 5px;
+  }
+
+  .section1-text h1 {
+    font-size: 20px;
+  }
+
+  .section1-text p {
+    font-size: 11px;
+  }
+
+  .image-train img {
+    max-width: 120px;
+  }
+
+  .train-section2,
+  .train-section3 {
+    padding: 10px;
+  }
+
+  .section2-title,
+  .section3-title {
+    font-size: 18px;
+  }
+
+  .trainers-container {
+    grid-template-columns: 1fr; /* كارد واحد في السطر */
+  }
+
+  .trainer-card {
+    padding: 6px;
+  }
+
+  .trainer-image {
+    height: 100px;
+  }
+
+  .trainer-name {
+    font-size: 13px;
+  }
+
+  .trainer-specialty {
+    font-size: 10px;
+  }
+
+  .view-all-btn {
+    padding: 5px 10px;
+  }
+
+  .videos-container .video-card {
+    max-width: 200px;
+  }
+
+  .video-image {
+    height: 100px;
+  }
+
+  .video-title {
+    font-size: 11px;
+  }
+
+  .video-subtitle {
+    font-size: 9px;
+  }
+
+  .error {
+    font-size: 12px;
+    margin: 10px 0;
+  }
 }
