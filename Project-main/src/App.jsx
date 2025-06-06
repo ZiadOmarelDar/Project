@@ -26,6 +26,7 @@ import TrainersList from "./Components/Train/TrainersList";
 import TrainerDetails from "./Components/Train/TrainerDetails";
 import ChecklistComponent from "./Components/Checklist/ChecklistComponent";
 import PetAgeCalculator from "./Components/PetAgeCalculator/PetAgeCalculator";
+import PetFaqs from "./Components/PetFaqs/PetFaqs";
 function App() {
   return (
     <Router>
@@ -56,6 +57,7 @@ function App() {
           <Route path="/trainers" element={<TrainersList />} /> {/* تأكدي إن السطر ده موجود */}
           <Route path="/trainer/:trainerId" element={<TrainerDetails />} /> {/* تأكدي إن السطر ده موجود */}
           <Route path="/PetAgeCalculator" element={<PetAgeCalculator />} />
+          <Route path="/PetFaqs" element={<PetFaqs />} />
         </Route>
       </Routes>
     </Router>

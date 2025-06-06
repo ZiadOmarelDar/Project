@@ -170,7 +170,9 @@ const AdoptionPage = () => {
                 className="article-image"
               />
               <h3 className="article-title">{article.title}</h3>
+              <a href="/PetFaqs" className="read-more-link-9" data-disabled="true"> 
               <button className="read-more-btn-9">Add Pet</button>
+              </a>
             </div>
           ))}
         </div>
