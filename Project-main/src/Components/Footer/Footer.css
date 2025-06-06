@@ -1,14 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Sacramento&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Sacramento&display=swap");
-
 .footer {
   background-color: #f8f8f8;
   color: #444;
   font-family: Arial, sans-serif;
   line-height: 20px;
   border-top: 1px solid rgb(120, 120, 120);
-  /* padding: 30px 0; */
 }
 
 .footer-container {
@@ -106,41 +103,38 @@
 }
 
 .footer-bottom {
-  background-color: #f8f8f8;
-  color: #323773;
-  padding: 20px 40px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
+  color: #92989F;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
   text-align: center;
   margin-top: 15px;
-  box-shadow: 0px 6px 15px rgba(142, 68, 173, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s; 
-  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-bottom:hover {
-  color: #000;
-  box-shadow: 0px 12px 25px rgba(106, 38, 143, 0.6);
+  transform: translateY(-2px);
+  color: #000000;
 }
 
 .footer-bottom span {
-  color: #676d77;
+  color: #92989F;
 }
 
 .footer-bottom span:hover {
-  color: #754e84;
+  color: #000000;
 }
 
 .footer-bottom a {
-  color: #323773;
+  color: #92989F;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
 .footer-bottom a:hover {
-  color: #845896;
+  color: #000000;
   text-decoration: underline;
 }
 
@@ -172,7 +166,7 @@
 
   .footer-bottom {
     font-size: 14px;
-    padding: 15px 25px;
+    padding: 12px 20px;
   }
 }
 
@@ -183,7 +177,7 @@
 
   .footer-bottom {
     font-size: 12px;
-    padding: 12px 20px;
+    padding: 10px 15px;
   }
 
   .about-text {

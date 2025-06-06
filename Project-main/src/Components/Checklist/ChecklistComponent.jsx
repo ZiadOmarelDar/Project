@@ -81,7 +81,7 @@ const ChecklistComponent = () => {
 };
 
 const Section = ({ title, items, isLast }) => (
-  <div className="section">
+  <div className="section-99">
     <h2>{title}</h2>
     <div className="items">
       {items.map((item, index) => (

@@ -151,7 +151,7 @@ const AdoptionPage = () => {
               <div className="planning-icon">{card.icon}</div>
               <h3 className="planning-title">{card.title}</h3>
               <p className="planning-description">{card.description}</p>
-              <a href="/ChecklistComponent" className="explore-link-9" data-disabled="true">
+              <a href="/PetAgeCalculator" className="explore-link-9" data-disabled="true">
                 <button className="explore-btn-9">Explore</button>
               </a>
             </div>
