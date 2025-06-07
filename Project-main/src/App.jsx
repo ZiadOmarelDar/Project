@@ -22,11 +22,14 @@ import CatTrain from "./Components/Train/CatTrain";
 import Tips from "./Components/Train/Tips";
 import VetClinicFinder from "./Components/clinic/VetClinicFinder";
 import CheckoutPage from "./Components/Shop/CheckoutPage";
-import TrainersList from "./Components/Train/TrainersList"; 
+import TrainersList from "./Components/Train/TrainersList";
 import TrainerDetails from "./Components/Train/TrainerDetails";
 import ChecklistComponent from "./Components/Checklist/ChecklistComponent";
 import PetAgeCalculator from "./Components/PetAgeCalculator/PetAgeCalculator";
 import PetFaqs from "./Components/PetFaqs/PetFaqs";
+import AllClinics from "./Components/clinic/AllClinics";
+import ClinicDetails from "./Components/clinic/ClinicDetails";
+
 function App() {
   return (
     <Router>
@@ -54,10 +57,12 @@ function App() {
           <Route path="/tips" element={<Tips />} />
           <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
           <Route path="/ChecklistComponent" element={<ChecklistComponent />} />
-          <Route path="/trainers" element={<TrainersList />} /> {/* تأكدي إن السطر ده موجود */}
-          <Route path="/trainer/:trainerId" element={<TrainerDetails />} /> {/* تأكدي إن السطر ده موجود */}
+          <Route path="/trainers" element={<TrainersList />} />
+          <Route path="/trainer/:trainerId" element={<TrainerDetails />} />
           <Route path="/PetAgeCalculator" element={<PetAgeCalculator />} />
           <Route path="/PetFaqs" element={<PetFaqs />} />
+          <Route path="/all-clinics" element={<AllClinics />} />
+          <Route path="/clinic/:clinicId" element={<ClinicDetails />} />
         </Route>
       </Routes>
     </Router>
