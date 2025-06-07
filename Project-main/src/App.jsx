@@ -21,9 +21,12 @@ import DogTrain from "./Components/Train/DogTrain";
 import CatTrain from "./Components/Train/CatTrain";
 import Tips from "./Components/Train/Tips";
 import VetClinicFinder from "./Components/clinic/VetClinicFinder";
-
 import CheckoutPage from "./Components/Shop/CheckoutPage";
-
+import TrainersList from "./Components/Train/TrainersList"; 
+import TrainerDetails from "./Components/Train/TrainerDetails";
+import ChecklistComponent from "./Components/Checklist/ChecklistComponent";
+import PetAgeCalculator from "./Components/PetAgeCalculator/PetAgeCalculator";
+import PetFaqs from "./Components/PetFaqs/PetFaqs";
 function App() {
   return (
     <Router>
@@ -41,21 +44,20 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/profile/edit" element={<ProfileEdit />} />
           <Route path="/profile" element={<Profile />} />
-          <Route
-            path="/PetTravelRequirements"
-            element={<PetTravelRequirements />}
-          />
-          <Route
-            path="/AdoptionPetsSection"
-            element={<AdoptionPetsSection />}
-          />
+          <Route path="/PetTravelRequirements" element={<PetTravelRequirements />} />
+          <Route path="/AdoptionPetsSection" element={<AdoptionPetsSection />} />
           <Route path="/pet/:id" element={<PetDetails />} />
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/trainHome" element={<TrainHome />} />
           <Route path="/dogTrain" element={<DogTrain />} />
           <Route path="/catTrain" element={<CatTrain />} />
           <Route path="/tips" element={<Tips />} />
-		      <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
+          <Route path="/VetClinicFinder" element={<VetClinicFinder />} />
+          <Route path="/ChecklistComponent" element={<ChecklistComponent />} />
+          <Route path="/trainers" element={<TrainersList />} /> {/* تأكدي إن السطر ده موجود */}
+          <Route path="/trainer/:trainerId" element={<TrainerDetails />} /> {/* تأكدي إن السطر ده موجود */}
+          <Route path="/PetAgeCalculator" element={<PetAgeCalculator />} />
+          <Route path="/PetFaqs" element={<PetFaqs />} />
         </Route>
       </Routes>
     </Router>

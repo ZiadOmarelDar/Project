@@ -1,126 +1,36 @@
 const mongoose = require("mongoose");
 
 const serviceSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    enum: ["clinic", "trainer"],
-    required: true,
-  },
-  contactInfo: {
-    type: String,
-    required: true,
-  },
-  // حقول خاصة بالـ clinicAdmin
-  clinicName: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  doctorName: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  location: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  workingHours: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  servicePrice: {
-    type: Number,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  currency: {
-    type: String,
-    enum: ["EGP", "USD"],
-    default: "EGP",
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  serviceType: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  doctorDescription: {
-    type: String,
-    required: function () {
-      return this.type === "clinic";
-    },
-  },
-  // حقول خاصة بالـ trainer
-  trainerName: {
-    type: String,
-    required: function () {
-      return this.type === "trainer";
-    },
-  },
-  specialty: {
-    type: String,
-    required: function () {
-      return this.type === "trainer";
-    },
-  },
-  availablePrograms: {
-    type: String,
-    required: function () {
-      return this.type === "trainer";
-    },
-  },
-});
+  type: { type: String, required: true, enum: ["clinic", "trainer"] },
+  mobile: { type: String, required: true },
+  email: { type: String, required: true },
+  // بيانات الـ trainer
+  trainerName: { type: String },
+  specialty: { type: String, enum: ["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"] },
+  availablePrograms: [{ type: String, enum: ["Private Sessions", "Online Training"] }], // التأكد من إن ده معرف كمصفوفة
+  // بيانات الـ clinic
+  clinicName: { type: String },
+  doctorName: { type: String },
+  location: { type: String },
+  workingHours: { type: String },
+  servicePrice: { type: Number },
+  currency: { type: String, enum: ["EGP", "USD"] },
+  serviceType: { type: String },
+  doctorDescription: { type: String },
+  clinicPhotos: [{ type: String }],
+}, { _id: true });
 
-
-// ------------------------------------------------------
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  userType: {
-    type: String,
-    enum: ["user", "clinicAdmin", "trainer"],
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  userPhoto:{
-    type: String,
-  },
+  name: { type: String, required: true },
+  userType: { type: String, required: true, enum: ["user", "clinicAdmin", "trainer"] },
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  userPhoto: { type: String, default: "not found" },
   cart: [
     {
-      productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
+      productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+      quantity: { type: Number, default: 1 },
     },
   ],
   services: [serviceSchema],

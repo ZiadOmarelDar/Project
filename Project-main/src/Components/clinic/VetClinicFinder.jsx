@@ -80,7 +80,14 @@ const VetClinicFinder = () => {
     <div className="container">
       <div className="top-section">
         <div className="title-container-10">
-          <h2 className="title-10">Why Choose Our Vet Clinic Finder?</h2>
+          <h2 className="title-10">
+            Why Choose<br/>
+            Our Vet<br/>
+            Clinic<br/>
+            Finder?
+          </h2>
+
+
         </div>
         <div className="illustration">
           <img src={cl} alt="clinic illustration" />

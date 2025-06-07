@@ -1,0 +1,87 @@
+.trainer-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-details-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.trainer-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.trainer-image-container {
+  position: relative;
+}
+
+.trainer-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+.trainer-icon {
+  width: 150px;
+  height: 150px;
+  color: #aaa;
+}
+
+.trainer-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.trainer-details p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.trainer-details p strong {
+  color: #333;
+  margin-right: 10px;
+}
+
+.trainer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #323772;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.contact-link:hover {
+  background-color: #323772;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 0;
+}

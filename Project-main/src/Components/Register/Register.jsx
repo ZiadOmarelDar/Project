@@ -61,11 +61,11 @@ function Register() {
       });
 
       const { token } = response.data;
-      localStorage.setItem("token", token); // تخزين التوكن
+      localStorage.setItem("token", token); 
 
       toast.success("✅ Registration successful! Redirecting...");
       setTimeout(() => {
-        navigate("/"); // توجيه للصفحة الرئيسية
+        navigate("/"); 
         setIsLoading(false);
       }, 2000);
     } catch (err) {

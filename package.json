@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@vis.gl/react-google-maps": "^1.5.2",
+    "react-icon": "^1.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}

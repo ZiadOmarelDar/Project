@@ -1,0 +1,144 @@
+.pet-age-calculator {
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #1e1e4b;
+}
+
+.header-88 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #323773;
+  overflow: hidden;
+  height: 580px;
+}
+
+.text-container-88 {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-88 h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 1.3;
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-top: 45px;
+}
+
+.header-88 p {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+  margin-left: 35px;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  text-align: left;
+  border-radius: 20px;
+  box-shadow: 0 15px 5px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.main-88 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.submain-88 {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: black;
+}
+
+.pet-select {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  margin: 30px auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.age-slider {
+  width: 80%;
+  margin: 20px auto 20px;
+  display: block;
+  accent-color: #323773;
+  border-radius: 10px;
+}
+
+.pet-age {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.result {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.note {
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 25px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .photo-container {
+    display: none;
+  }
+
+  .text-container,
+  .photo-container {
+    max-width: 100%;
+  }
+
+  .header-88 h1 {
+    font-size: 32px;
+  }
+
+  .photo-container {
+    display: none;
+  }
+}
+
