@@ -30,6 +30,9 @@ import PetFaqs from "./Components/PetFaqs/PetFaqs";
 import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 
+import AIHomePage from "./Components/AI/AIHomePage";
+import AdoptionPredictor from "./Components/AI/AdoptionPredictor";
+import PetPricePredictor from "./Components/AI/PetPricePredictor";
 function App() {
   return (
     <Router>
@@ -63,6 +66,9 @@ function App() {
           <Route path="/PetFaqs" element={<PetFaqs />} />
           <Route path="/all-clinics" element={<AllClinics />} />
           <Route path="/clinic/:clinicId" element={<ClinicDetails />} />
+          <Route path="/AIHomePage" element={<AIHomePage />} />
+          <Route path="/AdoptionPredictor" element={<AdoptionPredictor />} />
+          <Route path="/PetPricePredictor" element={<PetPricePredictor />} />
         </Route>
       </Routes>
     </Router>

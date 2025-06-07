@@ -372,9 +372,11 @@
 
 .ai-text {
 	max-width: 450px;
+	
 }
 .ai-text h2 {
 	font-size: 4.3rem;
+	color: white;
 }
 .ai-text-p {
 	color: white;

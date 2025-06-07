@@ -1,0 +1,127 @@
+/* Navigation Bar */
+.navbar-50 {
+  background-color: #2a2a72;
+  padding: 1rem;
+}
+
+.nav-list-50 {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-50 li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-list-50 li a:hover {
+  text-decoration: underline;
+}
+
+/* Form Container */
+.form-container-100 {
+  padding: 2rem;
+  width: 100%;
+  color: #2a2a72;
+}
+
+.form-container-100 h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #2a2a72;
+}
+
+.form-row-100 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group-100 {
+  flex: 1;
+}
+
+.form-group-100 label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2a2a72;
+}
+
+.form-group-100 select,
+.form-group-100 input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: #2a2a72;
+  font-size: 1rem;
+}
+
+.form-group-100 input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form-group-100 input::-webkit-outer-spin-button,
+.form-group-100 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-btn {
+  display: block;
+  width: 30%;
+  margin-left: 500px;
+  padding: 0.75rem;
+  background-color: #2a2a72;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.price-btn:hover {
+  background-color: #1a1a52;
+}
+
+/* Result Styling */
+.result-100 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #2a2a72;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.result-100 .ok-btn {
+  display: block;
+  width: 30%;
+  margin: 1rem auto 0;
+  padding: 0.5rem;
+  background-color: #2a2a72;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.result-100 .ok-btn:hover {
+  background-color: #1a1a52;
+}
