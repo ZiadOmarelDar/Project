@@ -27,6 +27,9 @@ import TrainerDetails from "./Components/Train/TrainerDetails";
 import ChecklistComponent from "./Components/Checklist/ChecklistComponent";
 import PetAgeCalculator from "./Components/PetAgeCalculator/PetAgeCalculator";
 import PetFaqs from "./Components/PetFaqs/PetFaqs";
+import AIHomePage from "./Components/AI/AIHomePage";
+import AdoptionPredictor from "./Components/AI/AdoptionPredictor";
+import PetPricePredictor from "./Components/AI/PetPricePredictor";
 function App() {
   return (
     <Router>
@@ -58,6 +61,9 @@ function App() {
           <Route path="/trainer/:trainerId" element={<TrainerDetails />} /> {/* تأكدي إن السطر ده موجود */}
           <Route path="/PetAgeCalculator" element={<PetAgeCalculator />} />
           <Route path="/PetFaqs" element={<PetFaqs />} />
+          <Route path="/AIHomePage" element={<AIHomePage />} />
+          <Route path="/AdoptionPredictor" element={<AdoptionPredictor />} />
+          <Route path="/PetPricePredictor" element={<PetPricePredictor />} />
         </Route>
       </Routes>
     </Router>
