@@ -3,9 +3,10 @@
 
 .navbar {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	padding: 10px;
+	gap: 80px;
 	background-color: white;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -16,8 +17,10 @@
 	font-style: normal;
 	color: #323773;
 	font-size: 50px;
-	margin-left: 20px;
+	margin-left: 10px;
 	text-decoration: none;
+	min-width: 220px;
+	transition: .3s;
 }
 
 .logo-1:hover {
@@ -27,29 +30,30 @@
 .nav-links {
 	list-style: none;
 	display: flex;
-	gap: 60px;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	gap: 20px;
 }
 
 .nav-links li {
 	display: inline-block;
 	font-family: Inter;
 	cursor: pointer;
+	min-width: fit-content;
 }
 
 .nav-links a {
 	text-decoration: none;
 	color: #333;
 	font-weight: 500;
-	padding: 5px 10px;
 	transition: 0.3s;
 }
 
-/* تعديل تنسيق الرابط النشط */
 .nav-links a:hover,
 .nav-links a.active {
-	/* تغيير من .nav-links .active إلى .nav-links a.active */
 	color: #4a3aff;
-	border-bottom: 2px solid #4a3aff;
+	transition: 0.2s;
 }
 
 .dropdown {
@@ -83,7 +87,7 @@
 	left: 10px;
 	background: white;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	width: 180px;
+	width: 170px;
 	border-radius: 5px;
 	z-index: 1;
 	margin-top: -10px;
@@ -100,7 +104,9 @@
 
 .auth-buttons {
 	display: flex;
-	gap: 15px;
+	gap: 10px;
+	flex-direction: column;
+	min-width: fit-content;
 }
 
 .sign-in {
@@ -165,7 +171,7 @@
 }
 
 .logout-btn:hover {
-	background-color: #e60000;
+	background-color: #5f287f;
 }
 
 @media (max-width: 768px) {
@@ -219,7 +225,6 @@
 @media (min-width: 769px) {
 	.nav-links {
 		display: flex;
-		gap: 60px;
 	}
 
 	.nav-links li {
@@ -235,19 +240,21 @@
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 991px) {
 	.navbar {
 		flex-direction: row;
-		align-items: flex-start;
+		align-items: center;
+		gap: 40px;
 	}
 
 	.logo-1 {
-		font-size: 25px;
+		font-size: 30px;
 		margin-left: 0;
+		min-width: fit-content;
 	}
 
 	.nav-links {
-		display: none; /* إخفاء الروابط في البداية */
+		display: none;
 		flex-direction: column;
 		gap: 20px;
 		width: 100%;
@@ -261,7 +268,6 @@
 		font-size: 18px;
 	}
 
-	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
 		flex-direction: row;
@@ -275,18 +281,20 @@
 		font-size: 25px;
 		cursor: pointer;
 	}
-
+	
 	.dropdown-content {
 		width: 110px;
 		position: static;
 		margin-top: 10px;
 		margin-left: -50px;
 		text-align: center;
+		transition: 0.3s;
 	}
-
+	
 	.dropdown-content li {
 		padding: 10px;
 		text-align: center;
+		transition: 0.3s;
 		margin-left: -30px;
 	}
 
@@ -294,9 +302,8 @@
 		font-size: 16px;
 	}
 	.logout-btn {
-		width: 50px;
 		text-align: center;
-		padding: 5px;
+		padding: 10px 15px;
 		font-size: 10px;
 		margin-top: 9px;
 	}

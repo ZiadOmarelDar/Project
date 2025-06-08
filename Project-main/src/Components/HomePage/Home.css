@@ -1,6 +1,7 @@
 .home-container {
 	max-width: 100%;
 	font-family: Inter;
+	padding: 0 20px;
 }
 /* ======== Hero ======== */
 .hero {

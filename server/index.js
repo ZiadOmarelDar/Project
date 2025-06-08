@@ -879,7 +879,7 @@ app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) =>
 
 // -------------------------------------------------------------------------------------------
 
-app.post("/pets", authMiddleware, uploadPets.array("images", 5), async (req, res) => {
+app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, res) => {
   try {
     const {
       petName,
@@ -893,8 +893,15 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5), async (req, res
       ownerLocation,
       ownerPhoneNumber
     } = req.body;
-    const imagePaths = req.files?.map(f => `/uploads/pets/${f.originalname}`) || [];
-    const pet = new PetModel({
+    let imagePaths = [];
+    for (let i=0; i<req.files.length; i++) {
+      fileName = req.files[i].originalname;
+      const remotePath = `/domains/express-elmadina.com/public_html/Pets_images/Pets/${fileName}`;
+      await uploadToFTP(req.files[i].path,remotePath);
+      let url = `https://express-elmadina.com/Pets_images/Pets/${fileName}`
+      imagePaths.push(url)
+    }
+    const pet = new PetModel({ 
       petName,
       age,
       breed,
@@ -914,13 +921,46 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5), async (req, res
     res.status(201).json({ message: "Pet added successfully", pet });
 
   } catch (err) {
-      req.files.forEach(file => {
-      const filePath = path.join(__dirname, "uploads", "Pets", file.originalname);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-    });
     res.status(500).json({ message: "Error adding pet", error: err.message });
   }
 });
+
+const ftpOptions = {
+  host: process.env.FTP_HOST || '92.113.18.144',
+  user: process.env.FTP_USER || 'u993113834',
+  password: process.env.FTP_PASSWORD || 'Mahxoud@000',
+};
+
+
+// Helper function to upload file to FTP
+const uploadToFTP = (localPath, remotePath) => {
+  return new Promise((resolve, reject) => {
+    const client = new ftp();
+    
+    client.on('ready', () => {
+      console.log('FTP Connection Successful');
+      
+      client.put(localPath, remotePath, (err) => {
+        client.end();
+        if (err) {
+          console.error('FTP Upload Error:', err);
+          reject(err);
+        } else {
+          console.log('File uploaded successfully to FTP:', remotePath);
+          resolve();
+        }
+      });
+    });
+
+    client.on('error', (err) => {
+      console.error('FTP Connection Error:', err);
+      reject(err);
+    });
+
+    client.connect(ftpOptions);
+  });
+};
+
 
 app.get("/pets", async (req,res) => {
   try {

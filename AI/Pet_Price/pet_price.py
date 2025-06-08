@@ -22,7 +22,7 @@ from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 
-df = pd.read_csv("pet_price_dataset.csv")
+df = pd.read_csv("X:/Graduation Project/Project/AI/Pet_Price/pet_price_dataset.csv")
 
 df.head(20)
 
@@ -190,9 +190,15 @@ plt.show()
 
 import pickle
 
-with open('pet_price.pkl', 'wb') as f:
+# Save the trained model
+with open("pet_price_model.pkl", "wb") as f:
     pickle.dump(xgb_model, f)
 
-from google.colab import files
-files.download('pet_price.pkl')
+# Save the label encoders
+with open("label_encoders.pkl", "wb") as f:
+    pickle.dump(label_encoders, f)
+
+# Save the scaler
+with open("scaler.pkl", "wb") as f:
+    pickle.dump(scaler, f)
 
