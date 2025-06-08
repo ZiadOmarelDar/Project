@@ -5,26 +5,28 @@ import './AdoptionPredictor.css';
 const AdoptionPredictor = () => {
 	const [formData, setFormData] = useState({
 		PetType: 'Dog',
-		Breed: '',
-		AgeMonths: '',
-		Color: '',
-		Size: 'Larg',
-		WeightKg: '',
-		Vaccinated: 'Yes',
-		HealthCondition: 'Healthy',
-		TimeInShelterDays: '',
-		AdoptionFee: '',
-		PreviousOwner: 'Yes',
+		Breed: 'Labrador',
+		AgeMonths: '5',
+		Color: 'Black',
+		Size: 'Large',
+		WeightKg: '5.5',
+		Vaccinated: '1',
+		HealthCondition: '0',
+		TimeInShelterDays: '45',
+		AdoptionFee: '100',
+		PreviousOwner: '1',
 	});
 	const [result, setResult] = useState('');
 	const [showResult, setShowResult] = useState(false);
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
+		console.log(e.target.value)
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		console.log(formData)
 		try {
 			const response = await fetch('http://localhost:5000/predict', {
 				method: 'POST',
@@ -80,17 +82,32 @@ const AdoptionPredictor = () => {
 							onChange={handleChange}>
 							<option value='Dog'>Dog</option>
 							<option value='Cat'>Cat</option>
+							<option value='Bird'>Bird</option>
+							<option value='Rabbit'>Rabbit</option>
 						</select>
 					</div>
 					<div className='form-group'>
 						<label>Breed</label>
-						<input
-							type='text'
+						<select
 							name='Breed'
 							value={formData.Breed}
-							onChange={handleChange}
-							placeholder='e.g., Labrador'
-						/>
+							onChange={handleChange}>
+							<optgroup label="Dogs">
+								<option value="Golden Retriever">Golden Retriever</option>
+								<option value="Labrador">Labrador</option>
+								<option value="Poodle">Poodle</option>
+							</optgroup>
+							<optgroup label="Cats">
+								<option value="Persian">Persian</option>
+								<option value="Siamese">Siamese</option>
+							</optgroup>
+							<optgroup label="Birds">
+								<option value="Golden Retriever">Parakeet</option>
+							</optgroup>
+							<optgroup label="Rabbit">
+								<option value="Golden Retriever">Rabbit</option>
+							</optgroup>
+						</select>
 					</div>
 				</div>
 				<div className='form-row'>
@@ -101,16 +118,22 @@ const AdoptionPredictor = () => {
 							name='AgeMonths'
 							value={formData.AgeMonths}
 							onChange={handleChange}
+							placeholder='age by month'
 						/>
 					</div>
 					<div className='form-group'>
 						<label>Color</label>
-						<input
-							type='text'
+						<select
 							name='Color'
 							value={formData.Color}
 							onChange={handleChange}
-						/>
+						>
+						<option value='Black'>Black</option>
+						<option value='Brown'>Brown</option>
+						<option value='White'>White</option>
+						<option value='Gray'>Gray</option>
+						<option value='Orange'>Orange</option>
+						</select>
 					</div>
 				</div>
 				<div className='form-row'>
@@ -132,6 +155,7 @@ const AdoptionPredictor = () => {
 							name='WeightKg'
 							value={formData.WeightKg}
 							onChange={handleChange}
+							placeholder='whight by kg'
 						/>
 					</div>
 				</div>
@@ -142,8 +166,8 @@ const AdoptionPredictor = () => {
 							name='Vaccinated'
 							value={formData.Vaccinated}
 							onChange={handleChange}>
-							<option value='Yes'>Yes</option>
-							<option value='No'>No</option>
+							<option value='1'>Yes</option>
+							<option value='0'>No</option>
 						</select>
 					</div>
 					<div className='form-group'>
@@ -152,8 +176,8 @@ const AdoptionPredictor = () => {
 							name='HealthCondition'
 							value={formData.HealthCondition}
 							onChange={handleChange}>
-							<option value='Healthy'>Healthy</option>
-							<option value='Unhealthy'>Unhealthy</option>
+							<option value='1'>have a disabled</option>
+							<option value='0'>not have</option>
 						</select>
 					</div>
 				</div>
@@ -165,6 +189,7 @@ const AdoptionPredictor = () => {
 							name='TimeInShelterDays'
 							value={formData.TimeInShelterDays}
 							onChange={handleChange}
+							placeholder='time in shelter by days'
 						/>
 					</div>
 					<div className='form-group'>
@@ -174,6 +199,7 @@ const AdoptionPredictor = () => {
 							name='AdoptionFee'
 							value={formData.AdoptionFee}
 							onChange={handleChange}
+							placeholder='adoption fee by $'
 						/>
 					</div>
 				</div>
@@ -184,8 +210,8 @@ const AdoptionPredictor = () => {
 							name='PreviousOwner'
 							value={formData.PreviousOwner}
 							onChange={handleChange}>
-							<option value='Yes'>Yes</option>
-							<option value='No'>No</option>
+							<option value='1'>Yes</option>
+							<option value='0'>No</option>
 						</select>
 					</div>
 				</div>
@@ -201,6 +227,7 @@ const AdoptionPredictor = () => {
 						{result === 'good for adopt'
 							? 'Likely to Be Adopted'
 							: 'Not Likely to Be Adopted'}
+							{result}
 					</h3>
 					<p>
 						{result === 'good for adopt'

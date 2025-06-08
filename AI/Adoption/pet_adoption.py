@@ -58,11 +58,6 @@ df.info()
 
 print(df.describe())
 
-le = LabelEncoder()
-df['Size'] = le.fit_transform(df['Size'])
-df['PetType'] = le.fit_transform(df['PetType'])
-df['Color'] = le.fit_transform(df['Color'])
-df['Breed'] = le.fit_transform(df['Breed'])
 df.head(50)
 
 model = DecisionTreeClassifier(max_depth=8, min_samples_split=10, random_state=42)
