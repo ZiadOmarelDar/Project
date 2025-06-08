@@ -24,7 +24,7 @@ const Profile = () => {
   const [formData, setFormData] = useState({
     clinicName: "",
     doctorName: "",
-    location: { governorate: "", specificLocation: "" }, // تعديل ليكون object
+    location: "",
     mobile: "",
     email: "",
     workingHoursFrom: "1",
@@ -36,7 +36,7 @@ const Profile = () => {
     serviceType: "",
     doctorDescription: "",
     specialty: "Obedience Training",
-    availablePrograms: [], // مصفوفة
+    availablePrograms: [], // تغيير ليكون مصفوفة
     clinicPhotos: [],
     specialties: [], // إضافة حقل specialties كمصفوفة
   });
@@ -46,15 +46,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const timeOptions = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const governorates = [
-    "Cairo", "Giza", "Alexandria", "Luxor", "Aswan", "Asyut", "Beheira", "Beni Suef", "Dakahlia", "Damietta",
-    "Faiyum", "Gharbia", "Ismailia", "Kafr El Sheikh", "Matrouh", "Minya", "Monufia", "New Valley", "North Sinai",
-    "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"
-  ];
-  const specialties = [
-    "Basic Medical Services", "Vaccinations", "Preventive Care", "Diagnostic Services",
-    "Surgical Procedures", "Dental Care", "Grooming and Hygiene", "Boarding Services"
-  ];
+  const specialties = ["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"];
   const programOptions = ["Private Sessions", "Online Training"];
 
   useEffect(() => {
@@ -108,7 +100,7 @@ const Profile = () => {
           setFormData({
             clinicName: service.clinicName || "",
             doctorName: service.doctorName || "",
-            location: service.location || { governorate: "", specificLocation: "" }, // تحديث ليكون object
+            location: service.location || "",
             mobile: service.mobile || "",
             email: service.email || "",
             workingHoursFrom,
@@ -120,9 +112,8 @@ const Profile = () => {
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
             specialty: service.specialty || "Obedience Training",
-            availablePrograms: service.availablePrograms || [],
+            availablePrograms: service.availablePrograms || [], // تحديث ليكون مصفوفة
             clinicPhotos: service.clinicPhotos || [],
-            specialties: service.specialties || [], // تحديث ليكون مصفوفة
           });
         }
 
@@ -166,6 +157,7 @@ const Profile = () => {
 
     setFormData((prev) => {
       const updatedPhotos = [...prev.clinicPhotos.filter(p => typeof p === 'object'), ...uniqueFiles].slice(0, 5);
+      console.log("Updated clinicPhotos state:", updatedPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: updatedPhotos };
     });
     setError("");
@@ -174,6 +166,7 @@ const Profile = () => {
   const handleRemovePhotoFromPreview = (indexToRemove) => {
     setFormData((prev) => {
       const newPhotos = prev.clinicPhotos.filter((_, index) => index !== indexToRemove);
+      console.log("After remove, clinicPhotos state:", newPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: newPhotos };
     });
   };
@@ -229,14 +222,7 @@ const Profile = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "location.governorate" || name === "location.specificLocation") {
-      setFormData((prev) => ({
-        ...prev,
-        location: { ...prev.location, [name.split(".")[1]]: value },
-      }));
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleCheckboxChange = (e) => {
@@ -248,17 +234,6 @@ const Profile = () => {
       updatedPrograms = updatedPrograms.filter((program) => program !== value);
     }
     setFormData({ ...formData, availablePrograms: updatedPrograms });
-
-    // إضافة منطق لـ specialties
-    if (userData.userType === "clinicAdmin") {
-      let updatedSpecialties = [...formData.specialties];
-      if (checked) {
-        updatedSpecialties.push(value);
-      } else {
-        updatedSpecialties = updatedSpecialties.filter((spec) => spec !== value);
-      }
-      setFormData({ ...formData, specialties: updatedSpecialties });
-    }
   };
 
   const validateForm = () => {
@@ -272,10 +247,6 @@ const Profile = () => {
     }
     if (userData.userType === "trainer" && formData.availablePrograms.length === 0) {
       setError("Please select at least one available program.");
-      return false;
-    }
-    if (userData.userType === "clinicAdmin" && formData.specialties.length === 0) {
-      setError("Please select at least one specialty.");
       return false;
     }
     setError("");
@@ -299,23 +270,22 @@ const Profile = () => {
     if (userData.userType === "clinicAdmin") {
       formDataToSend.append("clinicName", formData.clinicName);
       formDataToSend.append("doctorName", formData.doctorName);
-      formDataToSend.append("location[governorate]", formData.location.governorate);
-      formDataToSend.append("location[specificLocation]", formData.location.specificLocation);
+      formDataToSend.append("location", formData.location);
       formDataToSend.append("workingHours", `${formData.workingHoursFrom} ${formData.workingHoursFromPeriod} - ${formData.workingHoursTo} ${formData.workingHoursToPeriod}`);
       formDataToSend.append("servicePrice", Number(formData.servicePriceValue) || 0);
       formDataToSend.append("currency", formData.servicePriceCurrency);
       formDataToSend.append("serviceType", formData.serviceType);
       formDataToSend.append("doctorDescription", formData.doctorDescription);
-      formData.specialties.forEach((spec) => {
-        formDataToSend.append("specialties", spec);
-      });
+
       const uniquePhotos = [...new Set(formData.clinicPhotos.map(file => file.name + file.size + file.lastModified))]
         .map(key => formData.clinicPhotos.find(file => file.name + file.size + file.lastModified === key));
       uniquePhotos.forEach((photo) => {
         formDataToSend.append("clinicPhotos", photo);
       });
+      console.log("Sending photos:", uniquePhotos.map(f => f.name));
     } else if (userData.userType === "trainer") {
       formDataToSend.append("specialty", formData.specialty);
+      // إرسال availablePrograms كمصفوفة
       formData.availablePrograms.forEach((program) => {
         formDataToSend.append("availablePrograms", program);
       });
@@ -361,7 +331,7 @@ const Profile = () => {
         setFormData({
           clinicName: "",
           doctorName: "",
-          location: { governorate: "", specificLocation: "" }, // إعادة تعيين كـ object
+          location: "",
           mobile: "",
           email: "",
           workingHoursFrom: "1",
@@ -373,9 +343,8 @@ const Profile = () => {
           serviceType: "",
           doctorDescription: "",
           specialty: "Obedience Training",
-          availablePrograms: [],
+          availablePrograms: [], // إعادة تعيين كمصفوفة فارغة
           clinicPhotos: [],
-          specialties: [], // إعادة تعيين specialties
         });
         setSuccess("Service deleted successfully!");
       } else {
@@ -454,14 +423,13 @@ const Profile = () => {
                       <>
                         <p><strong>Clinic Name:</strong> {service.clinicName}</p>
                         <p><strong>Doctor Name:</strong> {service.doctorName}</p>
-                        <p><strong>Location:</strong> {service.location.governorate} - {service.location.specificLocation}</p>
+                        <p><strong>Location:</strong> {service.location}</p>
                         <p><strong>Mobile:</strong> {service.mobile}</p>
                         <p><strong>Email:</strong> {service.email}</p>
                         <p><strong>Working Hours:</strong> {service.workingHours}</p>
                         <p><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
                         <p><strong>Service Type:</strong> {service.serviceType}</p>
                         <p><strong>Doctor Description:</strong> {service.doctorDescription}</p>
-                        <p><strong>Specialties:</strong> {service.specialties.join(", ") || "Not provided"}</p>
                         {service.clinicPhotos && service.clinicPhotos.length > 0 && (
                           <div className="clinic-photos-section">
                             <h4>Clinic Photos</h4>
@@ -517,29 +485,8 @@ const Profile = () => {
                       <input type="text" name="doctorName" value={formData.doctorName} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
-                      <label>Governorate:</label>
-                      <select
-                        name="location.governorate"
-                        value={formData.location.governorate}
-                        onChange={handleInputChange}
-                        required
-                      >
-                        <option value="">Select Governorate</option>
-                        {governorates.map((gov) => (
-                          <option key={gov} value={gov}>{gov}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label>Specific Location:</label>
-                      <input
-                        type="text"
-                        name="location.specificLocation"
-                        value={formData.location.specificLocation}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="e.g., Street Name, Building Number"
-                      />
+                      <label>Location:</label>
+                      <input type="text" name="location" value={formData.location} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                       <label>Mobile Number:</label>
@@ -610,22 +557,6 @@ const Profile = () => {
                     <div className="form-group">
                       <label>Doctor Description (Education, Experience, etc.):</label>
                       <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange} required />
-                    </div>
-                    <div className="form-group">
-                      <label>Specialties:</label>
-                      <div className="checkbox-group">
-                        {specialties.map((spec) => (
-                          <label key={spec}>
-                            <input
-                              type="checkbox"
-                              value={spec}
-                              checked={formData.specialties.includes(spec)}
-                              onChange={handleCheckboxChange}
-                            />
-                            {spec}
-                          </label>
-                        ))}
-                      </div>
                     </div>
                   </>
                 ) : (
