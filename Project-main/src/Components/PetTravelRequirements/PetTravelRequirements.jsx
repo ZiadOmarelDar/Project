@@ -1,7 +1,7 @@
 // src/components/PetTravelRequirements/PetTravelRequirements.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import dogWithBage from "../../assets/dogWithBage.png"; // المسار الصحيح للصورة
+import dogWithBage from "../../assets/dogWithBage.png"; 
 import "./PetTravelRequirements.css";
 import { CgFileDocument } from "react-icons/cg";
 import { GiMiracleMedecine } from "react-icons/gi";

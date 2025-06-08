@@ -36,8 +36,9 @@ const Profile = () => {
     serviceType: "",
     doctorDescription: "",
     specialty: "Obedience Training",
-    availablePrograms: [],
+    availablePrograms: [], // تغيير ليكون مصفوفة
     clinicPhotos: [],
+    specialties: [], // إضافة حقل specialties كمصفوفة
   });
   const [file, setFile] = useState(null);
   const [uploadMessage, setUploadMessage] = useState("");
@@ -111,7 +112,7 @@ const Profile = () => {
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
             specialty: service.specialty || "Obedience Training",
-            availablePrograms: service.availablePrograms || [],
+            availablePrograms: service.availablePrograms || [], // تحديث ليكون مصفوفة
             clinicPhotos: service.clinicPhotos || [],
           });
         }
@@ -342,7 +343,7 @@ const Profile = () => {
           serviceType: "",
           doctorDescription: "",
           specialty: "Obedience Training",
-          availablePrograms: [], 
+          availablePrograms: [], // إعادة تعيين كمصفوفة فارغة
           clinicPhotos: [],
         });
         setSuccess("Service deleted successfully!");

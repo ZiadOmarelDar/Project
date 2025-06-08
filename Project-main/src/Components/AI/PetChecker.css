@@ -1,0 +1,282 @@
+.navbar-50 {
+	background-color: #2a2a72;
+	padding: 0.9rem;
+}
+
+.nav-list-50 {
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-list-50 li a {
+	color: white;
+	text-decoration: none;
+	font-size: 1rem;
+}
+
+.nav-list-50 li a:hover {
+	text-decoration: underline;
+}
+
+.health-checker-container {
+	font-family: Arial, sans-serif;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.header-section-checker {
+	text-align: left;
+	margin-bottom: 30px;
+	position: relative;
+	padding-right: 230px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.header-section-checker h1 {
+	color: #2e317f;
+	text-align: left;
+	font-weight: 600;
+	font-size: 50px;
+	margin: 0 0 8px 70px;
+	padding-bottom: 5px;
+}
+
+.header-section-checker p {
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 0 0 -100px 90px;
+	max-width: 100%;
+	align-self: center;
+}
+
+.header-image-checker {
+	max-width: 320px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	right: 40px;
+}
+
+.form-section-checker {
+	max-width: 90%;
+	margin-left: 70px;
+	clear: both;
+}
+
+.form-group-checker {
+	margin-bottom: 15px;
+}
+
+.form-group-checker label {
+	display: block;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+.dropdown-checker {
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: #fff;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.symptoms-container-checker {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.symptom-pair-checker {
+	display: flex;
+	gap: 20px;
+	width: 100%;
+}
+
+.form-group-checker {
+	flex: 1;
+	max-width: 45%;
+}
+.form-group-checker:last-child {
+	flex: 1;
+	max-width: 100%;
+}
+
+.form-section-checker .form-group-checker:last-child .dropdown-checker {
+	width: 100%;
+	max-width: 100%;
+}
+
+.check-button-checker {
+	background-color: #2e317f;
+	color: #fff;
+	padding: 12px 25px;
+	border: none;
+	border-radius: 25px;
+	font-size: 20px;
+	cursor: pointer;
+	display: block;
+	margin-top: 20px;
+	width: 250px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.check-button-checker:hover {
+	background-color: #1d1f5a;
+}
+
+@media (max-width: 768px) {
+	.health-checker-container {
+		padding: 10px;
+	}
+
+	.header-section-checker {
+		padding-right: 0;
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header-section-checker h1 {
+		border-bottom: none;
+	}
+
+	.header-section-checker p {
+		margin: 0 0 10px 0;
+		text-align: center;
+	}
+
+	.header-image-checker {
+		position: static;
+		max-width: 200px;
+		margin: 0 auto 20px auto;
+		display: block;
+	}
+
+	.symptom-pair-checker {
+		flex-direction: column;
+	}
+
+	.form-group-checker {
+		max-width: 100%;
+	}
+
+	.form-section-checker {
+		margin-right: 40px;
+	}
+
+	.form-section-checker .form-group-checker:last-child .dropdown-checker {
+		width: 100%;
+	}
+
+	.check-button-checker {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.header-section-checker h1 {
+		font-size: 28px;
+	}
+
+	.header-section-checker p {
+		font-size: 14px;
+	}
+
+	.dropdown-checker {
+		font-size: 14px;
+	}
+
+	.form-section-checker {
+		margin-right: 40px;
+	}
+
+	.check-button-checker {
+		font-size: 17px;
+	}
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modal-content {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 500px;
+	position: relative;
+}
+
+.good-news-modal {
+	background-color: #4caf50;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.warning-modal {
+	background-color: #b71c1c;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.error-modal {
+	background-color: #ff9800;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.modal-content h2 {
+	font-size: 24px;
+	margin: 0 0 10px 0;
+}
+
+.modal-content p {
+	font-size: 16px;
+	margin: 0 0 20px 0;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
+	border: none;
+	font-size: 20px;
+	color: #fff;
+	cursor: pointer;
+}
