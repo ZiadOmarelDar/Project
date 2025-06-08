@@ -1,216 +1,49 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* clinics */
-.top-section {
+.vetClinicCards.trainerStyle {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.title-container-10 {
-  width: 20%;
-}
-
-.title-10 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 100%;
-  letter-spacing: 0;
-  margin-top: 35px;
-  color: #000;
-  text-align: left;
-}
-
-
-.top-section .illustration {
-  width: 307px;
-  height: 539px;
-  margin-top: -80px;
-  left: 470px;
-  margin-left: 50px;
-  overflow: hidden;
-}
-
-.top-section .illustration img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin-top: 20px;
-}
-
-.top-section .content {
-  text-align: center;
-  margin-top: 50px;
-  margin-left: 70px;
-}
-
-.icon-10 {
-  color: #323773;
-  font-size: 40px;
-  margin-right: 20px;
-}
-
-.description-text {
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 100%;
-  letter-spacing: 0%;
-}
-
-.sub-des {
-  margin-bottom: 5px;
-}
-
-.features-list {
-  list-style: none;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.features-list li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 28px;
-}
-
-.features-list li p {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* Maps */
-.bottom-section {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%); 
-  background-color: #323773;
-  padding: 40px 20px;
-  border-radius: 50px 50px 0 0;
-  margin-bottom: 50px;
-}
-
-.bottom-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-}
-
-.bottom-section h2 .arrow {
-  margin-left: 10px;
-  color: #ffffff;
-  font-size: 20px;
-}
-
-.map-container {
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  padding: 20px 10px;
-  border-radius: 20px;
-}
-
-.map-wrapper {
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  overflow: hidden;
-}
-
-.view-larger-map {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background-color: #fff;
-  border: 1px solid #d1d5db;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #2563eb;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.view-larger-map:hover {
-  background-color: #f3f4f6;
-}
-
-
-.clinics-section {
-  width: 100%;
-}
-
-.clinics-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.vetClinicCard {
+  border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-}
-
-.clinics-table th,
-.clinics-table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.clinics-table th {
-  background-color: #f9fafb;
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
+  width: 200px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.clinics-table td {
-  font-size: 14px;
-  color: #374151;
-  text-align: center;
+.vetClinicCard:hover {
+  transform: scale(1.05);
 }
 
-.clinics-table tr:last-child td {
-  border-bottom: none;
+.trainerImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px auto;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-  .top-section {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
-  }
-
-  .top-section .illustration {
-    margin-bottom: 0;
-  }
-
-  .top-section .content {
-    text-align: left;
-  }
-
-  .features-list {
-    margin: 0;
-  }
+.vetClinicInfo {
+  padding: 10px;
 }
+
+.vetClinicName {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.vetClinicSpecialty {
+  color: #666;
+  margin: 5px 0;
+}
+
+.vetClinicAddress {
+  color: #888;
+  margin: 0;
+}
+
+/* Keep existing styles for other sections */
