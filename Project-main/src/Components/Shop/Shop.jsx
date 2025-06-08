@@ -49,17 +49,6 @@ const Shop = () => {
 
 	return (
 		<div className='shop-container'>
-			<div className='search-bar'>
-				<div className='search-icon'>
-					<FaSearch style={{ color: 'white' }} />
-				</div>
-				<input
-					type='text'
-					placeholder='Search For Product'
-					className='search-input'
-				/>
-			</div>
-
 			<div className='container'>
 				<div className='carousel'>
 					{images.map((img, index) => (
