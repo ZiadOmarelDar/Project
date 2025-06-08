@@ -15,7 +15,6 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
    data = request.json
-   # Example: expecting data["features"] = [0, 3, 1, 2, ...]
    features = np.array(data["features"]).reshape(1, -1)
    prediction = model.predict(features)[0]
    return jsonify({"predicted_price": round(float(prediction), 2)})
