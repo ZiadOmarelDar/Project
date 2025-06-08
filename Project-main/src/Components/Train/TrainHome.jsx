@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaPlayCircle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom"; // أضفت useNavigate للتعامل مع التوجيه
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import trainDog from "../../assets/Train/TrainingDog.png";
 import Training1 from "../../assets/Train/Training1.png";
@@ -11,7 +11,7 @@ import "./TrainHome.css";
 function TrainHome() {
   const [trainers, setTrainers] = useState([]);
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // للتوجيه في حالة عدم وجود token
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrainers = async () => {
@@ -37,7 +37,7 @@ function TrainHome() {
 
   return (
     <>
-   
+  
       {/* Section 1: Hero */}
       <section className="train-section1">
         <div className="section1-text">

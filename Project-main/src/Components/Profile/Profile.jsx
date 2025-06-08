@@ -36,7 +36,7 @@ const Profile = () => {
     serviceType: "",
     doctorDescription: "",
     specialty: "Obedience Training",
-    availablePrograms: [], // تغيير ليكون مصفوفة
+    availablePrograms: [],
     clinicPhotos: [],
   });
   const [file, setFile] = useState(null);
@@ -111,7 +111,7 @@ const Profile = () => {
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
             specialty: service.specialty || "Obedience Training",
-            availablePrograms: service.availablePrograms || [], // تحديث ليكون مصفوفة
+            availablePrograms: service.availablePrograms || [],
             clinicPhotos: service.clinicPhotos || [],
           });
         }
@@ -342,7 +342,7 @@ const Profile = () => {
           serviceType: "",
           doctorDescription: "",
           specialty: "Obedience Training",
-          availablePrograms: [], // إعادة تعيين كمصفوفة فارغة
+          availablePrograms: [], 
           clinicPhotos: [],
         });
         setSuccess("Service deleted successfully!");

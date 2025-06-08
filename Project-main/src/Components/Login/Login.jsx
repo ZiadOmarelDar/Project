@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; 
+import "./Login.css";
 import Dog from "../../assets/Dog.png";
 import axios from "axios";
-import { FaGoogle, FaFacebook, FaWhatsapp, FaTelegram,FaEyeSlash,FaEye } from "react-icons/fa";
-
+import {
+  FaGoogle,
+  FaFacebook,
+  FaWhatsapp,
+  FaTelegram,
+  FaEyeSlash,
+  FaEye,
+} from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
@@ -36,7 +42,10 @@ function Login() {
     if (!valid) return;
 
     try {
-      const response = await axios.post("http://localhost:3001/login", { email, password });
+      const response = await axios.post("http://localhost:3001/login", {
+        email,
+        password,
+      });
       const { token, message } = response.data;
 
       if (token) {
@@ -80,14 +89,14 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-             <span
+            <span
               className="toggle-password-2"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-         
+
           {passwordError && <p className="error-message">{passwordError}</p>}
           {apiError && <p className="error-message">{apiError}</p>}
 
