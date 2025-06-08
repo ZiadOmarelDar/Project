@@ -1,0 +1,95 @@
+.adminContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+.adminCard {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.adminTitle {
+  font-size: 1.8em;
+  color: #2E317F;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.adminProfile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.adminImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ecf0f1;
+}
+
+.adminText h3 {
+  font-size: 1.5em;
+  color: #2E317F;
+  margin: 0 0 10px;
+}
+
+.adminText p {
+  font-size: 1em;
+  color: #34495e;
+  margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .adminImage {
+    width: 120px;
+    height: 120px;
+  }
+
+  .adminText h3 {
+    font-size: 1.3em;
+  }
+
+  .adminText p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminCard {
+    padding: 15px;
+  }
+
+  .adminImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .adminText h3 {
+    font-size: 1.1em;
+  }
+
+  .adminText p {
+    font-size: 0.8em;
+  }
+
+  .adminProfile {
+    flex-direction: column;
+    text-align: center;
+  }
+}

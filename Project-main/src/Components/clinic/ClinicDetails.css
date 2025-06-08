@@ -27,13 +27,13 @@
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .clinicDetailsCard {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,94 +43,132 @@
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
 .clinicImage {
-  width: 20vw; /* نسبة متغيرة بناءً على عرض الشاشة */
-  height: 20vw;
-  max-width: 200px;
-  max-height: 200px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  border: 4px solid #ecf0f1;
+  border: 2px solid #ecf0f1;
 }
 
 .singleImage {
-  width: 40vw;
-  max-width: 400px;
+  width: 400px;
 }
 
 .doubleImage {
-  width: 20vw;
-  max-width: 200px;
-}
-
-.tripleImage {
-  width: 13vw;
-  max-width: 130px;
+  width: 200px;
 }
 
 .clinicDetailsInfo {
   text-align: center;
   width: 100%;
+  margin-top: 20px;
 }
 
 .clinicDetailsName {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #2E317F;
   font-weight: 600;
 }
 
 .clinicDetailsDetails {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
   text-align: left;
-  max-width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .detailLabel {
   color: #2E317F;
   font-weight: 500;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 p {
-  margin: 10px 0;
-  color: #34495e;
-  font-size: 1.1em;
+  margin: 5px 0;
+  color: #2E317F;
+  font-size: 1em;
   line-height: 1.5;
 }
 
 /* Contact section */
 .contactLinks {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
 }
 
 .contactLink {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background-color: #2E317F;
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 15px;
+  border-radius: 20px;
   font-weight: 500;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .contactText {
-  font-size: 1em;
+  font-size: 0.9em;
+}
+
+/* Admin Info Box */
+.adminInfoBox {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.adminTitle {
+  font-size: 1.2em;
+  color: #2E317F;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.adminDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  text-align: left;
+}
+
+.adminDetails p {
+  margin: 5px 0;
+}
+
+/* Admin Link */
+.adminLink {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #2E317F;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.adminLink:hover {
+  background-color: #25296B;
 }
 
 /* Media Queries للتحسين المتجاوب */
@@ -140,39 +178,30 @@ p {
   }
 
   .clinicDetailsName {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   .clinicImage {
-    width: 30vw;
-    height: 30vw;
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
   }
 
   .singleImage {
-    width: 60vw;
-    max-width: 300px;
-  }
-
-  .doubleImage {
-    width: 30vw;
-    max-width: 150px;
-  }
-
-  .tripleImage {
-    width: 20vw;
-    max-width: 100px;
+    width: 300px;
   }
 
   .clinicDetailsDetails {
     grid-template-columns: 1fr;
-    padding: 0 10px;
   }
 
   .contactLink {
-    padding: 8px 15px;
-    font-size: 0.9em;
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .adminLink {
+    padding: 6px 12px;
+    font-size: 0.8em;
   }
 }
 
@@ -182,37 +211,29 @@ p {
   }
 
   .clinicDetailsName {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .clinicImage {
-    width: 40vw;
-    height: 40vw;
-    max-width: 120px;
-    max-height: 120px;
+    width: 120px;
+    height: 120px;
   }
 
   .singleImage {
-    width: 80vw;
-    max-width: 250px;
-  }
-
-  .doubleImage {
-    width: 40vw;
-    max-width: 120px;
-  }
-
-  .tripleImage {
-    width: 25vw;
-    max-width: 80px;
+    width: 250px;
   }
 
   .clinicDetailsCard {
-    padding: 20px;
+    padding: 15px;
   }
 
   .contactLink {
-    padding: 6px 12px;
-    font-size: 0.8em;
+    padding: 5px 10px;
+    font-size: 0.7em;
+  }
+
+  .adminLink {
+    padding: 5px 10px;
+    font-size: 0.7em;
   }
 }

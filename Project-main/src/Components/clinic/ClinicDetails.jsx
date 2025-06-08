@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./ClinicDetails.css";
 import cl from "../../assets/clinic1.png";
@@ -33,6 +33,7 @@ const ClinicDetails = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         setClinic(response.data.clinic || null);
+        console.log("Clinic Data:", response.data.clinic); // للتحقق من البيانات
       } catch (err) {
         console.error("Error fetching clinic details:", err.response ? err.response.data : err.message);
       }
@@ -46,7 +47,7 @@ const ClinicDetails = () => {
   const imageCount = clinicPhotos.length;
 
   const handleImageClick = (photoUrl) => {
-    window.open(`http://localhost:3001${photoUrl}`, "_blank");
+    window.open(photoUrl.startsWith('http') ? photoUrl : `http://localhost:3001${photoUrl}`, "_blank");
   };
 
   const whatsappLink = clinic.mobile
@@ -54,12 +55,16 @@ const ClinicDetails = () => {
     : "#";
   const emailLink = clinic.email ? `mailto:${clinic.email}` : "#";
 
+  // استخراج adminId مع خيارات متعددة
+  const adminId = clinic.admin?._id || clinic.admin?.id || clinic.admin?.userId; // عدّل حسب الحقل الفعلي
+
   return (
     <ErrorBoundary>
       <div className="clinicDetailsContainer">
         <div className="clinicDetailsTopSection">
           <h2 className="clinicDetailsTitle">
             {clinic.clinicName || "Unknown Clinic"}<br />
+            Details
           </h2>
         </div>
 
@@ -74,38 +79,20 @@ const ClinicDetails = () => {
                   onClick={() => handleImageClick(cl)}
                 />
               )}
-              {imageCount === 1 && clinicPhotos[0] && (
-                <img
-                  src={`http://localhost:3001${clinicPhotos[0]}`}
-                  alt={`${clinic.clinicName || "Clinic"} photo`}
-                  className="clinicImage singleImage"
-                  onClick={() => handleImageClick(clinicPhotos[0])}
-                  onError={(e) => { e.target.src = cl; }}
-                />
-              )}
-              {imageCount === 2 && clinicPhotos.slice(0, 2).map((photo, index) => (
+              {imageCount >= 1 && clinicPhotos.slice(0, 2).map((photo, index) => (
                 <img
                   key={index}
                   src={`http://localhost:3001${photo}`}
                   alt={`${clinic.clinicName || "Clinic"} photo ${index + 1}`}
-                  className="clinicImage doubleImage"
-                  onClick={() => handleImageClick(photo)}
-                  onError={(e) => { e.target.src = cl; }}
-                />
-              ))}
-              {imageCount >= 3 && clinicPhotos.slice(0, 3).map((photo, index) => (
-                <img
-                  key={index}
-                  src={`http://localhost:3001${photo}`}
-                  alt={`${clinic.clinicName || "Clinic"} photo ${index + 1}`}
-                  className="clinicImage tripleImage"
-                  onClick={() => handleImageClick(photo)}
+                  className={index === 0 && imageCount === 1 ? "clinicImage singleImage" : "clinicImage doubleImage"}
+                  onClick={() => handleImageClick(`http://localhost:3001${photo}`)}
                   onError={(e) => { e.target.src = cl; }}
                 />
               ))}
             </div>
 
             <div className="clinicDetailsInfo">
+              <h3 className="clinicDetailsName">{clinic.clinicName || "No name available"}</h3>
               <div className="clinicDetailsDetails">
                 <p><span className="detailLabel">Clinic Name:</span> {clinic.clinicName || "Not specified"}</p>
                 <p><span className="detailLabel">Governorate:</span> {clinic.location?.governorate || "Not specified"}</p>
@@ -121,17 +108,30 @@ const ClinicDetails = () => {
           <div className="contactLinks">
             {clinic.mobile && (
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="contactLink">
-                <FaWhatsapp size={24} />
+                <FaWhatsapp size={20} />
                 <span className="contactText">Contact via WhatsApp</span>
               </a>
             )}
             {clinic.email && (
               <a href={emailLink} className="contactLink">
-                <MdEmail size={24} />
+                <MdEmail size={20} />
                 <span className="contactText">Contact via Email</span>
               </a>
             )}
           </div>
+
+          {clinic && clinic.admin && adminId && (
+            <div className="adminInfoBox">
+              <h4 className="adminTitle">Admin Information</h4>
+              <div className="adminDetails">
+                <p><span className="detailLabel">Admin Name:</span> {clinic.admin.name || "Not specified"}</p>
+                <p><span className="detailLabel">Admin Email:</span> {clinic.admin.email || "Not specified"}</p>
+              </div>
+              <Link to={`/clinic-admin/${adminId}`} className="adminLink">
+                View Doctor Profile
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </ErrorBoundary>
