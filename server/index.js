@@ -11,12 +11,15 @@ const multer = require("multer");
 const ftp = require("ftp");
 const path = require("path");
 const fs = require("fs");
-const uploadFileToFTP = require("./funcUp");
+const PetModel = require("./models/PetModel");
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+app.use("/uploads/clinic-photos", express.static(path.join(__dirname, "uploads", "clinic-photos")));
 
 // Mongo DB Connection
 mongoose
@@ -78,8 +81,6 @@ const uploadUsers = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
-app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
-app.use("/uploads/clinic-photos", express.static(path.join(__dirname, "uploads", "clinic-photos")));
 
 // إعداد Multer لصور العيادات
 const storageClinics = multer.diskStorage({
@@ -95,6 +96,33 @@ const storageClinics = multer.diskStorage({
 
 const uploadClinics = multer({
   storage: storageClinics,
+  fileFilter: (req, file, cb) => {
+    const filetypes = /jpeg|jpg|png/;
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+    if (extname && mimetype) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only JPEG and PNG images are allowed"));
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 },
+});
+
+const petsStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "Uploads", "Pets");
+    fs.mkdirSync(uploadPath, { recursive: true });
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const uniqueName = file.originalname;
+    cb(null, uniqueName);
+  },
+});
+
+const uploadPets = multer({
+  storage: petsStorage,
   fileFilter: (req, file, cb) => {
     const filetypes = /jpeg|jpg|png/;
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
@@ -846,6 +874,72 @@ app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) =>
     res.status(201).json({ message: "Comment added successfully", post });
   } catch (err) {
     res.status(500).json({ message: "Error adding comment", error: err.message });
+  }
+});
+
+// -------------------------------------------------------------------------------------------
+
+app.post("/pets", authMiddleware, uploadPets.array("images", 5), async (req, res) => {
+  try {
+    const {
+      petName,
+      age,
+      breed,
+      type,
+      healthStatus,
+      vaccinations,
+      notes,
+      ownerName,
+      ownerLocation,
+      ownerPhoneNumber
+    } = req.body;
+    const imagePaths = req.files?.map(f => `/uploads/pets/${f.originalname}`) || [];
+    const pet = new PetModel({
+      petName,
+      age,
+      breed,
+      type,
+      healthStatus,
+      vaccinations,
+      notes,
+      images: imagePaths,
+      owner: {
+        name: ownerName,
+        location: ownerLocation,
+        phoneNumber: ownerPhoneNumber
+      }
+    });
+
+    await pet.save();
+    res.status(201).json({ message: "Pet added successfully", pet });
+
+  } catch (err) {
+      req.files.forEach(file => {
+      const filePath = path.join(__dirname, "uploads", "Pets", file.originalname);
+      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+    });
+    res.status(500).json({ message: "Error adding pet", error: err.message });
+  }
+});
+
+app.get("/pets", async (res) => {
+  try {
+    const pets = await PetModel.find();
+    res.json(pets);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching pets", error: err.message });
+  }
+});
+
+app.get("/pet/:id", async (req, res) => {
+  try {
+    const pet = await PetModel.findById(req.params.id);
+    if (!pet) {
+      return res.status(404).json({ message: "Pet not found" });
+    }
+    res.json(pet);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching pet", error: err.message });
   }
 });
 
