@@ -90,7 +90,7 @@ const PetDetails = () => {
         />
       </div>
 
-       <hr className="hr" />
+      <hr className="hr" />
       {/* اسم الحيوان */}
       <h2 className="pet-name">{pet.name}</h2>
 

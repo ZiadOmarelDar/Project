@@ -922,7 +922,7 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5), async (req, res
   }
 });
 
-app.get("/pets", async (res) => {
+app.get("/pets", async (req,res) => {
   try {
     const pets = await PetModel.find();
     res.json(pets);

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
+    "@tailwindcss/vite": "^4.1.8",
     "@vis.gl/react-google-maps": "^1.5.3",
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
@@ -41,7 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.9",
+    "tailwindcss": "^4.1.8",
     "vite": "^6.0.5"
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
