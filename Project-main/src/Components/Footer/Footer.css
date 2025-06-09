@@ -77,28 +77,30 @@
   text-decoration: underline;
 }
 
-.contact-info p {
+.contact-info-footer p {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 12px 0;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
   font-size: 15px;
   text-align: center;
 }
 
-.icon {
+.icon-footer {
   color: #1a237e;
   font-size: 18px;
   min-width: 20px;
 }
 
-.contact-info a {
+.contact-info-footer a {
   text-decoration: none;
   color: #1a237e;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.contact-info a:hover {
+.contact-info-footer a:hover {
   color: #0d47a1;
 }
 

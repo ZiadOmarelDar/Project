@@ -70,12 +70,13 @@ const Footer = () => {
 				{/* Section 4: Contact */}
 				<div className='footer-section'>
 					<h3 className='section-title-1'>Contact us</h3>
-					<div className='contact-info'>
+					<div className='contact-info-footer'>
 						<p>
-							<FaEnvelope className='icon' /> <a href='#'>bet_care@gmail.com</a>
+							<FaEnvelope className='icon-footer' />
+							<a href='#'>bet_care@gmail.com</a>
 						</p>
 						<p>
-							<FaPhone className='icon' />{' '}
+							<FaPhone className='icon-footer' />{' '}
 							<a href='tel:+201273349622'> &nbsp; 201273349622</a>
 						</p>
 					</div>
