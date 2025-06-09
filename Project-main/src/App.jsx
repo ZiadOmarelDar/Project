@@ -36,10 +36,6 @@ import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 import ClinicAdmin from "./Components/clinic/ClinicAdmin"; // استيراد مكون ClinicAdmin
 
-import AIHomePage from "./Components/AI/AIHomePage";
-import AdoptionPredictor from "./Components/AI/AdoptionPredictor";
-import PetPricePredictor from "./Components/AI/PetPricePredictor";
-
 function App() {
 	return (
 		<Router>
@@ -88,8 +84,7 @@ function App() {
 					<Route
 						path="/clinic/:clinicId"
 						element={<ClinicDetails />}
-					/>
-				</Route>
+					/></Route>
 			
 		</Routes>
     </Router >

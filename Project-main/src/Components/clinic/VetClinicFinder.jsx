@@ -62,7 +62,7 @@ const VetClinicFinder = () => {
         const response = await axios.get("http://localhost:3001/user/all-clinics", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("API Response:", response.data); // للتحقق من البيانات
+        console.log("API Response:", response.data);
         setClinics(response.data.clinics || []);
       } catch (err) {
         console.error("Error fetching clinics:", err);
@@ -87,48 +87,52 @@ const VetClinicFinder = () => {
     }
   }, []);
 
+  const openLargerMap = () => {
+    window.open(`https://www.google.com/maps/@${userLocation?.lat || defaultCenter.lat},${userLocation?.lng || defaultCenter.lng},10z`, "_blank");
+  };
+
   return (
     <ErrorBoundary>
-      <div className="vetFinderContainer">
-        <div className="vetTopSection">
-          <div className="vetTitleContainer">
-            <h2 className="vetTitle">
+      <div className="mainContainer">
+        <div className="headerArea">
+          <div className="titleBlock">
+            <h2 className="mainHeading">
               Why Choose<br />
               Our Vet<br />
               Clinic<br />
               Finder?
             </h2>
           </div>
-          <div className="vetIllustration">
+          <div className="imageDisplay">
             <img src={cl} alt="clinic illustration" />
           </div>
-          <div className="vetContent">
-            <ul className="vetFeaturesList">
+          <div className="infoSection">
+            <ul className="featureItems">
               <li>
-                <BiSearchAlt className="vetIcon" />
-                <div className="vetDescriptionText">
-                  <h3 className="vetSubDes">Fast & Easy Search</h3>
+                <BiSearchAlt className="featureIcon" />
+                <div className="textDetails">
+                  <h3 className="subTitle">Fast & Easy Search</h3>
                   <p>Find the closest vet clinics instantly.</p>
                 </div>
               </li>
               <li>
-                <FaClock className="vetIcon" />
-                <div className="vetDescriptionText">
-                  <h3 className="vetSubDes">24/7 Emergency Care</h3>
+                <FaClock className="featureIcon" />
+                <div className="textDetails">
+                  <h3 className="subTitle">24/7 Emergency Care</h3>
                   <p>Get urgent help when your pet needs it most.</p>
                 </div>
               </li>
               <li>
-                <FaUserDoctor className="vetIcon" />
-                <div className="vetDescriptionText">
-                  <h3 className="vetSubDes">Expert Veterinarians</h3>
+                <FaUserDoctor className="featureIcon" />
+                <div className="textDetails">
+                  <h3 className="subTitle">Expert Veterinarians</h3>
                   <p>Connect with certified professionals.</p>
                 </div>
               </li>
               <li>
-                <RiFirstAidKitLine className="vetIcon" />
-                <div className="vetDescriptionText">
-                  <h3 className="vetSubDes">Comprehensive Services</h3>
+                <RiFirstAidKitLine className="featureIcon" />
+                <div className="textDetails">
+                  <h3 className="subTitle">Comprehensive Services</h3>
                   <p>From routine check-ups to advanced treatments.</p>
                 </div>
               </li>
@@ -136,53 +140,58 @@ const VetClinicFinder = () => {
           </div>
         </div>
 
-        <div className="vetMapSection">
+        <div className="mapArea">
           <h2>
             Find Your Closest Vet
-            <IoIosArrowForward />
+            <IoIosArrowForward className="arrowIcon" />
           </h2>
-          <div className="vetMapWrapper">
-            <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
-              <Map
-                defaultZoom={6}
-                center={userLocation || defaultCenter}
-                gestureHandling="greedy"
-                disableDefaultUI={false}
-                style={{ width: "100%", height: "400px" }}
-              >
-                {userLocation && <Marker position={userLocation} title="Your Location" />}
-                {nearestClinics.map((clinic, index) => (
-                  <Marker
-                    key={index}
-                    position={{ lat: clinic.location.lat || 30.0333, lng: clinic.location.lng || 31.2333 }}
-                    title={`${clinic.clinicName} - ${clinic.location.governorate}`}
-                  />
-                ))}
-              </Map>
-            </APIProvider>
+          <div className="mapContainer">
+            <div className="mapWrapper">
+              <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
+                <Map
+                  defaultZoom={6}
+                  center={userLocation || defaultCenter}
+                  gestureHandling="greedy"
+                  disableDefaultUI={false}
+                  style={{ width: "100%", height: "100%" }}
+                >
+                  {userLocation && <Marker position={userLocation} title="Your Location" />}
+                  {nearestClinics.map((clinic, index) => (
+                    <Marker
+                      key={index}
+                      position={{ lat: clinic.location.lat || 30.0333, lng: clinic.location.lng || 31.2333 }}
+                      title={`${clinic.clinicName} - ${clinic.location.governorate}`}
+                    />
+                  ))}
+                </Map>
+              </APIProvider>
+            </div>
+            <button className="viewLargerMap" onClick={openLargerMap}>
+              View Larger Map
+            </button>
           </div>
         </div>
 
-        <div className="vetClinicCardsSection">
+        <div className="clinicList">
           <h2>Nearest Clinics</h2>
-          <div className="vetClinicCards trainerStyle">
+          <div className="clinicCards">
             {nearestClinics.map((clinic, index) => (
-              <div key={index} className="vetClinicCard" onClick={() => navigate(`/clinic/${clinic._id}`)}>
+              <div key={index} className="clinicCard" onClick={() => navigate(`/clinic/${clinic._id}`)}>
                 <img
                   src={clinic.clinicPhotos && clinic.clinicPhotos[0] ? `http://localhost:3001${clinic.clinicPhotos[0]}` : cl}
                   alt={`${clinic.clinicName} photo`}
-                  className="vetClinicImage trainerImage"
+                  className="clinicImage"
                   onError={(e) => { e.target.src = cl; console.log("Image load error:", e); }}
                 />
-                <div className="vetClinicInfo">
-                  <h3 className="vetClinicName">{clinic.clinicName || "Unknown Clinic"}</h3>
-                  <p className="vetClinicSpecialty">{clinic.specialties && clinic.specialties[0] || "General Care"}</p>
-                  <p className="vetClinicAddress">{clinic.location.governorate || "Unknown Location"}</p>
+                <div className="clinicInfo">
+                  <h3 className="clinicName">{clinic.clinicName || "Unknown Clinic"}</h3>
+                  <p className="clinicSpecialty">{clinic.specialties && clinic.specialties[0] || "General Care"}</p>
+                  <p className="clinicAddress">{clinic.location.governorate || "Unknown Location"}</p>
                 </div>
               </div>
             ))}
           </div>
-          <button className="vetViewAllButton" onClick={() => navigate("/all-clinics")}>
+          <button className="viewAllButton" onClick={() => navigate("/all-clinics")}>
             View All Clinics
           </button>
         </div>
