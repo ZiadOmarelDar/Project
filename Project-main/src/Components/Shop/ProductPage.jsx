@@ -9,6 +9,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,7 +47,13 @@ const ProductPage = () => {
           },
         }
       );
-      alert("Product added to cart!"); // الإشعار بس من غير توجيه
+      setShowPopup(true); // Show popup on successful addition
+      // Hide popup after 5 seconds
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 2000);
+      // Cleanup timer on unmount or re-render
+      return () => clearTimeout(timer);
     } catch (err) {
       setError(
         err.response?.data?.message || "Error adding to cart. Please try again."
@@ -68,7 +75,10 @@ const ProductPage = () => {
         <img src={product.image} alt={product.productName} className="product-image-1" />
         <div className="product-info-1">
           <h1 className="product-title-1">{product.productName}</h1>
+          <div className="pr">
+          <h2>Price : </h2>
           <h2 className="product-price-1">{product.price} LE</h2>
+          </div>
 
           <div className="product-description-1">
             <p><strong>Description</strong></p>
@@ -100,12 +110,19 @@ const ProductPage = () => {
           </div>
 
           <div className="buttons-container-1">
-            <Link to="/CheckoutPage" >
-            <button className="buy-now-1">BUY IT NOW</button>
+            <Link to="/CheckoutPage">
+              <button className="buy-now-1">BUY IT NOW</button>
             </Link>
           </div>
         </div>
       </div>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Product added to cart!</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

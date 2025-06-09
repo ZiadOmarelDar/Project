@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
 import axios from "axios";
 import "./AllClinics.css";
-import cl from "../../assets/clinic1.png";
+import cl from "../../assets/doctor.png";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };

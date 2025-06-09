@@ -99,6 +99,10 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
+ 
+}
+.p-pr {
+  margin-bottom: -10px;
 }
 
 .show-more-container {

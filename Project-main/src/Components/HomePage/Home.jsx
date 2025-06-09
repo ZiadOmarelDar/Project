@@ -129,7 +129,7 @@ const Home = () => {
           <div className="doctor-image">
             <img src={doctorImg} alt="Doctor" />
             <Link to="/clinics">
-              <button className="explore-btn">Find Clinic</button>
+              <button className="explore-btn-66">Find Clinic</button>
             </Link>
           </div>
         </div>
@@ -171,7 +171,7 @@ const Home = () => {
           </p>
           <div className="ai-ptn">
             <Link to="/ai">
-              <button className="explore-btn">Discover AI</button>
+              <button className="explore-btn-77">Discover AI</button>
             </Link>
           </div>
         </div>

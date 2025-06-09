@@ -78,7 +78,7 @@ function App() {
 						element={<PetChecker />}
 					/>
 					<Route
-						path="/all-clinics"
+						path="/AllClinics"
 						element={<AllClinics />}
 					/>
 					<Route
