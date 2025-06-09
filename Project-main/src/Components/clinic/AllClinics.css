@@ -10,50 +10,83 @@
 }
 
 .allClinicsTitle {
-  font-size: 2.5em;
-  color: #2c3e50;
+  font-size: 3rem;
+  color: #280976;
   margin-bottom: 10px;
 }
 
 .searchContainer {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 500px;
+ 
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchIcon {
+  
+  color: white; /* Blue color for the icon */
+  font-size: 48px;
+  background: #13015c;
+  border: 1px solid #1a3c70; /* Blue border for the icon */
+  border-radius: 10%;
 }
 
 .searchInput {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1em;
+  flex: 1;
+  border: none;
   outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.searchInput::placeholder {
+  color: #666;
+  font-style: italic;
 }
 
 .allClinicsCardsSection {
   margin-top: 20px;
 }
+.allClinicsCardsSection h2 {
+  font-size: 1.8em;
+  color: #280976;
+  margin-bottom: 15px;
+}
 
 .allClinicsCards.trainerStyle {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 50px;
   justify-content: center;
   padding: 20px;
 }
 
 .allClinicsCard {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
 .allClinicsCard:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
+  transform: scale(1.1);
 }
 
 .allClinicsImage.trainerImage {
@@ -62,6 +95,8 @@
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
 }
 
 .allClinicsInfo {
