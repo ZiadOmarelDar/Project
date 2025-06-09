@@ -85,8 +85,8 @@ const Profile = () => {
           let workingHoursFromPeriod = "AM";
           let workingHoursTo = "12";
           let workingHoursToPeriod = "PM";
-          let servicePriceValue = "";
-          let servicePriceCurrency = "EGP";
+          let servicePriceValue = service.servicePrice || "";
+          let servicePriceCurrency = service.currency || "EGP";
 
           if (service.workingHours) {
             const [fromPart, toPart] = service.workingHours.split(" - ");
@@ -100,11 +100,6 @@ const Profile = () => {
               workingHoursTo = time || "12";
               workingHoursToPeriod = period || "PM";
             }
-          }
-
-          if (service.servicePrice && service.currency) {
-            servicePriceValue = service.servicePrice || "";
-            servicePriceCurrency = service.currency || "EGP";
           }
 
           setFormData({
@@ -121,7 +116,7 @@ const Profile = () => {
             servicePriceCurrency,
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
-            specialty: service.specialty || "Obedience Training", // استخدام القيمة المخزنة أو افتراضية
+            specialty: service.specialty || "Obedience Training",
             availablePrograms: service.availablePrograms || [],
             clinicPhotos: service.clinicPhotos || [],
             specialties: service.specialties || [],
@@ -229,8 +224,12 @@ const Profile = () => {
         ...prev,
         location: { ...prev.location, [name.split(".")[1]]: value },
       }));
+    } else if (name === "mobile") {
+      // السماح فقط بالأرقام ورمز + في البداية
+      const sanitizedValue = value.replace(/[^0-9+]/g, '').replace(/^([^+]*\+?[^+]*).*$/, '$1');
+      setFormData((prev) => ({ ...prev, [name]: sanitizedValue }));
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
@@ -278,6 +277,9 @@ const Profile = () => {
       if (!formData.location.specificLocation) newErrors.location = "Specific location is required.";
       if (!formData.workingHoursFrom || !formData.workingHoursTo) newErrors.workingHours = "Working hours are required.";
       if (!formData.servicePriceValue) newErrors.servicePriceValue = "Service price is required.";
+      else if (isNaN(Number(formData.servicePriceValue)) || Number(formData.servicePriceValue) < 0) {
+        newErrors.servicePriceValue = "Please enter a valid positive number for service price.";
+      }
       if (!formData.serviceType) newErrors.serviceType = "Service type is required.";
       if (!formData.doctorDescription) newErrors.doctorDescription = "Doctor description is required.";
     }
@@ -307,7 +309,8 @@ const Profile = () => {
       formDataToSend.append("location[governorate]", formData.location.governorate);
       formDataToSend.append("location[specificLocation]", formData.location.specificLocation);
       formDataToSend.append("workingHours", `${formData.workingHoursFrom} ${formData.workingHoursFromPeriod} - ${formData.workingHoursTo} ${formData.workingHoursToPeriod}`);
-      formDataToSend.append("servicePrice", Number(formData.servicePriceValue) || 0);
+      // إرسال السعر كرقم مع الاحتفاظ بالدقة
+      formDataToSend.append("servicePrice", formData.servicePriceValue);
       formDataToSend.append("currency", formData.servicePriceCurrency);
       formDataToSend.append("serviceType", formData.serviceType);
       formDataToSend.append("doctorDescription", formData.doctorDescription);
@@ -434,7 +437,6 @@ const Profile = () => {
         <p><strong>Username:</strong> {userData.username || "Not provided"}</p>
         <p><strong>Email:</strong> {userData.email || "Not provided"}</p>
         <p><strong>User Type:</strong> {userData.userType || "Not provided"}</p>
-        
       </div>
 
       {(userData.userType === "trainer" || userData.userType === "clinicAdmin") && (
@@ -544,7 +546,14 @@ const Profile = () => {
                     </div>
                     <div className="m8k2p5n1-j4h7v9e3">
                       <label>Mobile Number:</label>
-                      <input type="text" name="mobile" value={formData.mobile} onChange={handleInputChange} required />
+                      <input
+                        type="tel"
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="+201012345678"
+                      />
                       {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
                     </div>
                     <div className="j5n8k1p4-m7h2v9e3">
@@ -610,7 +619,15 @@ const Profile = () => {
                     <div className="p2m5n8k1-j4h7v9e3">
                       <label>Service Price:</label>
                       <div className="k9p2m5v8-h3j6n1e4">
-                        <input type="number" name="servicePriceValue" value={formData.servicePriceValue} onChange={handleInputChange} required min="0" />
+                        <input
+                          type="number"
+                          name="servicePriceValue"
+                          value={formData.servicePriceValue}
+                          onChange={handleInputChange}
+                          required
+                          min="0"
+                          step="0.01" // السماح بقيم عشرية
+                        />
                         <select name="servicePriceCurrency" value={formData.servicePriceCurrency} onChange={handleInputChange}>
                           <option value="EGP">EGP</option>
                           <option value="USD">USD</option>
@@ -651,7 +668,14 @@ const Profile = () => {
                   <>
                     <div className="k9p2m5v8-j1n4h7e3">
                       <label>Mobile Number:</label>
-                      <input type="text" name="mobile" value={formData.mobile} onChange={handleInputChange} required />
+                      <input
+                        type="tel"
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="+201012345678"
+                      />
                       {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
                     </div>
                     <div className="j5n8k1p4-m7h2v9e3">
