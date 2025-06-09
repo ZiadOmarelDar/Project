@@ -3,12 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./VetClinicFinder.css";
 import cl from "../../assets/clinic1.png";
-import { BiSearchAlt } from "react-icons/bi";
-import { FaClock } from "react-icons/fa6";
-import { FaUserDoctor } from "react-icons/fa6";
-import { RiFirstAidKitLine } from "react-icons/ri";
-import { IoIosArrowForward } from "react-icons/io";
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -26,7 +20,6 @@ class ErrorBoundary extends Component {
 }
 
 const VetClinicFinder = () => {
-  const defaultCenter = { lat: 30.0333, lng: 31.2333 };
   const [clinics, setClinics] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
   const [nearestClinics, setNearestClinics] = useState([]);
@@ -69,22 +62,6 @@ const VetClinicFinder = () => {
       }
     };
     fetchClinics();
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const loc = { lat: position.coords.latitude, lng: position.coords.longitude };
-          setUserLocation(loc);
-          findNearbyClinics(loc);
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-          findNearbyClinics(defaultCenter);
-        }
-      );
-    } else {
-      findNearbyClinics(defaultCenter);
-    }
   }, []);
 
   const openLargerMap = () => {
@@ -166,9 +143,6 @@ const VetClinicFinder = () => {
                 </Map>
               </APIProvider>
             </div>
-            <button className="viewLargerMap" onClick={openLargerMap}>
-              View Larger Map
-            </button>
           </div>
         </div>
 
@@ -186,7 +160,7 @@ const VetClinicFinder = () => {
                 <div className="clinicInfo">
                   <h3 className="clinicName">{clinic.clinicName || "Unknown Clinic"}</h3>
                   <p className="clinicSpecialty">{clinic.specialties && clinic.specialties[0] || "General Care"}</p>
-                  <p className="clinicAddress">{clinic.location.governorate || "Unknown Location"}</p>
+                  <p className="clinicLocation">{clinic.location.governorate || "Unknown Location"}</p>
                 </div>
               </div>
             ))}
