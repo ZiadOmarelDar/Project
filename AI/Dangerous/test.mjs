@@ -4,15 +4,15 @@
 // Use this only in Node.js environment
 import fetch from 'node-fetch';
 
-const apiUrl = 'http://localhost:5000/predict';
+const apiUrl = 'http://localhost:5003/predict';
 
 const testData = {
-  "AnimalName": 5,
-  "symptoms1": 68,
-  "symptoms2": 159,
-  "symptoms3": 23,
-  "symptoms4": 94,
-  "symptoms5": 155
+    "AnimalName":"Dog",
+    "symptoms1":"Fever",
+    "symptoms2":"Diarrhea",
+    "symptoms3":"Vomiting",
+    "symptoms4":"Weight loss",
+    "symptoms5":"Dehydration"
 };
 
 fetch(apiUrl, {

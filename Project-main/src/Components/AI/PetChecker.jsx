@@ -1,46 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './PetChecker.css';
 import HealthChecker from '../../assets/HealthChecker.png';
-
+import Select from "react-select";
+import { symptoms1, symptoms2, symptoms3, symptoms4, symptoms5 } from './SymptomsData';
 const PetChecker = () => {
-	const [animalType, setAnimalType] = useState('Dog');
-	const [symptoms, setSymptoms] = useState(['', '', '', '', '']);
+	const AnimalNameOptions = [
+	{ value: "Dog", label: "Dog"},
+	{ value: "Cat", label: "Cat"},
+	{ value: "Rabbit", label: "Rabbit"},
+	{ value: "Horse", label: "Horse"},
+	{ value: "Hamster", label: "Hamster"},
+];
+const symptoms1Options = symptoms1.map(s => ({value: s, label: s}) );
+const symptoms2Options = symptoms2.map(s => ({value: s, label: s}) );
+const symptoms3Options = symptoms3.map(s => ({value: s, label: s}) );
+const symptoms4Options = symptoms4.map(s => ({value: s, label: s}) );
+const symptoms5Options = symptoms5.map(s => ({value: s, label: s}) );
+	const [formData, setFormData] = useState({
+   "AnimalName":"Dog",
+   "symptoms1":"Fever",
+   "symptoms2":"Diarrhea",
+   "symptoms3":"Vomiting",
+   "symptoms4":"Weight loss",
+   "symptoms5":"Pains"
+	});
 	const [result, setResult] = useState(null);
-
-	const symptomOptions = [
-		'Fever',
-		'Diarrhea',
-		'Vomiting',
-		'Weight Loss',
-		'Pains',
-		'Cough',
-		'Lethargy',
-	];
-
-	const handleAnimalChange = (e) => {
-		setAnimalType(e.target.value);
+	const [choices, setChoices] = useState([]);
+	const handleChange = (selected, actionMeta) => {
+		setFormData({ ...formData, [actionMeta.name]: selected.value });
+		setChoices([...choices, selected.value]);
+		console.log("Selected:", choices.length);
 	};
 
-	const handleSymptomChange = (index, e) => {
-		const newSymptoms = [...symptoms];
-		newSymptoms[index] = e.target.value;
-		setSymptoms(newSymptoms);
-	};
-
-	const handleCheckHealth = async () => {
-		const data = {
-			animalType,
-			symptoms: symptoms.filter((symptom) => symptom !== ''),
-		};
-
+const handleCheckHealth = async (e) => {
+	e.preventDefault();
+	if(choices.length < 2)alert("Please select at least 2 symptoms and pet name");
+	else if (choices.length > 2) {
+	console.log('Form Data:', formData);
 		try {
-			const response = await fetch('http://localhost:5000/predict', {
+			const response = await fetch('http://localhost:5003/predict', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(data),
+				body: JSON.stringify(formData),
 			});
 
 			if (!response.ok) {
@@ -56,12 +60,17 @@ const PetChecker = () => {
 				prediction: 'Error',
 				message: `Failed to check health: ${error.message}`,
 			});
-		}
+		}}
 	};
+
 
 	const closeModal = () => {
 		setResult(null);
 	};
+
+	const handleChangee = (selectedOption) => {
+   console.log("Selected:", selectedOption);
+};
 
 	return (
 		<div className='health-checker-container'>
@@ -96,100 +105,69 @@ const PetChecker = () => {
 			<div className='form-section-checker'>
 				<div className='form-group-checker'>
 					<label>Animal Type</label>
-					<select
-						value={animalType}
-						onChange={handleAnimalChange}
-						className='dropdown-checker'>
-						<option value='Dog'>Dog</option>
-						<option value='Cat'>Cat</option>
-						<option value='Bird'>Bird</option>
-						<option value='Other'>Other</option>
-					</select>
+				<Select
+				options={AnimalNameOptions}
+				onChange={handleChange}
+				placeholder="Select an animal..."
+				isSearchable={true}
+				name='AnimalName'
+				/>
 				</div>
+				
 				<div className='symptoms-container-checker'>
 					<div className='symptom-pair-checker'>
 						<div className='form-group-checker'>
 							<label>Symptom 1</label>
-							<select
-								value={symptoms[0]}
-								onChange={(e) => handleSymptomChange(0, e)}
-								className='dropdown-checker'>
-								<option value=''>Select Symptom</option>
-								{symptomOptions.map((option) => (
-									<option
-										key={option}
-										value={option}>
-										{option}
-									</option>
-								))}
-							</select>
+							<Select
+								options={symptoms1Options}
+								onChange={handleChange}
+								className='dropdown-checker'
+								placeholder="Select Symptom"
+								name='symptoms1'
+								isSearchable={true} />
 						</div>
 						<div className='form-group-checker'>
 							<label>Symptom 2</label>
-							<select
-								value={symptoms[1]}
-								onChange={(e) => handleSymptomChange(1, e)}
-								className='dropdown-checker'>
-								<option value=''>Select Symptom</option>
-								{symptomOptions.map((option) => (
-									<option
-										key={option}
-										value={option}>
-										{option}
-									</option>
-								))}
-							</select>
+							<Select
+								options={symptoms2Options}
+								onChange={handleChange}
+								className='dropdown-checker'
+								placeholder="Select Symptom"
+								name='symptoms2'
+								isSearchable={true} />
 						</div>
 					</div>
 					<div className='symptom-pair-checker'>
 						<div className='form-group-checker'>
 							<label>Symptom 3</label>
-							<select
-								value={symptoms[2]}
-								onChange={(e) => handleSymptomChange(2, e)}
-								className='dropdown-checker'>
-								<option value=''>Select Symptom</option>
-								{symptomOptions.map((option) => (
-									<option
-										key={option}
-										value={option}>
-										{option}
-									</option>
-								))}
-							</select>
+							<Select
+								options={symptoms3Options}
+								onChange={handleChange}
+								className='dropdown-checker'
+								placeholder="Select Symptom"
+								name='symptoms3'
+								isSearchable={true} />
 						</div>
 						<div className='form-group-checker'>
 							<label>Symptom 4</label>
-							<select
-								value={symptoms[3]}
-								onChange={(e) => handleSymptomChange(3, e)}
-								className='dropdown-checker'>
-								<option value=''>Select Symptom</option>
-								{symptomOptions.map((option) => (
-									<option
-										key={option}
-										value={option}>
-										{option}
-									</option>
-								))}
-							</select>
+							<Select
+								options={symptoms4Options}
+								onChange={handleChange}
+								className='dropdown-checker'
+								placeholder="Select Symptom"
+								name='symptoms4'
+								isSearchable={true} />
 						</div>
 					</div>
 					<div className='form-group-checker'>
 						<label>Symptom 5</label>
-						<select
-							value={symptoms[4]}
-							onChange={(e) => handleSymptomChange(4, e)}
-							className='dropdown-checker'>
-							<option value=''>Select Symptom</option>
-							{symptomOptions.map((option) => (
-								<option
-									key={option}
-									value={option}>
-									{option}
-								</option>
-							))}
-						</select>
+						<Select
+							options={symptoms5Options}
+							onChange={handleChange}
+							className='dropdown-checker'
+							placeholder="Select Symptom"
+							name='symptoms5'
+							isSearchable={true} />
 					</div>
 				</div>
 				<button
@@ -198,7 +176,7 @@ const PetChecker = () => {
 					Check Health Status
 				</button>
 			</div>
-
+			
 			{result && (
 				<div
 					className='modal-overlay'
@@ -246,5 +224,11 @@ const PetChecker = () => {
 		</div>
 	);
 };
-
+const options = [
+	{ value: "dog", label: "Dog" },
+	{ value: "cat", label: "Cat" },
+	{ value: "rabbit", label: "Rabbit" },
+	{ value: "horse", label: "Horse" },
+	{ value: "hamster", label: "Hamster" },
+];
 export default PetChecker;
