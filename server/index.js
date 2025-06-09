@@ -282,9 +282,10 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
       return res.status(400).json({ message: "Mobile and email are required" });
     }
 
-    if (!/^\d{10,15}$/.test(mobile)) {
-      return res.status(400).json({ message: "Invalid mobile number" });
-    }
+    // تحقق من تنسيق الرقم المصري
+    // if (!/^\+201[0125]\d{8}$/.test(mobile)) {
+    //   return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
+    // }
 
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       return res.status(400).json({ message: "Invalid email format" });
@@ -304,7 +305,6 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
         return res.status(400).json({ message: "Currency must be EGP or USD" });
       }
       const clinicPhotos = req.files ? req.files.map(file => `/uploads/clinic-photos/${file.filename}`) : [];
-      console.log("Uploaded clinic photos:", clinicPhotos);
       serviceData = {
         ...serviceData,
         type: "clinic",
@@ -376,12 +376,16 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
     if (!mobile || !email) {
       return res.status(400).json({ message: "Mobile and email are required" });
     }
-    if (!/^\d{10,15}$/.test(mobile)) {
-      return res.status(400).json({ message: "Invalid mobile number" });
+
+    // تحقق من تنسيق الرقم المصري
+    if (!/^\+201[0125]\d{8}$/.test(mobile)) {
+      return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
     }
+
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       return res.status(400).json({ message: "Invalid email format" });
     }
+
     let serviceData = { _id: service._id, mobile, email };
     if (user.userType === "clinicAdmin") {
       const { clinicName, doctorName, workingHours, servicePrice, currency, serviceType, doctorDescription } = req.body;
@@ -496,6 +500,19 @@ app.get("/user/all-clinics/:id", authMiddleware, async (req, res) => {
     res.status(200).json({ clinic });
   } catch (err) {
     res.status(500).json({ message: "Error fetching clinic", error: err.message });
+  }
+});
+
+// Get Doctor Info
+app.get('/admin/:id', async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.params.id);
+    if (!admin) {
+      return res.status(404).json({ message: 'Admin not found' });
+    }
+    res.json({ admin });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

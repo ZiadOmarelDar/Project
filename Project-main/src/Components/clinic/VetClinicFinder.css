@@ -9,25 +9,25 @@ body {
   overflow-x: hidden;
 }
 
-.container {
+.mainContainer {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* clinics */
-.top-section {
+/* Header Area */
+.headerArea {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.title-container-10 {
+.titleBlock {
   width: 20%;
 }
 
-.title-10 {
+.mainHeading {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 60px;
@@ -38,36 +38,34 @@ body {
   text-align: left;
 }
 
-
-.top-section .illustration {
+.headerArea .imageDisplay {
   width: 307px;
   height: 539px;
   margin-top: -80px;
-  left: 470px;
   margin-left: 50px;
   overflow: hidden;
 }
 
-.top-section .illustration img {
+.headerArea .imageDisplay img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   margin-top: 20px;
 }
 
-.top-section .content {
+.headerArea .infoSection {
   text-align: center;
   margin-top: 50px;
   margin-left: 70px;
 }
 
-.icon-10 {
+.featureIcon {
   color: #323773;
   font-size: 40px;
   margin-right: 20px;
 }
 
-.description-text {
+.textDetails {
   font-family: Inter;
   font-weight: 700;
   font-size: 20px;
@@ -75,38 +73,38 @@ body {
   letter-spacing: 0%;
 }
 
-.sub-des {
+.subTitle {
   margin-bottom: 5px;
 }
 
-.features-list {
+.featureItems {
   list-style: none;
   max-width: 500px;
   margin: 0 auto;
 }
 
-.features-list li {
+.featureItems li {
   display: flex;
   align-items: flex-start;
   margin-bottom: 28px;
 }
 
-.features-list li p {
+.featureItems li p {
   font-size: 14px;
   color: #6b7280;
 }
 
-/* Maps */
-.bottom-section {
+/* Map Area */
+.mapArea {
   width: 100vw;
-  margin-left: calc(-50vw + 50%); 
+  margin-left: calc(-50vw + 50%);
   background-color: #323773;
   padding: 40px 20px;
   border-radius: 50px 50px 0 0;
   margin-bottom: 50px;
 }
 
-.bottom-section h2 {
+.mapArea h2 {
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
@@ -115,13 +113,13 @@ body {
   align-items: center;
 }
 
-.bottom-section h2 .arrow {
+.mapArea h2 .arrowIcon {
   margin-left: 10px;
   color: #ffffff;
   font-size: 20px;
 }
 
-.map-container {
+.mapContainer {
   width: 100%;
   height: 400px;
   overflow: hidden;
@@ -130,14 +128,14 @@ body {
   border-radius: 20px;
 }
 
-.map-wrapper {
+.mapWrapper {
   width: 100%;
   height: 100%;
   border-radius: 25px;
   overflow: hidden;
 }
 
-.view-larger-map {
+.viewLargerMap {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -151,66 +149,109 @@ body {
   transition: background-color 0.2s;
 }
 
-.view-larger-map:hover {
+.viewLargerMap:hover {
   background-color: #f3f4f6;
 }
 
-
-.clinics-section {
+/* Clinic List */
+.clinicList {
   width: 100%;
 }
 
-.clinics-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+.clinicList h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.clinicCards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.clinicCard {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.clinics-table th,
-.clinics-table td {
+.clinicCard:hover {
+  transform: translateY(-5px);
+}
+
+.clinicImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.clinicInfo {
   padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
 }
 
-.clinics-table th {
-  background-color: #f9fafb;
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-  text-align: center;
+.clinicName {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0 0 10px;
 }
 
-.clinics-table td {
-  font-size: 14px;
-  color: #374151;
-  text-align: center;
+.clinicSpecialty,
+.clinicAddress {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
 }
 
-.clinics-table tr:last-child td {
-  border-bottom: none;
+.viewAllButton {
+  font-size: 1rem;
+  color: #2c3e50;
+  background-color: #fff;
+  padding: 12px 25px;
+  border: 1px solid #2c3e50;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+}
+
+.viewAllButton:hover {
+  background-color: #2c3e50;
+  color: #fff;
 }
 
 /* Responsive Design */
 @media (min-width: 768px) {
-  .top-section {
+  .headerArea {
     flex-direction: row;
     align-items: flex-start;
     gap: 40px;
   }
 
-  .top-section .illustration {
+  .headerArea .imageDisplay {
     margin-bottom: 0;
   }
 
-  .top-section .content {
+  .headerArea .infoSection {
     text-align: left;
   }
 
-  .features-list {
+  .featureItems {
     margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .clinicCard {
+    width: 100%;
   }
 }
