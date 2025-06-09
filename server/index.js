@@ -565,7 +565,7 @@ app.get("/user/services/:trainerId", authMiddleware, async (req, res) => {
 
 // تحديث بيانات المستخدم
 app.put("/user/update", authMiddleware, async (req, res) => {
-  const { name, username, email } = req.body;
+  const { name, username, email, currentPassword, newPassword } = req.body;
   try {
     if (!name || !username || !email) {
       return res.status(400).json({ message: "Name, username, and email are required" });
@@ -589,8 +589,25 @@ app.put("/user/update", authMiddleware, async (req, res) => {
     user.name = name;
     user.username = username;
     user.email = email;
+
+    // إذا تم تقديم كلمة مرور جديدة
+    if (newPassword) {
+      if (!currentPassword) {
+        return res.status(400).json({ message: "Current password is required to change password" });
+      }
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ message: "Current password is incorrect" });
+      }
+      if (newPassword.length < 6) {
+        return res.status(400).json({ message: "New password must be at least 6 characters long" });
+      }
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(newPassword, salt);
+    }
+
     await user.save();
-    res.json({ message: "Profile updated successfully", user });
+    res.json({ message: "Profile updated successfully", user: { name, username, email, userType: user.userType } });
   } catch (err) {
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((e) => e.message);

@@ -34,7 +34,7 @@ const Profile = () => {
     servicePriceCurrency: "EGP",
     serviceType: "",
     doctorDescription: "",
-    specialty: "Obedience Training",
+    specialty: "Obedience Training", // قيمة افتراضية من القائمة
     availablePrograms: [],
     clinicPhotos: [],
     specialties: [],
@@ -51,9 +51,12 @@ const Profile = () => {
     "Faiyum", "Gharbia", "Ismailia", "Kafr El Sheikh", "Matrouh", "Minya", "Monufia", "New Valley", "North Sinai",
     "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"
   ];
-  const specialties = [
+  const clinicSpecialties = [
     "Basic Medical Services", "Vaccinations", "Preventive Care", "Diagnostic Services",
     "Surgical Procedures", "Dental Care", "Grooming and Hygiene", "Boarding Services"
+  ];
+  const trainerSpecialties = [
+    "Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"
   ];
   const programOptions = ["Private Sessions", "Online Training"];
 
@@ -118,9 +121,9 @@ const Profile = () => {
             servicePriceCurrency,
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
-            specialty: service.specialty || "Obedience Training",
+            specialty: service.specialty || "Obedience Training", // استخدام القيمة المخزنة أو افتراضية
             availablePrograms: service.availablePrograms || [],
-            clinicPhotos: service.clinicPhotos || [], // قد تكون الصور هنا روابط أو كائنات
+            clinicPhotos: service.clinicPhotos || [],
             specialties: service.specialties || [],
           });
         }
@@ -256,15 +259,19 @@ const Profile = () => {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    if (userData.userType === "trainer" && formData.availablePrograms.length === 0) {
+    if (userData?.userType === "trainer" && !formData.specialty) {
+      newErrors.specialty = "Specialty is required for trainers.";
+    }
+
+    if (userData?.userType === "trainer" && formData.availablePrograms.length === 0) {
       newErrors.availablePrograms = "Please select at least one available program.";
     }
 
-    if (userData.userType === "clinicAdmin" && formData.specialties.length === 0) {
+    if (userData?.userType === "clinicAdmin" && formData.specialties.length === 0) {
       newErrors.specialties = "Please select at least one specialty.";
     }
 
-    if (userData.userType === "clinicAdmin") {
+    if (userData?.userType === "clinicAdmin") {
       if (!formData.clinicName) newErrors.clinicName = "Clinic name is required.";
       if (!formData.doctorName) newErrors.doctorName = "Doctor name is required.";
       if (!formData.location.governorate) newErrors.location = "Governorate is required.";
@@ -292,6 +299,7 @@ const Profile = () => {
     const formDataToSend = new FormData();
     formDataToSend.append("mobile", formData.mobile);
     formDataToSend.append("email", formData.email);
+    formDataToSend.append("type", userData.userType === "clinicAdmin" ? "clinic" : "trainer");
 
     if (userData.userType === "clinicAdmin") {
       formDataToSend.append("clinicName", formData.clinicName);
@@ -308,6 +316,7 @@ const Profile = () => {
         if (photo instanceof File) formDataToSend.append("clinicPhotos", photo);
       });
     } else if (userData.userType === "trainer") {
+      formDataToSend.append("trainerName", userData.name);
       formDataToSend.append("specialty", formData.specialty);
       formData.availablePrograms.forEach((program) => formDataToSend.append("availablePrograms", program));
     }
@@ -425,8 +434,7 @@ const Profile = () => {
         <p><strong>Username:</strong> {userData.username || "Not provided"}</p>
         <p><strong>Email:</strong> {userData.email || "Not provided"}</p>
         <p><strong>User Type:</strong> {userData.userType || "Not provided"}</p>
-        <p><strong>Account Created:</strong> {formatDate(userData.createdAt)}</p>
-        <p><strong>Last Updated:</strong> {formatDate(userData.updatedAt)}</p>
+        
       </div>
 
       {(userData.userType === "trainer" || userData.userType === "clinicAdmin") && (
@@ -563,7 +571,7 @@ const Profile = () => {
                                 }
                                 alt={`Preview ${index + 1}`}
                                 className="q8y1u4k7-p2m5n9j0"
-                                onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }} // صورة بديلة في حالة الفشل
+                                onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
                               />
                               <FaTrash
                                 className="r9t2y5u8-k1m4p7n0"
@@ -623,7 +631,7 @@ const Profile = () => {
                     <div className="v8k1m4p7-j2n5h9e3">
                       <label>Specialties:</label>
                       <div className="n3k6p9v2-j5m8h1e4">
-                        {specialties.map((spec) => (
+                        {clinicSpecialties.map((spec) => (
                           <label key={spec}>
                             <input
                               type="checkbox"
@@ -653,9 +661,17 @@ const Profile = () => {
                     </div>
                     <div className="m1n4h7p2-j5k8v9e3">
                       <label>Specialty:</label>
-                      <select name="specialty" value={formData.specialty} onChange={handleInputChange} required>
-                        {specialties.map((spec) => <option key={spec} value={spec}>{spec}</option>)}
+                      <select
+                        name="specialty"
+                        value={formData.specialty}
+                        onChange={handleInputChange}
+                        required
+                      >
+                        {trainerSpecialties.map((spec) => (
+                          <option key={spec} value={spec}>{spec}</option>
+                        ))}
                       </select>
+                      {errors.specialty && <p className="e9v2k5m8">{errors.specialty}</p>}
                     </div>
                     <div className="h6j9k2m5-p1n4v7e3">
                       <label>Available Programs:</label>
