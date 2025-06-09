@@ -11,12 +11,15 @@ const multer = require("multer");
 const ftp = require("ftp");
 const path = require("path");
 const fs = require("fs");
-const uploadFileToFTP = require("./funcUp");
+const PetModel = require("./models/PetModel");
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
+app.use("/uploads/clinic-photos", express.static(path.join(__dirname, "uploads", "clinic-photos")));
 
 // Mongo DB Connection
 mongoose
@@ -78,8 +81,6 @@ const uploadUsers = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
-app.use("/uploads", express.static(path.join(__dirname, "Uploads")));
-app.use("/uploads/clinic-photos", express.static(path.join(__dirname, "uploads", "clinic-photos")));
 
 // إعداد Multer لصور العيادات
 const storageClinics = multer.diskStorage({
@@ -95,6 +96,33 @@ const storageClinics = multer.diskStorage({
 
 const uploadClinics = multer({
   storage: storageClinics,
+  fileFilter: (req, file, cb) => {
+    const filetypes = /jpeg|jpg|png/;
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+    if (extname && mimetype) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only JPEG and PNG images are allowed"));
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 },
+});
+
+const petsStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "Uploads", "Pets");
+    fs.mkdirSync(uploadPath, { recursive: true });
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const uniqueName = file.originalname;
+    cb(null, uniqueName);
+  },
+});
+
+const uploadPets = multer({
+  storage: petsStorage,
   fileFilter: (req, file, cb) => {
     const filetypes = /jpeg|jpg|png/;
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
@@ -863,6 +891,112 @@ app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) =>
     res.status(201).json({ message: "Comment added successfully", post });
   } catch (err) {
     res.status(500).json({ message: "Error adding comment", error: err.message });
+  }
+});
+
+// -------------------------------------------------------------------------------------------
+
+app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, res) => {
+  try {
+    const {
+      petName,
+      age,
+      breed,
+      type,
+      healthStatus,
+      vaccinations,
+      notes,
+      ownerName,
+      ownerLocation,
+      ownerPhoneNumber
+    } = req.body;
+    let imagePaths = [];
+    for (let i=0; i<req.files.length; i++) {
+      fileName = req.files[i].originalname;
+      const remotePath = `/domains/express-elmadina.com/public_html/Pets_images/Pets/${fileName}`;
+      await uploadToFTP(req.files[i].path,remotePath);
+      let url = `https://express-elmadina.com/Pets_images/Pets/${fileName}`
+      imagePaths.push(url)
+    }
+    const pet = new PetModel({ 
+      petName,
+      age,
+      breed,
+      type,
+      healthStatus,
+      vaccinations,
+      notes,
+      images: imagePaths,
+      owner: {
+        name: ownerName,
+        location: ownerLocation,
+        phoneNumber: ownerPhoneNumber
+      }
+    });
+
+    await pet.save();
+    res.status(201).json({ message: "Pet added successfully", pet });
+
+  } catch (err) {
+    res.status(500).json({ message: "Error adding pet", error: err.message });
+  }
+});
+
+const ftpOptions = {
+  host: process.env.FTP_HOST || '92.113.18.144',
+  user: process.env.FTP_USER || 'u993113834',
+  password: process.env.FTP_PASSWORD || 'Mahxoud@000',
+};
+
+
+// Helper function to upload file to FTP
+const uploadToFTP = (localPath, remotePath) => {
+  return new Promise((resolve, reject) => {
+    const client = new ftp();
+    
+    client.on('ready', () => {
+      console.log('FTP Connection Successful');
+      
+      client.put(localPath, remotePath, (err) => {
+        client.end();
+        if (err) {
+          console.error('FTP Upload Error:', err);
+          reject(err);
+        } else {
+          console.log('File uploaded successfully to FTP:', remotePath);
+          resolve();
+        }
+      });
+    });
+
+    client.on('error', (err) => {
+      console.error('FTP Connection Error:', err);
+      reject(err);
+    });
+
+    client.connect(ftpOptions);
+  });
+};
+
+
+app.get("/pets", async (req,res) => {
+  try {
+    const pets = await PetModel.find();
+    res.json(pets);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching pets", error: err.message });
+  }
+});
+
+app.get("/pet/:id", async (req, res) => {
+  try {
+    const pet = await PetModel.findById(req.params.id);
+    if (!pet) {
+      return res.status(404).json({ message: "Pet not found" });
+    }
+    res.json(pet);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching pet", error: err.message });
   }
 });
 

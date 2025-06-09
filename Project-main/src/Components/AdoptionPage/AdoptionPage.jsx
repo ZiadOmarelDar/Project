@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPaw, FaHeart, FaRegHeart } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 import { LuDog } from "react-icons/lu";
@@ -7,26 +7,9 @@ import { ImPaste } from "react-icons/im";
 import { MdQuestionAnswer } from "react-icons/md";
 import { PiDogBold } from "react-icons/pi";
 import "./AdoptionPage.css";
-import dog1 from "../../assets/adoption/1.png";
-import dog2 from "../../assets/adoption/2.png";
-import dog3 from "../../assets/adoption/3.png";
-import dog4 from "../../assets/adoption/4.png";
-import dog5 from "../../assets/adoption/5.png";
-import dog6 from "../../assets/adoption/6.png";
-import dog7 from "../../assets/adoption/7.png";
 import dogArticleImage from "../../assets/adoption/dog-article.png";
 
 import { Link } from "react-router-dom";
-
-const pets = [
-  { id: 1, name: "Baha", image: dog1, type: "dog" },
-  { id: 2, name: "hamada", image: dog2, type: "dog" },
-  { id: 3, name: "Bosy", image: dog3, type: "cat" },
-  { id: 4, name: "Soud", image: dog4, type: "cat" },
-  { id: 5, name: "Kitty", image: dog5, type: "cat" },
-  { id: 6, name: "hamoo", image: dog6, type: "cat" },
-  { id: 7, name: "Zoro", image: dog7, type: "dog" },
-];
 
 const planningCards = [
   {
@@ -64,9 +47,19 @@ const filterCards = [
 const AdoptionPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState([]);
+  const [pets, setPets] = useState([]);
+
+  const cntr = pets.length
+  useEffect(() => {
+      fetch("http://localhost:3001/pets")
+      .then(response => response.json())
+      .then(data => {
+        setPets(data)
+      })
+    }, [cntr]);
 
   const filteredPets = pets
-    .filter((pet) => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((pet) => pet.petName.toLowerCase().includes(searchTerm.toLowerCase()))
     .slice(0, 7);
 
   const toggleFavorite = (petId) => {
@@ -110,21 +103,21 @@ const AdoptionPage = () => {
       <h2 className="section-title-2">Pets Available for Adoption</h2>
       <div className="pets-grid">
         {filteredPets.map((pet) => (
-          <div key={pet.id} className="pet-card">
+          <div key={pet._id} className="pet-card">
             <div className="pet-image-container">
-              <img src={pet.image} alt={pet.name} className="pet-image" />
+              <img src={pet.images[0]} alt={pet.petName} className="pet-image" />
               <button
                 className="heart-btn"
                 onClick={() => toggleFavorite(pet.id)}
               >
-                {favorites.includes(pet.id) ? (
+                {favorites.includes(pet._id) ? (
                   <FaHeart className="heart-icon favorited" />
                 ) : (
                   <FaRegHeart className="heart-icon" />
                 )}
               </button>
             </div>
-            <h3 className="pet-name-1">{pet.name}</h3>
+            <h3 className="pet-name-1">{pet.petName}</h3>
           </div>
         ))}
         

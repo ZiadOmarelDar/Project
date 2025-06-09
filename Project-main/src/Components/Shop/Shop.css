@@ -1,5 +1,5 @@
 /* Search Bar */
-.search-bar {
+/* .search-bar {
 	position: absolute;
 	top: 100px;
 	left: 50%;
@@ -42,14 +42,13 @@
 	color: #2e317f;
 	opacity: 0.7;
 	font-weight: 500;
-}
+} */
 
 /* Carousel */
 .container {
 	width: 100%;
-	padding-top: 80px;
+	/* padding-top: 80px; */
 	margin-bottom: 40px;
-	/* Added to ensure no width constraints */
 	max-width: 100%;
 	box-sizing: border-box;
 }
@@ -131,7 +130,7 @@
 }
 
 .featured-categories {
-	width: 100%;
+	width: 95%;
 	text-align: center;
 	padding: 0 20px;
 }
@@ -192,7 +191,7 @@
 .shop-by-category {
 	width: 100%;
 	text-align: center;
-	padding: 0 20px;
+	padding: 0 0px;
 }
 
 .shop-by-category h2 {
@@ -307,9 +306,9 @@
 
 /* Products Grid */
 .products-list {
-	width: 100%;
 	padding: 50px 20px 0 20px;
 	margin-bottom: 40px;
+	max-width: 100%;
 }
 
 .featured-products {

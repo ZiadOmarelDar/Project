@@ -151,13 +151,13 @@ body {
   
   /* Media Queries للتصميم المتجاوب */
   @media (max-width: 1024px) {
-    .pets-grid {
+    /* .pets-grid {
       grid-template-columns: repeat(3, 1fr);
-    }
+    } */
   
-    .pet-card {
+    /* .pet-card {
       width: 220px;
-    }
+    } */
   
     .section-title {
       font-size: 40px;

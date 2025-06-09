@@ -46,15 +46,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const timeOptions = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const governorates = [
-    "Cairo", "Giza", "Alexandria", "Luxor", "Aswan", "Asyut", "Beheira", "Beni Suef", "Dakahlia", "Damietta",
-    "Faiyum", "Gharbia", "Ismailia", "Kafr El Sheikh", "Matrouh", "Minya", "Monufia", "New Valley", "North Sinai",
-    "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"
-  ];
-  const specialties = [
-    "Basic Medical Services", "Vaccinations", "Preventive Care", "Diagnostic Services",
-    "Surgical Procedures", "Dental Care", "Grooming and Hygiene", "Boarding Services"
-  ];
+  const specialties = ["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"];
   const programOptions = ["Private Sessions", "Online Training"];
 
   useEffect(() => {
@@ -119,7 +111,7 @@ const Profile = () => {
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
             specialty: service.specialty || "Obedience Training",
-            availablePrograms: service.availablePrograms || [],
+            availablePrograms: service.availablePrograms || [], // تحديث ليكون مصفوفة
             clinicPhotos: service.clinicPhotos || [],
             specialties: service.specialties || [],
           });
@@ -162,6 +154,7 @@ const Profile = () => {
 
     setFormData((prev) => {
       const updatedPhotos = [...prev.clinicPhotos.filter(p => typeof p === 'object'), ...uniqueFiles].slice(0, 5);
+      console.log("Updated clinicPhotos state:", updatedPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: updatedPhotos };
     });
     setErrors((prev) => ({ ...prev, clinicPhotos: "" }));
@@ -170,6 +163,7 @@ const Profile = () => {
   const handleRemovePhotoFromPreview = (indexToRemove) => {
     setFormData((prev) => {
       const newPhotos = prev.clinicPhotos.filter((_, index) => index !== indexToRemove);
+      console.log("After remove, clinicPhotos state:", newPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: newPhotos };
     });
   };
@@ -296,8 +290,7 @@ const Profile = () => {
     if (userData.userType === "clinicAdmin") {
       formDataToSend.append("clinicName", formData.clinicName);
       formDataToSend.append("doctorName", formData.doctorName);
-      formDataToSend.append("location[governorate]", formData.location.governorate);
-      formDataToSend.append("location[specificLocation]", formData.location.specificLocation);
+      formDataToSend.append("location", formData.location);
       formDataToSend.append("workingHours", `${formData.workingHoursFrom} ${formData.workingHoursFromPeriod} - ${formData.workingHoursTo} ${formData.workingHoursToPeriod}`);
       formDataToSend.append("servicePrice", Number(formData.servicePriceValue) || 0);
       formDataToSend.append("currency", formData.servicePriceCurrency);
@@ -362,7 +355,7 @@ const Profile = () => {
           serviceType: "",
           doctorDescription: "",
           specialty: "Obedience Training",
-          availablePrograms: [],
+          availablePrograms: [], // إعادة تعيين كمصفوفة فارغة
           clinicPhotos: [],
           specialties: [],
         });
@@ -440,14 +433,13 @@ const Profile = () => {
                       <>
                         <p><strong>Clinic Name:</strong> {service.clinicName}</p>
                         <p><strong>Doctor Name:</strong> {service.doctorName}</p>
-                        <p><strong>Location:</strong> {service.location.governorate} - {service.location.specificLocation}</p>
+                        <p><strong>Location:</strong> {service.location}</p>
                         <p><strong>Mobile:</strong> {service.mobile}</p>
                         <p><strong>Email:</strong> {service.email}</p>
                         <p><strong>Working Hours:</strong> {service.workingHours}</p>
                         <p><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
                         <p><strong>Service Type:</strong> {service.serviceType}</p>
                         <p><strong>Doctor Description:</strong> {service.doctorDescription}</p>
-                        <p><strong>Specialties:</strong> {service.specialties.join(", ") || "Not provided"}</p>
                         {service.clinicPhotos && service.clinicPhotos.length > 0 && (
                           <div className="v6k9p2m5-j1n4h7e3">
                             <h4>Clinic Photos</h4>

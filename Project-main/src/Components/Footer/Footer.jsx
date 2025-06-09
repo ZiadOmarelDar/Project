@@ -18,7 +18,6 @@ const Footer = () => {
 						Smart pet care powered by AI – health tracking, training, nutrition,
 						and virtual vet support for happy, healthy pets.
 					</p>
-					
 				</div>
 
 				{/* Section 2: Services */}
@@ -44,7 +43,7 @@ const Footer = () => {
 							<Link to='/PetTravelRequirements'>Traveling </Link>
 						</li>
 						<li>
-							<Link to='/ai'>AI</Link>
+							<Link to='/AiHomePage'>AI</Link>
 						</li>
 					</ul>
 				</div>
@@ -76,7 +75,8 @@ const Footer = () => {
 							<FaEnvelope className='icon' /> <a href='#'>bet_care@gmail.com</a>
 						</p>
 						<p>
-							<FaPhone className='icon' /> <a href="tel:+201273349622"> &nbsp; 201273349622</a>
+							<FaPhone className='icon' />{' '}
+							<a href='tel:+201273349622'> &nbsp; 201273349622</a>
 						</p>
 					</div>
 				</div>
