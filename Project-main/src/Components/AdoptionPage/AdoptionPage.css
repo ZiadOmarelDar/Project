@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
   margin: 0;
-  padding: 0 20px;
+  padding: 0;
 }
 
 
@@ -24,12 +24,11 @@ body {
   align-items: center;
   margin-bottom: 300px;
   color: white;
-  width: 350px;
+  width: 30%;
   height: 50px;
   border-radius: 20px;
   border: 2px solid #f8f8f8;
   z-index: 1;
-  justify-content: center;
 }
 
 .search-icon-5 {
@@ -38,7 +37,7 @@ body {
   width: 50px;
   height: 47px;
   background: #f8f8f8;
-  border-radius: 14px;
+  border-radius: 18px 15px 15px 18px;
   padding: 10px;
 }
 
@@ -49,13 +48,13 @@ body {
 .search-container-5 input {
   border: none;
   outline: none;
-  padding: 10px 0 0 5px;
-  width: 290px;
+  padding: 8px;
+  width: 250px;
   background: none;
   color: white;
 }
 
-
+ 
 .category-icons {
   display: flex;
   justify-content: center;
@@ -130,28 +129,26 @@ body {
   letter-spacing: 0%;
   text-align: center;
   color: #323773;
-  margin: 40px 0 20px 0;
 }
 
 
 .pets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-  row-gap: 50px;
-  column-gap: 20px;
-  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  padding: 30px;
+ margin-left: 80px;
 }
 
 .pet-card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 50px 50px 150px 150px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
   text-align: center;
-  transition: 0.3s;
-  padding: 10px;
-  width: fit-content;
+  width: 250px;
 }
 .pet-card:hover{
   transform: scale(1.05);
@@ -159,14 +156,12 @@ body {
 
 .pet-image-container {
   position: relative;
-  margin: auto;
 }
 
 .pet-image {
-  width: 300px;
-  height: 250px;
+  width: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px 5px 200px 200px;
 }
 
 .heart-btn {
@@ -179,9 +174,8 @@ body {
 }
 
 .heart-icon {
-  font-size: 30px;
+  font-size: 24px;
   color: #6b46c1;
-  transition: 0.3s;
 }
 
 .heart-icon.favorited {
@@ -193,10 +187,10 @@ body {
 }
 
 .pet-name-1 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #323773;
-  margin: 20px 0 0 0;
+  margin: 10px 0;
 }
 
 .see-them-card {
@@ -208,7 +202,6 @@ body {
   color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 250px;
-  transition: 0.3s;
 }
 .see-them-card:hover{
   transform: scale(1.03);
@@ -246,13 +239,13 @@ body {
 }
 
 .planning-section-title {
-font-family: Inter;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 1.3;
-    letter-spacing: 3px;
-    text-align: center;
-    color: #323773;
+  font-family: Inter;
+  font-weight: 700px;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #323773;
 }
 
 .planning-grid {
@@ -313,8 +306,8 @@ font-family: Inter;
 
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 90%));
-  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
 }
 
 .article-card {
@@ -323,9 +316,7 @@ font-family: Inter;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 400px;
 }
 
 .article-image {
@@ -351,32 +342,9 @@ font-family: Inter;
   cursor: pointer;
   font-size: 20px;
   font-weight: 600px;
-  transition: 0.3s;
 }
 
 .read-more-btn-9:hover {
   background-color: #323773;
   color: white;
-}
-@media (max-width:767px) {
-  .category-icons{
-    gap: 40px;
-  }
-  .category-icons .icon-box{
-    height: 130px;
-    width: 130px;
-  }
-  .category-icons .icon-box svg{
-    font-size: 70px;
-  }
-  .category-icons .icon-box .filter-label{
-    font-size: 30px;
-  }
-  .pet-card img{
-    width: 300px;
-    height: 250px;
-  }
-}
-.planning-icon svg{
-      margin: 0 auto;
 }
