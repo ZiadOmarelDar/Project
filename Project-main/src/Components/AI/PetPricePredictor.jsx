@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
 		redirect: "follow"
 	};
 
-	fetch("http://127.0.0.1:5000/predict", requestOptions)
+	fetch("http://127.0.0.1:5001/predict", requestOptions)
 		.then((response) => response.json())
 		.then((result) => setPrice(result.predicted_price))
 		.then((result) => setShowPrice(true));

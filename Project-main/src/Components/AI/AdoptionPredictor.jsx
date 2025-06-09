@@ -28,7 +28,7 @@ const AdoptionPredictor = () => {
 		e.preventDefault();
 		console.log(formData)
 		try {
-			const response = await fetch('http://localhost:5000/predict', {
+			const response = await fetch('http://localhost:5002/predict', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(formData),
