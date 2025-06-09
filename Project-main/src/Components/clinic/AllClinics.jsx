@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import { useNavigate } from "react-router-dom";
+import { BiSearchAlt } from "react-icons/bi";
 import axios from "axios";
 import "./AllClinics.css";
 import cl from "../../assets/clinic1.png";
@@ -56,18 +57,20 @@ const AllClinics = () => {
         <div className="allClinicsTopSection">
           <div className="allClinicsTitleContainer">
             <h2 className="allClinicsTitle">
-              All Vet<br />
-              Clinics
+              All Vet Clinics
             </h2>
           </div>
           <div className="searchContainer">
-            <input
-              type="text"
-              placeholder="Search by name, location, or specialty..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="searchInput"
-            />
+            <div className="searchBar">
+              <BiSearchAlt className="searchIcon" />
+              <input
+                type="text"
+                placeholder="Search For Your Nearest Clinic"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="searchInput"
+              />
+            </div>
           </div>
         </div>
 

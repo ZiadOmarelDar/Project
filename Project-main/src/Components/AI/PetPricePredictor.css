@@ -28,12 +28,21 @@
 	width: 100%;
 	color: #2a2a72;
 }
+.hed-price {
+  display: flex;
+  justify-content: space-between;
+}
+.pric{
+	width: 350px;
+}
 
 .form-container-100 h2 {
-	text-align: center;
+	text-align: left;
+	width: 25%;
 	margin-bottom: 1.5rem;
-	font-size: 1.5rem;
+	font-size: 3rem;
 	color: #2a2a72;
+
 }
 
 .form-row-100 {
@@ -51,6 +60,7 @@
 	display: block;
 	margin-bottom: 0.5rem;
 	color: #2a2a72;
+	font-weight: bold;
 }
 
 .form-group-100 select,
@@ -62,6 +72,7 @@
 	background-color: #fff;
 	color: #2a2a72;
 	font-size: 1rem;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .form-group-100 input[type='number'] {
@@ -76,13 +87,13 @@
 
 .price-btn {
 	display: block;
-	width: 30%;
-	margin-left: 500px;
+	width: 15%;
+	margin-left: 600px;
 	padding: 0.75rem;
 	background-color: #2a2a72;
 	color: white;
 	border: none;
-	border-radius: 0.5rem;
+	border-radius: 2.5rem;
 	font-size: 1rem;
 	cursor: pointer;
 	margin-top: 1rem;

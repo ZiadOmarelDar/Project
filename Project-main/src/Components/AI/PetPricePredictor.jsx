@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Q from '../../assets/Q.png'
 import './PetPricePredictor.css';
 
 const PetPricePredictor = () => {
@@ -79,7 +80,10 @@ const handleSubmit = async (e) => {
 			<form
 				onSubmit={handleSubmit}
 				className='form-container-100'>
-				<h2>Pet Price Predictor</h2>
+				<div className="hed-price">
+				<h2>Pet <br /> Price Predictor</h2>
+				<img className='pric' src={Q} alt="" />
+				</div>
 				<div className='form-row-100'>
 					<div className='form-group-100'>
 						<label>Animal Type</label>
