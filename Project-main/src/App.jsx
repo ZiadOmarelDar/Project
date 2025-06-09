@@ -85,6 +85,7 @@ function App() {
 						path="/clinic/:clinicId"
 						element={<ClinicDetails />}
 					/></Route>
+
 			
 		</Routes>
     </Router >
