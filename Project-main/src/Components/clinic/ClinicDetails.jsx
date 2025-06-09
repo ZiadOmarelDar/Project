@@ -1,141 +1,218 @@
-import React, { useState, useEffect, Component } from "react";
-import { useParams, Link } from "react-router-dom";
-import axios from "axios";
-import "./ClinicDetails.css";
-import cl from "../../assets/clinic1.png";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+// تم تحسين عرض البيانات في الصفحة، مع إضافة دوال لجعل الكود أنظف وأسهل في القراءة
 
-class ErrorBoundary extends Component {
-  state = { hasError: false };
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import './ClinicDetails.css';
+import {
+	FaMapMarkerAlt,
+	FaEnvelope,
+	FaUserMd,
+	FaWhatsapp,
+} from 'react-icons/fa';
+import { LuHeartHandshake } from 'react-icons/lu';
+import { HiClock } from 'react-icons/hi2';
+import { RiMoneyDollarCircleFill } from 'react-icons/ri';
+import { MdEmail } from 'react-icons/md';
 
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
+const ErrorBoundary = ({ children }) => {
+	const [hasError, setHasError] = useState(false);
 
-  render() {
-    if (this.state.hasError) {
-      return <h2>Something went wrong. Please try again later.</h2>;
-    }
-    return this.props.children;
-  }
-}
+	useEffect(() => {
+		const handleError = () => setHasError(true);
+		window.addEventListener('error', handleError);
+		return () => window.removeEventListener('error', handleError);
+	}, []);
+
+	if (hasError) {
+		return <h2>Something went wrong. Please try again later.</h2>;
+	}
+	return children;
+};
+
+const displayValue = (value, fallback = 'Not specified') => {
+	if (Array.isArray(value)) return value.length ? value.join(', ') : fallback;
+	return value || fallback;
+};
 
 const ClinicDetails = () => {
-  const { clinicId } = useParams();
-  const [clinic, setClinic] = useState(null);
+	const { clinicId } = useParams();
+	const [clinic, setClinic] = useState(null);
+	const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const fetchClinicDetails = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:3001/user/all-clinics/${clinicId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setClinic(response.data.clinic || null);
-        console.log("Clinic Data:", response.data.clinic); // للتحقق من البيانات
-      } catch (err) {
-        console.error("Error fetching clinic details:", err.response ? err.response.data : err.message);
-      }
-    };
-    fetchClinicDetails();
-  }, [clinicId]);
+	useEffect(() => {
+		const fetchClinicDetails = async () => {
+			try {
+				const token = localStorage.getItem('token');
+				const response = await axios.get(
+					`http://localhost:3001/user/all-clinics/${clinicId}`,
+					{ headers: { Authorization: `Bearer ${token}` } }
+				);
+				setClinic(response.data.clinic || null);
+			} catch (err) {
+				console.error('Error fetching clinic details:', err);
+			}
+		};
+		fetchClinicDetails();
+	}, [clinicId]);
 
-  if (!clinic) return <div>Loading...</div>;
+	useEffect(() => {
+		let interval;
+		if (clinic?.clinicPhotos?.length > 0) {
+			interval = setInterval(() => {
+				setCurrentSlide((prev) => (prev + 1) % clinic.clinicPhotos.length);
+			}, 4000);
+		}
+		return () => clearInterval(interval);
+	}, [clinic?.clinicPhotos]);
 
-  const clinicPhotos = clinic.clinicPhotos || [];
-  const imageCount = clinicPhotos.length;
+	if (!clinic) {
+		return (
+			<div className='loading-container'>
+				<div className='spinner'></div>
+				<p>Loading clinic details...</p>
+			</div>
+		);
+	}
 
-  const handleImageClick = (photoUrl) => {
-    window.open(photoUrl.startsWith('http') ? photoUrl : `http://localhost:3001${photoUrl}`, "_blank");
-  };
+	const images = clinic.clinicPhotos || [];
+	const whatsappLink = clinic.mobile
+		? `https://wa.me/${clinic.mobile.replace(/[^\d]/g, '')}`
+		: '#';
+	const emailLink = clinic.email ? `mailto:${clinic.email}` : '#';
 
-  const whatsappLink = clinic.mobile
-    ? `https://wa.me/${clinic.mobile.replace(/[^\d]/g, '')}`
-    : "#";
-  const emailLink = clinic.email ? `mailto:${clinic.email}` : "#";
+	return (
+		<ErrorBoundary>
+			<div className='clinicDetailsContainer'>
+				<div className='container'>
+					<div className='carousel'>
+						{images.length > 0 ? (
+							images.map((img, index) => (
+								<div
+									key={index}
+									className={index === currentSlide ? 'active' : 'hidden'}>
+									<img
+										src={`http://localhost:3001${img}`}
+										alt={`${clinic.clinicName || 'Clinic'} Slide ${index + 1}`}
+										className='carousel-image'
+										onError={(e) =>
+											(e.target.src =
+												'https://via.placeholder.com/800x600?text=No+Image')
+										}
+									/>
+									<div className='carousel-text'>
+										{clinic.clinicName || 'Unknown Clinic'}
+									</div>
+								</div>
+							))
+						) : (
+							<div className='active'>
+								<img
+									src='https://via.placeholder.com/800x600?text=No+Image'
+									alt='No images available'
+									className='carousel-image'
+								/>
+								<div className='carousel-text'>
+									{clinic.clinicName || 'Unknown Clinic'}
+								</div>
+							</div>
+						)}
+						<button
+							className='prev'
+							onClick={() =>
+								setCurrentSlide(
+									(currentSlide - 1 + images.length) % images.length
+								)
+							}
+							aria-label='Previous slide'>
+							❮
+						</button>
+						<button
+							className='next'
+							onClick={() =>
+								setCurrentSlide((currentSlide + 1) % images.length)
+							}
+							aria-label='Next slide'>
+							❯
+						</button>
+						<div className='dots'>
+							{images.map((_, index) => (
+								<span
+									key={index}
+									className={index === currentSlide ? 'dot active' : 'dot'}
+									onClick={() => setCurrentSlide(index)}
+									role='button'
+									aria-label={`Go to slide ${index + 1}`}></span>
+							))}
+						</div>
+					</div>
+				</div>
 
-  // استخراج adminId مع خيارات متعددة
-  const adminId = clinic.admin?._id || clinic.admin?.id || clinic.admin?.userId; // عدّل حسب الحقل الفعلي
-
-  return (
-    <ErrorBoundary>
-      <div className="clinicDetailsContainer">
-        <div className="clinicDetailsTopSection">
-          <h2 className="clinicDetailsTitle">
-            {clinic.clinicName || "Unknown Clinic"}<br />
-            Details
-          </h2>
-        </div>
-
-        <div className="clinicDetailsCardSection">
-          <div className="clinicDetailsCard">
-            <div className="clinicImages">
-              {imageCount === 0 && (
-                <img
-                  src={cl}
-                  alt={`${clinic.clinicName || "Clinic"} photo`}
-                  className="clinicImage singleImage"
-                  onClick={() => handleImageClick(cl)}
-                />
-              )}
-              {imageCount >= 1 && clinicPhotos.slice(0, 2).map((photo, index) => (
-                <img
-                  key={index}
-                  src={`http://localhost:3001${photo}`}
-                  alt={`${clinic.clinicName || "Clinic"} photo ${index + 1}`}
-                  className={index === 0 && imageCount === 1 ? "clinicImage singleImage" : "clinicImage doubleImage"}
-                  onClick={() => handleImageClick(`http://localhost:3001${photo}`)}
-                  onError={(e) => { e.target.src = cl; }}
-                />
-              ))}
-            </div>
-
-            <div className="clinicDetailsInfo">
-              <h3 className="clinicDetailsName">{clinic.clinicName || "No name available"}</h3>
-              <div className="clinicDetailsDetails">
-                <p><span className="detailLabel">Clinic Name:</span> {clinic.clinicName || "Not specified"}</p>
-                <p><span className="detailLabel">Governorate:</span> {clinic.location?.governorate || "Not specified"}</p>
-                <p><span className="detailLabel">Email Address:</span> {clinic.email || "Not specified"}</p>
-                <p><span className="detailLabel">Working Hours:</span> {clinic.workingHours || "Not specified"}</p>
-                <p><span className="detailLabel">Service Price:</span> {clinic.servicePrice ? `${clinic.servicePrice} ${clinic.currency || "EGP"}` : "Not specified"}</p>
-                <p><span className="detailLabel">Service Type:</span> {clinic.serviceType || "Not specified"}</p>
-                <p><span className="detailLabel">Specialties:</span> {Array.isArray(clinic.specialties) ? clinic.specialties.join(", ") : clinic.specialties || "Not specified"}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="contactLinks">
-            {clinic.mobile && (
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="contactLink">
-                <FaWhatsapp size={20} />
-                <span className="contactText">Contact via WhatsApp</span>
-              </a>
-            )}
-            {clinic.email && (
-              <a href={emailLink} className="contactLink">
-                <MdEmail size={20} />
-                <span className="contactText">Contact via Email</span>
-              </a>
-            )}
-          </div>
-
-          {clinic && clinic.admin && adminId && (
-            <div className="adminInfoBox">
-              <h4 className="adminTitle">Admin Information</h4>
-              <div className="adminDetails">
-                <p><span className="detailLabel">Admin Name:</span> {clinic.admin.name || "Not specified"}</p>
-                <p><span className="detailLabel">Admin Email:</span> {clinic.admin.email || "Not specified"}</p>
-              </div>
-              <Link to={`/clinic-admin/${adminId}`} className="adminLink">
-                View Doctor Profile
-              </Link>
-            </div>
-          )}
-        </div>
-      </div>
-    </ErrorBoundary>
-  );
+				<div className='clinicDetailsCardSection'>
+					<div className='clinicDetailsCard'>
+						<div className='clinicDetailsInfo'>
+							<h3 className='clinicDetailsName'>About the Clinic</h3>
+							<div className='clinicDetailsDetails'>
+								<div className='detail-row'>
+									<p className='detail-item'>
+										<FaMapMarkerAlt />{' '}
+										{displayValue(clinic.location?.governorate)}
+									</p>
+									<p className='detail-item'>
+										<LuHeartHandshake /> {displayValue(clinic.vacationStatus)}
+									</p>
+									<p className='detail-item'>
+										<HiClock /> {displayValue(clinic.workingHours)}
+									</p>
+								</div>
+								<div className='detail-row'>
+									<p className='detail-item'>
+										<RiMoneyDollarCircleFill />{' '}
+										{clinic.servicePrice
+											? `${clinic.servicePrice} ${clinic.currency || 'LE'}`
+											: 'Not specified'}
+									</p>
+									<a
+										href={emailLink}
+										className='detail-item shifted-left'
+										target='_blank'
+										rel='noopener noreferrer'>
+										<FaEnvelope /> {displayValue(clinic.email)}
+									</a>
+								</div>
+								<p className='detail-item specialist'>
+									<FaUserMd /> Specialist:{' '}
+									<span className='specialist-text'>
+										{displayValue(clinic.specialties)}
+									</span>
+								</p>
+							</div>
+						</div>
+						<div className='contactLinks'>
+							{clinic.mobile && (
+								<a
+									href={whatsappLink}
+									target='_blank'
+									rel='noopener noreferrer'
+									className='contactLink whatsapp'>
+									<FaWhatsapp size={20} /> Connect Via WhatsApp
+								</a>
+							)}
+							{clinic.email && (
+								<a
+									href={emailLink}
+									className='contactLink email'
+									target='_blank'
+									rel='noopener noreferrer'>
+									<MdEmail size={20} /> Connect Via Mail
+								</a>
+							)}
+						</div>
+					</div>
+				</div>
+			</div>
+		</ErrorBoundary>
+	);
 };
 
 export default ClinicDetails;

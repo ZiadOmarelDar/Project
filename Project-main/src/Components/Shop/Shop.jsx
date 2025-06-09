@@ -21,9 +21,10 @@ const Shop = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [searchTerm, setSearchTerm] = useState('');
+	const [searchError, setSearchError] = useState('');
 	const navigate = useNavigate();
 
-	// Carousel auto-slide
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentSlide((prev) => (prev + 1) % images.length);
@@ -31,7 +32,6 @@ const Shop = () => {
 		return () => clearInterval(interval);
 	}, []);
 
-	// Fetch products
 	useEffect(() => {
 		setLoading(true);
 		fetch('http://localhost:3001/products')
@@ -47,6 +47,37 @@ const Shop = () => {
 			});
 	}, []);
 
+	const handleSearch = (e) => {
+		if (e.key === 'Enter') {
+			const term = searchTerm.trim().toLowerCase();
+			if (!term) return;
+
+			setSearchError('');
+
+			if (term.includes('cat')) {
+				navigate('/ProductsPage?filter=cat');
+				return;
+			}
+			if (term.includes('dog')) {
+				navigate('/ProductsPage?filter=dog');
+				return;
+			}
+
+			const matchedProduct = products.find((product) => {
+				return (
+					product.productName.toLowerCase().includes(term) ||
+					(product.company && product.company.toLowerCase().includes(term))
+				);
+			});
+
+			if (matchedProduct) {
+				navigate(`/products/product/${matchedProduct._id}`);
+			} else {
+				setSearchError('No matching product . Please try another keyword.');
+			}
+		}
+	};
+
 	return (
 		<div className='shop-container'>
 			<div className='search-bar'>
@@ -57,8 +88,12 @@ const Shop = () => {
 					type='text'
 					placeholder='Search For Product'
 					className='search-input'
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+					onKeyDown={handleSearch}
 				/>
 			</div>
+			{searchError && <p style={{ color: 'red' }}>{searchError}</p>}
 
 			<div className='container'>
 				<div className='carousel'>
@@ -70,7 +105,7 @@ const Shop = () => {
 							className={index === currentSlide ? 'active' : 'hidden'}
 						/>
 					))}
-					{/* <button
+					<button
 						className='prev'
 						onClick={() =>
 							setCurrentSlide(
@@ -85,7 +120,7 @@ const Shop = () => {
 						onClick={() => setCurrentSlide((currentSlide + 1) % images.length)}
 						aria-label='Next slide'>
 						❯
-					</button> */}
+					</button>
 					<div className='dots'>
 						{images.map((_, index) => (
 							<span
@@ -108,25 +143,25 @@ const Shop = () => {
 								img: DogFood,
 								alt: 'Dog Dry Food',
 								label: 'Dog Dry Food',
-								path: '/productsPage',
+								path: '/productsPage?filter=dog',
 							},
 							{
 								img: CatFood,
 								alt: 'Cat Dry Food',
 								label: 'Cat Dry Food',
-								path: '/productsPage',
+								path: '/productsPage?filter=cat',
 							},
 							{
 								img: DogTreats,
 								alt: 'Dog Treats',
 								label: 'Dog Treats',
-								path: '/productsPage',
+								path: '/productsPage?filter=dog',
 							},
 							{
 								img: CatTreats,
 								alt: 'Cat Treats',
 								label: 'Cat Treats',
-								path: '/productsPage',
+								path: '/productsPage?filter=cat',
 							},
 							{
 								img: Litter,
@@ -159,8 +194,18 @@ const Shop = () => {
 					<h2>Shop by Category</h2>
 					<div className='category-container'>
 						{[
-							{ img: Dogs, alt: 'Dogs', label: 'Dogs', path: '/productsPage' },
-							{ img: Cats, alt: 'Cats', label: 'Cats', path: '/productsPage' },
+							{
+								img: Dogs,
+								alt: 'Dogs',
+								label: 'Dogs',
+								path: '/productsPage?filter=dog',
+							},
+							{
+								img: Cats,
+								alt: 'Cats',
+								label: 'Cats',
+								path: '/productsPage?filter=cat',
+							},
 						].map((category) => (
 							<Link
 								to={category.path}
