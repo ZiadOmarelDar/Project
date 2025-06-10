@@ -952,7 +952,7 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, re
     });
     }
     if (aiRes.length === 0) {
-      return res.status(400).json({ message: "No pets detected in the images" });
+      return res.status(400).json({ message: "No pets detected in the images", aiRes, fileCount: req.files });
     }
     let imagePaths = [];
     for (let i=0; i<req.files.length; i++) {
@@ -979,7 +979,7 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, re
     });
 
     await pet.save();
-    res.status(201).json({ message: "Pet added successfully", pet });
+    res.status(201).json({ message: "Pet added successfully", pet, aiRes, fileCount: req.files });
 
   } catch (err) {
     res.status(500).json({ message: "Error adding pet", error: err.message });

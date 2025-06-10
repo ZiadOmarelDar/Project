@@ -53,7 +53,7 @@ const AdoptionPage = () => {
       });
   }, [cntr]);
 
-  const filteredPets = pets
+  const filteredPets = pets.slice(0, 3)
     .filter((pet) =>
       pet.petName.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -147,7 +147,9 @@ const AdoptionPage = () => {
       <div className="articles-section bottom-cta">
         <div className="bottom-cta-text">
           <h1>Got a Furry Friend Who Needs a New Couch to Destroy?</h1>
-          <button className="bottom-cta-btn">Find a new Home</button>
+          <button className="bottom-cta-btn">
+            <a href="/UploadPet">Find a new Home</a>
+          </button>
         </div>
         <div className="bottom-cta-image">
           <img src={adoptioncat} alt="Cute Cat" />

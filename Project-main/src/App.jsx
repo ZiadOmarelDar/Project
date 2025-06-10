@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Register from "./Components/Register/Register";
@@ -74,20 +73,11 @@ function App() {
 					<Route path="/AIHomePage" element={<AIHomePage />} />
 					<Route path="/AdoptionPredictor" element={<AdoptionPredictor />} />
 					<Route path="/PetPricePredictor" element={<PetPricePredictor />} />
-					<Route
-						path='/PetChecker'
-						element={<PetChecker />}
-					/>
-					<Route
-						path="/AllClinics"
-						element={<AllClinics />}
-					/>
-					<Route
-						path="/clinic/:clinicId"
-						element={<ClinicDetails />}
-					/></Route>
+					<Route path='/PetChecker' element={<PetChecker />}/>
+					<Route path="/AllClinics" element={<AllClinics />}/>
+					<Route path="/clinic/:clinicId" element={<ClinicDetails />}/>
 					<Route path="/UploadPet" element={<UploadPetPage />} />
-			
+				</Route>
 		</Routes>
    </Router >
 	);

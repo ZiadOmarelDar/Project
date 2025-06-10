@@ -39,12 +39,15 @@ body {
     border-radius: 10px;
   }
   .hr {
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 30px;
-    width: 30%;
-    height: 2px;
+    margin-inline: auto;
+    width: 35%;
+    height: 5px;
+    border-radius: 3px;
     background-color: #2b2f66;
-  }
+    display: block;
+}
   .pet-name {
     font-size: 36px;
     font-weight: bold;
@@ -56,25 +59,32 @@ body {
   .pet-info-box {
     border: 1px solid #d1d5db;
     border-radius: 10px;
-    padding: 16px;
+    padding: 20px 25px;
     margin-bottom: 16px;
   }
   
   .pet-info-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
   }
   
   .pet-info-label {
     font-size: 18px;
-    font-weight: 600px;
+    font-weight: 600;
     color: #323773;
   }
   
   .pet-info-value {
     font-size: 16px;
     color: #000;
+  }
+
+  .pet-info-box:nth-child(4) > .pet-info-row .pet-info-value:nth-child(2) {
+    margin-left: -100px;
+  }
+  .pet-info-box:nth-child(4) > .pet-info-row .pet-info-value:nth-child(4) {
+    margin-right: 100px;
   }
   
   .take-me-button-container {
