@@ -40,21 +40,67 @@ body {
 
 .userProfileSection789 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  position: relative;
 }
 
 .profileImageWrapper012 {
-  position: relative;
-  display: inline-block;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .profileImage345 {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid #323773;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profileActions {
+  position: absolute;
+  top: -40px;
+  right: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.btnPrimary {
+  background-color: #2c2c74;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.btnPrimary svg {
+  margin-right: 5px;
+}
+
+.profileName {
+  color: #2c2c74;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.userInfoRow {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.userInfoRow p{
+  color: #000000;
 }
 
 .defaultUserIcon678 {
@@ -156,16 +202,129 @@ body {
   border-radius: 2px;
 }
 
-.serviceCard567 {
-  background-color: #323772;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+.customServiceCard {
   display: flex;
+  width: 100%;
+  background-color: #323773;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.serviceImageSection {
+  flex: 1;
+  min-width: 200px;
+}
+
+.serviceImageSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.serviceDetailsSection {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  color: #fff;
+}
+
+.serviceDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.serviceDetailsGrid p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: white;
+}
+
+.serviceDetailsGrid .left-column {
+  grid-column: 1;
+  margin-left: 25px;
+}
+
+.serviceDetailsGrid .right-column {
+  grid-column: 2;
+  margin-left: 40px;
+}
+
+.doctorDescriptionBox {
+  grid-column: 1 / -1; 
+  margin-top: 10px;
+}
+
+.doctorDescriptionTitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.doctorDescriptionContent {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  color: #000000; 
+  font-size: 12px;
+}
+
+.serviceCardButtons {
+  display: flex;
+  gap: 250px;
+  margin-top: 20px;
+}
+
+.editBtn {
+  background-color: #ffffff;
+  color: #323773;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.editBtn:hover {
+  background-color: #cccccc;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .customServiceCard {
+    flex-direction: column;
+  }
+
+  .serviceImageSection {
+    min-width: 100%;
+  }
+
+  .serviceDetailsSection {
+    padding: 15px;
+  }
+
+  .serviceDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctorDescriptionBox {
+    grid-column: 1;
+  }
 }
 
 .p-services2145{
@@ -251,185 +410,196 @@ body {
 .formContainer012 {
   margin-top: 40px;
   padding: 35px;
-  background-color: #fafafa;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #323773;
 }
 
-.formHeader345 {
-  font-size: 1.8rem;
-  color: #323773;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-.clinicNameInput678,
-.doctorNameInput123,
-.governorateSelect789,
-.specificLocationInput345,
-.mobileInput901,
-.emailInput456,
-.photoInput012,
-.workingHoursInput345,
-.priceInput012,
-.serviceTypeInput901,
-.descriptionInput456,
-.specialtiesInput012,
-.trainerMobileInput789,
-.trainerEmailInput123,
-.trainerSpecialtySelect789,
-.trainerProgramsInput345 {
-  margin-bottom: 25px;
-}
-
-.clinicNameInput678 label,
-.doctorNameInput123 label,
-.governorateSelect789 label,
-.specificLocationInput345 label,
-.mobileInput901 label,
-.emailInput456 label,
-.photoInput012 label,
-.workingHoursInput345 label,
-.priceInput012 label,
-.serviceTypeInput901 label,
-.descriptionInput456 label,
-.specialtiesInput012 label,
-.trainerMobileInput789 label,
-.trainerEmailInput123 label,
-.trainerSpecialtySelect789 label,
-.trainerProgramsInput345 label {
-  display: block;
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.clinicNameInput678 input,
-.doctorNameInput123 input,
-.governorateSelect789 select,
-.specificLocationInput345 input,
-.mobileInput901 input,
-.emailInput456 input,
-.photoInput012 input,
-.priceInput012 input,
-.serviceTypeInput901 input,
-.descriptionInput456 textarea,
-.trainerMobileInput789 input,
-.trainerEmailInput123 input,
-.trainerSpecialtySelect789 select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1.1rem;
+.formContainer012 form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
   background-color: #fff;
-  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.governorateSelect789 select,
-.trainerSpecialtySelect789 select {
+.formContainer012 h2 {
+  text-align: center;
+  color: #323773;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.formContainer012 .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.formContainer012 .row > div {
+  flex: 1;
+}
+
+.formContainer012 label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.formContainer012 input[type="text"],
+.formContainer012 input[type="tel"],
+.formContainer012 input[type="email"],
+.formContainer012 input[type="number"],
+.formContainer012 select,
+.formContainer012 textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
   width: 100%;
-  padding: 12px;
+  box-sizing: border-box;
 }
 
-.descriptionInput456 textarea {
-  height: 120px;
+.formContainer012 select {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4H2z" fill="%23333"/></svg>') no-repeat right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.formContainer012 .workingHoursInput345 .hoursSelection678 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.formContainer012 .fromTimeSelect901,
+.formContainer012 .toTimeSelect456 {
+  display: flex;
+  gap: 5px;
+}
+
+.formContainer012 .priceInputFields345 {
+  display: flex;
+  gap: 10px;
+}
+
+.formContainer012 .priceInputFields345 input,
+.formContainer012 .priceInputFields345 select {
+  flex: 1;
+}
+
+.formContainer012 textarea {
+  min-height: 100px;
   resize: vertical;
 }
 
-.clinicNameInput678 input:focus,
-.doctorNameInput123 input:focus,
-.governorateSelect789 select:focus,
-.specificLocationInput345 input:focus,
-.mobileInput901 input:focus,
-.emailInput456 input:focus,
-.photoInput012 input:focus,
-.priceInput012 input:focus,
-.serviceTypeInput901 input:focus,
-.descriptionInput456 textarea:focus,
-.trainerMobileInput789 input:focus,
-.trainerEmailInput123 input:focus,
-.trainerSpecialtySelect789 select:focus {
-  border-color: #323773;
-  outline: none;
-}
-
-.priceInput012 .priceInputFields345 {
+.formContainer012 .photoInput012 {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.deleteServiceButton325{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px ;
-}
-.priceInput012 select {
-  width: 120px;
-}
-
-.workingHoursInput345 .hoursSelection678 {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.workingHoursInput345 .fromTimeSelect901,
-.workingHoursInput345 .toTimeSelect456 {
-  display: flex;
-  gap: 8px;
-}
-
-.workingHoursInput345 .fromTimeSelect901 select,
-.workingHoursInput345 .toTimeSelect456 select {
-  width: auto;
-  padding: 10px;
-}
-
-.workingHoursInput345 .toLabel123 {
-  font-size: 1.1rem;
-  color: #757575;
-}
-
-.checkboxGroup345,
-.checkboxGroup678 {
-  display: flex;
-  gap: 15px;
-  margin-top: 5px;
-}
-
-.checkboxGroup345 label,
-.checkboxGroup678 label {
-  display: flex;
-  align-items: center;
+.formContainer012 .uploadButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   font-size: 16px;
-  color: #555;
-}
-
-.checkboxGroup345 input[type="checkbox"],
-.checkboxGroup678 input[type="checkbox"] {
-  margin-right: 5px;
-  width: 16px;
-  height: 16px;
-}
-
-.formButtons012 {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.saveButton345,
-.cancelButton678 {
-  font-size: 1.1rem;
-  color: #323773;
-  text-decoration: underline;
   cursor: pointer;
+  background-color: #1976d2;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.formContainer012 .uploadButton:hover {
+  background-color: #1565c0;
+}
+
+.formContainer012 .photoPreviewSection678 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formContainer012 .previewImagesBox123 {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 100px;
+  background-color: #f9f9f9;
+}
+
+.formContainer012 .specialtiesInput012 {
+  margin-bottom: 20px;
+}
+
+.formContainer012 .checkboxGroup345 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.formContainer012 .checkboxGroup345 label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.formContainer012 .checkboxGroup345 input[type="checkbox"] {
+  margin: 0;
+}
+
+.formContainer012 .formButtons012 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.formContainer012 .saveButton345 {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.formContainer012 .saveButton345:hover {
+  background-color: #1565c0;
+}
+
+.formContainer012 .cancelButton678 {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.formContainer012 .cancelButton678:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .formContainer012 .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .formContainer012 .row > div {
+    margin-right: 0;
+  }
+
+  .formContainer012 .photoInput012,
+  .formContainer012 .photoPreviewSection678 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .updateLinkSection901 {
