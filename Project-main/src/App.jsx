@@ -35,6 +35,7 @@ import PetChecker from "./Components/AI/PetChecker";
 import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 import ClinicAdmin from "./Components/clinic/ClinicAdmin"; // استيراد مكون ClinicAdmin
+import UploadPetPage from "./Components/AdoptionPage/UploadPetPage";
 
 function App() {
 	return (
@@ -85,10 +86,10 @@ function App() {
 						path="/clinic/:clinicId"
 						element={<ClinicDetails />}
 					/></Route>
-
+					<Route path="/UploadPet" element={<UploadPetPage />} />
 			
 		</Routes>
-    </Router >
-  );
+   </Router >
+	);
 }
 export default App;
