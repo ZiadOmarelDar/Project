@@ -1,183 +1,181 @@
 /* إضافة القاعدة لإلغاء الخط الأفقي لو لسه موجود */
 h2::after {
-  content: none !important;
-  width: 0 !important;
+	content: none !important;
+	width: 0 !important;
 }
 
 .trainers-list-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: "Open Sans", sans-serif;
-  background-color: #f9f9f9;
-  border: none;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 40px 20px;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #f9f9f9;
+	border: none;
 }
 
 .trainers-list-container h2 {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  border: none;
+	text-align: center;
+	color: #323773;
+	font-size: 32px;
+	font-weight: 700;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	border: none;
 }
 
 .trainers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  border: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 25px;
+	border: none;
 }
 
 .trainer-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  text-align: center;
-  border: none; 
+	background-color: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	text-align: center;
+	border: none;
 }
 
-
-
 .trainer-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  border: none;
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	border: none;
 }
 
 .trainer-details {
-  padding: 10px 0;
-  border: none;
+	padding: 10px 0;
+	border: none;
 }
 
 .trainer-name {
-  font-size: 20px;
-  color: #34495e;
-  font-weight: 600;
-  margin: 5px 0;
-  text-decoration: none !important; 
+	font-size: 20px;
+	color: #34495e;
+	font-weight: 600;
+	margin: 5px 0;
+	text-decoration: none !important;
 }
 
 .trainer-name a {
-  color: #34495e;
-  text-decoration: none !important; 
+	color: #34495e;
+	text-decoration: none !important;
 }
 
 .trainer-name a:hover {
-  color: #34495e; 
-  text-decoration: none !important; 
+	color: #34495e;
+	text-decoration: none !important;
 }
 
 .trainer-specialty {
-  font-size: 15px;
-  color: #95a5a6;
-  margin: 5px 0;
-  font-style: italic;
-  text-decoration: none !important; 
+	font-size: 15px;
+	color: #95a5a6;
+	margin: 5px 0;
+	font-style: italic;
+	text-decoration: none !important;
 }
 
 .trainer-specialty a {
-  color: #95a5a6;
-  text-decoration: none !important; 
+	color: #95a5a6;
+	text-decoration: none !important;
 }
 
 .trainer-specialty a:hover {
-  color: #95a5a6; 
-  text-decoration: none !important; 
+	color: #95a5a6;
+	text-decoration: none !important;
 }
 
 .error {
-  color: #e74c3c;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 20px 0;
-  background-color: #ffe6e6;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
+	color: #e74c3c;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 20px 0;
+	background-color: #ffe6e6;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
 }
 
 hr {
-  display: none;
+	display: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .trainers-list-container {
-    padding: 30px 15px;
-  }
+	.trainers-list-container {
+		padding: 30px 15px;
+	}
 
-  .trainers-list-container h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-  }
+	.trainers-list-container h2 {
+		font-size: 28px;
+		margin-bottom: 25px;
+	}
 
-  .trainers-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-  }
+	.trainers-grid {
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 20px;
+	}
 
-  .trainer-card {
-    padding: 12px;
-  }
+	.trainer-card {
+		padding: 12px;
+	}
 
-  .trainer-image {
-    height: 160px;
-  }
+	.trainer-image {
+		height: 160px;
+	}
 
-  .trainer-name {
-    font-size: 18px;
-  }
+	.trainer-name {
+		font-size: 18px;
+	}
 
-  .trainer-specialty {
-    font-size: 14px;
-  }
+	.trainer-specialty {
+		font-size: 14px;
+	}
 
-  .error {
-    font-size: 16px;
-    padding: 8px;
-  }
+	.error {
+		font-size: 16px;
+		padding: 8px;
+	}
 }
 
 @media (max-width: 480px) {
-  .trainers-list-container {
-    padding: 20px 10px;
-  }
+	.trainers-list-container {
+		padding: 20px 10px;
+	}
 
-  .trainers-list-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+	.trainers-list-container h2 {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
 
-  .trainers-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+	.trainers-grid {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
 
-  .trainer-card {
-    padding: 10px;
-  }
+	.trainer-card {
+		padding: 10px;
+	}
 
-  .trainer-image {
-    height: 140px;
-  }
+	.trainer-image {
+		height: 140px;
+	}
 
-  .trainer-name {
-    font-size: 16px;
-  }
+	.trainer-name {
+		font-size: 16px;
+	}
 
-  .trainer-specialty {
-    font-size: 13px;
-  }
+	.trainer-specialty {
+		font-size: 13px;
+	}
 
-  .error {
-    font-size: 14px;
-    padding: 6px;
-  }
+	.error {
+		font-size: 14px;
+		padding: 6px;
+	}
 }
