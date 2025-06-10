@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 import phone from '../../assets/Icons/bxs_phone-call.png';
 import envelope from '../../assets/Icons/Vector.png';
 import gps from '../../assets/Icons/carbon_location-filled.png';
-
 import './Footer.css';
 
 const Footer = () => {
 	return (
-		<footer style={{padding:"100px 40px 40px"}} className='footer '>
+		<footer style={{padding:"100px 40px 40px"}} className='footer'>
 			<div className="container">
 				<div className="box">
 					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Reach us</h3>
-					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="mailto:pet_care@gmail.com">
+					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5 link" href="mailto:pet_care@gmail.com">
 						<img src={envelope} alt="" width={20} />
 							pet_care@gmail.com
 					</a>
@@ -28,7 +27,7 @@ const Footer = () => {
 				</div>
 				<div className="box">
 					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Company</h3>
-					<Link className="block" style={{marginBottom:"20px"}} to="/About">
+					<Link className="block link" style={{marginBottom:"20px"}} to="/About">
 						About
 					</Link>
 					<Link className="block" style={{marginBottom:"0px"}} to="/Contact">

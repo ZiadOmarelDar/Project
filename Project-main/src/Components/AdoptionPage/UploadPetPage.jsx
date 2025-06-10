@@ -17,7 +17,7 @@ export default function UploadPetPage() {
       ownerPhoneNumber: '',
    });
    const fileInputRef = useRef(null);
-
+   const [btnText, setBtnText] = useState("Submit");
    function handleChange(e){
       setFormData({...formData,[e.target.name]: e.target.value})
    }
@@ -32,6 +32,11 @@ export default function UploadPetPage() {
 
    function handleSubmit (e){
       e.preventDefault();
+      const token = localStorage.getItem("token");
+      if (!token) {
+      navigate("/login");
+      return;
+      }
       // console.log(formData)
       const data = new FormData();
 
@@ -48,12 +53,12 @@ export default function UploadPetPage() {
       fetch("http://localhost:3001/pets", {
   method: "POST",
   headers: {
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODMwYmU1NDM0MWM5OTIzZjdjN2NhZDEiLCJpYXQiOjE3NDk0NzUwMTYsImV4cCI6MTc0OTU2MTQxNn0.nzSJhs20AToFrkUUNMVBPQyGOrs2DDZ-RL5xQ0azt94` // If your auth middleware expects a token
+    Authorization: `Bearer ${localStorage.getItem("token")}` // If your auth middleware expects a token
   },
   body: data
 })
 .then(res => res.json())
-.then(data => {alert(data.message || "Pet data uploaded successfully!"); console.log("result from the backend:", data);} )
+.then(data => {setBtnText(data.message || "Pet data uploaded successfully!" ); console.log("result from the backend:", data);} )
 .catch(err => console.error(err));
    fileInputRef.current.value = "";
 }
@@ -185,7 +190,7 @@ const x = {
                   />
                </div>
             </div>
-            <button type="submit" style={{margin:"auto",width:"60%", padding:"10px 0"}} className="bg-[#323773] text-white rounded-md block">Submit</button>
+            <button type="submit" style={{margin:"auto",width:"60%", padding:"10px 0"}} className="bg-[#323773] text-white rounded-md block">{btnText}</button>
          </form>
       </>
    )
