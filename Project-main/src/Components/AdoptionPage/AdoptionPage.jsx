@@ -7,7 +7,7 @@ import { ImPaste } from "react-icons/im";
 import { MdQuestionAnswer } from "react-icons/md";
 import { PiDogBold } from "react-icons/pi";
 import "./AdoptionPage.css";
-import dogArticleImage from "../../assets/adoption/dog-article.png";
+import adoptioncat from "../../assets/adoptioncatt.png";
 import { Link } from "react-router-dom";
 
 const planningCards = [
@@ -29,13 +29,6 @@ const planningCards = [
     title: "PET ADOPTION FAQS",
     description: "Get answer to all of the questions you haven’t thought for yet",
     link: "/PetFaqs",
-  },
-];
-
-const articles = [
-  {
-    title: "You Have A Pet For Adoption",
-    image: dogArticleImage,
   },
 ];
 
@@ -113,7 +106,7 @@ const AdoptionPage = () => {
               />
               <button
                 className="heart-btn"
-                onClick={() => toggleFavorite(pet.id)}
+                onClick={() => toggleFavorite(pet._id)}
               >
                 {favorites.includes(pet._id) ? (
                   <FaHeart className="heart-icon favorited" />
@@ -151,21 +144,13 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      <div className="articles-section">
-        <div className="articles-grid">
-          {articles.map((article, index) => (
-            <div key={index} className="article-card">
-              <img
-                src={article.image}
-                alt={article.title}
-                className="article-image"
-              />
-              <h3 className="article-title">{article.title}</h3>
-              
-                <button className="read-more-btn-9">Add Pet</button>
-              
-            </div>
-          ))}
+      <div className="articles-section bottom-cta">
+        <div className="bottom-cta-text">
+          <h1>Got a Furry Friend Who Needs a New Couch to Destroy?</h1>
+          <button className="bottom-cta-btn">Find a new Home</button>
+        </div>
+        <div className="bottom-cta-image">
+          <img src={adoptioncat} alt="Cute Cat" />
         </div>
       </div>
     </div>

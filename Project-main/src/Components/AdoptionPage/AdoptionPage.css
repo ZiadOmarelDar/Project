@@ -250,9 +250,14 @@ body {
 }
 
 .planning-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
   padding: 20px;
-  text-align: center;
 }
+
+
 .planning-icon:hover{
   transform: scale(1.2);
 }
@@ -293,52 +298,57 @@ body {
   color: #fff;
 }
 
-.articles-section {
-  margin-top: 70px;
-  margin-bottom: 40px;
-}
-
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;
-}
-
-.article-card {
-  background-color: #fff;
-  border-radius: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
-  width: 400px;
-}
-
-.article-image {
-  width: 80%;
-  border-radius: 300px;
-  object-fit: cover;
-}
-
-.article-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #323773;
-  margin: 15px 0;
-}
-
-.read-more-btn-9 {
-  width: 100%;
-  background: white;
-  color: #323773;
-  border: 1px solid;
-  padding: 10px 20px;
-  border-radius: 0px 0px 50px 50px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600px;
-}
-
-.read-more-btn-9:hover {
+.articles-section.bottom-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #323773;
   color: white;
+  box-sizing: border-box;
+  margin-top: 80px; 
+  flex-wrap: wrap;
+  padding: 20px 5px 0 5px;
+}
+
+.bottom-cta-text {
+  max-width: 50%;
+  margin-left: 45px;
+  margin-top: 35px;
+}
+
+.bottom-cta-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.bottom-cta-btn {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  color: #2e2e7f;
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-left: 160px;
+}
+
+.bottom-cta-image img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .articles-section.bottom-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+  }
+
+  .bottom-cta-text {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 }
