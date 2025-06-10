@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
-import UperImage from '../../assets/UperImagejpeg.png';
+import UperImage from '../../assets/upper.png';
 import BackImage from '../../assets/back.png';
 import DogsImage from '../../assets/Dogs.png';
 import DogFood from '../../assets/Dog Dry Food.png';
@@ -23,6 +23,8 @@ const Shop = () => {
 	const [error, setError] = useState(null);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [searchError, setSearchError] = useState('');
+	const [suggestions, setSuggestions] = useState([]);
+	const [showSuggestions, setShowSuggestions] = useState(false);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -37,7 +39,7 @@ const Shop = () => {
 		fetch('http://localhost:3001/products')
 			.then((response) => response.json())
 			.then((data) => {
-				setProducts(data.slice(0, 6));
+				setProducts(data);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -48,52 +50,90 @@ const Shop = () => {
 	}, []);
 
 	const handleSearch = (e) => {
-		if (e.key === 'Enter') {
-			const term = searchTerm.trim().toLowerCase();
-			if (!term) return;
+		if (e.key === 'Enter' || e.type === 'click') {
+			const term = searchTerm.trim();
+			if (!term) {
+				setSearchError('Please enter a valid search term.');
+				return;
+			}
 
 			setSearchError('');
-
-			if (term.includes('cat')) {
-				navigate('/ProductsPage?filter=cat');
-				return;
-			}
-			if (term.includes('dog')) {
-				navigate('/ProductsPage?filter=dog');
-				return;
-			}
-
-			const matchedProduct = products.find((product) => {
-				return (
-					product.productName.toLowerCase().includes(term) ||
-					(product.company && product.company.toLowerCase().includes(term))
-				);
-			});
-
-			if (matchedProduct) {
-				navigate(`/products/product/${matchedProduct._id}`);
-			} else {
-				setSearchError('No matching product . Please try another keyword.');
-			}
+			setShowSuggestions(false); // إخفاء الاقتراحات بعد البحث
+			navigate(`/ProductsPage?search=${encodeURIComponent(term)}`);
 		}
 	};
+
+	const handleInputChange = (e) => {
+		const term = e.target.value;
+		setSearchTerm(term);
+
+		if (term) {
+			const filteredSuggestions = products
+				.filter(
+					(product) =>
+						(product.productName &&
+							product.productName.toLowerCase().includes(term.toLowerCase())) ||
+						(product.type &&
+							product.type.toLowerCase().includes(term.toLowerCase())) ||
+						(product.company &&
+							product.company &&
+							product.company.toLowerCase().includes(term.toLowerCase()))
+				)
+				.map((product) => product.productName || product.type); // عرض الاسم أو النوع
+			setSuggestions([...new Set(filteredSuggestions)].slice(0, 5)); // 5 اقتراحات فقط
+			setShowSuggestions(true);
+		} else {
+			setSuggestions([]);
+			setShowSuggestions(false);
+		}
+	};
+
+	const handleSuggestionClick = (suggestion) => {
+		setSearchTerm(suggestion);
+		setShowSuggestions(false);
+		navigate(`/ProductsPage?search=${encodeURIComponent(suggestion)}`);
+	};
+
+	const handleBlur = () => {
+		// إخفاء الاقتراحات بعد ثانية للسماح بالنقر على اقتراح
+		setTimeout(() => setShowSuggestions(false), 100);
+	};
+
+	const featuredProducts = Array.isArray(products) ? products.slice(0, 6) : [];
 
 	return (
 		<div className='shop-container'>
 			<div className='search-bar'>
-				<div className='search-icon'>
+				<button
+					className='search-icon'
+					onClick={handleSearch}>
 					<FaSearch style={{ color: 'white' }} />
-				</div>
+				</button>
 				<input
 					type='text'
 					placeholder='Search For Product'
 					className='search-input'
 					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
+					onChange={handleInputChange}
 					onKeyDown={handleSearch}
+					onFocus={() => setShowSuggestions(true)}
+					onBlur={handleBlur}
 				/>
+				{showSuggestions && suggestions.length > 0 && (
+					<ul className='suggestions-dropdown'>
+						{suggestions.map((suggestion, index) => (
+							<li
+								key={index}
+								onClick={() => handleSuggestionClick(suggestion)}
+								onMouseDown={(e) => e.preventDefault()} // منع الـ blur من إخفاء الاقتراحات
+							>
+								{suggestion}
+							</li>
+						))}
+					</ul>
+				)}
 			</div>
-			{searchError && <p style={{ color: 'red' }}>{searchError}</p>}
+			{searchError && <p className='search-error'>{searchError}</p>}
 
 			<div className='container'>
 				<div className='carousel'>
@@ -128,7 +168,9 @@ const Shop = () => {
 								className={index === currentSlide ? 'dot active' : 'dot'}
 								onClick={() => setCurrentSlide(index)}
 								role='button'
-								aria-label={`Go to slide ${index + 1}`}></span>
+								aria-label={`Go to slide ${index + 1} of ${
+									images.length
+								}`}></span>
 						))}
 					</div>
 				</div>
@@ -143,31 +185,31 @@ const Shop = () => {
 								img: DogFood,
 								alt: 'Dog Dry Food',
 								label: 'Dog Dry Food',
-								path: '/productsPage?filter=dog',
+								path: '/ProductsPage?filter=dog',
 							},
 							{
 								img: CatFood,
 								alt: 'Cat Dry Food',
 								label: 'Cat Dry Food',
-								path: '/productsPage?filter=cat',
+								path: '/ProductsPage?filter=cat',
 							},
 							{
 								img: DogTreats,
 								alt: 'Dog Treats',
 								label: 'Dog Treats',
-								path: '/productsPage?filter=dog',
+								path: '/ProductsPage?filter=dog',
 							},
 							{
 								img: CatTreats,
 								alt: 'Cat Treats',
 								label: 'Cat Treats',
-								path: '/productsPage?filter=cat',
+								path: '/ProductsPage?filter=cat',
 							},
 							{
 								img: Litter,
 								alt: 'Litter',
 								label: 'Litter',
-								path: '/productsPage',
+								path: '/ProductsPage',
 							},
 						].map((category) => (
 							<Link
@@ -198,13 +240,13 @@ const Shop = () => {
 								img: Dogs,
 								alt: 'Dogs',
 								label: 'Dogs',
-								path: '/productsPage?filter=dog',
+								path: '/ProductsPage?filter=dog',
 							},
 							{
 								img: Cats,
 								alt: 'Cats',
 								label: 'Cats',
-								path: '/productsPage?filter=cat',
+								path: '/ProductsPage?filter=cat',
 							},
 						].map((category) => (
 							<Link
@@ -260,7 +302,7 @@ const Shop = () => {
 					<p>{error}</p>
 				) : (
 					<div className='products-grid'>
-						{products.map((product) => (
+						{featuredProducts.map((product) => (
 							<div
 								key={product._id}
 								className='product-card'

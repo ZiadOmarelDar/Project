@@ -72,11 +72,12 @@ input, select {
 .card-info-30 input {
   width: 50%;
 }
-.cvv {
- margin-top: 30px;
- height: 50px;
 
-}   
+.cvv {
+  margin-top: 30px;
+  height: 50px;
+}
+
 .expiry {
   display: flex;
   flex-direction: column;
@@ -136,16 +137,61 @@ input, select {
   margin-left: 250px;
 }
 
+/* Popup Styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px; /* Match the input border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #003087; /* Match the confirm button color */
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 300px;
+  width: 90%;
+  animation: fadeOut 0.3s ease-out 4.7s forwards; /* Fade out after 4.7s (total 5s) */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @media (max-width: 600px) {
   .checkout-container {
     padding: 10px;
   }
 
-  .card-info {
+  .card-info-30 {
     flex-direction: column;
   }
 
-  .card-info input, .expiry {
+  .card-info-30 input, .expiry {
     width: 100%;
+  }
+
+  .confirm-btn-30 {
+    width: 50%;
+    margin-left: 0;
+    margin-top: 20px;
   }
 }

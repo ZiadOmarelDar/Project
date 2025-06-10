@@ -34,7 +34,7 @@ const Profile = () => {
     servicePriceCurrency: "EGP",
     serviceType: "",
     doctorDescription: "",
-    specialty: "Obedience Training",
+    specialty: "Obedience Training", // قيمة افتراضية من القائمة
     availablePrograms: [],
     clinicPhotos: [],
     specialties: [],
@@ -46,7 +46,18 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const timeOptions = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const specialties = ["Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"];
+  const governorates = [
+    "Cairo", "Giza", "Alexandria", "Luxor", "Aswan", "Asyut", "Beheira", "Beni Suef", "Dakahlia", "Damietta",
+    "Faiyum", "Gharbia", "Ismailia", "Kafr El Sheikh", "Matrouh", "Minya", "Monufia", "New Valley", "North Sinai",
+    "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"
+  ];
+  const clinicSpecialties = [
+    "Basic Medical Services", "Vaccinations", "Preventive Care", "Diagnostic Services",
+    "Surgical Procedures", "Dental Care", "Grooming and Hygiene", "Boarding Services"
+  ];
+  const trainerSpecialties = [
+    "Obedience Training", "Agility Training", "Behavioral Correction", "Puppy Training", "Trick Training"
+  ];
   const programOptions = ["Private Sessions", "Online Training"];
 
   useEffect(() => {
@@ -74,8 +85,8 @@ const Profile = () => {
           let workingHoursFromPeriod = "AM";
           let workingHoursTo = "12";
           let workingHoursToPeriod = "PM";
-          let servicePriceValue = "";
-          let servicePriceCurrency = "EGP";
+          let servicePriceValue = service.servicePrice || "";
+          let servicePriceCurrency = service.currency || "EGP";
 
           if (service.workingHours) {
             const [fromPart, toPart] = service.workingHours.split(" - ");
@@ -89,11 +100,6 @@ const Profile = () => {
               workingHoursTo = time || "12";
               workingHoursToPeriod = period || "PM";
             }
-          }
-
-          if (service.servicePrice && service.currency) {
-            servicePriceValue = service.servicePrice || "";
-            servicePriceCurrency = service.currency || "EGP";
           }
 
           setFormData({
@@ -111,7 +117,7 @@ const Profile = () => {
             serviceType: service.serviceType || "",
             doctorDescription: service.doctorDescription || "",
             specialty: service.specialty || "Obedience Training",
-            availablePrograms: service.availablePrograms || [], // تحديث ليكون مصفوفة
+            availablePrograms: service.availablePrograms || [],
             clinicPhotos: service.clinicPhotos || [],
             specialties: service.specialties || [],
           });
@@ -154,7 +160,6 @@ const Profile = () => {
 
     setFormData((prev) => {
       const updatedPhotos = [...prev.clinicPhotos.filter(p => typeof p === 'object'), ...uniqueFiles].slice(0, 5);
-      console.log("Updated clinicPhotos state:", updatedPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: updatedPhotos };
     });
     setErrors((prev) => ({ ...prev, clinicPhotos: "" }));
@@ -163,7 +168,6 @@ const Profile = () => {
   const handleRemovePhotoFromPreview = (indexToRemove) => {
     setFormData((prev) => {
       const newPhotos = prev.clinicPhotos.filter((_, index) => index !== indexToRemove);
-      console.log("After remove, clinicPhotos state:", newPhotos.map(f => f.name || f));
       return { ...prev, clinicPhotos: newPhotos };
     });
   };
@@ -220,10 +224,14 @@ const Profile = () => {
         ...prev,
         location: { ...prev.location, [name.split(".")[1]]: value },
       }));
+    } else if (name === "mobile") {
+      // السماح فقط بالأرقام ورمز + في البداية
+      const sanitizedValue = value.replace(/[^0-9+]/g, '').replace(/^([^+]*\+?[^+]*).*$/, '$1');
+      setFormData((prev) => ({ ...prev, [name]: sanitizedValue }));
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    setErrors((prev) => ({ ...prev, [name]: "" })); // مسح الخطأ عند التعديل
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleCheckboxChange = (e) => {
@@ -235,7 +243,7 @@ const Profile = () => {
       updatedArray = updatedArray.filter((item) => item !== value);
     }
     setFormData({ ...formData, [e.target.name]: updatedArray });
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" })); // مسح الخطأ عند التعديل
+    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
 
   const validateForm = () => {
@@ -250,21 +258,28 @@ const Profile = () => {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    if (userData.userType === "trainer" && formData.availablePrograms.length === 0) {
+    if (userData?.userType === "trainer" && !formData.specialty) {
+      newErrors.specialty = "Specialty is required for trainers.";
+    }
+
+    if (userData?.userType === "trainer" && formData.availablePrograms.length === 0) {
       newErrors.availablePrograms = "Please select at least one available program.";
     }
 
-    if (userData.userType === "clinicAdmin" && formData.specialties.length === 0) {
+    if (userData?.userType === "clinicAdmin" && formData.specialties.length === 0) {
       newErrors.specialties = "Please select at least one specialty.";
     }
 
-    if (userData.userType === "clinicAdmin") {
+    if (userData?.userType === "clinicAdmin") {
       if (!formData.clinicName) newErrors.clinicName = "Clinic name is required.";
       if (!formData.doctorName) newErrors.doctorName = "Doctor name is required.";
       if (!formData.location.governorate) newErrors.location = "Governorate is required.";
       if (!formData.location.specificLocation) newErrors.location = "Specific location is required.";
       if (!formData.workingHoursFrom || !formData.workingHoursTo) newErrors.workingHours = "Working hours are required.";
       if (!formData.servicePriceValue) newErrors.servicePriceValue = "Service price is required.";
+      else if (isNaN(Number(formData.servicePriceValue)) || Number(formData.servicePriceValue) < 0) {
+        newErrors.servicePriceValue = "Please enter a valid positive number for service price.";
+      }
       if (!formData.serviceType) newErrors.serviceType = "Service type is required.";
       if (!formData.doctorDescription) newErrors.doctorDescription = "Doctor description is required.";
     }
@@ -286,19 +301,25 @@ const Profile = () => {
     const formDataToSend = new FormData();
     formDataToSend.append("mobile", formData.mobile);
     formDataToSend.append("email", formData.email);
+    formDataToSend.append("type", userData.userType === "clinicAdmin" ? "clinic" : "trainer");
 
     if (userData.userType === "clinicAdmin") {
       formDataToSend.append("clinicName", formData.clinicName);
       formDataToSend.append("doctorName", formData.doctorName);
-      formDataToSend.append("location", formData.location);
+      formDataToSend.append("location[governorate]", formData.location.governorate);
+      formDataToSend.append("location[specificLocation]", formData.location.specificLocation);
       formDataToSend.append("workingHours", `${formData.workingHoursFrom} ${formData.workingHoursFromPeriod} - ${formData.workingHoursTo} ${formData.workingHoursToPeriod}`);
-      formDataToSend.append("servicePrice", Number(formData.servicePriceValue) || 0);
+      // إرسال السعر كرقم مع الاحتفاظ بالدقة
+      formDataToSend.append("servicePrice", formData.servicePriceValue);
       formDataToSend.append("currency", formData.servicePriceCurrency);
       formDataToSend.append("serviceType", formData.serviceType);
       formDataToSend.append("doctorDescription", formData.doctorDescription);
       formData.specialties.forEach((spec) => formDataToSend.append("specialties", spec));
-      formData.clinicPhotos.forEach((photo) => formDataToSend.append("clinicPhotos", photo));
+      formData.clinicPhotos.forEach((photo) => {
+        if (photo instanceof File) formDataToSend.append("clinicPhotos", photo);
+      });
     } else if (userData.userType === "trainer") {
+      formDataToSend.append("trainerName", userData.name);
       formDataToSend.append("specialty", formData.specialty);
       formData.availablePrograms.forEach((program) => formDataToSend.append("availablePrograms", program));
     }
@@ -322,6 +343,7 @@ const Profile = () => {
       setErrors({});
       setShowAddServiceForm(false);
     } catch (err) {
+      console.error("Error saving service:", err.response?.data || err.message);
       setErrors({ general: err.response?.data?.message || "Error saving service. Please try again." });
       setSuccess("");
     }
@@ -355,7 +377,7 @@ const Profile = () => {
           serviceType: "",
           doctorDescription: "",
           specialty: "Obedience Training",
-          availablePrograms: [], // إعادة تعيين كمصفوفة فارغة
+          availablePrograms: [],
           clinicPhotos: [],
           specialties: [],
         });
@@ -415,8 +437,6 @@ const Profile = () => {
         <p><strong>Username:</strong> {userData.username || "Not provided"}</p>
         <p><strong>Email:</strong> {userData.email || "Not provided"}</p>
         <p><strong>User Type:</strong> {userData.userType || "Not provided"}</p>
-        <p><strong>Account Created:</strong> {formatDate(userData.createdAt)}</p>
-        <p><strong>Last Updated:</strong> {formatDate(userData.updatedAt)}</p>
       </div>
 
       {(userData.userType === "trainer" || userData.userType === "clinicAdmin") && (
@@ -433,13 +453,14 @@ const Profile = () => {
                       <>
                         <p><strong>Clinic Name:</strong> {service.clinicName}</p>
                         <p><strong>Doctor Name:</strong> {service.doctorName}</p>
-                        <p><strong>Location:</strong> {service.location}</p>
+                        <p><strong>Location:</strong> {service.location.governorate} - {service.location.specificLocation}</p>
                         <p><strong>Mobile:</strong> {service.mobile}</p>
                         <p><strong>Email:</strong> {service.email}</p>
                         <p><strong>Working Hours:</strong> {service.workingHours}</p>
                         <p><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
                         <p><strong>Service Type:</strong> {service.serviceType}</p>
                         <p><strong>Doctor Description:</strong> {service.doctorDescription}</p>
+                        <p><strong>Specialties:</strong> {service.specialties.join(", ") || "Not provided"}</p>
                         {service.clinicPhotos && service.clinicPhotos.length > 0 && (
                           <div className="v6k9p2m5-j1n4h7e3">
                             <h4>Clinic Photos</h4>
@@ -525,7 +546,14 @@ const Profile = () => {
                     </div>
                     <div className="m8k2p5n1-j4h7v9e3">
                       <label>Mobile Number:</label>
-                      <input type="text" name="mobile" value={formData.mobile} onChange={handleInputChange} required />
+                      <input
+                        type="tel"
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="+201012345678"
+                      />
                       {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
                     </div>
                     <div className="j5n8k1p4-m7h2v9e3">
@@ -535,7 +563,7 @@ const Profile = () => {
                     </div>
                     <div className="n2k5p8m1-j4h7v9e3">
                       <label>Clinic Photos (up to 5):</label>
-                      <input type="file"  name="clinicPhotos" accept="image/jpeg,image/png" onChange={handleClinicPhotosChange} multiple />
+                      <input type="file" name="clinicPhotos" accept="image/jpeg,image/png" onChange={handleClinicPhotosChange} multiple />
                       {errors.clinicPhotos && <p className="e9v2k5m8">{errors.clinicPhotos}</p>}
                     </div>
                     {formData.clinicPhotos.length > 0 && (
@@ -544,7 +572,16 @@ const Profile = () => {
                         <div className="v3k6p9n2-h5j1m8e4">
                           {formData.clinicPhotos.map((photo, index) => (
                             <div key={index} className="p7m2k5v9-j1n4h6e3">
-                              <img src={URL.createObjectURL(photo)} alt={`Preview ${index + 1}`} className="q8y1u4k7-p2m5n9j0" />
+                              <img
+                                src={
+                                  photo instanceof File
+                                    ? URL.createObjectURL(photo)
+                                    : `http://localhost:3001${photo}`
+                                }
+                                alt={`Preview ${index + 1}`}
+                                className="q8y1u4k7-p2m5n9j0"
+                                onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
+                              />
                               <FaTrash
                                 className="r9t2y5u8-k1m4p7n0"
                                 onClick={() => handleRemovePhotoFromPreview(index)}
@@ -582,7 +619,15 @@ const Profile = () => {
                     <div className="p2m5n8k1-j4h7v9e3">
                       <label>Service Price:</label>
                       <div className="k9p2m5v8-h3j6n1e4">
-                        <input type="number" name="servicePriceValue" value={formData.servicePriceValue} onChange={handleInputChange} required min="0" />
+                        <input
+                          type="number"
+                          name="servicePriceValue"
+                          value={formData.servicePriceValue}
+                          onChange={handleInputChange}
+                          required
+                          min="0"
+                          step="0.01" // السماح بقيم عشرية
+                        />
                         <select name="servicePriceCurrency" value={formData.servicePriceCurrency} onChange={handleInputChange}>
                           <option value="EGP">EGP</option>
                           <option value="USD">USD</option>
@@ -603,7 +648,7 @@ const Profile = () => {
                     <div className="v8k1m4p7-j2n5h9e3">
                       <label>Specialties:</label>
                       <div className="n3k6p9v2-j5m8h1e4">
-                        {specialties.map((spec) => (
+                        {clinicSpecialties.map((spec) => (
                           <label key={spec}>
                             <input
                               type="checkbox"
@@ -623,7 +668,14 @@ const Profile = () => {
                   <>
                     <div className="k9p2m5v8-j1n4h7e3">
                       <label>Mobile Number:</label>
-                      <input type="text" name="mobile" value={formData.mobile} onChange={handleInputChange} required />
+                      <input
+                        type="tel"
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="+201012345678"
+                      />
                       {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
                     </div>
                     <div className="j5n8k1p4-m7h2v9e3">
@@ -633,9 +685,17 @@ const Profile = () => {
                     </div>
                     <div className="m1n4h7p2-j5k8v9e3">
                       <label>Specialty:</label>
-                      <select name="specialty" value={formData.specialty} onChange={handleInputChange} required>
-                        {specialties.map((spec) => <option key={spec} value={spec}>{spec}</option>)}
+                      <select
+                        name="specialty"
+                        value={formData.specialty}
+                        onChange={handleInputChange}
+                        required
+                      >
+                        {trainerSpecialties.map((spec) => (
+                          <option key={spec} value={spec}>{spec}</option>
+                        ))}
                       </select>
+                      {errors.specialty && <p className="e9v2k5m8">{errors.specialty}</p>}
                     </div>
                     <div className="h6j9k2m5-p1n4v7e3">
                       <label>Available Programs:</label>
@@ -658,8 +718,10 @@ const Profile = () => {
                   </>
                 )}
                 <div className="x9j2k5m8-p1n4v7h3">
-                  <a href="#" onClick={(e) => { e.preventDefault(); handleServiceAction(e); }} className="s7k2m9p4-j1n5v8h3">Save Service</a>
-                  <a href="#" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="c3v6k9p2-j5m8h1n4">Cancel</a>
+                  <button type="submit" className="s7k2m9p4-j1n5v8h3">Save Service</button>
+                  <button type="button" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="c3v6k9p2-j5m8h1n4">
+                    Cancel
+                  </button>
                 </div>
               </form>
             </div>

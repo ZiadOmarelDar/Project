@@ -303,10 +303,11 @@
 	.username {
 		font-size: 13px;
 		text-align: center;
-		padding-top: 9px;
+		margin-top: 5px;
 	}
 	.cart-icon {
 		margin-top: 5px;
+		
 		font-size: 25px;
 	}
 }

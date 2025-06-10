@@ -52,7 +52,7 @@ const PetAgeCalculator = () => {
           Pet Age: {petAge} year{petAge > 1 ? "s" : ""}
         </p>
 
-        <p className="result">
+        <p className="result-88">
           Your {petType.toLowerCase()} is about {humanAge} human years old.
         </p>
 

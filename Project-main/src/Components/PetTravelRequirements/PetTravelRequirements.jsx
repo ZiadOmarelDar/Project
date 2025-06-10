@@ -76,7 +76,7 @@ const PetTravelRequirements = () => {
       {filteredRequirement ? (
         <div className="requirements-content">
           <div className="section1 documents">
-            <h2 className="doc-1"><CgFileDocument/>Documents Required</h2>
+            <h2 className="doc-1">Documents Required</h2>
             <ul>
               {filteredRequirement.documentsRequired.map((doc, index) => (
                 <li key={index}>{doc}</li>
@@ -87,7 +87,7 @@ const PetTravelRequirements = () => {
 
           <div className="section1 vaccinations">
             
-            <h2 className="doc-2"><GiMiracleMedecine />Vaccinations Required</h2>
+            <h2 className="doc-2">Vaccinations Required</h2>
             <pre className="keep" >Keep your pet healthy and compliant with entry laws:</pre>
             <ul>
               {filteredRequirement.vaccinationsRequired.map((vac, index) => (

@@ -283,9 +283,9 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
     }
 
     // تحقق من تنسيق الرقم المصري
-    // if (!/^\+201[0125]\d{8}$/.test(mobile)) {
-    //   return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
-    // }
+    if (!/^\+201[0125]\d{8}$/.test(mobile)) {
+      return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
+    }
 
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       return res.status(400).json({ message: "Invalid email format" });
@@ -298,7 +298,8 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
       if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription || !specialties) {
         return res.status(400).json({ message: "All clinic fields are required" });
       }
-      if (isNaN(servicePrice) || servicePrice <= 0) {
+      // التحقق من أن السعر صالح (يمكن أن يكون string مع أرقام عشرية)
+      if (isNaN(parseFloat(servicePrice)) || parseFloat(servicePrice) <= 0) {
         return res.status(400).json({ message: "Service price must be a positive number" });
       }
       if (!["EGP", "USD"].includes(currency)) {
@@ -315,7 +316,7 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
           specificLocation: location.specificLocation,
         },
         workingHours,
-        servicePrice: parseFloat(servicePrice),
+        servicePrice, // الاحتفاظ بالقيمة الأصلية كـ string
         currency,
         serviceType,
         doctorDescription,
@@ -392,7 +393,8 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
       if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription || !specialties) {
         return res.status(400).json({ message: "All clinic fields are required" });
       }
-      if (isNaN(servicePrice) || servicePrice <= 0) {
+      // التحقق من أن السعر صالح (يمكن أن يكون string مع أرقام عشرية)
+      if (isNaN(parseFloat(servicePrice)) || parseFloat(servicePrice) <= 0) {
         return res.status(400).json({ message: "Service price must be a positive number" });
       }
       if (!["EGP", "USD"].includes(currency)) {
@@ -406,7 +408,7 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
         doctorName,
         location: { governorate: location.governorate, specificLocation: location.specificLocation },
         workingHours,
-        servicePrice: parseFloat(servicePrice),
+        servicePrice, // الاحتفاظ بالقيمة الأصلية كـ string
         currency,
         serviceType,
         doctorDescription,
@@ -565,7 +567,7 @@ app.get("/user/services/:trainerId", authMiddleware, async (req, res) => {
 
 // تحديث بيانات المستخدم
 app.put("/user/update", authMiddleware, async (req, res) => {
-  const { name, username, email } = req.body;
+  const { name, username, email, currentPassword, newPassword } = req.body;
   try {
     if (!name || !username || !email) {
       return res.status(400).json({ message: "Name, username, and email are required" });
@@ -589,8 +591,25 @@ app.put("/user/update", authMiddleware, async (req, res) => {
     user.name = name;
     user.username = username;
     user.email = email;
+
+    // إذا تم تقديم كلمة مرور جديدة
+    if (newPassword) {
+      if (!currentPassword) {
+        return res.status(400).json({ message: "Current password is required to change password" });
+      }
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ message: "Current password is incorrect" });
+      }
+      if (newPassword.length < 6) {
+        return res.status(400).json({ message: "New password must be at least 6 characters long" });
+      }
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(newPassword, salt);
+    }
+
     await user.save();
-    res.json({ message: "Profile updated successfully", user });
+    res.json({ message: "Profile updated successfully", user: { name, username, email, userType: user.userType } });
   } catch (err) {
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((e) => e.message);

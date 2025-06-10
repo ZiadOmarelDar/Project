@@ -8,7 +8,6 @@ import { MdQuestionAnswer } from "react-icons/md";
 import { PiDogBold } from "react-icons/pi";
 import "./AdoptionPage.css";
 import dogArticleImage from "../../assets/adoption/dog-article.png";
-
 import { Link } from "react-router-dom";
 
 const planningCards = [
@@ -16,19 +15,20 @@ const planningCards = [
     icon: <ImPaste />,
     title: "CHECKLIST FOR NEW ADOPTERS",
     description: "Make the adoption transition as smooth as possible",
-    path: "/ChecklistComponent"
+    link: "/ChecklistComponent",
   },
   {
     icon: <PiDogBold />,
     title: "HOW OLD IS A DOG IN HUMAN YEARS?",
-    description: "Learn to translate dog years to human years for fun, and we might slip",
-    path: "/PetAgeCalculator"
+    description:
+      "Learn to translate dog years to human years for fun, and we might slip",
+    link: "/PetAgeCalculator",
   },
   {
     icon: <MdQuestionAnswer />,
     title: "PET ADOPTION FAQS",
     description: "Get answer to all of the questions you haven’t thought for yet",
-    path: "/PetFaqs"
+    link: "/PetFaqs",
   },
 ];
 
@@ -37,9 +37,7 @@ const articles = [
     title: "You Have A Pet For Adoption",
     image: dogArticleImage,
   },
-
 ];
-
 
 const filterCards = [
   { icon: <LuDog />, label: "Dog" },
@@ -52,17 +50,20 @@ const AdoptionPage = () => {
   const [favorites, setFavorites] = useState([]);
   const [pets, setPets] = useState([]);
 
-  const cntr = pets.length
+  const cntr = pets.length;
+
   useEffect(() => {
-      fetch("http://localhost:3001/pets")
-      .then(response => response.json())
-      .then(data => {
-        setPets(data)
-      })
-    }, [cntr]);
+    fetch("http://localhost:3001/pets")
+      .then((response) => response.json())
+      .then((data) => {
+        setPets(data);
+      });
+  }, [cntr]);
 
   const filteredPets = pets
-    .filter((pet) => pet.petName.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((pet) =>
+      pet.petName.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     .slice(0, 7);
 
   const toggleFavorite = (petId) => {
@@ -75,7 +76,6 @@ const AdoptionPage = () => {
 
   return (
     <div className="adoption-page">
-    
       <div className="header-1">
         <div className="search-container-5">
           <BiSearchAlt className="search-icon-5" />
@@ -88,7 +88,6 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      
       <div className="category-icons">
         {filterCards.map((card, index) => (
           <div key={index} className="icon-box">
@@ -102,13 +101,16 @@ const AdoptionPage = () => {
         ))}
       </div>
 
-    
       <h2 className="section-title-2">Pets Available for Adoption</h2>
       <div className="pets-grid">
         {filteredPets.map((pet) => (
           <div key={pet._id} className="pet-card">
             <div className="pet-image-container">
-              <img src={pet.images[0]} alt={pet.petName} className="pet-image" />
+              <img
+                src={pet.images[0]}
+                alt={pet.petName}
+                className="pet-image"
+              />
               <button
                 className="heart-btn"
                 onClick={() => toggleFavorite(pet.id)}
@@ -123,22 +125,16 @@ const AdoptionPage = () => {
             <h3 className="pet-name-1">{pet.petName}</h3>
           </div>
         ))}
-        
-        
-          <Link to='/AdoptionPetsSection' className="see-them-card">
-          <div className="see-them-card">
+
+        <Link to="/AdoptionPetsSection" className="see-them-card">
           <div className="see-them-content">
             <FaPaw className="paw-icon" />
             <p>More Pets available in Pet care</p>
             <h3>See Them</h3>
           </div>
-          </div>
-          </Link>
-        
-        
+        </Link>
       </div>
 
-    
       <div className="planning-section">
         <h2 className="planning-section-title">Planning to adopt a pet?</h2>
         <div className="planning-grid">
@@ -147,15 +143,14 @@ const AdoptionPage = () => {
               <div className="planning-icon">{card.icon}</div>
               <h3 className="planning-title">{card.title}</h3>
               <p className="planning-description">{card.description}</p>
-              <a href={card.path} className="explore-link-9" data-disabled="true">
+              <Link to={card.link} className="explore-link-9">
                 <button className="explore-btn-9">Explore</button>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
       </div>
 
-      
       <div className="articles-section">
         <div className="articles-grid">
           {articles.map((article, index) => (
@@ -166,9 +161,9 @@ const AdoptionPage = () => {
                 className="article-image"
               />
               <h3 className="article-title">{article.title}</h3>
-              <a href="/UploadPet" className="read-more-link-9" data-disabled="true"> 
-              <button className="read-more-btn-9">Add Pet</button>
-              </a>
+              
+                <button className="read-more-btn-9">Add Pet</button>
+              
             </div>
           ))}
         </div>
