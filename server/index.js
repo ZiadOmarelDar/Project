@@ -896,6 +896,9 @@ app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) =>
 
 // -------------------------------------------------------------------------------------------
 
+const axios =  require("axios");
+
+let aiRes =[]
 app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, res) => {
   try {
     const {
@@ -910,6 +913,28 @@ app.post("/pets", authMiddleware, uploadPets.array("images", 5),  async (req, re
       ownerLocation,
       ownerPhoneNumber
     } = req.body;
+    if (!petName || !age || !breed || !type || !healthStatus || !vaccinations || !ownerName || !ownerLocation || !ownerPhoneNumber || req.files.length === 0)
+      return res.status(400).json({ message: "All fields are required" });
+    
+    for( const file of req.files) {
+    const image = fs.readFileSync(file.path, {encoding: "base64"});
+    axios({
+        method: "POST",
+        url: "https://serverless.roboflow.com/dog-and-cat-face-detector/1",
+        params: {api_key: "dS3RZmgNp1oZ62SCy7cJ"},
+        data: image,
+        headers: {"Content-Type": "application/x-www-form-urlencoded"}
+    })
+    .then(function(response) {
+      aiRes = response.data.predictions;
+    })
+    .catch(function(error) {
+        console.log(error.message);
+    });
+    }
+    if (aiRes.length === 0) {
+      return res.status(400).json({ message: "No pets detected in the images" });
+    }
     let imagePaths = [];
     for (let i=0; i<req.files.length; i++) {
       fileName = req.files[i].originalname;

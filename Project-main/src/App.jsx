@@ -35,6 +35,7 @@ import PetChecker from "./Components/AI/PetChecker";
 import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 import ClinicAdmin from "./Components/clinic/ClinicAdmin"; // استيراد مكون ClinicAdmin
+import UploadPetPage from "./Components/AdoptionPage/UploadPetPage";
 
 function App() {
 	return (
@@ -73,21 +74,13 @@ function App() {
 					<Route path="/AIHomePage" element={<AIHomePage />} />
 					<Route path="/AdoptionPredictor" element={<AdoptionPredictor />} />
 					<Route path="/PetPricePredictor" element={<PetPricePredictor />} />
-					<Route
-						path='/PetChecker'
-						element={<PetChecker />}
-					/>
-					<Route
-						path="/all-clinics"
-						element={<AllClinics />}
-					/>
-					<Route
-						path="/clinic/:clinicId"
-						element={<ClinicDetails />}
-					/></Route>
-			
+					<Route path='/PetChecker' element={<PetChecker />} />
+					<Route path="/all-clinics" element={<AllClinics />} />
+					<Route path="/clinic/:clinicId" element={<ClinicDetails />}/>
+					<Route path="/UploadPet" element={<UploadPetPage />} />
+					</Route>
 		</Routes>
-    </Router >
-  );
+   </Router >
+	);
 }
 export default App;

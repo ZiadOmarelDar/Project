@@ -16,16 +16,19 @@ const planningCards = [
     icon: <ImPaste />,
     title: "CHECKLIST FOR NEW ADOPTERS",
     description: "Make the adoption transition as smooth as possible",
+    path: "/ChecklistComponent"
   },
   {
     icon: <PiDogBold />,
     title: "HOW OLD IS A DOG IN HUMAN YEARS?",
     description: "Learn to translate dog years to human years for fun, and we might slip",
+    path: "/PetAgeCalculator"
   },
   {
     icon: <MdQuestionAnswer />,
     title: "PET ADOPTION FAQS",
     description: "Get answer to all of the questions you haven’t thought for yet",
+    path: "/PetFaqs"
   },
 ];
 
@@ -144,7 +147,7 @@ const AdoptionPage = () => {
               <div className="planning-icon">{card.icon}</div>
               <h3 className="planning-title">{card.title}</h3>
               <p className="planning-description">{card.description}</p>
-              <a href="/PetAgeCalculator" className="explore-link-9" data-disabled="true">
+              <a href={card.path} className="explore-link-9" data-disabled="true">
                 <button className="explore-btn-9">Explore</button>
               </a>
             </div>
@@ -163,7 +166,7 @@ const AdoptionPage = () => {
                 className="article-image"
               />
               <h3 className="article-title">{article.title}</h3>
-              <a href="/PetFaqs" className="read-more-link-9" data-disabled="true"> 
+              <a href="/UploadPet" className="read-more-link-9" data-disabled="true"> 
               <button className="read-more-btn-9">Add Pet</button>
               </a>
             </div>
