@@ -60,44 +60,6 @@
   margin-bottom: 15px;
 }
 
-/* Profile picture and change button */
-
-.profile-picture-section {
-  grid-column: 2;
-  grid-row: 3 / span 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-picture-section img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  object-fit: cover;
-  margin-bottom: 12px;
-}
-
-.change-photo-btn {
-  padding: 8px 16px;
-  background-color: #2c2c7c;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-  display: inline-block;
-  text-align: center;
-}
-
-.change-photo-btn:hover {
-  background-color: #1a1a5c;
-}
-
 /* Save Button */
 .save-btn {
   grid-column: span 2;
@@ -122,13 +84,6 @@
 @media (max-width: 768px) {
   .profile-edit-form {
     grid-template-columns: 1fr;
-  }
-
-  .profile-picture-section {
-    grid-column: 1;
-    grid-row: auto;
-    margin-bottom: 20px;
-    order: -1; 
   }
 
   .save-btn {

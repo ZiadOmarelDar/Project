@@ -14,8 +14,6 @@ const ProfileEdit = () => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
-  const defaultImage = "https://via.placeholder.com/250";
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -52,14 +50,6 @@ const ProfileEdit = () => {
     };
     fetchUserData();
   }, [navigate]);
-
-  const handlePhotoChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProfileImage(imageUrl);
-    }
-  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -170,21 +160,6 @@ const ProfileEdit = () => {
         <div className="form-edit-group">
           <label>User Type:</label>
           <input type="text" value={userData.userType} disabled />
-        </div>
-
-        {/* Profile picture preview + change photo - moved here */}
-        <div className="profile-picture-section">
-          <img src={profileImage || defaultImage} alt="Profile" />
-          <label htmlFor="upload-photo" className="change-photo-btn">
-            Change Photo
-          </label>
-          <input
-            type="file"
-            id="upload-photo"
-            accept="image/*"
-            style={{ display: "none" }}
-            onChange={handlePhotoChange}
-          />
         </div>
 
         <div className="form-edit-group">
