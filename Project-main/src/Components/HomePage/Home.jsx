@@ -120,18 +120,16 @@ const Home = () => {
       {/* Section 5: Find a Veterinary Clinic */}
       <section className="clinic-section section">
         <div className="clinic-text">
-          <h2>Find the Nearest Pet Clinic Fast</h2>
+          <h2>Find the <br/> Nearest Pet <br/> Clinic Fast</h2>
           <p>
             Find the nearest vet clinic easily. Get quick access to trusted care
             for check-ups, vaccinations, and emergencies
           </p>
 
-          <div className="doctor-image">
-            <img src={doctorImg} alt="Doctor" />
             <Link to="/clinics">
               <button className="explore-btn-66">Find Clinic</button>
             </Link>
-          </div>
+
         </div>
         <div className="clinic-image">
           <img src={clinicImg} alt="Clinic" />
