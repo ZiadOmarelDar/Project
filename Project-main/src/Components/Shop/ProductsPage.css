@@ -68,7 +68,7 @@
 .product-card-2 {
 	background: white;
 	border-radius: 10px;
-	padding: 18px;
+	padding: 15px;
 	text-align: center;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
@@ -88,12 +88,12 @@
 
 .product-card-2 h4 {
 	font-size: 13px;
-	margin-bottom: 5px;
 	font-weight: bold;
 	color: #090909;
 }
 
 .product-card-2 p {
+<<<<<<< HEAD
 	color: #e63946;
 	font-weight: bold;
 	display: flex;
@@ -101,7 +101,14 @@
 }
 .p-pr {
 	margin-bottom: -10px;
+=======
+	
+	color: #e63946;
+	font-weight: bold;
+
+>>>>>>> 94bd6a69ae49bfa0d15a436eb9a044b355c5add7
 }
+
 
 .show-more-container {
 	text-align: center;

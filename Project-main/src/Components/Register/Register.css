@@ -11,7 +11,8 @@ body {
   height: 100vh;
   padding: 20px;
   background: #f8f7fc;
-  margin-bottom: 180px;
+  margin-bottom: 230px;
+  margin-top: 50px;
 }
 
 .image-section {
@@ -55,7 +56,7 @@ body {
   flex: 1;
   padding: 40px;
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
   position: relative;
   top: 90px;
   z-index: 2;

@@ -103,7 +103,7 @@ function Navbar() {
 							<NavLink to='/PetTravelRequirements'>Pet Travel Guide</NavLink>
 						</li>
 						<li>
-							<NavLink to='/contact'>Contact</NavLink>
+							<NavLink to='/ContactUs'>Contact</NavLink>
 						</li>
 						<li>
 							<NavLink to='/AboutUs'>About Us</NavLink>
