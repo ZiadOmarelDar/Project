@@ -94,14 +94,14 @@
 }
 
 .product-card-2 p {
-  color: #e63946;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
- 
+	
+	color: #e63946;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
 }
 .p-pr {
-  margin-bottom: -10px;
+	margin-bottom: -10px;
 }
 
 .show-more-container {

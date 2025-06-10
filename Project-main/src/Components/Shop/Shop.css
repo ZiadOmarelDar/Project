@@ -12,7 +12,7 @@
 	background: white;
 	border-radius: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	z-index: 1002;
+	z-index: 0;
 }
 
 .search-icon {
@@ -60,7 +60,7 @@
 	border-radius: 5px;
 	max-height: 200px;
 	overflow-y: auto;
-	z-index: 1003;
+	z-index: 3;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -82,12 +82,12 @@
 	max-width: 100%;
 	box-sizing: border-box;
 	position: relative;
-	z-index: 1000;
+	z-index: -1;
 }
 .prev,
 .next,
 .dots {
-	z-index: 1000; /* نفس مستوى الـ carousel */
+	z-index: -10; /* نفس مستوى الـ carousel */
 }
 
 .carousel {
@@ -98,6 +98,7 @@
 	padding-top: 30px;
 	left: 50%;
 	transform: translateX(-50%);
+	top: 30px;
 }
 
 .carousel img {
