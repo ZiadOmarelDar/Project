@@ -126,7 +126,7 @@ const Home = () => {
             for check-ups, vaccinations, and emergencies
           </p>
 
-            <Link to="/clinics">
+            <Link to="/VetClinicFinder">
               <button className="explore-btn-66">Find Clinic</button>
             </Link>
 
@@ -168,7 +168,7 @@ const Home = () => {
             well-being!
           </p>
           <div className="ai-ptn">
-            <Link to="/ai">
+            <Link to="/AIHomePage">
               <button className="explore-btn-77">Discover AI</button>
             </Link>
           </div>
