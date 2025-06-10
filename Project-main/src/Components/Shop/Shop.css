@@ -1,7 +1,7 @@
 /* Search Bar */
 .search-bar {
-	position: absolute;
-	top: 120px;
+	position: relative;
+	top: 20px;
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
@@ -12,7 +12,7 @@
 	background: white;
 	border-radius: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	z-index: 1;
+	z-index: 0;
 }
 
 .search-icon {
@@ -21,9 +21,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: none;
 	border-radius: 10px 0 0 10px;
 	height: 40px;
 	width: 60px;
+	cursor: pointer;
+}
+
+.search-icon:hover {
+	background-color: #1a2a5e; /* لون مختلف عند التمرير */
 }
 
 .search-input {
@@ -44,29 +50,66 @@
 	font-weight: 500;
 }
 
+.suggestions-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 70px; /* يعتمد على موقع شريط البحث */
+	width: calc(100% - 70px); /* يتطابق مع عرض الـ input */
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+	z-index: 3;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.suggestions-dropdown li {
+	padding: 8px 12px;
+	cursor: pointer;
+}
+
+.suggestions-dropdown li:hover {
+	background-color: #f0f0f0;
+}
+
 /* Carousel */
 .container {
 	width: 100%;
 	padding-top: 40px;
-	margin-bottom: 40px;
 	max-width: 100%;
 	box-sizing: border-box;
+	position: relative;
+	z-index: -1;
+}
+.prev,
+.next,
+.dots {
+	z-index: -10; /* نفس مستوى الـ carousel */
 }
 
 .carousel {
-	width: 99vw; /* Changed to 100vw to ensure full viewport width */
+	width: 99vw;
 	position: relative;
-	height: 615px;
+	height: 650px;
 	overflow: hidden;
 	padding-top: 30px;
 	left: 50%;
 	transform: translateX(-50%);
+	top: 30px;
 }
 
 .carousel img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* Ensure the image fills the full width */
+	object-fit: cover;
+	position: absolute;
+	top: 0px;
+	left: 0;
+	transition: opacity 1s ease-in-out;
+	overflow: hidden;
 }
 
 .hidden {
@@ -340,6 +383,10 @@
 	padding: 15px;
 	text-align: center;
 	transition: transform 0.2s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 300px; /* Ensure card has enough height for content */
 }
 
 .product-card:hover {
@@ -348,10 +395,25 @@
 
 .product-image {
 	width: 100%;
-	height: 190px;
+	max-width: 150px; /* Limit width for better centering */
+	height: 230px;
 	object-fit: contain;
+	margin: 0 auto; /* Center the image horizontally */
 	border-bottom: 1px solid #eee;
-	margin-bottom: 10px;
+}
+
+.product-card h4 {
+	margin: 70px 0 0 0;
+	color: #323773;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.product-card p {
+	color: #e63946;
+	font-weight: bold;
+	margin-top: auto; /* Push price to the bottom */
+	padding-bottom: 10px; /* Add some padding at the bottom */
 }
 
 .view-all-btn {
@@ -363,7 +425,6 @@
 	font-weight: bold;
 	display: block;
 	margin: 60px 20px 20px 20px;
-
 	transition: background-color 0.3s ease-in-out;
 }
 
@@ -375,11 +436,11 @@
 /* Responsive Design */
 @media (max-width: 1200px) {
 	.search-bar {
-		top: 150px;
+		top: 180px;
 		max-width: 400px;
 	}
 	.products-grid {
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 	}
 	.category-container {
 		gap: 15px;
@@ -399,7 +460,7 @@
 
 @media (max-width: 768px) {
 	.search-bar {
-		top: 90px;
+		top: 120px;
 		max-width: 400px;
 	}
 	.container {
@@ -432,14 +493,14 @@
 		font-size: 16px;
 	}
 	.products-grid {
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	}
 }
 
 @media (max-width: 480px) {
 	.search-bar {
 		max-width: 300px;
-		top: 85px;
+		top: 105px;
 	}
 	.container {
 		padding-top: 50px;

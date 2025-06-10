@@ -11,7 +11,7 @@ const PetDetails = () => {
   useEffect(() => {
     const fetchPetDetails = async () => {
       try {
-        const response = await fetch(`https://api.example.com/pets/${id}`);
+        const response = await fetch(`http://localhost:3001/pet/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch pet details");
         }
@@ -23,29 +23,10 @@ const PetDetails = () => {
         setLoading(false);
       }
     };
-
-    // محاكاة البيانات مؤقتًا مع 4 صور
-    const mockPet = {
-      id: 1,
-      name: "Baha",
-      images: [
-        "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60",
-        "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=60",
-        "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=60",
-        "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60",
-      ],
-      age: "11 months",
-      location: "Cairo, Giza, Egypt",
-      breed: "German Shepherd",
-      sex: "Female",
-      vaccinations: "Almost fully vaccinated",
-      healthStatus: "Good",
-      notes:
-        "Baha is an 11-month-old German Shepherd. He is playful, loyal, and friendly with people. Baha is in great health and fully vaccinated. He loves to run and would do best in a home with space to play and someone who can give him time and care.",
-    };
+    console.log("Fetching pet details", pet);
+    fetchPetDetails();
 
     setTimeout(() => {
-      setPet(mockPet);
       setLoading(false);
     }, 1000);
   }, [id]);
@@ -68,62 +49,81 @@ const PetDetails = () => {
       <div className="pet-images">
         <img
           src={pet.images[0]}
-          alt={`${pet.name}-1`}
+          alt={`${pet.petName}-1`}
           className="pet-image-large"
         />
         <div className="pet-images-middle">
-          <img
-            src={pet.images[1]}
-            alt={`${pet.name}-2`}
-            className="pet-image-middle"
-          />
-          <img
-            src={pet.images[2]}
-            alt={`${pet.name}-3`}
-            className="pet-image-middle"
-          />
+          {pet.images.length > 1 && (
+            <img
+              src={pet.images[1]}
+              alt={`${pet.petName}-2`}
+              className="pet-image-middle"
+            />
+          )}
+          {pet.images.length > 2 && (
+            <img
+              src={pet.images[2]}
+              alt={`${pet.petName}-3`}
+              className="pet-image-middle"
+            />
+          )}
         </div>
-        <img
-          src={pet.images[3]}
-          alt={`${pet.name}-4`}
-          className="pet-image-large"
-        />
+        {pet.images.length > 3 && (
+          <img
+            src={pet.images[3]}
+            alt={`${pet.petName}-4`}
+            className="pet-image-large"
+          />
+        )}
       </div>
 
       <hr className="hr" />
       {/* اسم الحيوان */}
-      <h2 className="pet-name">{pet.name}</h2>
+      <h2 className="pet-name">{pet.petName}</h2>
 
       {/* المعلومات الأساسية */}
       <div className="pet-info-box">
         <div className="pet-info-row">
           <p className="pet-info-label">Name:</p>
-          <p className="pet-info-value">{pet.name}</p>
+          <p className="pet-info-value">{pet.petName}</p>
           <p className="pet-info-label">Breed:</p>
           <p className="pet-info-value">{pet.breed}</p>
         </div>
         <div className="pet-info-row">
           <p className="pet-info-label">Age:</p>
-          <p className="pet-info-value">{pet.age}</p>
-          <p className="pet-info-label">Sex:</p>
-          <p className="pet-info-value">{pet.sex}</p>
-        </div>
-        <div className="pet-info-row">
-          <p className="pet-info-label">Location:</p>
-          <p className="pet-info-value">{pet.location}</p>
+          <p className="pet-info-value">{pet.age} months</p>
+          <p className="pet-info-label">Type:</p>
+          <p className="pet-info-value">{pet.type}</p>
         </div>
       </div>
 
       {/* المعلومات الصحية */}
       <div className="pet-info-box">
       <div className="pet-info-box-1">
-        <p className="pet-info-label">Vaccinations:</p>
-        <p className="pet-info-value">{pet.vaccinations}</p>
-        <p className="pet-info-label">Health Status:</p>
-        <p className="pet-info-value">{pet.healthStatus}</p>
+        <div style={{marginBottom:"15px"}} className="flex gap-[100px]">
+          <p className="pet-info-label">Vaccinations:</p>
+          <p className="pet-info-value">{pet.vaccinations}</p>
+        </div>
+        <div className="flex gap-[100px]">
+          <p className="pet-info-label">Health Status:</p>
+          <p className="pet-info-value">{pet.healthStatus}</p>
+        </div>
       </div>
       </div>
 
+      <div style={{marginBottom:"15px", marginTop:"10px", fontWeight:"600"}} className="pet-info-box">
+        <p>Owner Info:</p>
+        <div style={{marginTop:"20px"}} className="flex justify-between">
+          <div className="flex gap-[50px]">
+          <p className="pet-info-label">Owner Name:</p>
+          <p className="pet-info-value">{pet.owner.name}</p>
+        </div>
+        <div className="flex gap-[50px]">
+          <p className="pet-info-label">Owner Phone:</p>
+          <p className="pet-info-value">{pet.owner.phoneNumber}</p>
+          </div>
+        </div>
+      </div>
       {/* الملاحظات */}
       <div className="pet-info-box">
         <p className="pet-info-label">Notes:</p>

@@ -1,5 +1,3 @@
-// تم تحسين عرض البيانات في الصفحة، مع إضافة دوال لجعل الكود أنظف وأسهل في القراءة
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -159,7 +157,8 @@ const ClinicDetails = () => {
 										{displayValue(clinic.location?.governorate)}
 									</p>
 									<p className='detail-item'>
-										<LuHeartHandshake /> {displayValue(clinic.vacationStatus)}
+										<LuHeartHandshake /> {displayValue(clinic.serviceType)}{' '}
+										{/* تعديل هنا */}
 									</p>
 									<p className='detail-item'>
 										<HiClock /> {displayValue(clinic.workingHours)}

@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaUserCircle, FaTrash } from "react-icons/fa";
+import { MdAddPhotoAlternate } from "react-icons/md";
+import { FcRemoveImage } from "react-icons/fc";
+import { TbUpload } from "react-icons/tb";
+import { MdDelete } from "react-icons/md";
+
+
+
+
 import "./Profile.css";
 
 const addGoogleFonts = () => {
@@ -34,7 +42,7 @@ const Profile = () => {
     servicePriceCurrency: "EGP",
     serviceType: "",
     doctorDescription: "",
-    specialty: "Obedience Training", // قيمة افتراضية من القائمة
+    specialty: "Obedience Training",
     availablePrograms: [],
     clinicPhotos: [],
     specialties: [],
@@ -225,7 +233,6 @@ const Profile = () => {
         location: { ...prev.location, [name.split(".")[1]]: value },
       }));
     } else if (name === "mobile") {
-      // السماح فقط بالأرقام ورمز + في البداية
       const sanitizedValue = value.replace(/[^0-9+]/g, '').replace(/^([^+]*\+?[^+]*).*$/, '$1');
       setFormData((prev) => ({ ...prev, [name]: sanitizedValue }));
     } else {
@@ -309,7 +316,6 @@ const Profile = () => {
       formDataToSend.append("location[governorate]", formData.location.governorate);
       formDataToSend.append("location[specificLocation]", formData.location.specificLocation);
       formDataToSend.append("workingHours", `${formData.workingHoursFrom} ${formData.workingHoursFromPeriod} - ${formData.workingHoursTo} ${formData.workingHoursToPeriod}`);
-      // إرسال السعر كرقم مع الاحتفاظ بالدقة
       formDataToSend.append("servicePrice", formData.servicePriceValue);
       formDataToSend.append("currency", formData.servicePriceCurrency);
       formDataToSend.append("serviceType", formData.serviceType);
@@ -399,179 +405,193 @@ const Profile = () => {
   if (!userData) return <p>Loading profile...</p>;
 
   return (
-    <div className="x7k9p2m4-q1w3e5r7">
-      <h2>Welcome, {userData.name}!</h2>
-      <div className="v3b6n9j2-l5h8k1p4">
-        <div className="z9m2k6p1-j4n7h3e5">
+    <div className="containerBox123">
+      <h2 className="welcomeHeader456">Welcome, {userData.name}!</h2>
+      <div className="userProfileSection789">
+        <div className="profileImageWrapper012">
           {userData.userPhoto && userData.userPhoto !== "not found" ? (
-            <img src={`http://localhost:3001${userData.userPhoto}`} alt="Profile" className="q2w4e6r8-t5y7u9i0" />
+            <img src={`http://localhost:3001${userData.userPhoto}`} alt="Profile" className="profileImage345" />
           ) : (
-            <FaUserCircle className="m1n3b5v7-x9j0k2l4" />
+            <FaUserCircle className="defaultUserIcon678" />
           )}
-          <div className="c5v8k2p9-h3j6n1m4">
+          <div className="photoActionButtons901">
             <input
               type="file"
               accept="image/jpeg,image/png"
               onChange={handleFileChange}
-              className="f7d9j2k5-l1m3p6v8"
+              className="fileInput234"
               id="profile-photo-input"
               style={{ display: "none" }}
             />
-            <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById("profile-photo-input").click(); }} className="r4t6y8u0-p2j5m7n9">
-              Choose Photo
+            <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById("profile-photo-input").click(); }} className="choosePhotoLink567">
+              <MdAddPhotoAlternate />
             </a>
             {userData.userPhoto && userData.userPhoto !== "not found" && (
-              <a href="#" onClick={(e) => { e.preventDefault(); handleRemovePhoto(); }} className="k9p1m3j5-v7n2h4e6">
-                Remove Photo
+              <a href="#" onClick={(e) => { e.preventDefault(); handleRemovePhoto(); }} className="removePhotoLink890">
+                <FcRemoveImage />
               </a>
             )}
-            <a href="#" onClick={(e) => { e.preventDefault(); handleUpload(); }} className="b3n6k9p2-j5m8v1h4" style={{ display: file ? "inline" : "none" }}>
-              Upload
+            <a href="#" onClick={(e) => { e.preventDefault(); handleUpload(); }} className="uploadPhotoLink123" style={{ display: file ? "inline" : "none" }}>
+              <TbUpload />
             </a>
           </div>
         </div>
-        {uploadMessage && <p className={`y5k8p2m9-${uploadMessage.includes("successfully") ? "s1j4n7h0" : "e3v6k9p2"}`}>{uploadMessage}</p>}
+        {uploadMessage && <p className={`messageDisplay${uploadMessage.includes("successfully") ? "Success456" : "Error789"}`}>{uploadMessage}</p>}
       </div>
-      <div className="n4j7h1m3-p6k9v2e5">
-        <p><strong>Full Name:</strong> {userData.name || "Not provided"}</p>
+      <div className="userInfoBox012">
         <p><strong>Username:</strong> {userData.username || "Not provided"}</p>
         <p><strong>Email:</strong> {userData.email || "Not provided"}</p>
         <p><strong>User Type:</strong> {userData.userType || "Not provided"}</p>
       </div>
 
       {(userData.userType === "trainer" || userData.userType === "clinicAdmin") && (
-        <div className="h2j5m8v1-k9p3n6e4">
-          {success && <p className="s7j2k5m9">{success}</p>}
-          {errors.general && <p className="e1v4k7p0">{errors.general}</p>}
-          <h3>Services Offered</h3>
+        <div className="servicesSection345">
+          {success && <p className="successMessage678">{success}</p>}
+          {errors.general && <p className="errorMessage901">{errors.general}</p>}
+          <h3 className="servicesHeader234">Services Offered</h3>
           {services.length > 0 ? (
-            <ul className="l3n6p9j2-m5k8v1h4">
-              {services.map((service) => (
-                <li key={service._id} className="j7m2k5v8-p1n4h6e9">
-                  <div className="t9y2u5i8-k3p6n1m4">
-                    {service.type === "clinic" ? (
-                      <>
-                        <p><strong>Clinic Name:</strong> {service.clinicName}</p>
-                        <p><strong>Doctor Name:</strong> {service.doctorName}</p>
-                        <p><strong>Location:</strong> {service.location.governorate} - {service.location.specificLocation}</p>
-                        <p><strong>Mobile:</strong> {service.mobile}</p>
-                        <p><strong>Email:</strong> {service.email}</p>
-                        <p><strong>Working Hours:</strong> {service.workingHours}</p>
-                        <p><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
-                        <p><strong>Service Type:</strong> {service.serviceType}</p>
-                        <p><strong>Doctor Description:</strong> {service.doctorDescription}</p>
-                        <p><strong>Specialties:</strong> {service.specialties.join(", ") || "Not provided"}</p>
-                        {service.clinicPhotos && service.clinicPhotos.length > 0 && (
-                          <div className="v6k9p2m5-j1n4h7e3">
-                            <h4>Clinic Photos</h4>
-                            <div className="p3n6k9v2-h5j1m8e4">
-                              {service.clinicPhotos.map((photo, index) => (
-                                <img key={index} src={`http://localhost:3001${photo}`} alt={`Clinic ${index + 1}`} className="q8y1u4k7-p2m5n9j0" />
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        <p><strong>Trainer Name:</strong> {service.trainerName || userData.name}</p>
-                        <p><strong>Specialty:</strong> {service.specialty}</p>
-                        <p><strong>Mobile:</strong> {service.mobile}</p>
-                        <p><strong>Email:</strong> {service.email}</p>
-                        <p>
-                          <strong>Available Programs:</strong>{" "}
-                          {service.availablePrograms && service.availablePrograms.length > 0
-                            ? service.availablePrograms.join(", ")
-                            : "Not provided"}
-                        </p>
-                      </>
-                    )}
-                  </div>
-                  <a href="#" onClick={(e) => { e.preventDefault(); handleDeleteService(); }} className="d5j8n2k6-v1m4p7h9">
-                    Delete Service
-                  </a>
-                </li>
-              ))}
-            </ul>
+            services.map((service, index) => (
+              <div key={index} className="serviceCard567">
+                <div className="serviceContent890">
+                  {service.type === "clinic" && (
+                    <div className="clinicService123">
+                      {service.clinicPhotos && service.clinicPhotos.length > 0 && (
+                        <img
+                          src={`http://localhost:3001${service.clinicPhotos[0]}`}
+                          alt="Clinic"
+                          className="serviceImage456"
+                          onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
+                        />
+                      )}
+                      <div className="serviceDetails789">
+                        <p className="p-services2145" ><strong>Clinic Name:</strong> {service.clinicName}</p>
+                        <p className="p-services2145" ><strong>Doctor Name:</strong> {service.doctorName}</p>
+                        <p className="p-services2145" ><strong>Location:</strong> {service.location.governorate} - {service.location.specificLocation}</p>
+                        <p className="p-services2145" ><strong>Phone:</strong> {service.mobile}</p>
+                        <p className="p-services2145" ><strong>Email:</strong> {service.email}</p>
+                        <p className="p-services2145" ><strong>Working Hours:</strong> {service.workingHours}</p>
+                        <p className="p-services2145" ><strong>Service Price:</strong> {service.servicePrice} {service.currency}</p>
+                        <p className="p-services2145" ><strong>Service Type:</strong> {service.serviceType}</p>
+                        <p className="p-services2145" ><strong>Specialties:</strong> {service.specialties.join(", ") || "Not provided"}</p>
+                        <p className="p-services2145" ><strong>Doctor Description:</strong> {service.doctorDescription}</p>
+                      </div>
+                    </div>
+                  )}
+                  {service.type === "trainer" && (
+                    <div className="trainerService012">
+                      <p className="p-services2145"><strong>Trainer Name:</strong> {service.trainerName || userData.name}</p>
+                      <p className="p-services2145"><strong>Specialty:</strong> {service.specialty}</p>
+                      <p className="p-services2145"><strong>Mobile:</strong> {service.mobile}</p>
+                      <p className="p-services2145"><strong>Email:</strong> {service.email}</p>
+                      <p className="p-services2145"><strong>Available Programs:</strong> {service.availablePrograms.join(", ") || "Not provided"}</p>
+                    </div>
+                  )}
+                </div>
+                <div className="serviceActions345">
+                  {services.length === 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.preventDefault(); setShowAddServiceForm(true); }}
+                        className="editServiceButton789"
+                      >
+                        Edit Service
+                      </button>
+                      <button
+                        onClick={(e) => { e.preventDefault(); handleDeleteService(); }}
+                        className="deleteButton901"
+                      >
+                        <span className="deleteServiceButton325">Delete Service<MdDelete /></span>
+
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))
           ) : (
-            <p className="n8k2m5p1">No services available</p>
+            <p className="noServicesMessage123">No services available</p>
           )}
 
-          <a href="#" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(true); }} className="x1j4k7p9-m2n5v8h3">
-            {services.length > 0 ? "Edit Service" : "Add Service"}
-          </a>
+          {services.length === 0 && (
+            <button
+              onClick={(e) => { e.preventDefault(); setShowAddServiceForm(true); }}
+              className="addServiceButton456"
+            >
+              Add Service
+            </button>
+          )}
 
           {showAddServiceForm && (
-            <div className="k3p6n9v2-j5m8h1e4">
-              <h3>{services.length > 0 ? "Edit Service" : "Add New Service"}</h3>
+            <div className="formContainer012">
+              <h3 className="formHeader345">{services.length > 0 ? "Edit Service" : "Add New Service"}</h3>
               <form onSubmit={handleServiceAction}>
                 {userData.userType === "clinicAdmin" ? (
                   <>
-                    <div className="z7m2k5p9-j1n4h6e3">
+                    <div className="clinicNameInput678">
                       <label>Clinic Name:</label>
-                      <input type="text" name="clinicName" value={formData.clinicName} onChange={handleInputChange} required />
-                      {errors.clinicName && <p className="e9v2k5m8">{errors.clinicName}</p>}
+                      <input type="text" name="clinicName" value={formData.clinicName} onChange={handleInputChange}  />
+                      {errors.clinicName && <p className="errorDisplay901">{errors.clinicName}</p>}
                     </div>
-                    <div className="v4k7p1m3-j9n2h5e8">
+                    <div className="doctorNameInput123">
                       <label>Doctor Name:</label>
-                      <input type="text" name="doctorName" value={formData.doctorName} onChange={handleInputChange} required />
-                      {errors.doctorName && <p className="e9v2k5m8">{errors.doctorName}</p>}
+                      <input type="text" name="doctorName" value={formData.doctorName} onChange={handleInputChange}  />
+                      {errors.doctorName && <p className="errorDisplay456">{errors.doctorName}</p>}
                     </div>
-                    <div className="p6n9k2m5-j1h4v7e3">
+                    <div className="governorateSelect789">
                       <label>Governorate:</label>
                       <select
                         name="location.governorate"
                         value={formData.location.governorate}
                         onChange={handleInputChange}
-                        required
+                        
                       >
                         <option value="">Select Governorate</option>
                         {governorates.map((gov) => (
                           <option key={gov} value={gov}>{gov}</option>
                         ))}
                       </select>
-                      {errors.location && <p className="e9v2k5m8">{errors.location}</p>}
+                      {errors.location && <p className="errorDisplay012">{errors.location}</p>}
                     </div>
-                    <div className="h3j6n9k2-m5p1v4e7">
+                    <div className="specificLocationInput345">
                       <label>Specific Location:</label>
                       <input
                         type="text"
                         name="location.specificLocation"
                         value={formData.location.specificLocation}
                         onChange={handleInputChange}
-                        required
+                        
                         placeholder="e.g., Street Name, Building Number"
                       />
-                      {errors.location && <p className="e9v2k5m8">{errors.location}</p>}
+                      {errors.location && <p className="errorDisplay678">{errors.location}</p>}
                     </div>
-                    <div className="m8k2p5n1-j4h7v9e3">
+                    <div className="mobileInput901">
                       <label>Mobile Number:</label>
                       <input
                         type="tel"
                         name="mobile"
                         value={formData.mobile}
                         onChange={handleInputChange}
-                        required
+                        
                         placeholder="+201012345678"
                       />
-                      {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
+                      {errors.mobile && <p className="errorDisplay123">{errors.mobile}</p>}
                     </div>
-                    <div className="j5n8k1p4-m7h2v9e3">
+                    <div className="emailInput456">
                       <label>Email Address:</label>
-                      <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-                      {errors.email && <p className="e9v2k5m8">{errors.email}</p>}
+                      <input type="email" name="email" value={formData.email} onChange={handleInputChange}  />
+                      {errors.email && <p className="errorDisplay789">{errors.email}</p>}
                     </div>
-                    <div className="n2k5p8m1-j4h7v9e3">
+                    <div className="photoInput012">
                       <label>Clinic Photos (up to 5):</label>
                       <input type="file" name="clinicPhotos" accept="image/jpeg,image/png" onChange={handleClinicPhotosChange} multiple />
-                      {errors.clinicPhotos && <p className="e9v2k5m8">{errors.clinicPhotos}</p>}
+                      {errors.clinicPhotos && <p className="errorDisplay345">{errors.clinicPhotos}</p>}
                     </div>
                     {formData.clinicPhotos.length > 0 && (
-                      <div className="k9p2m5v8-j1n4h7e3">
-                        <h4>Preview Photos</h4>
-                        <div className="v3k6p9n2-h5j1m8e4">
+                      <div className="photoPreviewSection678">
+                        <h4 className="previewHeader901">Preview Photos</h4>
+                        <div className="previewImagesBox123">
                           {formData.clinicPhotos.map((photo, index) => (
-                            <div key={index} className="p7m2k5v9-j1n4h6e3">
+                            <div key={index} className="previewImageWrapper456">
                               <img
                                 src={
                                   photo instanceof File
@@ -579,11 +599,11 @@ const Profile = () => {
                                     : `http://localhost:3001${photo}`
                                 }
                                 alt={`Preview ${index + 1}`}
-                                className="q8y1u4k7-p2m5n9j0"
+                                className="previewImage789"
                                 onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
                               />
                               <FaTrash
-                                className="r9t2y5u8-k1m4p7n0"
+                                className="removePhotoIcon012"
                                 onClick={() => handleRemovePhotoFromPreview(index)}
                               />
                             </div>
@@ -591,10 +611,10 @@ const Profile = () => {
                         </div>
                       </div>
                     )}
-                    <div className="t6y9u2k5-m1p4n7h3">
+                    <div className="workingHoursInput345">
                       <label>Working Hours:</label>
-                      <div className="y3k6p9n2-j5m8v1h4">
-                        <div className="u8k2p5m9-j1n4h6e3">
+                      <div className="hoursSelection678">
+                        <div className="fromTimeSelect901">
                           <select name="workingHoursFrom" value={formData.workingHoursFrom} onChange={handleInputChange} required>
                             {timeOptions.map((hour) => <option key={hour} value={hour}>{hour}</option>)}
                           </select>
@@ -603,8 +623,8 @@ const Profile = () => {
                             <option value="PM">PM</option>
                           </select>
                         </div>
-                        <span className="i4k7p2m9">to</span>
-                        <div className="o9k1m4p7-j2n5h8e3">
+                        <span className="toLabel123">to</span>
+                        <div className="toTimeSelect456">
                           <select name="workingHoursTo" value={formData.workingHoursTo} onChange={handleInputChange} required>
                             {timeOptions.map((hour) => <option key={hour} value={hour}>{hour}</option>)}
                           </select>
@@ -614,40 +634,40 @@ const Profile = () => {
                           </select>
                         </div>
                       </div>
-                      {errors.workingHours && <p className="e9v2k5m8">{errors.workingHours}</p>}
+                      {errors.workingHours && <p className="errorDisplay789">{errors.workingHours}</p>}
                     </div>
-                    <div className="p2m5n8k1-j4h7v9e3">
+                    <div className="priceInput012">
                       <label>Service Price:</label>
-                      <div className="k9p2m5v8-h3j6n1e4">
+                      <div className="priceInputFields345">
                         <input
                           type="number"
                           name="servicePriceValue"
                           value={formData.servicePriceValue}
                           onChange={handleInputChange}
-                          required
+                          
                           min="0"
-                          step="0.01" // السماح بقيم عشرية
+                          step="0.01"
                         />
                         <select name="servicePriceCurrency" value={formData.servicePriceCurrency} onChange={handleInputChange}>
                           <option value="EGP">EGP</option>
                           <option value="USD">USD</option>
                         </select>
                       </div>
-                      {errors.servicePriceValue && <p className="e9v2k5m8">{errors.servicePriceValue}</p>}
+                      {errors.servicePriceValue && <p className="errorDisplay678">{errors.servicePriceValue}</p>}
                     </div>
-                    <div className="m1n4h7p2-j5k8v9e3">
+                    <div className="serviceTypeInput901">
                       <label>Service Type:</label>
-                      <input type="text" name="serviceType" value={formData.serviceType} onChange={handleInputChange} required />
-                      {errors.serviceType && <p className="e9v2k5m8">{errors.serviceType}</p>}
+                      <input type="text" name="serviceType" value={formData.serviceType} onChange={handleInputChange}  />
+                      {errors.serviceType && <p className="errorDisplay123">{errors.serviceType}</p>}
                     </div>
-                    <div className="h6j9k2m5-p1n4v7e3">
+                    <div className="descriptionInput456">
                       <label>Doctor Description (Education, Experience, etc.):</label>
-                      <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange} required />
-                      {errors.doctorDescription && <p className="e9v2k5m8">{errors.doctorDescription}</p>}
+                      <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange}  />
+                      {errors.doctorDescription && <p className="errorDisplay789">{errors.doctorDescription}</p>}
                     </div>
-                    <div className="v8k1m4p7-j2n5h9e3">
+                    <div className="specialtiesInput012">
                       <label>Specialties:</label>
-                      <div className="n3k6p9v2-j5m8h1e4">
+                      <div className="checkboxGroup345">
                         {clinicSpecialties.map((spec) => (
                           <label key={spec}>
                             <input
@@ -661,12 +681,12 @@ const Profile = () => {
                           </label>
                         ))}
                       </div>
-                      {errors.specialties && <p className="e9v2k5m8">{errors.specialties}</p>}
+                      {errors.specialties && <p className="errorDisplay678">{errors.specialties}</p>}
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className="k9p2m5v8-j1n4h7e3">
+                    <div className="trainerMobileInput789">
                       <label>Mobile Number:</label>
                       <input
                         type="tel"
@@ -676,14 +696,14 @@ const Profile = () => {
                         required
                         placeholder="+201012345678"
                       />
-                      {errors.mobile && <p className="e9v2k5m8">{errors.mobile}</p>}
+                      {errors.mobile && <p className="errorDisplay901">{errors.mobile}</p>}
                     </div>
-                    <div className="j5n8k1p4-m7h2v9e3">
+                    <div className="trainerEmailInput123">
                       <label>Email Address:</label>
                       <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-                      {errors.email && <p className="e9v2k5m8">{errors.email}</p>}
+                      {errors.email && <p className="errorDisplay456">{errors.email}</p>}
                     </div>
-                    <div className="m1n4h7p2-j5k8v9e3">
+                    <div className="trainerSpecialtySelect789">
                       <label>Specialty:</label>
                       <select
                         name="specialty"
@@ -695,11 +715,11 @@ const Profile = () => {
                           <option key={spec} value={spec}>{spec}</option>
                         ))}
                       </select>
-                      {errors.specialty && <p className="e9v2k5m8">{errors.specialty}</p>}
+                      {errors.specialty && <p className="errorDisplay012">{errors.specialty}</p>}
                     </div>
-                    <div className="h6j9k2m5-p1n4v7e3">
+                    <div className="trainerProgramsInput345">
                       <label>Available Programs:</label>
-                      <div className="n3k6p9v2-j5m8h1e4">
+                      <div className="checkboxGroup678">
                         {programOptions.map((program) => (
                           <label key={program}>
                             <input
@@ -713,13 +733,13 @@ const Profile = () => {
                           </label>
                         ))}
                       </div>
-                      {errors.availablePrograms && <p className="e9v2k5m8">{errors.availablePrograms}</p>}
+                      {errors.availablePrograms && <p className="errorDisplay901">{errors.availablePrograms}</p>}
                     </div>
                   </>
                 )}
-                <div className="x9j2k5m8-p1n4v7h3">
-                  <button type="submit" className="s7k2m9p4-j1n5v8h3">Save Service</button>
-                  <button type="button" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="c3v6k9p2-j5m8h1n4">
+                <div className="formButtons012">
+                  <button type="submit" className="saveButton345">Save Service</button>
+                  <button type="button" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="cancelButton678">
                     Cancel
                   </button>
                 </div>
@@ -729,8 +749,8 @@ const Profile = () => {
         </div>
       )}
 
-      <div className="p7m2k5v9-j1n4h6e3">
-        <a href="/profile/edit" className="u8k2p5m9-j1n4h6e3">Update Profile</a>
+      <div className="updateLinkSection901">
+        <a href="/profile/edit" className="updateProfileLink123">Update Profile</a>
       </div>
     </div>
   );

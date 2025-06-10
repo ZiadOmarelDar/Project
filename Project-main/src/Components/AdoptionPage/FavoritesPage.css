@@ -151,11 +151,11 @@ body {
   
   /* Media Queries للتصميم المتجاوب */
   @media (max-width: 1024px) {
-    .pets-grid {
+    .pets-grid:not(.adoption-page .pets-grid ) {
       grid-template-columns: repeat(3, 1fr);
     }
-  
-    .pet-card {
+
+    .pet-card:not(.adoption-page .pet-card) {
       width: 220px;
     }
   

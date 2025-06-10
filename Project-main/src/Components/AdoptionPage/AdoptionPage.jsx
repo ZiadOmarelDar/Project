@@ -7,7 +7,7 @@ import { ImPaste } from "react-icons/im";
 import { MdQuestionAnswer } from "react-icons/md";
 import { PiDogBold } from "react-icons/pi";
 import "./AdoptionPage.css";
-import dogArticleImage from "../../assets/adoption/dog-article.png";
+import adoptioncat from "../../assets/adoptioncatt.png";
 import { Link } from "react-router-dom";
 
 const planningCards = [
@@ -32,13 +32,6 @@ const planningCards = [
   },
 ];
 
-const articles = [
-  {
-    title: "You Have A Pet For Adoption",
-    image: dogArticleImage,
-  },
-];
-
 const filterCards = [
   { icon: <LuDog />, label: "Dog" },
   { icon: <TbCat />, label: "Cat" },
@@ -60,7 +53,7 @@ const AdoptionPage = () => {
       });
   }, [cntr]);
 
-  const filteredPets = pets
+  const filteredPets = pets.slice(0, 3)
     .filter((pet) =>
       pet.petName.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -113,7 +106,7 @@ const AdoptionPage = () => {
               />
               <button
                 className="heart-btn"
-                onClick={() => toggleFavorite(pet.id)}
+                onClick={() => toggleFavorite(pet._id)}
               >
                 {favorites.includes(pet._id) ? (
                   <FaHeart className="heart-icon favorited" />
@@ -151,21 +144,15 @@ const AdoptionPage = () => {
         </div>
       </div>
 
-      <div className="articles-section">
-        <div className="articles-grid">
-          {articles.map((article, index) => (
-            <div key={index} className="article-card">
-              <img
-                src={article.image}
-                alt={article.title}
-                className="article-image"
-              />
-              <h3 className="article-title">{article.title}</h3>
-              
-                <button className="read-more-btn-9">Add Pet</button>
-              
-            </div>
-          ))}
+      <div className="articles-section bottom-cta">
+        <div className="bottom-cta-text">
+          <h1>Got a Furry Friend Who Needs a New Couch to Destroy?</h1>
+          <button className="bottom-cta-btn">
+            <a href="/UploadPet">Find a new Home</a>
+          </button>
+        </div>
+        <div className="bottom-cta-image">
+          <img src={adoptioncat} alt="Cute Cat" />
         </div>
       </div>
     </div>

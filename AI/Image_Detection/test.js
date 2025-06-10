@@ -1,7 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
 
-const image = fs.readFileSync("X:\\dog.jpeg", {encoding: "base64"});
+const image = fs.readFileSync("X:\\Wallpapers\\wall.jpg", {encoding: "base64"});
 
 axios({
     method: "POST",
