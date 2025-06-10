@@ -1,92 +1,91 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEnvelope, FaPhone } from 'react-icons/fa';
+import phone from '../../assets/Icons/bxs_phone-call.png';
+import envelope from '../../assets/Icons/Vector.png';
+import gps from '../../assets/Icons/carbon_location-filled.png';
+
 import './Footer.css';
 
 const Footer = () => {
 	return (
-		<footer className='footer'>
-			<div className='footer-container'>
-				{/* Section 1: Logo & About */}
-				<div className='footer-section'>
-					<Link
-						to='/'
-						className='logo-2'>
-						PET CARE
+		<footer style={{padding:"100px 40px 40px"}} className='footer '>
+			<div className="container">
+				<div className="box">
+					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Reach us</h3>
+					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="mailto:pet_care@gmail.com">
+						<img src={envelope} alt="" width={20} />
+							pet_care@gmail.com
+					</a>
+					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="tel:+201273349622">
+						<img src={phone} alt="" width={20} />
+							201273349622
+					</a>
+					<a className="flex items-center gap-2.5" href="https://www.google.com/maps/place/Your+Location">
+						<img src={gps} alt="" width={20} />
+						Your Location
+					</a>
+					<div className="logo-2">Pet Care</div>
+				</div>
+				<div className="box">
+					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Company</h3>
+					<Link className="block" style={{marginBottom:"20px"}} to="/About">
+						About
 					</Link>
-					<p className='about-text'>
-						Smart pet care powered by AI – health tracking, training, nutrition,
-						and virtual vet support for happy, healthy pets.
-					</p>
+					<Link className="block" style={{marginBottom:"0px"}} to="/Contact">
+						Contact
+					</Link>
 				</div>
-
-				{/* Section 2: Services */}
-				<div className='footer-section'>
-					<h3 className='section-title-1'>Services</h3>
-					<ul>
-						<li>
-							<Link to='/AdoptionPage'>Adoption</Link>
-						</li>
-						<li>
-							<Link to='/shop'>Supplies</Link>
-						</li>
-						<li>
-							<Link to='/community'>Forum</Link>
-						</li>
-						<li>
-							<Link to='/VetClinicFinder'>Clinics</Link>
-						</li>
-						<li>
-							<Link to='/trainHome'>Training</Link>
-						</li>
-						<li>
-							<Link to='/PetTravelRequirements'>Traveling </Link>
-						</li>
-						<li>
-							<Link to='/AiHomePage'>AI</Link>
-						</li>
-					</ul>
+				<div className="box">
+					<h3 style={{marginBottom:"20px"}} className="font-semibold text-xl" >Services</h3>
+					<Link className="block" style={{marginBottom:"20px"}} to="/AdoptionPage">
+						Adoption
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/Shop">
+						Shop
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/Community">
+						Forum
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/AllClinics">
+						Clinics
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/TrainHome">
+						Training
+					</Link>
+					<Link className="block" style={{marginBottom:"40px"}} to="/AIHomePage">
+						AI Consultant
+					</Link>
 				</div>
-
-				{/* Section 3: Social Media */}
-				<div className='footer-section'>
-					<h3 className='section-title-1'>Follow us</h3>
-					<ul>
-						<li>
-							<a href='#'>Facebook</a>
-						</li>
-						<li>
-							<a href='#'>Twitter</a>
-						</li>
-						<li>
-							<a href='#'>Instagram</a>
-						</li>
-						<li>
-							<a href='#'>LinkedIn</a>
-						</li>
-					</ul>
+				<div className="box">
+					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Legal</h3>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						Privacy Policy
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						Terms & Services
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						Terms of Use
+					</Link>
+					<Link className="block" style={{marginBottom:"40px"}} to="/">
+						Refund Policy
+					</Link>
 				</div>
-
-				{/* Section 4: Contact */}
-				<div className='footer-section'>
-					<h3 className='section-title-1'>Contact us</h3>
-					<div className='contact-info-footer'>
-						<p>
-							<FaEnvelope className='icon-footer' />
-							<a href='#'>bet_care@gmail.com</a>
-						</p>
-						<p>
-							<FaPhone className='icon-footer' />{' '}
-							<a href='tel:+201273349622'> &nbsp; 201273349622</a>
-						</p>
-					</div>
+				<div className="box">
+					<h3 style={{marginBottom:"20px"}} className="font-semibold text-xl" >Social Media</h3>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						Facbook
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						Instagram
+					</Link>
+					<Link className="block" style={{marginBottom:"20px"}} to="/">
+						X
+					</Link>
+					<Link className="block" style={{marginBottom:"40px"}} to="/">
+						Linkedin
+					</Link>
 				</div>
-			</div>
-
-			{/* Bottom Footer */}
-			<div className='footer-bottom'>
-				© <span>2025 </span> All rights reserved | Design by{' '}
-				<a href='#'> Pet Care Team.</a>
 			</div>
 		</footer>
 	);
