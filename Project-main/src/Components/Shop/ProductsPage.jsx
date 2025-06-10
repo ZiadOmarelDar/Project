@@ -213,10 +213,13 @@ const ProductsPage = () => {
                 alt={product.productName}
                 className="product-image-9"
               />
+			  <div className="n-p">
               <h4>{product.productName}</h4>
-			  <br />
-			  <div className="p-pr"><p >EGP {product.price}</p></div>
-              
+              <br />
+              <div className="p-pr">
+                <p>EGP {product.price}</p>
+              </div>
+			  </div>
             </div>
           ))}
         </div>

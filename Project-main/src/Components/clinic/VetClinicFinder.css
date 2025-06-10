@@ -26,13 +26,11 @@
   text-align: left;
   margin-left: 100px;
   color: #000;
-  
 }
 
 .imageDisplay img {
   margin-top: -50px;
   width: 250px;
-
 }
 
 .infoSection {
@@ -67,7 +65,7 @@
   font-size: 1.1em;
   margin: 0 0 5px;
   color: black;
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .textDetails p {
@@ -76,56 +74,10 @@
   font-size: 1.1em;
 }
 
-.searchSection-33 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .sectionTitle-33 {
   font-size: 4em;
   color: #fff;
   margin-bottom: 15px;
-}
-
-.searchContainer-33 {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: 600px;
-  height: 50px;
-}
-
-.searchBar-33 {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #323773;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.searchIcon-33 {
-  color: #433091; /* Blue color for the icon */
-  font-size: 48px;
-  background: white;
- 
-  border-radius: 10%;
-}
-
-.searchInput-33 {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 16px;
-  color: #333;
- 
-}
-
-.searchInput-33::placeholder {
-  color: #f8f1f1;
-  font-style: italic;
 }
 
 .vetClinicFinderCardsSection {
@@ -160,8 +112,9 @@
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border: 1px solid #2e0857;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom-left-radius: 200px;
   border-bottom-right-radius: 200px;
 }
@@ -209,4 +162,162 @@
 
 .seeMoreButton:hover {
   background-color: #ecf0f1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .mainHeading {
+    font-size: 3rem;
+    margin-left: 50px;
+  }
+
+  .imageDisplay img {
+    width: 200px;
+  }
+
+  .infoSection {
+    font-size: 1.1rem;
+  }
+
+  .featureIcon {
+    font-size: 2em;
+  }
+
+  .vetClinicFinderCards.trainerStyle {
+    grid-template-columns: repeat(2, minmax(250px, 3fr));
+    margin-left: 50px;
+    gap: 15px;
+  }
+
+  .clinicCard {
+    width: 250px;
+  }
+
+  .clinicImage {
+    height: 200px;
+  }
+
+  .seeMoreButton {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerArea {
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+    margin-left: 20px;
+  }
+
+  .imageDisplay img {
+    width: 180px;
+    margin-top: -30px;
+  }
+
+  .infoSection {
+    font-size: 1rem;
+  }
+
+  .featureIcon {
+    font-size: 1.8em;
+  }
+
+  .textDetails {
+    padding-left: 10px;
+  }
+
+  .vetClinicFinderCards.trainerStyle {
+    grid-template-columns: repeat(3, minmax(200px, 3fr));
+    margin-left: 20px;
+    gap: 15px;
+  }
+
+  .clinicCard {
+    width: 200px;
+  }
+
+  .clinicImage {
+    height: 180px;
+  }
+
+  .sectionTitle-33 {
+    font-size: 3.5em;
+  }
+
+  .seeMoreButton {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerArea {
+    flex-direction: column;
+    
+    gap: 15px;
+  }
+
+  .titleBlock,
+  .infoSection {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .imageDisplay img {
+    width: 150px;
+    margin-top: -250px;
+    margin-left: 250px;
+  }
+
+  .infoSection {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .featureIcon {
+    font-size: 1.5em;
+  }
+
+  .textDetails {
+    padding-left: 0;
+  }
+
+  .vetClinicFinderCards.trainerStyle {
+    grid-template-columns: repeat(2, 1fr) ;
+    margin-left: 0;
+    padding: 10px;
+    
+  }
+
+  .clinicCard {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .clinicImage {
+    height: 150px;
+  }
+
+  .sectionTitle-33 {
+    font-size: 2.5em;
+  }
+
+  .seeMoreButton {
+    width: 100%;
+    max-width: 200px;
+    margin: 15px auto;
+  }
 }

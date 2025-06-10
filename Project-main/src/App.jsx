@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Register from "./Components/Register/Register";
@@ -36,6 +35,7 @@ import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 import ClinicAdmin from "./Components/clinic/ClinicAdmin"; // استيراد مكون ClinicAdmin
 import UploadPetPage from "./Components/AdoptionPage/UploadPetPage";
+import ContactUs from "./Components/Contact/ContactUs";
 
 function App() {
 	return (
@@ -74,20 +74,12 @@ function App() {
 					<Route path="/AIHomePage" element={<AIHomePage />} />
 					<Route path="/AdoptionPredictor" element={<AdoptionPredictor />} />
 					<Route path="/PetPricePredictor" element={<PetPricePredictor />} />
-					<Route
-						path='/PetChecker'
-						element={<PetChecker />}
-					/>
-					<Route
-						path="/AllClinics"
-						element={<AllClinics />}
-					/>
-					<Route
-						path="/clinic/:clinicId"
-						element={<ClinicDetails />}
-					/></Route>
+					<Route path='/PetChecker' element={<PetChecker />}/>
+					<Route path="/AllClinics" element={<AllClinics />}/>
+					<Route path="/clinic/:clinicId" element={<ClinicDetails />}/>
 					<Route path="/UploadPet" element={<UploadPetPage />} />
-			
+					<Route path="/ContactUs" element={<ContactUs />} />
+				</Route>
 		</Routes>
    </Router >
 	);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import uploadIcon from "../../assets/adoption/Frame.png"
 export default function UploadPetPage() {
 
@@ -16,6 +16,7 @@ export default function UploadPetPage() {
       ownerLocation: '',
       ownerPhoneNumber: '',
    });
+   const fileInputRef = useRef(null);
 
    function handleChange(e){
       setFormData({...formData,[e.target.name]: e.target.value})
@@ -31,8 +32,7 @@ export default function UploadPetPage() {
 
    function handleSubmit (e){
       e.preventDefault();
-      console.log(formData)
-      console.log(images)
+      // console.log(formData)
       const data = new FormData();
 
   // Append text fields
@@ -53,9 +53,10 @@ export default function UploadPetPage() {
   body: data
 })
 .then(res => res.json())
-.then(data => console.log(data))
+.then(data => {alert(data.message || "Pet data uploaded successfully!"); console.log("result from the backend:", data);} )
 .catch(err => console.error(err));
-   }
+   fileInputRef.current.value = "";
+}
 
 const x = {
    
@@ -145,6 +146,7 @@ const x = {
                            name="images"
                            style={{border:'none',display:"none"}} 
                            id="imageUpload"
+                           ref={fileInputRef}
                            onChange={(e) => {
                               handleFileChange(e);
                               handleImageChange(e);
