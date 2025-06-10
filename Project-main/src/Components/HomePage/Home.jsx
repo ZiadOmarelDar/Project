@@ -88,7 +88,7 @@ const Home = () => {
             happy and healthy.
           </p>
           <div className="postionbtn">
-            <Link to="/shop" className="explore-btn">
+            <Link to="/Shop" className="explore-btn">
               Explore
             </Link>
           </div>
