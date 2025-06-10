@@ -1,0 +1,385 @@
+.contact-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Open Sans", sans-serif;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: #1A237E;
+  margin: 0;
+  font-weight: bold;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: #757575;
+  margin: 5px 0 0;
+}
+
+.contact-content {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-info {
+  flex: 1;
+  background-color: #323773;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info h2 {
+  font-size: 1.8rem;
+  margin: 0 0 15px;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  color: white;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.info-item svg {
+  color: #BBDEFB;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 120px;
+  margin-left: -230px;
+}
+
+.social-icons svg {
+  font-size: 1.2rem;
+  color: #BBDEFB;
+  cursor: pointer;
+}
+
+.contact-info::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #FFFFFF99;
+  border-radius: 50%;
+  top: 380px;
+  left: 200px;
+}
+
+.contact-info::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: -75px;
+  right: -75px;
+}
+
+.contacttt .contact-form {
+  flex: 2;
+  padding: 20px;
+}
+
+.contacttt .form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.contacttt .form-group {
+  flex: 1;
+}
+
+.contacttt .form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.contacttt .form-group input {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  color: #000;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #a3a4ac;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.contacttt .form-group textarea {
+  height: 100px;
+  resize: none;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background: white;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #a3a4ac;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  text-align: center;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+  width: 25px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: #000;
+}
+
+.radio-option input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-option input[type="radio"]:not(:checked) + span {
+  color: #B0BEC5;
+}
+
+.radio-option span {
+  margin-left: 5px;
+}
+
+.error-message {
+  color: #D32F2F;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.submit-btn-88 {
+  background-color: #1A237E;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 15px;
+  margin-left: 480px;
+}
+
+.submit-btn-88:hover {
+  background-color: #132F4C;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .contact-container {
+    max-width: 100%;
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-header p {
+    font-size: 0.9rem;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-info p {
+    font-size: 0.8rem;
+  }
+
+  .info-item {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .info-item svg {
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    margin-top: 80px;
+    margin-left: -150px;
+  }
+
+  .social-icons svg {
+    font-size: 1rem;
+  }
+
+  .contact-info::before {
+    width: 80px;
+    height: 80px;
+    top: 250px;
+    left: 150px;
+  }
+
+  .contact-info::after {
+    width: 150px;
+    height: 150px;
+    bottom: -50px;
+    right: -50px;
+  }
+
+  .contacttt .contact-form {
+    padding: 15px;
+  }
+
+  .contacttt .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contacttt .form-group {
+    width: 100%;
+  }
+
+  .contacttt .form-group label {
+    font-size: 0.8rem;
+  }
+
+  .contacttt .form-group input,
+  .contacttt .form-group textarea {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .radio-group {
+     display: grid;
+       grid-template-columns: repeat(4, 1fr);
+  }
+
+  .radio-option {
+    gap: 10px;
+  }
+
+  .radio-option input[type="radio"] {
+    width: 20px;
+  }
+
+  .submit-btn-88 {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-header p {
+    font-size: 0.8rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info p {
+    font-size: 0.7rem;
+  }
+
+  .info-item {
+    font-size: 0.8rem;
+  }
+
+  .social-icons {
+    margin-top: 50px;
+    margin-left: -100px;
+  }
+
+  .contacttt .form-group label {
+    font-size: 0.7rem;
+  }
+
+  .contacttt .form-group input,
+  .contacttt .form-group textarea {
+    font-size: 0.7rem;
+    padding: 6px;
+  }
+    .radio-group {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+    }
+  .radio-option span {
+    font-size: 0.7rem;
+  }
+
+  .submit-btn-88 {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}

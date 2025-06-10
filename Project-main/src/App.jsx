@@ -35,6 +35,7 @@ import AllClinics from "./Components/clinic/AllClinics";
 import ClinicDetails from "./Components/clinic/ClinicDetails";
 import ClinicAdmin from "./Components/clinic/ClinicAdmin"; // استيراد مكون ClinicAdmin
 import UploadPetPage from "./Components/AdoptionPage/UploadPetPage";
+import ContactUs from "./Components/Contact/ContactUs";
 
 function App() {
 	return (
@@ -77,6 +78,7 @@ function App() {
 					<Route path="/AllClinics" element={<AllClinics />}/>
 					<Route path="/clinic/:clinicId" element={<ClinicDetails />}/>
 					<Route path="/UploadPet" element={<UploadPetPage />} />
+					<Route path="/ContactUs" element={<ContactUs />} />
 				</Route>
 		</Routes>
    </Router >
