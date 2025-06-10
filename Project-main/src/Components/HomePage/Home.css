@@ -307,10 +307,32 @@
 .clinic-image img {
 	width: 400px;
 }
+.explore-btn-66{
+	display: inline-block;
+	padding: 12px 45px;
+	border: 2px solid #323773;
+	border-radius: 40px;
+	color: #323773;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 17.48px;
+	box-shadow: 0 1.5px 3px #292741;
+	transition: 0.3s;
+	font-family: Inter;
+	position: relative;
+	top: -50px;
+	left: 300px;
+	
+}
+.explore-btn-66:hover {
+	background-color: #100a5b;
+	color: #e9e9e9;
+}
 
 /* ======== Training Section ======== */
 .training-section {
-	background: #e6f7ff;
+	background: #FAFAFA;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -340,7 +362,7 @@
 .training-cards button {
 	padding: 15px;
 	font-size: 18px;
-	background: #e6f7ff;
+	background: #FAFAFA;
 	box-shadow: 0 2px 4px #7b8a90;
 	border: none;
 	border-radius: 10px;
@@ -386,6 +408,24 @@
 .ai-ptn {
 	text-align: center;
 	align-items: center;
+}
+.explore-btn-77 {
+	display: inline-block;
+	padding: 12px 45px;
+	border: 2px solid #d6d7e8;
+	border-radius: 40px;
+	color:white;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 17.48px;
+	box-shadow: 0 1.5px 3px #292741;
+	transition: 0.3s;
+	font-family: Inter;
+}
+.explore-btn-77:hover {
+	background-color: #100a5b;
+	color: #e9e9e9;
 }
 
 .ai-image img {
@@ -493,15 +533,15 @@
 		gap: 15px;
 	}
 	.hero-btn {
-		width: 70%;
+		width: 50%;
 		font-size: 15px;
 		padding: 15px;
 	}
 	.hero-image img {
 		max-width: 230px;
 		position: relative;
-		bottom: 270px;
-		left: 200px;
+		bottom: 280px;
+		left: 220px;
 	}
 	.adopt-gallery {
 		display: grid;
@@ -634,16 +674,18 @@
 	}
 	.doctor-image {
 		max-width: 300px;
+		
 	}
-	.doctor-image .explore-btn {
+	 .explore-btn-66 {
 		position: relative;
-		right: -80px;
+		top: 250px;
+		left: 10px;
 	}
 	.doctor-image img {
 		position: relative;
-		top: 400px;
-		left: -100px;
-		top: 420px;
+		top: 350px;
+		left: -200px;
+		
 	}
 	.training-cards {
 		display: grid;
@@ -684,7 +726,7 @@
 		position: relative;
 		top: -100px;
 	}
-	.ai-section .explore-btn {
+	.ai-section .explore-btn-77 {
 		position: relative;
 		bottom: -170px;
 	}
@@ -708,13 +750,13 @@
 		padding-bottom: 30px;
 	}
 	.hero-buttons {
-		width: 10%;
+		width: 20%;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 15px;
 	}
 	.hero-btn {
-		width: 65%;
+		width: 100%;
 		font-size: 12px;
 		padding: 15px;
 	}
@@ -772,7 +814,7 @@
 		width: 110px;
 		position: relative;
 		bottom: 20px;
-		right: 70px;
+		right: 50px;
 	}
 	#three {
 		grid-column: sapn 1;
@@ -780,7 +822,7 @@
 		height: 100px;
 		width: 120px;
 		position: relative;
-		left: -30px;
+		left: -50px;
 		bottom: 30px;
 	}
 	#four {
@@ -789,7 +831,7 @@
 		height: 220px;
 		width: 120px;
 		position: relative;
-		bottom: 45px;
+		bottom: 65px;
 		left: -50px;
 	}
 	#five {
@@ -851,14 +893,16 @@
 	.clinic-image img {
 		width: 250px;
 		position: relative;
-		top: -250px;
+		top: -170px;
 	}
 	.doctor-image {
-		max-width: 300px;
+		max-width: 240px;
+		margin-top: -100px;
 	}
-	.doctor-image .explore-btn {
+	 .explore-btn-66 {
 		position: relative;
-		right: -80px;
+		top: 300px;
+		left: 100px;
 	}
 	.doctor-image img {
 		position: relative;
@@ -894,7 +938,7 @@
 		height: 770px;
 	}
 	.ai-section {
-		height: 550px;
+		height: 600px;
 	}
 	.ai-text h2 {
 		font-size: 2.5rem;
@@ -904,9 +948,12 @@
 		width: 200px;
 		position: relative;
 		top: -100px;
+		
+		
 	}
-	.ai-section .explore-btn {
+	.ai-section .explore-btn-77 {
 		position: relative;
-		bottom: -170px;
+		
+		bottom: -150px;
 	}
 }

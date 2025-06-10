@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import "./VetClinicFinder.css";
 import cl from "../../assets/clinic1.png";
@@ -7,8 +8,6 @@ import { BiSearchAlt } from "react-icons/bi";
 import { FaClock } from "react-icons/fa6";
 import { FaUserDoctor } from "react-icons/fa6";
 import { RiFirstAidKitLine } from "react-icons/ri";
-import { IoIosArrowForward } from "react-icons/io";
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -26,74 +25,40 @@ class ErrorBoundary extends Component {
 }
 
 const VetClinicFinder = () => {
-  const defaultCenter = { lat: 30.0333, lng: 31.2333 };
   const [clinics, setClinics] = useState([]);
-  const [userLocation, setUserLocation] = useState(null);
-  const [nearestClinics, setNearestClinics] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const getDistance = (lat1, lon1, lat2, lon2) => {
-    const R = 6371;
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLon = ((lon2 - lon1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-  };
-
-  const findNearbyClinics = (loc) => {
-    const filtered = clinics
-      .map((clinic) => ({
-        ...clinic,
-        distance: getDistance(loc.lat, loc.lng, clinic.location.lat || 30.0333, clinic.location.lng || 31.2333),
-      }))
-      .filter((clinic) => clinic.distance <= 50)
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, 3);
-    setNearestClinics(filtered);
-  };
-
   useEffect(() => {
-    const fetchClinics = async () => {
+    const fetchAllClinics = async () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get("http://localhost:3001/user/all-clinics", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("API Response:", response.data);
+        console.log("API Response:", response.data); // للتحقق من البيانات
         setClinics(response.data.clinics || []);
       } catch (err) {
-        console.error("Error fetching clinics:", err);
+        console.error("Error fetching all clinics:", err.response ? err.response.data : err.message);
       }
     };
-    fetchClinics();
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const loc = { lat: position.coords.latitude, lng: position.coords.longitude };
-          setUserLocation(loc);
-          findNearbyClinics(loc);
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-          findNearbyClinics(defaultCenter);
-        }
-      );
-    } else {
-      findNearbyClinics(defaultCenter);
-    }
+    fetchAllClinics();
   }, []);
 
-  const openLargerMap = () => {
-    window.open(`https://www.google.com/maps/@${userLocation?.lat || defaultCenter.lat},${userLocation?.lng || defaultCenter.lng},10z`, "_blank");
-  };
+  // تصفية العيادات بناءً على البحث
+  const filteredClinics = clinics.filter((clinic) => {
+    const searchLower = searchTerm.toLowerCase();
+    const nameMatch = clinic.clinicName?.toLowerCase().includes(searchLower) || false;
+    const governorateMatch = clinic.location?.governorate?.toLowerCase().includes(searchLower) || false;
+    const specialtyMatch =
+      clinic.specialties?.some((spec) => spec.toLowerCase().includes(searchLower)) || false;
+    return nameMatch || governorateMatch || specialtyMatch;
+  });
 
   return (
     <ErrorBoundary>
-      <div className="mainContainer">
+      <div className="vetClinicFinderContainer">
+        {/* Header Section */}
         <div className="headerArea">
           <div className="titleBlock">
             <h2 className="mainHeading">
@@ -140,42 +105,13 @@ const VetClinicFinder = () => {
           </div>
         </div>
 
-        <div className="mapArea">
-          <h2>
-            Find Your Closest Vet
-            <IoIosArrowForward className="arrowIcon" />
-          </h2>
-          <div className="mapContainer">
-            <div className="mapWrapper">
-              <APIProvider apiKey="AIzaSyC075u2Ez5JTfefMMxHadHQFZYELsVSPDc">
-                <Map
-                  defaultZoom={6}
-                  center={userLocation || defaultCenter}
-                  gestureHandling="greedy"
-                  disableDefaultUI={false}
-                  style={{ width: "100%", height: "100%" }}
-                >
-                  {userLocation && <Marker position={userLocation} title="Your Location" />}
-                  {nearestClinics.map((clinic, index) => (
-                    <Marker
-                      key={index}
-                      position={{ lat: clinic.location.lat || 30.0333, lng: clinic.location.lng || 31.2333 }}
-                      title={`${clinic.clinicName} - ${clinic.location.governorate}`}
-                    />
-                  ))}
-                </Map>
-              </APIProvider>
-            </div>
-            <button className="viewLargerMap" onClick={openLargerMap}>
-              View Larger Map
-            </button>
-          </div>
-        </div>
+       
 
-        <div className="clinicList">
-          <h2>Nearest Clinics</h2>
-          <div className="clinicCards">
-            {nearestClinics.map((clinic, index) => (
+        {/* Clinics Section */}
+        <div className="vetClinicFinderCardsSection">
+          <h2 className="sectionTitle-33">Our Clinics</h2>
+          <div className="vetClinicFinderCards trainerStyle">
+            {filteredClinics.slice(0, 3).map((clinic, index) => ( // Limit to 3 clinics
               <div key={index} className="clinicCard" onClick={() => navigate(`/clinic/${clinic._id}`)}>
                 <img
                   src={clinic.clinicPhotos && clinic.clinicPhotos[0] ? `http://localhost:3001${clinic.clinicPhotos[0]}` : cl}
@@ -186,14 +122,15 @@ const VetClinicFinder = () => {
                 <div className="clinicInfo">
                   <h3 className="clinicName">{clinic.clinicName || "Unknown Clinic"}</h3>
                   <p className="clinicSpecialty">{clinic.specialties && clinic.specialties[0] || "General Care"}</p>
-                  <p className="clinicAddress">{clinic.location.governorate || "Unknown Location"}</p>
+                  <p className="clinicLocation">{clinic.location.governorate || "Unknown Location"}</p>
                 </div>
               </div>
             ))}
           </div>
-          <button className="viewAllButton" onClick={() => navigate("/all-clinics")}>
-            View All Clinics
-          </button>
+          {filteredClinics.length === 0 && <p className="noResults">No clinics found matching your search.</p>}
+          <Link to="/AllClinics">
+            <button className="seeMoreButton">See Our Clinics</button>
+          </Link>
         </div>
       </div>
     </ErrorBoundary>

@@ -91,8 +91,9 @@
 
 .allClinicsImage.trainerImage {
   width: 100%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
+  border: 1px solid #2e0857;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 200px;
