@@ -53,7 +53,6 @@ const AdoptionPredictor = () => {
 
 	return (
 		<div className='page-container'>
-			{/* Navigation Bar */}
 			<nav className='navbar-50'>
 				<ul className='nav-list-50'>
 					<li>
@@ -68,7 +67,6 @@ const AdoptionPredictor = () => {
 				</ul>
 			</nav>
 
-			{/* Main Content */}
 			<form
 				onSubmit={handleSubmit}
 				className='form-container-50'>

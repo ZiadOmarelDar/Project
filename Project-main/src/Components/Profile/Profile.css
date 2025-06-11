@@ -518,7 +518,6 @@ body {
   font-weight: bold;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .containerBox123 {
     margin: 40px auto;
@@ -668,10 +667,7 @@ body {
   .trainerEmailInput123,
   .trainerSpecialtySelect789,
   .trainerProgramsInput345 {
-    
     max-width: 280px;
-   
-    
   }
 
   .descriptionInput456 textarea {
@@ -725,7 +721,6 @@ body {
   }
   .userInfoBox012 p {
     font-size: 1rem;
-     
   }
 
   .servicesHeader234 {

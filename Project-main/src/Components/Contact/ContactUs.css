@@ -224,7 +224,6 @@
   background-color: #132F4C;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .contact-container {
     max-width: 100%;
@@ -313,8 +312,8 @@
   }
 
   .radio-group {
-     display: grid;
-       grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .radio-option {
@@ -371,8 +370,8 @@
     padding: 6px;
   }
     .radio-group {
-       display: grid;
-       grid-template-columns: repeat(2, 1fr);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   .radio-option span {
     font-size: 0.7rem;

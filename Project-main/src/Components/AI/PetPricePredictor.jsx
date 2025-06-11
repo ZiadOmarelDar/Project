@@ -63,7 +63,6 @@ const handleSubmit = async (e) => {
 
 	return (
 		<div className='page-container-100'>
-			{/* Navigation Bar */}
 			<nav className='navbar-50'>
 				<ul className='nav-list-50'>
 					<li>

@@ -1,5 +1,5 @@
 .adminContainer {
-  padding: 2rem; /* استخدام rem لتكون نسبية */
+  padding: 2rem;
   background-color: #f9f9f9;
   min-height: 100vh;
   display: flex;
@@ -11,16 +11,16 @@
 
 .adminCard {
   background: #fff;
-  border-radius: 1.5rem; /* استخدام rem */
+  border-radius: 1.5rem;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  width: 90%; /* نسبة مئوية لتكون استجابية */
+  width: 90%;
   max-width: 600px;
   text-align: center;
 }
 
 .adminTitle {
-  font-size: clamp(1.5rem, 4vw, 2rem); /* استخدام clamp للتكيف مع الحجم */
+  font-size: clamp(1.5rem, 4vw, 2rem);
   color: #2E317F;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -31,7 +31,7 @@
   align-items: center;
   gap: 1.5rem;
   justify-content: center;
-  flex-wrap: wrap; /* للسماح بالتفاف في الشاشات الصغيرة */
+  flex-wrap: wrap;
 }
 
 .adminImage {
@@ -41,11 +41,11 @@
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid #ecf0f1;
-  transition: transform 0.3s ease; /* إضافة تأثير انتقال */
+  transition: transform 0.3s ease;
 }
 
 .adminImage:hover {
-  transform: scale(1.05); /* تكبير الصورة عند المرور بالماوس */
+  transform: scale(1.05);
 }
 
 .adminText h3 {
@@ -60,7 +60,6 @@
   margin: 0;
 }
 
-/* Media Queries لتحسين الاستجابة */
 @media (max-width: 1024px) {
   .adminCard {
     width: 95%;

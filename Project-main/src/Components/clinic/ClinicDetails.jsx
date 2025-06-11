@@ -46,7 +46,7 @@ const ClinicDetails = () => {
           `http://localhost:3001/user/all-clinics/${clinicId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log('Clinic Data:', response.data.clinic); // Debug the response
+        console.log('Clinic Data:', response.data.clinic);
         setClinic(response.data.clinic || null);
       } catch (err) {
         console.error('Error fetching clinic details:', err);
@@ -80,7 +80,7 @@ const ClinicDetails = () => {
     : '#';
   const emailLink = clinic.email ? `mailto:${clinic.email}` : '#';
 
-  // Debug adminId
+
   console.log('Admin ID:', clinic.adminId);
 
   return (

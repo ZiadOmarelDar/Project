@@ -104,7 +104,6 @@ hr {
 	display: none;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
 	.trainers-list-container {
 		padding: 30px 15px;

@@ -128,7 +128,6 @@
   margin-top: 20px;
 }
 
-/* Media Queries */
 @media (max-width: 1024px) {
   .allClinicsTitle {
     font-size: 2.5rem;

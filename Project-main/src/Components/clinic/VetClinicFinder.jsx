@@ -36,7 +36,7 @@ const VetClinicFinder = () => {
         const response = await axios.get("http://localhost:3001/user/all-clinics", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("API Response:", response.data); // للتحقق من البيانات
+        console.log("API Response:", response.data);
         setClinics(response.data.clinics || []);
       } catch (err) {
         console.error("Error fetching all clinics:", err.response ? err.response.data : err.message);
@@ -57,7 +57,6 @@ const VetClinicFinder = () => {
   return (
     <ErrorBoundary>
       <div className="vetClinicFinderContainer">
-        {/* Header Section */}
         <div className="headerArea">
           <div className="titleBlock">
             <h2 className="mainHeading">
@@ -104,7 +103,6 @@ const VetClinicFinder = () => {
           </div>
         </div>
 
-        {/* Clinics Section */}
         <div className="vetClinicFinderCardsSection">
           <h2 className="sectionTitle-33">Our Clinics</h2>
           <div className="vetClinicFinderCards trainerStyle">

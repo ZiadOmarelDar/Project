@@ -104,7 +104,6 @@
 .train-section3 {
 	padding: 50px 10%;
 	text-align: center;
-	/* background-color: #fff; */
 }
 
 .section3-title {
@@ -197,7 +196,6 @@
 	margin: 15px 0;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
 	.train-section1 {
 		flex-direction: column;

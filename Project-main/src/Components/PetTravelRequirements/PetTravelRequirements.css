@@ -172,7 +172,6 @@
   justify-content: center;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .travel-hero {
     flex-direction: column;

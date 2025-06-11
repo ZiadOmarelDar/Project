@@ -8,7 +8,6 @@ import dAI from '../../assets/dAI.png';
 const AIHomePage = () => {
 	return (
 		<div className='page-container-50'>
-			{/* Navigation Bar */}
 			<nav className='navbar-50'>
 				<ul className='nav-list-50'>
 					<li>
@@ -23,10 +22,8 @@ const AIHomePage = () => {
 				</ul>
 			</nav>
 
-			{/* Main Content */}
 			<div className='main-content-50'>
 				<div className='cards-container-50'>
-					{/* Adoption Likelihood Predictor Card */}
 					<Link
 						to='/AdoptionPredictor'
 						className='card card-50'>
@@ -38,7 +35,6 @@ const AIHomePage = () => {
 						</div>
 					</Link>
 
-					{/* Pet Health Checker Card */}
 					<Link
 						to='/PetChecker'
 						className='card-50'>
@@ -50,7 +46,6 @@ const AIHomePage = () => {
 						</div>
 					</Link>
 
-					{/* PawCost Card */}
 					<Link
 						to='/PetPricePredictor'
 						className='card-50'>

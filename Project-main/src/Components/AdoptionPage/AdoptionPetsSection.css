@@ -159,7 +159,6 @@ body {
     cursor: not-allowed;
   }
   
-  /* Skeleton UI */
   .skeleton {
     background-color: #e5e7eb;
     animation: pulse 1.5s infinite;
@@ -192,7 +191,6 @@ body {
     }
   }
   
-  /* Media Queries */
   @media (max-width: 1024px) {
     .pets-grid-2 {
       grid-template-columns: repeat(3, 1fr);

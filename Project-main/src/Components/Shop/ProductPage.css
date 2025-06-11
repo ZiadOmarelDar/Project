@@ -132,7 +132,6 @@
   background: #1f1c3b;
 }
 
-/* Popup Styles */
 .popup {
   position: fixed;
   top: 0;
@@ -171,7 +170,6 @@
   to { opacity: 0; }
 }
 
-/* Media Queries */
 @media (max-width: 1200px) {
   .product-container-1 {
     max-width: 85%;

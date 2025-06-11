@@ -22,15 +22,14 @@
 	text-decoration: underline;
 }
 
-/* Form Container */
 .form-container-100 {
 	padding: 2rem;
 	width: 100%;
 	color: #2a2a72;
 }
 .hed-price {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .pric{
 	width: 350px;
@@ -103,7 +102,6 @@
 	background-color: #1a1a52;
 }
 
-/* Result Styling */
 .result-100 {
 	position: fixed;
 	top: 50%;

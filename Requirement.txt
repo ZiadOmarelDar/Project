@@ -1,0 +1,105 @@
+===============================
+HOW TO RUN THE PROJECT (VS CODE)
+===============================
+
+Prerequisites:
+-----------------
+Make sure you have installed:
+1. Git: https://git-scm.com/downloads
+2. Visual Studio Code: https://code.visualstudio.com
+3. Node.js / Python / Java (depending on the project)
+
+===============================
+1. Clone the GitHub Repository
+-------------------------------
+Open terminal (or VS Code) and run:
+
+git clone https://github.com/ZiadOmarelDar/Project.git
+cd Project
+
+OR
+
+In VS Code:
+- Ctrl + Shift + P → Git: Clone
+- Paste the URL above
+- Choose a folder
+- Click "Open" when done
+
+===============================
+2. Open the Project in VS Code
+-------------------------------
+Once opened, explore the files in the left "Explorer" panel.
+
+Check for these files:
+- package.json → Node.js / React
+- pom.xml → Java Spring Boot
+- requirements.txt → Python (Flask or Django)
+- docker-compose.yml → Docker-based app
+- index.html / style.css → HTML web project
+
+===============================
+3. Install Dependencies
+-------------------------------
+Open Terminal in VS Code (Ctrl + `)
+
+If Node.js (package.json exists):
+    npm install
+
+If Python (requirements.txt exists):
+    pip install -r requirements.txt
+
+If Java (pom.xml exists):
+    mvn clean install
+
+===============================
+4. Configure Environment Variables
+-------------------------------
+Check if there is a `.env.example` file.
+
+If yes:
+- Create a new file `.env`
+- Copy variables from `.env.example`
+- Fill in required values
+
+Example:
+    PORT=3000
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASS=secret
+
+===============================
+5. Run the Project
+-------------------------------
+
+If Node.js:
+    npm start
+    OR
+    npm run dev
+
+If Python:
+    python app.py
+    OR
+    python manage.py runserver
+
+If Java Spring Boot:
+    mvn spring-boot:run
+
+If Docker:
+    docker-compose up
+
+===============================
+6. View in Browser
+-------------------------------
+After starting, open browser and go to:
+http://localhost:PORT
+
+(Replace PORT with the one shown in terminal, like 3000 or 8000)
+
+===============================
+7. Technologies Used
+-------------------------------
+You can identify used technologies from:
+- File types: .js, .py, .java, .html, etc.
+- Dependency files: package.json, pom.xml, requirements.txt
+- README.md file (if available)
+

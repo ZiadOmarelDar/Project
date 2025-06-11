@@ -14,7 +14,6 @@ const ProductsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Fetch products from API
   useEffect(() => {
     fetch("http://localhost:3001/products")
       .then((res) => {
@@ -32,7 +31,6 @@ const ProductsPage = () => {
       });
   }, []);
 
-  // Read query string (e.g., ?filter=dog)
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const filterType = params.get("filter");
@@ -55,7 +53,6 @@ const ProductsPage = () => {
     }
   }, [location.search]);
 
-  // Apply filters to products
   useEffect(() => {
     let filtered = products;
     if (filters.dogs.length || filters.cats.length) {
@@ -65,7 +62,6 @@ const ProductsPage = () => {
     }
     setFilteredProducts(filtered);
   }, [filters, products]);
-  // Handle checkbox filter change
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters((prevFilters) => {
@@ -81,7 +77,6 @@ const ProductsPage = () => {
     });
   };
 
-  // Close filter panel when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -102,7 +97,6 @@ const ProductsPage = () => {
 
   return (
     <div className="products-container">
-      {/* Filter Panel */}
       <div
         className={`filters ${showFilters ? "show-filters" : ""}`}
         onClick={(e) => e.stopPropagation()}
@@ -188,7 +182,6 @@ const ProductsPage = () => {
         </label>
       </div>
 
-      {/* Toggle Button */}
       <button
         className={`filter-toggle-btn ${showFilters ? "active" : ""}`}
         onClick={(e) => {
@@ -199,7 +192,6 @@ const ProductsPage = () => {
         <HiFilter /> {showFilters ? "Close Filters" : "Open Filters"}
       </button>
 
-      {/* Products Grid */}
       <div className="products-list">
         <div className="product-grid">
           {filteredProducts.slice(0, visibleProducts).map((product) => (
@@ -224,7 +216,6 @@ const ProductsPage = () => {
           ))}
         </div>
 
-        {/* Show More Button */}
         {visibleProducts < filteredProducts.length && (
           <div className="show-more-container">
             <button

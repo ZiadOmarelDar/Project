@@ -24,7 +24,6 @@ import TrainHome from "../Train/TrainHome";
 const Home = () => {
   return (
     <div className="home-container">
-      {/* Section 1: Hero */}
       <section className="hero">
         <div className="hero-text">
           <h1>
@@ -66,7 +65,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 2: Give Them a Home */}
       <section className="adopt-section section">
         <h2>Give Them a Home</h2>
         <div className="adopt-gallery">
@@ -79,7 +77,6 @@ const Home = () => {
         </Link>
       </section>
 
-      {/* Section 3: Provide Best Care */}
       <section className="care-section section">
         <div className="care-text">
           <h2>Provide your pet with the best care</h2>
@@ -102,7 +99,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 4: Pet Care Forum */}
       <section className="forum-section">
         <div className="forum-text">
           <h2>Connect with Our Pet Care Forum</h2>
@@ -117,7 +113,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 5: Find a Veterinary Clinic */}
       <section className="clinic-section section">
         <div className="clinic-text">
           <h2>Find the <br/> Nearest Pet <br/> Clinic Fast</h2>
@@ -136,7 +131,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 6: Pet Training */}
       <section className="training-section">
         <div className="training-text">
           <h2>Train Your Pet the Right Way</h2>
@@ -157,7 +151,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 7: AI-Powered Pet Care */}
       <section className="ai-section section">
         <div className="ai-text">
           <h2>AI-Powered Pet Care</h2>
