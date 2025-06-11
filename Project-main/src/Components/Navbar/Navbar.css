@@ -226,7 +226,7 @@
 	.nav-links a {
 		font-size: 13px;
 	}
-	.menu-btn{
+	.menu-btn {
 		display: block;
 	}
 }
@@ -317,30 +317,29 @@
 		font-size: 13px;
 		text-align: center;
 		margin-top: 5px;
+		margin-left: 20px;
 	}
 	.cart-icon {
-		margin-top: 5px;
-		
+		position: relative;
 		font-size: 25px;
 	}
 }
 
-@media (max-width:991px) {
-	.navbar{
+@media (max-width: 991px) {
+	.navbar {
 		padding-inline: 20px;
 	}
-	.logo-1{
+	.logo-1 {
 		font-size: 40px;
 		min-width: 170px;
 	}
-	.auth-buttons{
+	.auth-buttons {
 		flex-direction: column;
 	}
-	.nav-links li:nth-child(4){
+	.nav-links li:nth-child(4) {
 		display: none;
 	}
-	.nav-links li.dropdown ul li:nth-child(6){
+	.nav-links li.dropdown ul li:nth-child(6) {
 		display: block;
 	}
 }
-
