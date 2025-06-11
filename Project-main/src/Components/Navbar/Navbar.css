@@ -5,7 +5,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px;
+	padding: 10px 50px;
 	background-color: white;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -15,9 +15,9 @@
 	font-weight: 400;
 	font-style: normal;
 	color: #323773;
-	font-size: 50px;
-	margin-left: 20px;
+	font-size: 45px;
 	text-decoration: none;
+	min-width: 200px;
 }
 
 .logo-1:hover {
@@ -27,13 +27,16 @@
 .nav-links {
 	list-style: none;
 	display: flex;
-	gap: 60px;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
 }
 
 .nav-links li {
 	display: inline-block;
 	font-family: Inter;
 	cursor: pointer;
+	min-width: fit-content;
 }
 
 .nav-links a {
@@ -100,7 +103,10 @@
 
 .auth-buttons {
 	display: flex;
+	flex-direction: column;
 	gap: 15px;
+	justify-content: center;
+	align-items: center;
 }
 
 .sign-in {
@@ -110,6 +116,8 @@
 	text-decoration: none;
 	color: #333;
 	font-family: Inter;
+	text-align: center;
+	width: 100%;
 }
 
 .sign-in:hover {
@@ -124,6 +132,7 @@
 	border-radius: 6px;
 	text-decoration: none;
 	font-family: Inter;
+	width: 100%;
 }
 
 .join-now:hover {
@@ -171,7 +180,8 @@
 @media (max-width: 768px) {
 	.navbar {
 		flex-direction: row;
-		align-items: flex-start;
+		align-items: center;
+		justify-content: space-evenly;
 	}
 
 	.logo-1 {
@@ -184,6 +194,7 @@
 		flex-direction: row;
 		gap: 10px;
 		width: 50%;
+		display: none;
 	}
 
 	.nav-links.active {
@@ -214,12 +225,15 @@
 	.nav-links a {
 		font-size: 13px;
 	}
+	.menu-btn{
+		display: block;
+	}
 }
 
 @media (min-width: 769px) {
 	.nav-links {
 		display: flex;
-		gap: 60px;
+		gap: 20px;
 	}
 
 	.nav-links li {
@@ -311,3 +325,23 @@
 		font-size: 25px;
 	}
 }
+
+@media (max-width:991px) {
+	.navbar{
+		padding-inline: 20px;
+	}
+	.logo-1{
+		font-size: 40px;
+		min-width: 170px;
+	}
+	.auth-buttons{
+		flex-direction: column;
+	}
+	.nav-links li:nth-child(4){
+		display: none;
+	}
+	.nav-links li.dropdown ul li:nth-child(6){
+		display: block;
+	}
+}
+

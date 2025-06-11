@@ -79,7 +79,7 @@ function Navbar() {
 						Home
 					</NavLink>
 				</li>
-				<li>
+				<li >
 					<NavLink to='/AdoptionPage'>Adopt a Pet</NavLink>
 				</li>
 				<li>
@@ -107,6 +107,9 @@ function Navbar() {
 						</li>
 						<li>
 							<NavLink to='/AboutUs'>About Us</NavLink>
+						</li>
+						<li>
+							<NavLink to='/shop'>Shop Supplies</NavLink>
 						</li>
 					</ul>
 				</li>
