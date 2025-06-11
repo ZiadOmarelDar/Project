@@ -406,7 +406,7 @@ const Profile = () => {
 
   return (
     <div className="containerBox123">
-      <h2 className="welcomeHeader456">Welcome, {userData.name}!</h2>
+      <h2 className="welcomeHeader456">{userData.name}</h2>
       <div className="userProfileSection789">
         <div className="profileImageWrapper012">
           {userData.userPhoto && userData.userPhoto !== "not found" ? (
@@ -524,7 +524,7 @@ const Profile = () => {
           {showAddServiceForm && (
             <div className="formContainer012">
               <h3 className="formHeader345">{services.length > 0 ? "Edit Service" : "Add New Service"}</h3>
-              <form onSubmit={handleServiceAction}>
+              <form className="serv-form" onSubmit={handleServiceAction}>
                 {userData.userType === "clinicAdmin" ? (
                   <>
                     <div className="clinicNameInput678">
@@ -586,31 +586,7 @@ const Profile = () => {
                       <input type="file" name="clinicPhotos" accept="image/jpeg,image/png" onChange={handleClinicPhotosChange} multiple />
                       {errors.clinicPhotos && <p className="errorDisplay345">{errors.clinicPhotos}</p>}
                     </div>
-                    {formData.clinicPhotos.length > 0 && (
-                      <div className="photoPreviewSection678">
-                        <h4 className="previewHeader901">Preview Photos</h4>
-                        <div className="previewImagesBox123">
-                          {formData.clinicPhotos.map((photo, index) => (
-                            <div key={index} className="previewImageWrapper456">
-                              <img
-                                src={
-                                  photo instanceof File
-                                    ? URL.createObjectURL(photo)
-                                    : `http://localhost:3001${photo}`
-                                }
-                                alt={`Preview ${index + 1}`}
-                                className="previewImage789"
-                                onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
-                              />
-                              <FaTrash
-                                className="removePhotoIcon012"
-                                onClick={() => handleRemovePhotoFromPreview(index)}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    
                     <div className="workingHoursInput345">
                       <label>Working Hours:</label>
                       <div className="hoursSelection678">
@@ -665,6 +641,31 @@ const Profile = () => {
                       <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange}  />
                       {errors.doctorDescription && <p className="errorDisplay789">{errors.doctorDescription}</p>}
                     </div>
+                    {formData.clinicPhotos.length > 0 && (
+                      <div className="photoPreviewSection678">
+                        <h4 className="previewHeader901">Preview Photos</h4>
+                        <div className="previewImagesBox123">
+                          {formData.clinicPhotos.map((photo, index) => (
+                            <div key={index} className="previewImageWrapper456">
+                              <img
+                                src={
+                                  photo instanceof File
+                                    ? URL.createObjectURL(photo)
+                                    : `http://localhost:3001${photo}`
+                                }
+                                alt={`Preview ${index + 1}`}
+                                className="previewImage789"
+                                onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
+                              />
+                              <FaTrash
+                                className="removePhotoIcon012"
+                                onClick={() => handleRemovePhotoFromPreview(index)}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     <div className="specialtiesInput012">
                       <label>Specialties:</label>
                       <div className="checkboxGroup345">
@@ -737,13 +738,14 @@ const Profile = () => {
                     </div>
                   </>
                 )}
-                <div className="formButtons012">
+                
+              </form>
+              <div className="formButtons012">
                   <button type="submit" className="saveButton345">Save Service</button>
                   <button type="button" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="cancelButton678">
                     Cancel
                   </button>
                 </div>
-              </form>
             </div>
           )}
         </div>
