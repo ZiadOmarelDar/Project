@@ -40,7 +40,10 @@ const filterCards = [
 
 const AdoptionPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
   const [pets, setPets] = useState([]);
 
   const cntr = pets.length;
@@ -50,21 +53,22 @@ const AdoptionPage = () => {
       .then((response) => response.json())
       .then((data) => {
         setPets(data);
-      });
+      })
+      .catch((error) => console.error("Error fetching pets:", error));
   }, [cntr]);
 
-  const filteredPets = pets.slice(0, 3)
-    .filter((pet) =>
-      pet.petName.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .slice(0, 7);
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const filteredPets = pets.slice(0, 3).filter((pet) =>
+    pet.petName.toLowerCase().includes(searchTerm.toLowerCase())
+  ).slice(0, 7);
 
   const toggleFavorite = (petId) => {
-    if (favorites.includes(petId)) {
-      setFavorites(favorites.filter((id) => id !== petId));
-    } else {
-      setFavorites([...favorites, petId]);
-    }
+    setFavorites((prev) =>
+      prev.includes(petId) ? prev.filter((id) => id !== petId) : [...prev, petId]
+    );
   };
 
   return (
@@ -97,7 +101,7 @@ const AdoptionPage = () => {
       <h2 className="section-title-2">Pets Available for Adoption</h2>
       <div className="pets-grid">
         {filteredPets.map((pet) => (
-          <div key={pet._id} className="pet-card">
+          <Link to={`/pet/${pet._id}`} key={pet._id} className="pet-card">
             <div className="pet-image-container">
               <img
                 src={pet.images[0]}
@@ -106,7 +110,10 @@ const AdoptionPage = () => {
               />
               <button
                 className="heart-btn"
-                onClick={() => toggleFavorite(pet._id)}
+                onClick={(e) => {
+                  e.stopPropagation(); // منع تنشيط الرابط عند النقر على القلب
+                  toggleFavorite(pet._id);
+                }}
               >
                 {favorites.includes(pet._id) ? (
                   <FaHeart className="heart-icon favorited" />
@@ -116,7 +123,7 @@ const AdoptionPage = () => {
               </button>
             </div>
             <h3 className="pet-name-1">{pet.petName}</h3>
-          </div>
+          </Link>
         ))}
 
         <Link to="/AdoptionPetsSection" className="see-them-card">

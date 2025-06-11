@@ -15,43 +15,20 @@ const FavoritesPage = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const mockPets = [
-          { id: 1, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
-          { id: 2, name: "Sokar", image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=60" },
-          { id: 3, name: "Bosy", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=60" },
-          { id: 4, name: "Soud", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60" },
-          { id: 5, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
-          { id: 6, name: "Mshmsh", image: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=500&q=60" },
-          { id: 7, name: "Zoro", image: "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?auto=format&fit=crop&w=500&q=60" },
-          { id: 8, name: "Zoro", image: "https://images.unsplash.com/photo-1587764379873-97837921fd44?auto=format&fit=crop&w=500&q=60" },
-          { id: 9, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
-          { id: 10, name: "Sokar", image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=60" },
-          { id: 11, name: "Bosy", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=60" },
-          { id: 12, name: "Soud", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60" },
-          { id: 13, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
-          { id: 14, name: "Mshmsh", image: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=500&q=60" },
-          { id: 15, name: "Zoro", image: "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?auto=format&fit=crop&w=500&q=60" },
-          { id: 16, name: "Zoro", image: "https://images.unsplash.com/photo-1587764379873-97837921fd44?auto=format&fit=crop&w=500&q=60" },
-          { id: 17, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
-          { id: 18, name: "Sokar", image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=60" },
-          { id: 19, name: "Bosy", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=60" },
-          { id: 20, name: "Soud", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60" },
-        ];
-
-        const filteredPets = mockPets.filter((pet) =>
-          favorites.includes(pet.id)
-        );
+        const response = await fetch("http://localhost:3001/pets");
+        if (!response.ok) throw new Error("Failed to fetch pets");
+        const data = await response.json();
+        // تصفية الحيوانات بناءً على favorites باستخدام _id
+        const filteredPets = data.filter((pet) => favorites.includes(pet._id));
         setFavoritePets(filteredPets);
         setLoading(false);
-
       } catch (err) {
         setError(err.message);
         setLoading(false);
       }
     };
-
     fetchPets();
-  }, [favorites]);
+  }, [favorites]); // إعادة التحميل عند تغيير favorites
 
   const removeFromFavorites = (petId) => {
     const updatedFavorites = favorites.filter((id) => id !== petId);
@@ -87,20 +64,20 @@ const FavoritesPage = () => {
       ) : (
         <div className="pets-grid-4">
           {favoritePets.map((pet) => (
-            <Link to={`/pet/${pet.id}`} key={pet.id} className="pet-card-4">
+            <Link to={`/pet/${pet._id}`} key={pet._id} className="pet-card-4">
               <div className="pet-image-container-4">
-                <img src={pet.image} alt={pet.name} className="pet-image-4" />
+                <img src={pet.images[0]} alt={pet.petName} className="pet-image-4" />
                 <button
                   className="remove-btn"
                   onClick={(e) => {
                     e.preventDefault();
-                    removeFromFavorites(pet.id);
+                    removeFromFavorites(pet._id);
                   }}
                 >
                   <FaTrash className="remove-icon" />
                 </button>
               </div>
-              <h3 className="pet-name-4">{pet.name}</h3>
+              <h3 className="pet-name-4">{pet.petName}</h3>
             </Link>
           ))}
         </div>
