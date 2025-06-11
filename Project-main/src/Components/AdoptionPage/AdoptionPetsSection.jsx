@@ -3,7 +3,6 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./AdoptionPetsSection.css";
 
-
 const AdoptionPetsSection = () => {
   const [allPets, setAllPets] = useState([]);
   const [favorites, setFavorites] = useState(() => {
