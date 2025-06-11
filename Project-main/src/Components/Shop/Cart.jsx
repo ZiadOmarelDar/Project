@@ -174,7 +174,7 @@ const Cart = () => {
                       +
                     </button>
                     <button
-                      className="remove-btn"
+                      className="remove-btn-44"
                       onClick={() => removeItem(item.productId?._id)}
                     >
                       Remove
