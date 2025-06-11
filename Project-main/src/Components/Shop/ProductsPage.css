@@ -154,7 +154,6 @@
 	background-color: #1a2a5e;
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
 	.product-grid {
 		grid-template-columns: repeat(3, minmax(200px, 1fr));

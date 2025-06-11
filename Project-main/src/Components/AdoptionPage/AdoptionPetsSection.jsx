@@ -3,7 +3,6 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./AdoptionPetsSection.css";
 
-
 const AdoptionPetsSection = () => {
   const [allPets, setAllPets] = useState([]);
   const [favorites, setFavorites] = useState(() => {
@@ -54,7 +53,7 @@ const AdoptionPetsSection = () => {
     <div className="adoption-pets-section-2">
       <div className="favorites-link-container">
         <Link to="/favorites" className="favorites-link">
-          View Favorites ({favorites.length})
+          View Favorites ({favorites.length-5})
         </Link>
         <Link to="/UploadPet" className="add-link">
           Add Pet For Adoption

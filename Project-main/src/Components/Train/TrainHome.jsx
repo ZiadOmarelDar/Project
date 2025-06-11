@@ -59,7 +59,6 @@ function TrainHome() {
 				</div>
 			</section>
 
-			{/* Section 2: Training Videos */}
 			<section className='train-section2'>
 				<h2 className='section2-title'>Training Videos</h2>
 				<div className='videos-container'>
@@ -114,7 +113,6 @@ function TrainHome() {
 				</div>
 			</section>
 
-			{/* Section 3: Our Pet Trainers */}
 			<section className='train-section3'>
 				<h2 className='section3-title'>Our Pet Trainers</h2>
 				{error && <p className='error'>{error}</p>}

@@ -164,7 +164,6 @@
   background-color: #ecf0f1;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .mainHeading {
     font-size: 3rem;

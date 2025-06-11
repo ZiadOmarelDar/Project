@@ -2,7 +2,7 @@
   max-width: 100%;
   font-family: Inter;
 }
-/* ======== Hero ======== */
+
 .hero {
   display: flex;
   justify-content: space-between;
@@ -37,7 +37,6 @@
   padding-bottom: 20px;
 }
 
-/* ======== Hero btn ======== */
 .hero-buttons {
   margin-top: 25px;
   display: grid;
@@ -65,7 +64,6 @@
   background-color: #151141;
 }
 
-/* ======== Hero img ======== */
 .hero-image img {
   max-width: 400px;
   display: flex;
@@ -73,7 +71,6 @@
   bottom: -35px;
 }
 
-/* ======== "Give Them a Home" ======== */
 .adopt-section {
   text-align: center;
   margin-top: 50px;
@@ -84,7 +81,6 @@
 .adopt-section h2 {
   font-size: 33px;
   font-weight: bold;
-
   padding-bottom: 25px;
 }
 
@@ -102,6 +98,7 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
 .show-more {
   margin-top: 20px;
   border: 2px solid #323773;
@@ -121,7 +118,6 @@
   color: white;
 }
 
-/* ======== Care Section ======== */
 .care-section {
   display: flex;
   align-items: center;
@@ -228,7 +224,7 @@
   bottom: 30px;
   left: 20px;
 }
-/* ======== Forum Section ======== */
+
 .forum-section {
   display: flex;
   align-items: center;
@@ -253,6 +249,7 @@
 .postionbtn2 {
   text-align: center;
 }
+
 .explore-btn-2 {
   display: inline-block;
   justify-content: center;
@@ -279,7 +276,7 @@
   position: relative;
   right: 200px;
 }
-/* ======== Clinic Section ======== */
+
 .clinic-section {
   display: flex;
   align-items: center;
@@ -346,7 +343,6 @@
   border-radius: 8px;
 }
 
-/* ======== Training Section ======== */
 .training-section {
   background: #fafafa;
   display: flex;
@@ -398,7 +394,6 @@
   margin-right: 50px;
 }
 
-/* ======== AI Section ======== */
 .ai-section {
   display: flex;
   align-items: center;
@@ -447,7 +442,6 @@
   width: 500px;
 }
 
-/* ======== Responsive Design ======== */
 @media (max-width: 1024px) {
   .home-container {
     max-width: 100%;
@@ -747,7 +741,6 @@
     bottom: -170px;
   }
 }
-
 
 @media (max-width: 480px) {
   .home-container {

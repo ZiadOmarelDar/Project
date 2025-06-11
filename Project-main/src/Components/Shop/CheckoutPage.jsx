@@ -18,7 +18,7 @@ const CheckoutPage = () => {
     <div className="checkout-container">
       <h2>Complete Your Order</h2>
       <form onSubmit={handleSubmit}>
-        {/* Order Info Section */}
+
         <div className="section-30">
           <h3>Order Info:</h3>
           <input type="text" placeholder="Full Name" required />
@@ -27,7 +27,6 @@ const CheckoutPage = () => {
           <input type="text" placeholder="City" required />
         </div>
 
-        {/* Payment Method Section */}
         <div className="section payment-method">
           <h3>Payment Method</h3>
           <div className="payment-option">
@@ -89,7 +88,6 @@ const CheckoutPage = () => {
           </div>
         </div>
 
-        {/* Confirm Button */}
         <button type="submit" className="confirm-btn-30">Confirm</button>
       </form>
       {showPopup && (

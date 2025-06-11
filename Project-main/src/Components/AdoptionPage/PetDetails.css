@@ -73,6 +73,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     color: #323773;
+    
   }
   
   .pet-info-value {
@@ -119,7 +120,6 @@ body {
     color: #ef4444;
   }
   
-  /* Media Queries*/
   @media (max-width: 768px) {
     .pet-images {
       flex-direction: column;

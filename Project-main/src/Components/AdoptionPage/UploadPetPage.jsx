@@ -38,15 +38,12 @@ export default function UploadPetPage() {
       navigate("/login");
       return;
     }
-    // console.log(formData)
     const data = new FormData();
 
-    // Append text fields
     for (const key in formData) {
       data.append(key, formData[key]);
     }
 
-    // Append images
     images.forEach((img) => {
       data.append("images", img);
     });

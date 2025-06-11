@@ -4,7 +4,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* Navigation Bar */
 .navbar-50 {
   background-color: #2a2a72;
   padding: 1rem;
@@ -29,7 +28,6 @@
   text-decoration: underline;
 }
 
-/* Main Content */
 .main-content-50 {
   display: flex;
   justify-content: center;
@@ -46,7 +44,6 @@
   width: 100%;
 }
 
-/* Cards */
 .card-50 {
   background-color: #e5e7eb;
   border-radius: 0.5rem;

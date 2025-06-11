@@ -116,7 +116,6 @@ body {
     margin: 16px 0;
   }
   
-  /* Skeleton UI */
   .skeleton {
     background-color: #e5e7eb;
     animation: pulse 1.5s infinite;
@@ -149,7 +148,6 @@ body {
     }
   }
   
-  /* Media Queries */
   @media (max-width: 1024px) {
     .pets-grid:not(.adoption-page .pets-grid ) {
       grid-template-columns: repeat(3, 1fr);

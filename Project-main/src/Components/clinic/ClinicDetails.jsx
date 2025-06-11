@@ -46,7 +46,7 @@ const ClinicDetails = () => {
           `http://localhost:3001/user/all-clinics/${clinicId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log('Clinic Data:', response.data.clinic); // Debug the response
+        console.log('Clinic Data:', response.data.clinic);
         setClinic(response.data.clinic || null);
       } catch (err) {
         console.error('Error fetching clinic details:', err);
@@ -80,7 +80,7 @@ const ClinicDetails = () => {
     : '#';
   const emailLink = clinic.email ? `mailto:${clinic.email}` : '#';
 
-  // Debug adminId
+
   console.log('Admin ID:', clinic.adminId);
 
   return (
@@ -190,17 +190,7 @@ const ClinicDetails = () => {
                       rel='noopener noreferrer'>
                       <FaEnvelope /> {displayValue(clinic.email)}
                     </a>
-                    {clinic.adminId && (
-                      <p>
-                        <Link
-                          to={`/clinic-admin/${clinic.adminId}`}
-                          className='admin-link'
-                          >
-                          View Admin
-                        </Link>
-                      </p>
-
-                    )}
+                    
                   </div>
                 </div>
                 <p className='detail-item specialist'>
@@ -230,6 +220,17 @@ const ClinicDetails = () => {
                   <MdEmail size={20} /> Connect Via Mail
                 </a>
               )}
+              {clinic.adminId && (
+                      <p className='admin-link'>
+                        <Link
+                          to={`/clinic-admin/${clinic.adminId}`}
+                          
+                          >
+                          clinic doctor
+                        </Link>
+                      </p>
+
+                    )}
             </div>
           </div>
         </div>

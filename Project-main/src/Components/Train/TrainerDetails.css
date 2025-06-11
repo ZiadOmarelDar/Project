@@ -4,7 +4,6 @@
 	max-width: 1000px;
 	margin: 0 auto;
 	font-family: 'Open Sans', sans-serif;
-	/* background-color: #fff; */
 }
 
 .trainer-details-container-2777 h2 {
@@ -38,7 +37,6 @@
 	height: 350px;
 	border-radius: 8px;
 	object-fit: cover;
-	/* border: 3px solid #ddd; */
 }
 
 .trainer-icon-2777 {
@@ -61,7 +59,6 @@
 	color: #000000;
 	line-height: 1.5;
 	position: relative;
-	/* top: 50px; */
 }
 
 .trainer-info-2777 p strong {
@@ -81,7 +78,6 @@
 
 .contactLinks-2777 {
 	margin-top: 50px;
-	/* margin-bottom: 60px; */
 	display: flex;
 	gap: 50px;
 	justify-content: center;
@@ -124,7 +120,6 @@
 	margin: 20px 0;
 }
 
-/* Responsive adjustments for mobile (up to 576px) */
 @media (max-width: 576px) {
 	.trainer-details-container-2777 {
 		top: 20px;
@@ -176,7 +171,6 @@
 	}
 }
 
-/* Responsive adjustments for tablet (577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
 	.trainer-details-container-2777 {
 		top: 30px;
@@ -208,7 +202,6 @@
 	}
 }
 
-/* Responsive adjustments for iPad/tablet (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
 	.trainer-details-container-2777 {
 		top: 40px;

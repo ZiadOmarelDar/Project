@@ -10,6 +10,7 @@ const PetDetails = () => {
 
   useEffect(() => {
     const fetchPetDetails = async () => {
+      setLoading(true); // إعادة تعيين الحالة عند كل تغيير في id
       try {
         const response = await fetch(`http://localhost:3001/pet/${id}`);
         if (!response.ok) {
@@ -17,19 +18,14 @@ const PetDetails = () => {
         }
         const data = await response.json();
         setPet(data);
-        setLoading(false);
       } catch (err) {
         setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
-    console.log("Fetching pet details", pet);
     fetchPetDetails();
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, [id]);
+  }, [id]); // يعتمد على id فقط
 
   if (loading) {
     return <p className="status-message">Loading pet details...</p>;
@@ -95,28 +91,28 @@ const PetDetails = () => {
       </div>
 
       <div className="pet-info-box">
-      <div className="pet-info-box-1">
-        <div style={{marginBottom:"15px"}} className="flex gap-[100px]">
-          <p className="pet-info-label">Vaccinations:</p>
-          <p className="pet-info-value">{pet.vaccinations}</p>
+        <div className="pet-info-box-1">
+          <div style={{ marginBottom: "15px" }} className="flex gap-[100px]">
+            <p className="pet-info-label">Vaccinations:</p>
+            <p className="pet-info-value">{pet.vaccinations}</p>
+          </div>
+          <div className="flex gap-[100px]">
+            <p className="pet-info-label">Health Status:</p>
+            <p className="pet-info-value">{pet.healthStatus}</p>
+          </div>
         </div>
-        <div className="flex gap-[100px]">
-          <p className="pet-info-label">Health Status:</p>
-          <p className="pet-info-value">{pet.healthStatus}</p>
-        </div>
-      </div>
       </div>
 
-      <div style={{marginBottom:"15px", marginTop:"10px", fontWeight:"600"}} className="pet-info-box">
+      <div style={{ marginBottom: "15px", marginTop: "10px", fontWeight: "600" }} className="pet-info-box">
         <p>Owner Info:</p>
-        <div style={{marginTop:"20px"}} className="flex justify-between">
+        <div style={{ marginTop: "20px" }} className="flex justify-between">
           <div className="flex gap-[50px]">
-          <p className="pet-info-label">Owner Name:</p>
-          <p className="pet-info-value">{pet.owner.name}</p>
-        </div>
-        <div className="flex gap-[50px]">
-          <p className="pet-info-label">Owner Phone:</p>
-          <p className="pet-info-value">{pet.owner.phoneNumber}</p>
+            <p className="pet-info-label">Owner Name:</p>
+            <p className="pet-info-value">{pet.owner.name}</p>
+          </div>
+          <div className="flex gap-[50px]">
+            <p className="pet-info-label">Owner Phone:</p>
+            <p className="pet-info-value">{pet.owner.phoneNumber}</p>
           </div>
         </div>
       </div>
@@ -125,7 +121,9 @@ const PetDetails = () => {
         <p className="pet-info-value">{pet.notes}</p>
       </div>
       <div className="take-me-button-container">
-        <button className="take-me-button">Take Me</button>
+        <button className="take-me-button">
+          <a href={`whatsapp:+2${pet.owner.phoneNumber}`}>Take Me</a>
+        </button>
       </div>
     </div>
   );

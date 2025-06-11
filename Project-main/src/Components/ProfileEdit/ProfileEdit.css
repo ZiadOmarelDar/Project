@@ -60,7 +60,6 @@
   margin-bottom: 15px;
 }
 
-/* Save Button */
 .save-btn {
   grid-column: span 2;
   padding: 10px 30px;
@@ -80,7 +79,6 @@
   background-color: #1a1a5c;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .profile-edit-form {
     grid-template-columns: 1fr;
