@@ -45,7 +45,6 @@ const VetClinicFinder = () => {
     fetchAllClinics();
   }, []);
 
-  // تصفية العيادات بناءً على البحث
   const filteredClinics = clinics.filter((clinic) => {
     const searchLower = searchTerm.toLowerCase();
     const nameMatch = clinic.clinicName?.toLowerCase().includes(searchLower) || false;
@@ -105,13 +104,11 @@ const VetClinicFinder = () => {
           </div>
         </div>
 
-       
-
         {/* Clinics Section */}
         <div className="vetClinicFinderCardsSection">
           <h2 className="sectionTitle-33">Our Clinics</h2>
           <div className="vetClinicFinderCards trainerStyle">
-            {filteredClinics.slice(0, 3).map((clinic, index) => ( // Limit to 3 clinics
+            {filteredClinics.slice(0, 3).map((clinic, index) => (
               <div key={index} className="clinicCard" onClick={() => navigate(`/clinic/${clinic._id}`)}>
                 <img
                   src={clinic.clinicPhotos && clinic.clinicPhotos[0] ? `http://localhost:3001${clinic.clinicPhotos[0]}` : cl}

@@ -233,7 +233,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background: #666262 url('../../assets/back.png') no-repeat center/cover; */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../assets/back.png") no-repeat center/cover;
   color: white;

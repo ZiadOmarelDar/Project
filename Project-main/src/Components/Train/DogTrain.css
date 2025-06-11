@@ -45,7 +45,7 @@
 
 .video-info-dog {
 	display: flex;
-	flex-direction: column; /* جعل العناصر عمودية */
+	flex-direction: column;
 	align-items: center;
 	padding: 10px 20px;
 }

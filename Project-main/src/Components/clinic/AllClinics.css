@@ -34,10 +34,10 @@
 }
 
 .searchIcon {
-  color: white; /* Blue color for the icon */
+  color: white;
   font-size: 48px;
   background: #13015c;
-  border: 1px solid #1a3c70; /* Blue border for the icon */
+  border: 1px solid #1a3c70;
   border-radius: 10%;
 }
 
@@ -128,7 +128,7 @@
   margin-top: 20px;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 1024px) {
   .allClinicsTitle {
     font-size: 2.5rem;

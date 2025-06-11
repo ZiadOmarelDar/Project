@@ -6,10 +6,6 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 import { FcRemoveImage } from "react-icons/fc";
 import { TbUpload } from "react-icons/tb";
 import { MdDelete } from "react-icons/md";
-
-
-
-
 import "./Profile.css";
 
 const addGoogleFonts = () => {

@@ -35,7 +35,7 @@ const ProductsPage = () => {
   // Read query string (e.g., ?filter=dog)
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const filterType = params.get("filter"); // "dog" أو "cat"
+    const filterType = params.get("filter");
 
     if (filterType === "dog") {
       setFilters({

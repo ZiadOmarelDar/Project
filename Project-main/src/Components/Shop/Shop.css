@@ -29,7 +29,7 @@
 }
 
 .ShopSearchIcon:hover {
-	background-color: #1a2a5e; /* لون مختلف عند التمرير */
+	background-color: #1a2a5e;
 }
 
 .ShopSearchInput {
@@ -102,7 +102,7 @@
 	background: rgba(0, 0, 0, 0.3);
 	color: white;
 	border: none;
-	padding: 15px; /* توحيد الـ padding عشان يظهر السهمين بشكل صحيح */
+	padding: 15px;
 	cursor: pointer;
 	font-size: 24px;
 	border-radius: 50%;
@@ -364,7 +364,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 400px; /* Ensure card has enough height for content */
+	min-height: 400px;
 }
 
 .ShopProductCard:hover {
@@ -373,10 +373,10 @@
 
 .ShopProductImage {
 	width: 100%;
-	max-width: 100px; /* Limit width for better centering */
+	max-width: 100px;
 	height: 200px;
 	object-fit: contain;
-	margin: 0 auto; /* Center the image horizontally */
+	margin: 0 auto;
 	border-bottom: 1px solid #eee;
 }
 
@@ -391,8 +391,8 @@
 .ShopProductCard p {
 	color: #e63946;
 	font-weight: bold;
-	margin-top: auto; /* Push price to the bottom */
-	padding-bottom: 10px; /* Add some padding at the bottom */
+	margin-top: auto;
+	padding-bottom: 10px;
 }
 
 .ShopViewAllBtn {

@@ -3,16 +3,14 @@ import './CheckoutPage.css';
 
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('card');
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowPopup(true); // Show popup on successful submission
-    // Hide popup after 5 seconds
+    setShowPopup(true);
     const timer = setTimeout(() => {
       setShowPopup(false);
     }, 2000);
-    // Cleanup timer on unmount or re-render
     return () => clearTimeout(timer);
   };
 

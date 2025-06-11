@@ -104,7 +104,7 @@
 	background: #ddd;
 }
 
-/* التصميم الأصلي لباقي الصفحة */
+
 .clinicDetailsContainer {
 	padding: 0 0 0 20px;
 	background-color: #f9f9f9;
@@ -118,11 +118,11 @@
 	background-size: cover;
 	background-position: center;
 	color: #fff;
-	margin-top: 0 !important; /* التغلب على أي تعارض */
-	padding-top: 0 !important; /* التغلب على أي تعارض */
-	height: 100%; /* لضمان ملء الارتفاع الكامل */
-	width: 100%; /* لضمان ملء العرض الكامل */
-	box-sizing: border-box; /* لتجنب أي مشاكل في الحجم */
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .clinicDetailsCardSection {
@@ -264,13 +264,11 @@
 	}
 }
 
-/* تعديل ارتفاع الكاروسيل في الحجم الصغير */
 @media (max-width: 480px) {
 	.carousel {
-		height: 300px; /* ارتفاع أصغر للكاروسيل */
+		height: 300px;
 	}
 
-	/* ترتيب البيانات ليكون الـ specialist في الأسفل واليسار */
 	.detail-row {
 		flex-direction: column;
 		gap: 10px;
@@ -278,7 +276,7 @@
 	}
 
 	.specialist {
-		order: 2; /* يظهر في الأخير */
+		order: 2;
 		margin-left: 0;
 		width: 100%;
 		text-align: left;
@@ -298,7 +296,6 @@
 	}
 }
 
-/* إصلاح مشكلة الزيادة في العرض على الموبايل */
 body,
 html {
 	overflow-x: hidden;
@@ -311,7 +308,6 @@ html {
 	padding: 20px;
 }
 
-/* تأكد من أن كل العناصر داخل detail-row لا تتسبب في overflow */
 .detail-row,
 .detail-item {
 	flex-wrap: wrap;

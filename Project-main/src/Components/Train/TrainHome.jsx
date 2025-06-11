@@ -40,7 +40,6 @@ function TrainHome() {
 
 	return (
 		<>
-			{/* Section 1: Hero - يبقى كما هو الأصلي */}
 			<section className='train-section1'>
 				<div className='section1-text'>
 					<h1>

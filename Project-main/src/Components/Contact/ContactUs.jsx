@@ -8,7 +8,7 @@ const ContactUs = () => {
     lastName: "",
     email: "",
     phone: "",
-    subject: "General Inquiry", // Default value as per image
+    subject: "General Inquiry",
     message: "",
   });
 
@@ -78,7 +78,7 @@ const ContactUs = () => {
         <p>Any question or remarks? Just write us a message!</p>
       </div>
     <div className="contact-container">
-     
+    
       <div className="contact-content">
         <div className="contact-info">
           <h2>Contact Information</h2>

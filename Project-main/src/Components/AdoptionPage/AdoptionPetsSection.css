@@ -192,7 +192,7 @@ body {
     }
   }
   
-  /* Media Queries للتصميم المتجاوب */
+  /* Media Queries */
   @media (max-width: 1024px) {
     .pets-grid-2 {
       grid-template-columns: repeat(3, 1fr);

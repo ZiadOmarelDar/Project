@@ -139,6 +139,7 @@
 .no-products-message-22 h2 {
 	color: #e63946;
 }
+
 .back-to-shop-btn-2 {
 	margin-top: 10px;
 	padding: 8px 16px;
@@ -152,6 +153,7 @@
 .back-to-shop-btn:hover {
 	background-color: #1a2a5e;
 }
+
 /* Responsive Design */
 @media (max-width: 1200px) {
 	.product-grid {

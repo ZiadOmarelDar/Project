@@ -69,7 +69,7 @@ const handleCheckHealth = async (e) => {
 	};
 
 	const handleChangee = (selectedOption) => {
-   console.log("Selected:", selectedOption);
+    console.log("Selected:", selectedOption);
 };
 
 	return (

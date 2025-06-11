@@ -149,7 +149,7 @@ body {
     }
   }
   
-  /* Media Queries للتصميم المتجاوب */
+  /* Media Queries */
   @media (max-width: 1024px) {
     .pets-grid:not(.adoption-page .pets-grid ) {
       grid-template-columns: repeat(3, 1fr);

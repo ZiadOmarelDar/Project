@@ -1,4 +1,3 @@
-// src/components/PetTravelRequirements/PetTravelRequirements.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dogWithBage from "../../assets/dogWithBage.png"; 

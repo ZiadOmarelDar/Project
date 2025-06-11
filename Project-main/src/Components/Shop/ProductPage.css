@@ -139,7 +139,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +158,7 @@
   font-weight: bold;
   max-width: 300px;
   width: 90%;
-  animation: fadeOut 0.3s ease-out 4.7s forwards; /* Fade out after 4.7s (total 5s) */
+  animation: fadeOut 0.3s ease-out 4.7s forwards;
 }
 
 @keyframes fadeIn {

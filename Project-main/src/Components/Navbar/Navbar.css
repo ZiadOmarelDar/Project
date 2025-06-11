@@ -47,10 +47,8 @@
 	transition: 0.3s;
 }
 
-/* تعديل تنسيق الرابط النشط */
 .nav-links a:hover,
 .nav-links a.active {
-	/* تغيير من .nav-links .active إلى .nav-links a.active */
 	color: #4a3aff;
 	border-bottom: 2px solid #4a3aff;
 }
@@ -153,7 +151,6 @@
 	display: none;
 }
 
-/* ################################# */
 .username {
 	color: #333;
 	font-weight: 600;
@@ -191,7 +188,7 @@
 	}
 
 	.nav-links {
-		display: flex; /* إخفاء الروابط في البداية */
+		display: flex;
 		flex-direction: row;
 		gap: 10px;
 		display: none;
@@ -207,7 +204,6 @@
 		font-size: 5px;
 	}
 
-	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
 		flex-direction: row;
@@ -227,7 +223,7 @@
 	.nav-links a {
 		font-size: 13px;
 	}
-	.menu-btn{
+	.menu-btn {
 		display: block;
 	}
 }
@@ -263,7 +259,7 @@
 	}
 
 	.nav-links {
-		display: none; /* إخفاء الروابط في البداية */
+		display: none;
 		flex-direction: column;
 		gap: 20px;
 	}
@@ -276,12 +272,10 @@
 		font-size: 18px;
 	}
 
-	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
 	}
 
-	/* إظهار زر القائمة الجانبية (المينيو) */
 	.menu-btn {
 		display: block;
 		background: none;
@@ -318,30 +312,29 @@
 		font-size: 13px;
 		text-align: center;
 		margin-top: 5px;
+		margin-left: 20px;
 	}
 	.cart-icon {
-		margin-top: 5px;
-		
+		position: relative;
 		font-size: 25px;
 	}
 }
 
-@media (max-width:991px) {
-	.navbar{
+@media (max-width: 991px) {
+	.navbar {
 		padding-inline: 20px;
 	}
-	.logo-1{
+	.logo-1 {
 		font-size: 40px;
 		min-width: 170px;
 	}
-	.auth-buttons{
+	.auth-buttons {
 		flex-direction: column;
 	}
-	.nav-links li:nth-child(4){
+	.nav-links li:nth-child(4) {
 		display: none;
 	}
-	.nav-links li.dropdown ul li:nth-child(6){
+	.nav-links li.dropdown ul li:nth-child(6) {
 		display: block;
 	}
 }
-

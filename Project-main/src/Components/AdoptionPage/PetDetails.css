@@ -119,7 +119,7 @@ body {
     color: #ef4444;
   }
   
-  /* Media Queries للتصميم المتجاوب */
+  /* Media Queries*/
   @media (max-width: 768px) {
     .pet-images {
       flex-direction: column;

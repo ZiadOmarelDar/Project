@@ -12,11 +12,9 @@ const FavoritesPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // جلب بيانات الحيوانات المفضلة
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        // محاكاة البيانات مؤقتًا
         const mockPets = [
           { id: 1, name: "Kitty", image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=60" },
           { id: 2, name: "Sokar", image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=60" },
@@ -40,24 +38,12 @@ const FavoritesPage = () => {
           { id: 20, name: "Soud", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60" },
         ];
 
-        // تصفية الحيوانات المفضلة بناءً على favorites
         const filteredPets = mockPets.filter((pet) =>
           favorites.includes(pet.id)
         );
         setFavoritePets(filteredPets);
         setLoading(false);
 
-        // عندما يصبح الـ API جاهزًا، يمكنك استبدال الكود أعلاه بجلب البيانات من الـ API:
-        /*
-        const response = await fetch("https://api.example.com/pets");
-        if (!response.ok) {
-          throw new Error("Failed to fetch pets");
-        }
-        const data = await response.json();
-        const filteredPets = data.filter((pet) => favorites.includes(pet.id));
-        setFavoritePets(filteredPets);
-        setLoading(false);
-        */
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -75,7 +61,6 @@ const FavoritesPage = () => {
 
   return (
     <div className="favorites-page">
-      {/* رابط للعودة إلى القائمة */}
       <div className="back-link-container">
         <Link to="/AdoptionPetsSection" className="back-link">
           Back to Pets List
