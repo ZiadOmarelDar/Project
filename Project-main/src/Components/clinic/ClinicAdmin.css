@@ -1,5 +1,5 @@
 .adminContainer {
-  padding: 20px;
+  padding: 2rem; /* استخدام rem لتكون نسبية */
   background-color: #f9f9f9;
   min-height: 100vh;
   display: flex;
@@ -11,26 +11,27 @@
 
 .adminCard {
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 100%;
+  border-radius: 1.5rem; /* استخدام rem */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 90%; /* نسبة مئوية لتكون استجابية */
   max-width: 600px;
   text-align: center;
 }
 
 .adminTitle {
-  font-size: 1.8em;
+  font-size: clamp(1.5rem, 4vw, 2rem); /* استخدام clamp للتكيف مع الحجم */
   color: #2E317F;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .adminProfile {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap; /* للسماح بالتفاف في الشاشات الصغيرة */
 }
 
 .adminImage {
@@ -40,21 +41,46 @@
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid #ecf0f1;
+  transition: transform 0.3s ease; /* إضافة تأثير انتقال */
+}
+
+.adminImage:hover {
+  transform: scale(1.05); /* تكبير الصورة عند المرور بالماوس */
 }
 
 .adminText h3 {
-  font-size: 1.5em;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #2E317F;
-  margin: 0 0 10px;
+  margin: 0 0 1rem;
 }
 
 .adminText p {
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #34495e;
   margin: 0;
 }
 
-/* Media Queries */
+/* Media Queries لتحسين الاستجابة */
+@media (max-width: 1024px) {
+  .adminCard {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .adminImage {
+    width: 130px;
+    height: 130px;
+  }
+
+  .adminText h3 {
+    font-size: 1.3rem;
+  }
+
+  .adminText p {
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
   .adminImage {
     width: 120px;
@@ -62,17 +88,17 @@
   }
 
   .adminText h3 {
-    font-size: 1.3em;
+    font-size: 1.2rem;
   }
 
   .adminText p {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .adminCard {
-    padding: 15px;
+    padding: 1rem;
   }
 
   .adminImage {
@@ -81,15 +107,35 @@
   }
 
   .adminText h3 {
-    font-size: 1.1em;
+    font-size: 1.1rem;
   }
 
   .adminText p {
-    font-size: 0.8em;
+    font-size: 0.85rem;
   }
 
   .adminProfile {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .adminCard {
+    max-width: 700px;
+  }
+
+  .adminImage {
+    width: 180px;
+    height: 180px;
+  }
+
+  .adminText h3 {
+    font-size: 1.8rem;
+  }
+
+  .adminText p {
+    font-size: 1.2rem;
   }
 }

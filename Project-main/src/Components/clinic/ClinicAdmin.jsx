@@ -11,10 +11,10 @@ const ClinicAdmin = () => {
     const fetchAdminDetails = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:3001/api/admin/${adminId}`, {
+        const response = await axios.get(`http://localhost:3001/admin/${adminId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("Admin Data:", response.data.admin); // Debug the response
+        // console.log("Admin Data:", response.data.admin); // Debug the response
         setAdmin(response.data.admin);
       } catch (err) {
         console.error("Error fetching admin details:", err.response ? err.response.data : err.message);
@@ -30,22 +30,26 @@ const ClinicAdmin = () => {
     window.open(fullUrl, "_blank");
   };
 
+  // استخدام doctorDescription من الخدمة إذا لم يكن هناك description منفصل
+  const description = admin.services && admin.services.length > 0 ? admin.services[0].doctorDescription : "No description available";
+  const photoUrl = admin.userPhoto || "https://via.placeholder.com/150";
+
   return (
     <div className="adminContainer">
       <div className="adminCard">
-        <h2 className="adminTitle">Admin Profile</h2>
+        <h2 className="adminTitle">Doctor Profile</h2>
         <div className="adminProfile">
           <img
-            src={admin.image || "/default-image.png"} // Default image if none provided
+            src={photoUrl.startsWith('http') ? photoUrl : `http://localhost:3001${photoUrl}`}
             alt={`${admin.name || "Admin"} photo`}
             className="adminImage"
-            onClick={() => handleImageClick(admin.image || "/default-image.png")}
-            onError={(e) => { e.target.src = "/default-image.png"; }} // Fallback on error
+            onClick={() => handleImageClick(photoUrl)}
+            onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
           />
           <div className="adminText">
             <h3>{admin.name || "Unknown Admin"}</h3>
             <p><strong>Email:</strong> {admin.email || "Not provided"}</p>
-            <p><strong>Description:</strong> {admin.description || "No description available"}</p>
+            <p><strong>Description:</strong> {description}</p>
           </div>
         </div>
       </div>

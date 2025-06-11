@@ -102,8 +102,8 @@ const ClinicDetails = () => {
                     alt={`${clinic.clinicName || 'Clinic'} Slide ${index + 1}`}
                     className='carousel-clinc-image'
                     onError={(e) =>
-                      (e.target.src =
-                        'https://via.placeholder.com/800x600?text=No+Image')
+                    (e.target.src =
+                      'https://via.placeholder.com/800x600?text=No+Image')
                     }
                   />
                   <div className='carousel-clinc-text'>
@@ -191,12 +191,15 @@ const ClinicDetails = () => {
                       <FaEnvelope /> {displayValue(clinic.email)}
                     </a>
                     {clinic.adminId && (
-                      <Link
-                        to={`/clinic-admin/${clinic.adminId}`}
-                        className='admin-link'
-                        target='_blank'>
-                        View Admin
-                      </Link>
+                      <p>
+                        <Link
+                          to={`/clinic-admin/${clinic.adminId}`}
+                          className='admin-link'
+                          >
+                          View Admin
+                        </Link>
+                      </p>
+
                     )}
                   </div>
                 </div>

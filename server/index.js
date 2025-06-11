@@ -508,11 +508,11 @@ app.get("/user/all-clinics/:id", authMiddleware, async (req, res) => {
   }
 });
 
-// Get Doctor Info
-app.get('/admin/:id', async (req, res) => {
+// Get Doctor Info (Admin Details)
+app.get('/admin/:id', authMiddleware, async (req, res) => {
   try {
-    const admin = await Admin.findById(req.params.id);
-    if (!admin) {
+    const admin = await UsersModel.findById(req.params.id).select("-password");
+    if (!admin || admin.userType !== "clinicAdmin") {
       return res.status(404).json({ message: 'Admin not found' });
     }
     res.json({ admin });
