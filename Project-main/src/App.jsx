@@ -33,9 +33,10 @@ import PetPricePredictor from './Components/AI/PetPricePredictor';
 import PetChecker from './Components/AI/PetChecker';
 import AllClinics from './Components/clinic/AllClinics';
 import ClinicDetails from './Components/clinic/ClinicDetails';
-import ClinicAdmin from './Components/clinic/ClinicAdmin'; // استيراد مكون ClinicAdmin
+import ClinicAdmin from './Components/clinic/ClinicAdmin';
 import UploadPetPage from './Components/AdoptionPage/UploadPetPage';
 import AboutUs from './Components/AboutUs/AboutUs';
+import ContactUs from './Components/Contact/ContactUs';
 
 function App() {
 	return (
@@ -160,7 +161,6 @@ function App() {
 						path='/clinic-admin/:adminId'
 						element={<ClinicAdmin />}
 					/>{' '}
-					{/* مسار جديد لـ ClinicAdmin */}
 					<Route
 						path='/AIHomePage'
 						element={<AIHomePage />}
@@ -192,6 +192,10 @@ function App() {
 					<Route
 						path='/AboutUs'
 						element={<AboutUs />}
+					/>
+					<Route
+						path='/ContactUs'
+						element={<ContactUs />}
 					/>
 				</Route>
 			</Routes>
