@@ -253,7 +253,7 @@
 @media (max-width: 480px) {
 	.navbar {
 		flex-direction: row;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.logo-1 {
@@ -265,7 +265,6 @@
 		display: none; /* إخفاء الروابط في البداية */
 		flex-direction: column;
 		gap: 20px;
-		width: 100%;
 	}
 
 	.nav-links.active {

@@ -30,7 +30,7 @@ const Footer = () => {
 					<Link className="block link" style={{marginBottom:"20px"}} to="/About">
 						About
 					</Link>
-					<Link className="block link" style={{marginBottom:"0px"}} to="/Contact">
+					<Link className="block link" style={{marginBottom:"30px"}} to="/Contact">
 						Contact
 					</Link>
 				</div>
