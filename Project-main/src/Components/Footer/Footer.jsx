@@ -11,11 +11,11 @@ const Footer = () => {
 			<div className="container">
 				<div className="box">
 					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Reach us</h3>
-					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5 link" href="mailto:pet_care@gmail.com">
+					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="mailto:pet_care@gmail.com">
 						<img src={envelope} alt="" width={20} />
 							pet_care@gmail.com
 					</a>
-					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="tel:+201273349622">
+					<a style={{marginBottom:"20px"}} className="flex items-center gap-2.5" href="whatsapp:+201273349622">
 						<img src={phone} alt="" width={20} />
 							201273349622
 					</a>
@@ -30,7 +30,7 @@ const Footer = () => {
 					<Link className="block link" style={{marginBottom:"20px"}} to="/About">
 						About
 					</Link>
-					<Link className="block" style={{marginBottom:"0px"}} to="/Contact">
+					<Link className="block link" style={{marginBottom:"30px"}} to="/Contact">
 						Contact
 					</Link>
 				</div>
