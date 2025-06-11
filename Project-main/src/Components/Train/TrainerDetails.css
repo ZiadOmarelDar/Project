@@ -123,3 +123,114 @@
 	font-size: 16px;
 	margin: 20px 0;
 }
+
+/* Responsive adjustments for mobile (up to 576px) */
+@media (max-width: 576px) {
+	.trainer-details-container-2777 {
+		top: 20px;
+		padding: 10px;
+		max-width: 100%;
+	}
+
+	.trainer-content-2777 {
+		flex-direction: column;
+		gap: 20px;
+		padding: 10px;
+		align-items: center;
+	}
+
+	.trainer-image-container-2777 {
+		left: 0;
+		width: 200px;
+		height: 300px;
+		margin-right: 0;
+	}
+
+	.trainer-image-2777 {
+		width: 200px;
+		height: 250px;
+	}
+
+	.trainer-info-2777 {
+		border-left: none;
+		padding-left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 14px;
+		margin: 10px 0;
+	}
+
+	.contactLinks-2777 {
+		margin-top: 30px;
+		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.contactLink-2777 {
+		width: 80%;
+		text-align: center;
+	}
+}
+
+/* Responsive adjustments for tablet (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+	.trainer-details-container-2777 {
+		top: 30px;
+		max-width: 90%;
+	}
+
+	.trainer-content-2777 {
+		gap: 100px;
+	}
+
+	.trainer-image-container-2777 {
+		left: 50px;
+		width: 200px;
+		height: 350px;
+	}
+
+	.trainer-image-2777 {
+		width: 200px;
+		height: 300px;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 15px;
+	}
+
+	.contactLinks-2777 {
+		gap: 30px;
+		font-size: 15px;
+	}
+}
+
+/* Responsive adjustments for iPad/tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.trainer-details-container-2777 {
+		top: 40px;
+		max-width: 900px;
+	}
+
+	.trainer-content-2777 {
+		gap: 120px;
+	}
+
+	.trainer-image-container-2777 {
+		left: 70px;
+		width: 220px;
+		height: 380px;
+	}
+
+	.trainer-image-2777 {
+		width: 220px;
+		height: 330px;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 16px;
+	}
+}
