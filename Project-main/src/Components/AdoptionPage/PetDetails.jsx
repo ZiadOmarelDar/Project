@@ -45,7 +45,6 @@ const PetDetails = () => {
 
   return (
     <div className="pet-details">
-      {/* الصور */}
       <div className="pet-images">
         <img
           src={pet.images[0]}
@@ -78,10 +77,8 @@ const PetDetails = () => {
       </div>
 
       <hr className="hr" />
-      {/* اسم الحيوان */}
       <h2 className="pet-name">{pet.petName}</h2>
 
-      {/* المعلومات الأساسية */}
       <div className="pet-info-box">
         <div className="pet-info-row">
           <p className="pet-info-label">Name:</p>
@@ -97,7 +94,6 @@ const PetDetails = () => {
         </div>
       </div>
 
-      {/* المعلومات الصحية */}
       <div className="pet-info-box">
       <div className="pet-info-box-1">
         <div style={{marginBottom:"15px"}} className="flex gap-[100px]">
@@ -124,13 +120,10 @@ const PetDetails = () => {
           </div>
         </div>
       </div>
-      {/* الملاحظات */}
       <div className="pet-info-box">
         <p className="pet-info-label">Notes:</p>
         <p className="pet-info-value">{pet.notes}</p>
       </div>
-
-      {/* زر "Take Me" */}
       <div className="take-me-button-container">
         <button className="take-me-button">Take Me</button>
       </div>

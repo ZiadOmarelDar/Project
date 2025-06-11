@@ -9,7 +9,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,12 +47,10 @@ const ProductPage = () => {
           },
         }
       );
-      setShowPopup(true); // Show popup on successful addition
-      // Hide popup after 5 seconds
+      setShowPopup(true);
       const timer = setTimeout(() => {
         setShowPopup(false);
       }, 2000);
-      // Cleanup timer on unmount or re-render
       return () => clearTimeout(timer);
     } catch (err) {
       setError(

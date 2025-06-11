@@ -82,6 +82,7 @@
 	margin-bottom: 5px;
 	font-size: 14px;
 }
+
 .form-section-checker > .form-group-checker > div {
 		width: 100%;
 	padding: 5px;
@@ -92,24 +93,27 @@
 	cursor: pointer;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .form-section-checker > .form-group-checker > div > div{
 	border: none;
 
 }
+
 .dropdown-checker {
 	width: 100%;
 	padding: 5px;
 	margin-top: 10px;
 	font-size: 14px;
-	/* border: 1px solid #ccc; */
 	border-radius: 10px;
 	background-color: #fff;
 	cursor: pointer;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .dropdown-checker  div:last-of-type{
 	border: none;
 }
+
 .symptoms-container-checker {
 	display: flex;
 	flex-wrap: wrap;
@@ -126,6 +130,7 @@
 	flex: 1;
 	max-width: 45%;
 }
+
 .form-group-checker:last-child {
 	flex: 1;
 	max-width: 100%;

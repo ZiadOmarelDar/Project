@@ -1,4 +1,3 @@
-/* src/components/Community/Community.css */
 .Community {
 	max-width: 900px;
 	margin: 0 auto;
@@ -15,7 +14,7 @@
   }
   
   .success-message {
-	color: #323773; /* غيرنا اللون */
+	color: #323773;
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 1rem;
@@ -41,7 +40,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	border: 2px solid #323773; /* غيرنا اللون */
+	border: 2px solid #323773;
 	object-fit: cover;
   }
   
@@ -49,7 +48,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	border: 2px solid #323773; /* غيرنا اللون */
+	border: 2px solid #323773;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -57,8 +56,8 @@
   }
   
   .current-user-avatar-icon svg {
-	font-size: 1.8rem; /* قلّصنا الحجم من 2rem */
-	color: #323773; /* غيرنا اللون */
+	font-size: 1.8rem;
+	color: #323773;
   }
   
   .add-post-input-container {
@@ -82,7 +81,7 @@
   
   .add-post-input-container textarea:focus {
 	outline: none;
-	border-color: #323773; /* غيرنا اللون */
+	border-color: #323773;
   }
   .image-upload-container {
 	display: flex;
@@ -121,7 +120,7 @@
   .post-icon {
 	cursor: pointer;
 	font-size: 1.8rem;
-	color: #323773; /* غيرنا اللون */
+	color: #323773;
 	transition:  0.3s ease;
 	margin-left: 680px;
 	margin-top: -60px;
@@ -129,47 +128,46 @@
   }
   
   .post-icon:hover {
-	color: #06115d; /* لون أغمق للـ hover */
+	color: #06115d;
   }
   
   /* Responsive Design */
   @media (max-width: 768px) {
 	.Community {
-	  padding: 15px 10px; /* قلّصنا الـ padding */
+	  padding: 15px 10px;
 	}
   
 	.add-post {
 	  flex-direction: column;
 	  align-items: center;
 	  padding: 15px;
-	  gap: 10px; /* قلّصنا المسافة */
+	  gap: 10px;
 	}
   
 	.current-user-avatar,
 	.current-user-avatar-icon {
-	  width: 40px; /* تصغير الحجم */
+	  width: 40px;
 	  height: 40px;
 	}
   
 	.current-user-avatar-icon svg {
-	  font-size: 1.5rem; /* تصغير الأيقونة */
+	  font-size: 1.5rem;
 	}
   
 	.add-post-input-container textarea {
-	  font-size: 1rem; /* تصغير الـ font */
-	  min-height: 80px; /* تصغير الارتفاع */
-	  padding: 10px; /* قلّصنا الـ padding */
+	  font-size: 1rem;
+	  min-height: 80px;
+	  padding: 10px;
 	  width: 500px;
 	}
   
 	.post-icon {
-	  font-size: 1.5rem; /* تصغير الأيقونة */
+	  font-size: 1.5rem;
 	
 	  margin-left: 470px;
 	}
   }
-  
-  /* شاشات أصغر (مثل الموبايل الصغير جدًا) */
+
   @media (max-width: 480px) {
 	.Community {
 	  padding: 10px 5px;

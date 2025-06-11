@@ -1,4 +1,3 @@
-// src/components/Community/Post.js
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -77,7 +76,6 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
     <div className="post">
       {error && <div className="error-message">{error}</div>}
 
-      {/* العنوان مع صورة المستخدم */}
       <div className="post-header">
         {post.avatar ? (
           <img
@@ -93,7 +91,6 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
         <h1 className="post-title">{post.username}</h1>
       </div>
 
-      {/* المحتوى */}
       <div className="post-content">
         <p>{post.content}</p>
 
@@ -112,11 +109,9 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
           </div>
         )}
 
-        {/* تاريخ البوست */}
         <p className="post-date">🕒 {formattedPostDate}</p>
       </div>
 
-      {/* الإعجابات والتعليقات */}
       <div className="post-engagement">
         <div className="engagement-metrics">
           <span
@@ -142,7 +137,6 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
           </span>
         </div>
 
-        {/* عرض التعليقات */}
         <div className="comments-section">
           {showComments && post.comments.length > 0 ? (
             post.comments.map((commentObj, index) => (
@@ -161,7 +155,6 @@ const Post = ({ post, currentUserAvatar, onPostUpdate }) => {
           )}
         </div>
 
-        {/* حقل التعليق */}
         <div className="add-comment">
           {currentUserAvatar ? (
             <img

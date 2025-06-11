@@ -32,7 +32,7 @@ const AllClinics = () => {
         const response = await axios.get("http://localhost:3001/user/all-clinics", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("API Response:", response.data); // للتحقق من البيانات
+        console.log("API Response:", response.data);
         setClinics(response.data.clinics || []);
       } catch (err) {
         console.error("Error fetching all clinics:", err.response ? err.response.data : err.message);
@@ -41,7 +41,6 @@ const AllClinics = () => {
     fetchAllClinics();
   }, []);
 
-  // تصفية العيادات بناءً على البحث
   const filteredClinics = clinics.filter((clinic) => {
     const searchLower = searchTerm.toLowerCase();
     const nameMatch = clinic.clinicName?.toLowerCase().includes(searchLower) || false;

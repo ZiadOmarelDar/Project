@@ -44,10 +44,8 @@
 	transition: 0.3s;
 }
 
-/* تعديل تنسيق الرابط النشط */
 .nav-links a:hover,
 .nav-links a.active {
-	/* تغيير من .nav-links .active إلى .nav-links a.active */
 	color: #4a3aff;
 	border-bottom: 2px solid #4a3aff;
 }
@@ -144,7 +142,6 @@
 	display: none;
 }
 
-/* ################################# */
 .username {
 	color: #333;
 	font-weight: 600;
@@ -180,7 +177,7 @@
 	}
 
 	.nav-links {
-		display: flex; /* إخفاء الروابط في البداية */
+		display: flex;
 		flex-direction: row;
 		gap: 10px;
 		width: 50%;
@@ -194,7 +191,6 @@
 		font-size: 5px;
 	}
 
-	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
 		flex-direction: row;
@@ -247,7 +243,7 @@
 	}
 
 	.nav-links {
-		display: none; /* إخفاء الروابط في البداية */
+		display: none;
 		flex-direction: column;
 		gap: 20px;
 		width: 100%;
@@ -261,13 +257,11 @@
 		font-size: 18px;
 	}
 
-	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
 		flex-direction: row;
 	}
 
-	/* إظهار زر القائمة الجانبية (المينيو) */
 	.menu-btn {
 		display: block;
 		background: none;

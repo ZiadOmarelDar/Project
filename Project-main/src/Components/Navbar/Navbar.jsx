@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom'; // استبدل Link بـ NavLink
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import axios from 'axios';
@@ -75,7 +75,6 @@ function Navbar() {
 						to='/'
 						end>
 						{' '}
-						{/* استخدم end للمطابقة الدقيقة للمسار الرئيسي */}
 						Home
 					</NavLink>
 				</li>

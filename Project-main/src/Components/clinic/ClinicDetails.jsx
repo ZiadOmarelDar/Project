@@ -166,7 +166,6 @@ const ClinicDetails = () => {
 									</p>
 									<p className='detail-item'>
 										<LuHeartHandshake /> {displayValue(clinic.serviceType)}{' '}
-										{/* تعديل هنا */}
 									</p>
 									<p className='detail-item'>
 										<HiClock /> {displayValue(clinic.workingHours)}

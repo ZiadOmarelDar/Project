@@ -1,4 +1,3 @@
-// src/components/ClinicAdmin.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -35,7 +34,7 @@ const ClinicAdmin = () => {
         <h2 className="adminTitle">Admin Profile</h2>
         <div className="adminProfile">
           <img
-            src={admin.image || "/default-image.png"} // استبدل /default-image.png بمسار صورة افتراضية
+            src={admin.image || "/default-image.png"}
             alt={`${admin.name || "Admin"} photo`}
             className="adminImage"
             onClick={() => handleImageClick(admin.image || "/default-image.png")}

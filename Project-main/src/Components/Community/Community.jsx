@@ -1,4 +1,3 @@
-// src/components/Community/Community.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaPaperPlane, FaUser } from "react-icons/fa";
@@ -39,7 +38,7 @@ const Community = ({ currentUserAvatar }) => {
     const formData = new FormData();
     formData.append("content", newPost);
     if (image) {
-      formData.append("image", image); // ⬅️ attach the image if selected
+      formData.append("image", image);
     }
 
     try {
@@ -75,7 +74,6 @@ const Community = ({ currentUserAvatar }) => {
       {error && <div className="error-message">{error}</div>}
       {success && <div className="success-message">{success}</div>}
 
-      {/* سكشن إضافة بوست جديد */}
       <div className="add-post">
         {currentUserAvatar ? (
           <img
@@ -106,15 +104,11 @@ const Community = ({ currentUserAvatar }) => {
     onChange={(e) => setImage(e.target.files[0])}
     className="hidden-file-input"
   />
-  {/* {image && <p className="selected-image-name">The Photo : {image.name}</p>}
-  <img src={URL.createObjectURL(image)} alt="" style={{ maxWidth: "150px", marginTop: "10px" }} /> */}
 </div>
 
           <FaPaperPlane className="post-icon" onClick={handlePostSubmit} />
         </div>
       </div>
-
-      {/* عرض البوستات */}
       {posts.length === 0 ? (
         <p>No posts yet. Be the first to share your experience!</p>
       ) : (

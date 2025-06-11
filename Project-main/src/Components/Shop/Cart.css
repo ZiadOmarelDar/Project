@@ -97,8 +97,8 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 0; /* إزالة المسافة العلوية */
-  margin-left: 10px; /* إضافة مسافة يسار لضبط الموقع */
+  margin-top: 0;
+  margin-left: 10px;
 }
 
 .subtotal-container {
