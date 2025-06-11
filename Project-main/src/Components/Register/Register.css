@@ -11,8 +11,8 @@ body {
 	height: 100vh;
 	padding: 20px;
 	background: #f8f7fc;
-	margin-bottom: 230px;
-	margin-top: 50px;
+	margin-bottom: 150px;
+	margin-top: 00px;
 }
 
 .image-section {
@@ -27,7 +27,7 @@ body {
 	background: linear-gradient(135deg, #9085e1, #6a5acd);
 	border-radius: 50%;
 	height: 75%;
-	max-width: 40%;
+	max-width: 45%;
 	margin-right: 150px;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 .form-title {
-	font-size: 25px;
+	font-size: 27px;
 	font-weight: bold;
 	margin-bottom: 20px;
 	color: #5a4dbd;
@@ -77,15 +77,15 @@ body {
 
 .inputs label {
 	text-align: left;
-	/* font-weight: bold; */
+	font-weight: bold;
 	/* color: #372e77; */
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 .inputs input,
 .inputs select {
-	width: 100%;
-	max-width: 500px;
+	
+	width: 450px;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 25px;
@@ -98,8 +98,8 @@ body {
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 100%;
-	max-width: 500px;
+	
+	width: 470px;
 }
 
 .toggle-password {
@@ -122,9 +122,10 @@ body {
 	border-radius: 30px;
 	cursor: pointer;
 	margin-top: 15px;
-	width: 97%;
-	max-width: 480px;
+	align-items: center;
+	max-width: 400px;
 	font-size: 16px;
+	margin-left: 50px;
 }
 
 .register-button:hover {
@@ -132,7 +133,8 @@ body {
 }
 
 .login-text {
-	margin-top: 10px;
+	margin-top: 30px;
+	margin-left: 50px;
 }
 
 .login-link {
@@ -196,7 +198,7 @@ body {
 
 @media (max-width: 480px) {
 	.register-container {
-		width: 420px;
+		width: 440px;
 		margin-bottom: 200px;
 	}
 	.form-section {
@@ -212,22 +214,28 @@ body {
 	.inputs select {
 		padding: 6px;
 	}
+	.password-container{
+		width: 365px;
+	}
 
 	.register-button {
 		font-size: 14px;
 		padding: 10px;
+		margin-right: 30px;
 	}
 
 	.image-section {
 		position: relative;
-		left: 4px;
-		height: 40%;
+		left: 70px;
+		height:35%;
+		width:400px;
+		margin-top: -200px;
 	}
 
 	.dog-image {
-		max-width: 100%;
+		width: 100%;
 		position: relative;
-		top: 40px;
+		
 	}
 }
 

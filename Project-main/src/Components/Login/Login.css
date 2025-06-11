@@ -10,12 +10,15 @@
 .Login-header {
 	display: flex;
 	align-items: center;
-	font-size: 33px;
+	font-size: 37px;
 	font-weight: 600;
 	font-family: Arial, Helvetica, sans-serif;
-	/* justify-content: center; */
+	justify-content: center;
 	color: #5a4dbd;
+	text-align: center;
+	width: 45%;
 }
+
 
 .Login-inputs {
 	margin-top: 20px;
@@ -24,7 +27,7 @@
 }
 
 .Login-input {
-	width: 350px;
+	width: 420px;
 	height: 70px;
 	border-radius: 6px;
 	position: relative;
@@ -88,15 +91,16 @@ p {
 .Login-image-section {
 	background: linear-gradient(135deg, #9085e1, #6a5acd);
 	border-radius: 50%;
-	height: 75%;
-	max-width: 40%;
+	height: 70%;
+	max-width: 35%;
 	position: relative;
 	flex: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	left: 10px;
-	bottom: 10px;
+	
+	bottom: 50px;
+	right: 50px;
 }
 
 .Login-image-section::before {
@@ -113,7 +117,7 @@ p {
 
 .Login-image-section img {
 	position: relative;
-	max-width: 80%;
+	max-width: 70%;
 	height: auto;
 	z-index: 1;
 	top: 150px;
@@ -138,7 +142,7 @@ p {
 .Login-toggle-password-2 {
 	position: absolute;
 	top: 25px;
-	left: 315px;
+	left: 390px;
 	transform: translateY(-50%);
 	cursor: pointer;
 	color: #372e77;
