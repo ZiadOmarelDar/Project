@@ -28,6 +28,7 @@
   padding-top: 50px;
   border-top: 3px solid black;
   padding-bottom: 50px;
+  margin-inline: auto;
 }
 
 @media (max-width: 768px) {
