@@ -125,7 +125,9 @@ const PetDetails = () => {
         <p className="pet-info-value">{pet.notes}</p>
       </div>
       <div className="take-me-button-container">
-        <button className="take-me-button">Take Me</button>
+        <button className="take-me-button">
+          <a href={`whatsapp:+2${pet.owner.phoneNumber}`}>Take Me</a>
+        </button>
       </div>
     </div>
   );
