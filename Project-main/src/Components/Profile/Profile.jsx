@@ -497,7 +497,6 @@ const Profile = () => {
                         className="deleteButton901"
                       >
                         <span className="deleteServiceButton325">Delete Service<MdDelete /></span>
-
                       </button>
                     </>
                   )}
@@ -525,12 +524,12 @@ const Profile = () => {
                   <>
                     <div className="clinicNameInput678">
                       <label>Clinic Name:</label>
-                      <input type="text" name="clinicName" value={formData.clinicName} onChange={handleInputChange}  />
+                      <input type="text" name="clinicName" value={formData.clinicName} onChange={handleInputChange} />
                       {errors.clinicName && <p className="errorDisplay901">{errors.clinicName}</p>}
                     </div>
                     <div className="doctorNameInput123">
                       <label>Doctor Name:</label>
-                      <input type="text" name="doctorName" value={formData.doctorName} onChange={handleInputChange}  />
+                      <input type="text" name="doctorName" value={formData.doctorName} onChange={handleInputChange} />
                       {errors.doctorName && <p className="errorDisplay456">{errors.doctorName}</p>}
                     </div>
                     <div className="governorateSelect789">
@@ -539,7 +538,6 @@ const Profile = () => {
                         name="location.governorate"
                         value={formData.location.governorate}
                         onChange={handleInputChange}
-                        
                       >
                         <option value="">Select Governorate</option>
                         {governorates.map((gov) => (
@@ -555,7 +553,6 @@ const Profile = () => {
                         name="location.specificLocation"
                         value={formData.location.specificLocation}
                         onChange={handleInputChange}
-                        
                         placeholder="e.g., Street Name, Building Number"
                       />
                       {errors.location && <p className="errorDisplay678">{errors.location}</p>}
@@ -567,14 +564,13 @@ const Profile = () => {
                         name="mobile"
                         value={formData.mobile}
                         onChange={handleInputChange}
-                        
                         placeholder="+201012345678"
                       />
                       {errors.mobile && <p className="errorDisplay123">{errors.mobile}</p>}
                     </div>
                     <div className="emailInput456">
                       <label>Email Address:</label>
-                      <input type="email" name="email" value={formData.email} onChange={handleInputChange}  />
+                      <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
                       {errors.email && <p className="errorDisplay789">{errors.email}</p>}
                     </div>
                     <div className="photoInput012">
@@ -582,7 +578,6 @@ const Profile = () => {
                       <input type="file" name="clinicPhotos" accept="image/jpeg,image/png" onChange={handleClinicPhotosChange} multiple />
                       {errors.clinicPhotos && <p className="errorDisplay345">{errors.clinicPhotos}</p>}
                     </div>
-                    
                     <div className="workingHoursInput345">
                       <label>Working Hours:</label>
                       <div className="hoursSelection678">
@@ -616,7 +611,6 @@ const Profile = () => {
                           name="servicePriceValue"
                           value={formData.servicePriceValue}
                           onChange={handleInputChange}
-                          
                           min="0"
                           step="0.01"
                         />
@@ -629,12 +623,12 @@ const Profile = () => {
                     </div>
                     <div className="serviceTypeInput901">
                       <label>Service Type:</label>
-                      <input type="text" name="serviceType" value={formData.serviceType} onChange={handleInputChange}  />
+                      <input type="text" name="serviceType" value={formData.serviceType} onChange={handleInputChange} />
                       {errors.serviceType && <p className="errorDisplay123">{errors.serviceType}</p>}
                     </div>
                     <div className="descriptionInput456">
                       <label>Doctor Description (Education, Experience, etc.):</label>
-                      <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange}  />
+                      <textarea name="doctorDescription" value={formData.doctorDescription} onChange={handleInputChange} />
                       {errors.doctorDescription && <p className="errorDisplay789">{errors.doctorDescription}</p>}
                     </div>
                     {formData.clinicPhotos.length > 0 && (
@@ -734,14 +728,13 @@ const Profile = () => {
                     </div>
                   </>
                 )}
-                
-              </form>
-              <div className="formButtons012">
+                <div className="formButtons012">
                   <button type="submit" className="saveButton345">Save Service</button>
                   <button type="button" onClick={(e) => { e.preventDefault(); setShowAddServiceForm(false); setErrors({}); }} className="cancelButton678">
                     Cancel
                   </button>
                 </div>
+              </form>
             </div>
           )}
         </div>
@@ -755,4 +748,3 @@ const Profile = () => {
 };
 
 export default Profile;
-

@@ -30,7 +30,7 @@ const ClinicAdmin = () => {
     window.open(fullUrl, "_blank");
   };
 
-  // استخدام doctorDescription من الخدمة إذا لم يكن هناك description منفصل
+
   const description = admin.services && admin.services.length > 0 ? admin.services[0].doctorDescription : "No description available";
   const photoUrl = admin.userPhoto || "https://via.placeholder.com/150";
 
