@@ -373,8 +373,8 @@
 
 .ShopProductImage {
 	width: 100%;
-	max-width: 150px; /* Limit width for better centering */
-	height: 230px;
+	max-width: 100px; /* Limit width for better centering */
+	height: 200px;
 	object-fit: contain;
 	margin: 0 auto; /* Center the image horizontally */
 	border-bottom: 1px solid #eee;

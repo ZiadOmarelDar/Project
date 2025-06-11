@@ -4,7 +4,6 @@
 	margin: 0 auto;
 	padding: 120px 20px 90px 90px;
 	color: #323773;
-	background-color: white;
 }
 
 .AboutUsAboutUsHeader {
@@ -138,6 +137,7 @@
 	justify-content: center;
 }
 
+/* Existing media query for tablet and below */
 @media (max-width: 768px) {
 	.AboutUsContentSection {
 		flex-direction: column;
@@ -174,5 +174,148 @@
 
 	.AboutUsImageWide {
 		height: 150px;
+	}
+}
+
+/* Responsive adjustments for mobile (up to 576px) */
+@media (max-width: 576px) {
+	.AboutUsAboutUsContainer {
+		padding: 60px 10px 45px 10px;
+	}
+
+	.AboutUsAboutUsHeader {
+		gap: 15px;
+	}
+
+	.AboutUsAboutUsHeader h1 {
+		font-size: 24px;
+		margin: 0;
+	}
+
+	.AboutUsLearnMoreBtn {
+		padding: 8px 20px;
+		font-size: 14px;
+		right: 0;
+		top: 0;
+	}
+
+	.AboutUsWelcomeSection {
+		margin-left: 0;
+	}
+
+	.AboutUsWelcomeSection h2 {
+		font-size: 18px;
+	}
+
+	.AboutUsWelcomeSection p {
+		font-size: 14px;
+	}
+
+	.AboutUsTextContainer {
+		left: 0;
+		gap: 20px;
+	}
+
+	.AboutUsTextColumn h1 {
+		font-size: 30px;
+	}
+
+	.AboutUsTextColumn h3 {
+		font-size: 16px;
+	}
+
+	.AboutUsTextColumn p {
+		font-size: 12px;
+	}
+
+	.AboutUsImageTall {
+		width: 100%;
+		height: 200px;
+	}
+
+	.AboutUsImageShort {
+		width: 100%;
+		height: 150px;
+	}
+
+	.AboutUsImageWide {
+		width: 100%;
+		height: 150px;
+	}
+
+	.AboutUsImageGroupTop,
+	.AboutUsImageGroupBottom {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.AboutUsContentSection {
+		gap: 10px;
+	}
+}
+
+/* Responsive adjustments for tablet (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+	.AboutUsAboutUsContainer {
+		padding: 90px 15px 60px 15px;
+	}
+
+	.AboutUsAboutUsHeader h1 {
+		font-size: 30px;
+	}
+
+	.AboutUsLearnMoreBtn {
+		padding: 10px 25px;
+		font-size: 15px;
+		right: 0px;
+	}
+
+	.AboutUsTextContainer {
+		gap: 30px;
+	}
+
+	.AboutUsImageTall {
+		height: 300px;
+	}
+
+	.AboutUsImageShort {
+		height: 250px;
+	}
+
+	.AboutUsImageWide {
+		height: 200px;
+	}
+}
+
+/* Responsive adjustments for iPad/tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.AboutUsAboutUsContainer {
+		padding: 100px 30px 70px 60px;
+	}
+
+	.AboutUsAboutUsHeader h1 {
+		font-size: 34px;
+	}
+
+	.AboutUsLearnMoreBtn {
+		padding: 10px 30px;
+		font-size: 16px;
+		right: 100px;
+	}
+
+	.AboutUsTextContainer {
+		gap: 35px;
+	}
+
+	.AboutUsImageTall {
+		height: 350px;
+	}
+
+	.AboutUsImageShort {
+		height: 300px;
+	}
+
+	.AboutUsImageWide {
+		height: 250px;
 	}
 }
