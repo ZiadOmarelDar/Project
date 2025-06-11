@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { HiFilter } from "react-icons/hi";
-import "./ProductsPage.css";
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { HiFilter } from 'react-icons/hi';
+import './ProductsPage.css';
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filters, setFilters] = useState({ dogs: [], cats: [] });
-  const [visibleProducts, setVisibleProducts] = useState(8);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [showFilters, setShowFilters] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+	const [products, setProducts] = useState([]);
+	const [filteredProducts, setFilteredProducts] = useState([]);
+	const [filters, setFilters] = useState({ dogs: [], cats: [] });
+	const [visibleProducts, setVisibleProducts] = useState(8);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+	const [showFilters, setShowFilters] = useState(false);
+	const navigate = useNavigate();
+	const location = useLocation();
 
   // Fetch products from API
   useEffect(() => {
@@ -32,28 +32,33 @@ const ProductsPage = () => {
       });
   }, []);
 
-  // Read query string (e.g., ?filter=dog)
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const filterType = params.get("filter"); // "dog" أو "cat"
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	}, [showFilters]);
 
-    if (filterType === "dog") {
-      setFilters({
-        dogs: ["Dog Dry food", "Dog Wet food", "Puppy food", "Treats & Snacks"],
-        cats: [],
-      });
-    } else if (filterType === "cat") {
-      setFilters({
-        cats: [
-          "Cat Dry food",
-          "Cat Wet food",
-          "Kitten food",
-          "Treats & Snacks",
-        ],
-        dogs: [],
-      });
-    }
-  }, [location.search]);
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const filterType = params.get('filter'); // "dog" أو "cat"
+
+		if (filterType === 'dog') {
+			setFilters({
+				dogs: ['Dog Dry food', 'Dog Wet food', 'Puppy food', 'Treats & Snacks'],
+				cats: [],
+			});
+		} else if (filterType === 'cat') {
+			setFilters({
+				cats: [
+					'Cat Dry food',
+					'Cat Wet food',
+					'Kitten food',
+					'Treats & Snacks',
+				],
+				dogs: [],
+			});
+		}
+	}, [location.search]);
 
   // Apply filters to products
   useEffect(() => {
