@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Sacramento&display=swap");
 
-.footer a{
+.footer .link{
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.footer a:hover{
+.footer .link:hover{
   color: #1a237e;
 }
+
+/* .fLink{
+  background-color: #323773;
+} */
 
 .logo-2 {
   font-family: "Luckiest Guy", cursive;
@@ -36,7 +41,7 @@
   .footer .container .box {
     text-align: center;
   }
-  .footer .container .box a {
+  .footer .container .box .link {
     justify-content: center;
   }
 }

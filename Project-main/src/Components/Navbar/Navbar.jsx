@@ -105,6 +105,9 @@ function Navbar() {
 						<li>
 							<NavLink to='/ContactUs'>Contact</NavLink>
 						</li>
+						<li>
+							<NavLink to='/AboutUs'>About Us</NavLink>
+						</li>
 					</ul>
 				</li>
 			</ul>

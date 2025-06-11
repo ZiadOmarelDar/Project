@@ -1,5 +1,5 @@
 /* Search Bar */
-.search-bar {
+.ShopSearchBar {
 	position: relative;
 	top: 20px;
 	left: 50%;
@@ -15,7 +15,7 @@
 	z-index: 0;
 }
 
-.search-icon {
+.ShopSearchIcon {
 	background: #2e317f;
 	padding: 10px;
 	display: flex;
@@ -28,11 +28,11 @@
 	cursor: pointer;
 }
 
-.search-icon:hover {
+.ShopSearchIcon:hover {
 	background-color: #1a2a5e; /* لون مختلف عند التمرير */
 }
 
-.search-input {
+.ShopSearchInput {
 	flex: 1;
 	padding: 10px;
 	padding-top: 18px;
@@ -44,53 +44,30 @@
 	border-radius: 0 10px 10px 0;
 }
 
-.search-input::placeholder {
+.ShopSearchInput::placeholder {
 	color: #2e317f;
 	opacity: 0.7;
 	font-weight: 500;
 }
 
-.suggestions-dropdown {
-	position: absolute;
-	top: 100%;
-	left: 70px; /* يعتمد على موقع شريط البحث */
-	width: calc(100% - 70px); /* يتطابق مع عرض الـ input */
-	background-color: white;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	max-height: 200px;
-	overflow-y: auto;
-	z-index: 3;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.suggestions-dropdown li {
-	padding: 8px 12px;
-	cursor: pointer;
-}
-
-.suggestions-dropdown li:hover {
-	background-color: #f0f0f0;
-}
-
 /* Carousel */
-.container {
+.ShopContainer {
 	width: 100%;
-	padding-top: 40px;
+	padding-top: 20px;
 	max-width: 100%;
 	box-sizing: border-box;
 	position: relative;
-	z-index: -1;
-}
-.prev,
-.next,
-.dots {
-	z-index: -10; /* نفس مستوى الـ carousel */
+	z-index: 0;
 }
 
-.carousel {
+.ShopPrev,
+.ShopNext,
+.ShopDots {
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.ShopCarousel {
 	width: 99vw;
 	position: relative;
 	height: 650px;
@@ -101,7 +78,7 @@
 	top: 30px;
 }
 
-.carousel img {
+.ShopCarousel img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -110,35 +87,36 @@
 	left: 0;
 	transition: opacity 1s ease-in-out;
 	overflow: hidden;
+	z-index: 0;
 }
 
-.hidden {
+.ShopHidden {
 	display: none;
 }
 
-.carousel .prev,
-.carousel .next {
+.ShopPrev,
+.ShopNext {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	background: rgba(0, 0, 0, 0.3);
 	color: white;
 	border: none;
-	padding: 15px;
+	padding: 15px; /* توحيد الـ padding عشان يظهر السهمين بشكل صحيح */
 	cursor: pointer;
 	font-size: 24px;
 	border-radius: 50%;
 }
 
-.carousel .prev {
+.ShopPrev {
 	left: 20px;
 }
 
-.carousel .next {
+.ShopNext {
 	right: 20px;
 }
 
-.dots {
+.ShopDots {
 	position: absolute;
 	bottom: 10px;
 	left: 50%;
@@ -147,7 +125,7 @@
 	gap: 8px;
 }
 
-.dot {
+.ShopDot {
 	width: 10px;
 	height: 10px;
 	background: rgba(255, 255, 255, 0.5);
@@ -156,13 +134,13 @@
 	transition: background 0.3s ease;
 }
 
-.dot.active {
+.ShopDot.ShopActive {
 	background: white;
 	transform: scale(1.2);
 }
 
 /* Featured Categories */
-.container-1 {
+.ShopContainer1 {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -172,35 +150,35 @@
 	margin-bottom: 40px;
 }
 
-.featured-categories {
+.ShopFeaturedCategories {
 	width: 100%;
 	text-align: center;
 	padding: 0 20px;
 }
 
-.featured-categories h2 {
+.ShopFeaturedCategories h2 {
 	font-size: 40px;
 	font-weight: bold;
 	color: #323773;
 	margin-bottom: 40px;
 }
 
-.categories-container {
+.ShopCategoriesContainer {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 100px;
+	gap: 80px;
 	flex-wrap: wrap;
 	padding: 0 10px;
 }
 
-.category {
+.ShopCategory {
 	text-align: center;
 	flex: 0 0 150px;
 	text-decoration: none;
 }
 
-.image-wrapper {
+.ShopImageWrapper {
 	width: 200px;
 	height: 200px;
 	background-color: #dedede;
@@ -211,13 +189,13 @@
 	margin: 0 auto 10px;
 }
 
-.image-wrapper img {
+.ShopImageWrapper img {
 	max-width: 120px;
 	max-height: 120px;
 	object-fit: contain;
 }
 
-.category p {
+.ShopCategory p {
 	font-size: 16px;
 	font-weight: bold;
 	color: #000;
@@ -225,26 +203,26 @@
 }
 
 /* Shop by Category */
-.container-3 {
+.ShopContainer3 {
 	width: 100%;
 	background-color: #d8d9e4;
 	padding: 40px 0;
 }
 
-.shop-by-category {
+.ShopShopByCategory {
 	width: 100%;
 	text-align: center;
 	padding: 0 0px;
 }
 
-.shop-by-category h2 {
+.ShopShopByCategory h2 {
 	font-size: 40px;
 	font-weight: bold;
 	color: #323773;
 	margin-bottom: 20px;
 }
 
-.category-container {
+.ShopCategoryContainer {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -252,12 +230,12 @@
 	flex-wrap: wrap;
 }
 
-.category {
+.ShopCategory {
 	text-align: center;
 	text-decoration: none;
 }
 
-.image-wrapper-sec {
+.ShopImageWrapperSec {
 	width: 330px;
 	height: 330px;
 	border-radius: 50%;
@@ -268,13 +246,13 @@
 	margin: 0 auto 20px;
 }
 
-.image-wrapper-sec img {
+.ShopImageWrapperSec.ShopLarge img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
-.category p {
+.ShopCategory p {
 	font-size: 25px;
 	font-weight: bold;
 	color: #323773;
@@ -282,7 +260,7 @@
 }
 
 /* Big Sale */
-.big-sale-container {
+.ShopBigSaleContainer {
 	width: 100%;
 	height: 700px;
 	background-color: #323773;
@@ -292,13 +270,13 @@
 	margin-bottom: 40px;
 }
 
-.sale-content {
+.ShopSaleContent {
 	width: 40%;
 	text-align: left;
 	color: white;
 }
 
-.sale-title {
+.ShopSaleTitle {
 	font-size: 100px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -307,17 +285,17 @@
 	text-align: left;
 }
 
-.sale-highlight {
+.ShopSaleHighlight {
 	color: white;
 }
 
-.sale-text {
+.ShopSaleText {
 	color: #a9a9a9;
 	font-size: 18px;
 	margin: 10px 0 10px 110px;
 }
 
-.shop-now-2 {
+.ShopShopNow2 {
 	display: inline-block;
 	background: transparent;
 	color: white;
@@ -333,41 +311,41 @@
 	margin-left: 200px;
 }
 
-.shop-now-2:hover {
+.ShopShopNow2:hover {
 	background: #100a5b;
 }
 
-.sale-image {
+.ShopSaleImage {
 	width: 50%;
 	height: 100%;
 }
 
-.sale-image img {
+.ShopSaleImage img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
 /* Products Grid */
-.products-list {
+.ShopProductsList {
 	padding: 50px 20px 0 20px;
 	margin-bottom: 40px;
 	max-width: 100%;
 }
 
-.featured-products {
+.ShopFeaturedProducts {
 	text-align: center;
 	margin-bottom: 0px;
 }
 
-.featured-products h2 {
+.ShopFeaturedProducts h2 {
 	font-size: 40px;
 	font-weight: bold;
 	color: #323773;
 	margin-bottom: 20px;
 }
 
-.products-grid {
+.ShopProductsGrid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 20px;
@@ -376,7 +354,7 @@
 	padding: 0 10px;
 }
 
-.product-card {
+.ShopProductCard {
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -386,14 +364,14 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 300px; /* Ensure card has enough height for content */
+	min-height: 400px; /* Ensure card has enough height for content */
 }
 
-.product-card:hover {
+.ShopProductCard:hover {
 	transform: translateY(-5px);
 }
 
-.product-image {
+.ShopProductImage {
 	width: 100%;
 	max-width: 150px; /* Limit width for better centering */
 	height: 230px;
@@ -402,144 +380,151 @@
 	border-bottom: 1px solid #eee;
 }
 
-.product-card h4 {
-	margin: 70px 0 0 0;
-	color: #323773;
-	font-size: 18px;
+.ShopProductCard h4 {
+	font-size: 13px;
+	position: relative;
+	top: 40px;
 	font-weight: bold;
+	color: #090909;
 }
 
-.product-card p {
+.ShopProductCard p {
 	color: #e63946;
 	font-weight: bold;
 	margin-top: auto; /* Push price to the bottom */
 	padding-bottom: 10px; /* Add some padding at the bottom */
 }
 
-.view-all-btn {
+.ShopViewAllBtn {
 	background: #323773;
-	padding: 10px 20px;
+	color: #fff;
+	padding: 10px 40px;
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 18px;
 	font-weight: bold;
 	display: block;
-	margin: 60px 20px 20px 20px;
+	margin: 60px 0 0 0;
 	transition: background-color 0.3s ease-in-out;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
-.view-all-btn:hover {
+.ShopViewAllBtn:hover {
 	background-color: #100a5b;
-	color: white;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-	.search-bar {
-		top: 180px;
+	.ShopSearchBar {
+		top: 20px;
 		max-width: 400px;
 	}
-	.products-grid {
+	.ShopProductsGrid {
 		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 	}
-	.category-container {
+	.ShopCategoryContainer {
 		gap: 15px;
 	}
-	.big-sale-container {
+	.ShopBigSaleContainer {
 		flex-direction: column;
 		height: auto;
 	}
-	.sale-content,
-	.sale-image {
+	.ShopSaleContent,
+	.ShopSaleImage {
 		width: 100%;
 	}
-	.sale-image {
+	.ShopSaleImage {
 		height: 300px;
 	}
 }
 
 @media (max-width: 768px) {
-	.search-bar {
-		top: 120px;
+	.ShopSearchBar {
+		top: 20px;
 		max-width: 400px;
 	}
-	.container {
-		padding-top: 60px;
+	.ShopContainer {
+		padding-top: 10px;
 	}
-	.carousel {
+	.ShopCarousel {
 		height: 400px;
 	}
-	.categories-container,
-	.category-container {
-		gap: 10px;
+	.ShopCategoriesContainer {
+		gap: 20px;
 	}
-	.image-wrapper,
-	.image-wrapper-sec {
-		width: 120px;
-		height: 120px;
+	.ShopCategoryContainer {
+		gap: 80px;
 	}
-	.image-wrapper img {
+	.ShopImageWrapper,
+	.ShopImageWrapperSec {
+		width: 150px;
+		height: 150px;
+	}
+	.ShopImageWrapper img {
 		max-width: 100px;
 		max-height: 100px;
 	}
-	.sale-title {
+	.ShopSaleTitle {
 		font-size: 40px;
 	}
-	.sale-text {
+	.ShopSaleText {
 		font-size: 16px;
 	}
-	.shop-now-2 {
+	.ShopShopNow2 {
 		padding: 8px 20px;
 		font-size: 16px;
 	}
-	.products-grid {
+	.ShopProductsGrid {
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	}
 }
 
 @media (max-width: 480px) {
-	.search-bar {
-		max-width: 300px;
-		top: 105px;
+	.ShopSearchBar {
+		max-width: 380px;
+		top: 20px;
 	}
-	.container {
-		padding-top: 50px;
+	.ShopContainer {
+		padding-top: 20px;
 	}
-	.carousel {
+	.ShopCarousel {
 		height: 300px;
 	}
-	.featured-categories h2,
-	.shop-by-category h2,
-	.featured-products h2 {
+
+	.ShopFeaturedCategories h2,
+	.ShopShopByCategory h2,
+	.ShopFeaturedProducts h2 {
 		font-size: 30px;
 	}
-	.categories-container,
-	.category-container {
+	.ShopCategoriesContainer,
+	.ShopCategoryContainer {
 		flex-direction: column;
 		align-items: center;
 	}
-	.image-wrapper,
-	.image-wrapper-sec {
+	.ShopImageWrapper,
+	.ShopImageWrapperSec {
 		width: 100px;
 		height: 100px;
 	}
-	.image-wrapper img {
+	.ShopImageWrapper img {
 		max-width: 80px;
 		max-height: 80px;
 	}
-	.sale-title {
+	.ShopSaleTitle {
 		font-size: 30px;
 	}
-	.sale-content {
+	.ShopSaleContent {
 		padding-left: 10px;
 	}
-	.products-grid {
+	.ShopProductsGrid {
 		grid-template-columns: 1fr;
 	}
-	.product-image {
+	.ShopProductImage {
 		height: 120px;
 	}
-	.shop-now-2 {
+	.ShopShopNow2 {
 		position: relative;
 		right: 60px;
 		bottom: 10px;
