@@ -82,29 +82,33 @@ const ClinicDetails = () => {
 	return (
 		<ErrorBoundary>
 			<div className='clinicDetailsContainer'>
-				<div className='container'>
-					<div className='carousel'>
+				<div className='container-carousel'>
+					<div className='carousel-clinc'>
 						{images.length > 0 ? (
 							images.map((img, index) => (
 								<div
 									key={index}
-									className={index === currentSlide ? 'active' : 'hidden'}>
+									className={
+										index === currentSlide
+											? 'active-carousel-clinc'
+											: 'hidden-carousel-clinc'
+									}>
 									<img
 										src={`http://localhost:3001${img}`}
 										alt={`${clinic.clinicName || 'Clinic'} Slide ${index + 1}`}
-										className='carousel-image'
+										className='carousel-clinc-image'
 										onError={(e) =>
 											(e.target.src =
 												'https://via.placeholder.com/800x600?text=No+Image')
 										}
 									/>
-									<div className='carousel-text'>
+									<div className='carousel-clinc-text'>
 										{clinic.clinicName || 'Unknown Clinic'}
 									</div>
 								</div>
 							))
 						) : (
-							<div className='active'>
+							<div className='active-carousel-clinc'>
 								<img
 									src='https://via.placeholder.com/800x600?text=No+Image'
 									alt='No images available'
@@ -116,7 +120,7 @@ const ClinicDetails = () => {
 							</div>
 						)}
 						<button
-							className='prev'
+							className='prev-carousel-clinc'
 							onClick={() =>
 								setCurrentSlide(
 									(currentSlide - 1 + images.length) % images.length
@@ -126,18 +130,22 @@ const ClinicDetails = () => {
 							❮
 						</button>
 						<button
-							className='next'
+							className='next-carousel-clinc'
 							onClick={() =>
 								setCurrentSlide((currentSlide + 1) % images.length)
 							}
 							aria-label='Next slide'>
 							❯
 						</button>
-						<div className='dots'>
+						<div className='dots-carousel-clinc'>
 							{images.map((_, index) => (
 								<span
 									key={index}
-									className={index === currentSlide ? 'dot active' : 'dot'}
+									className={
+										index === currentSlide
+											? 'dot-carousel-clinc active-carousel-clinc'
+											: 'dot-carousel-clinc'
+									}
 									onClick={() => setCurrentSlide(index)}
 									role='button'
 									aria-label={`Go to slide ${index + 1}`}></span>

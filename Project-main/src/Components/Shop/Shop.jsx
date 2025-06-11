@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import UperImage from '../../assets/upper.png';
 import BackImage from '../../assets/back.png';
-import DogsImage from '../../assets/Dogs.png';
+import DogsImage from '../../assets/AboutUs/GroupOfDogsAboutUs.png';
 import DogFood from '../../assets/Dog Dry Food.png';
 import CatFood from '../../assets/Cat Dry Food.png';
 import DogTreats from '../../assets/Dog Treats.png';
@@ -58,7 +58,7 @@ const Shop = () => {
 			}
 
 			setSearchError('');
-			setShowSuggestions(false); // إخفاء الاقتراحات بعد البحث
+			setShowSuggestions(false);
 			navigate(`/ProductsPage?search=${encodeURIComponent(term)}`);
 		}
 	};
@@ -79,8 +79,8 @@ const Shop = () => {
 							product.company &&
 							product.company.toLowerCase().includes(term.toLowerCase()))
 				)
-				.map((product) => product.productName || product.type); // عرض الاسم أو النوع
-			setSuggestions([...new Set(filteredSuggestions)].slice(0, 5)); // 5 اقتراحات فقط
+				.map((product) => product.productName || product.type);
+			setSuggestions([...new Set(filteredSuggestions)].slice(0, 5));
 			setShowSuggestions(true);
 		} else {
 			setSuggestions([]);
@@ -95,58 +95,44 @@ const Shop = () => {
 	};
 
 	const handleBlur = () => {
-		// إخفاء الاقتراحات بعد ثانية للسماح بالنقر على اقتراح
 		setTimeout(() => setShowSuggestions(false), 100);
 	};
 
 	const featuredProducts = Array.isArray(products) ? products.slice(0, 6) : [];
 
 	return (
-		<div className='shop-container'>
-			<div className='search-bar'>
+		<div className='ShopShopContainer'>
+			<div className='ShopSearchBar'>
 				<button
-					className='search-icon'
+					className='ShopSearchIcon'
 					onClick={handleSearch}>
 					<FaSearch style={{ color: 'white' }} />
 				</button>
 				<input
 					type='text'
 					placeholder='Search For Product'
-					className='search-input'
+					className='ShopSearchInput'
 					value={searchTerm}
 					onChange={handleInputChange}
 					onKeyDown={handleSearch}
 					onFocus={() => setShowSuggestions(true)}
 					onBlur={handleBlur}
 				/>
-				{showSuggestions && suggestions.length > 0 && (
-					<ul className='suggestions-dropdown'>
-						{suggestions.map((suggestion, index) => (
-							<li
-								key={index}
-								onClick={() => handleSuggestionClick(suggestion)}
-								onMouseDown={(e) => e.preventDefault()} // منع الـ blur من إخفاء الاقتراحات
-							>
-								{suggestion}
-							</li>
-						))}
-					</ul>
-				)}
 			</div>
-			{searchError && <p className='search-error'>{searchError}</p>}
+			{searchError && <p className='ShopSearchError'>{searchError}</p>}
 
-			<div className='container'>
-				<div className='carousel'>
+			<div className='ShopContainer'>
+				<div className='ShopCarousel'>
 					{images.map((img, index) => (
 						<img
 							key={index}
 							src={img}
 							alt={`Slide ${index + 1}`}
-							className={index === currentSlide ? 'active' : 'hidden'}
+							className={index === currentSlide ? 'ShopActive' : 'ShopHidden'}
 						/>
 					))}
 					<button
-						className='prev'
+						className='ShopPrev'
 						onClick={() =>
 							setCurrentSlide(
 								(currentSlide - 1 + images.length) % images.length
@@ -156,16 +142,18 @@ const Shop = () => {
 						❮
 					</button>
 					<button
-						className='next'
+						className='ShopNext'
 						onClick={() => setCurrentSlide((currentSlide + 1) % images.length)}
 						aria-label='Next slide'>
 						❯
 					</button>
-					<div className='dots'>
+					<div className='ShopDots'>
 						{images.map((_, index) => (
 							<span
 								key={index}
-								className={index === currentSlide ? 'dot active' : 'dot'}
+								className={
+									index === currentSlide ? 'ShopDot ShopActive' : 'ShopDot'
+								}
 								onClick={() => setCurrentSlide(index)}
 								role='button'
 								aria-label={`Go to slide ${index + 1} of ${
@@ -176,10 +164,10 @@ const Shop = () => {
 				</div>
 			</div>
 
-			<div className='container-1'>
-				<div className='featured-categories'>
+			<div className='ShopContainer1'>
+				<div className='ShopFeaturedCategories'>
 					<h2>Featured Categories</h2>
-					<div className='categories-container'>
+					<div className='ShopCategoriesContainer'>
 						{[
 							{
 								img: DogFood,
@@ -215,10 +203,10 @@ const Shop = () => {
 							<Link
 								to={category.path}
 								key={category.alt}
-								className='category'
+								className='ShopCategory'
 								role='button'
 								aria-label={`View ${category.label}`}>
-								<div className='image-wrapper'>
+								<div className='ShopImageWrapper'>
 									<img
 										src={category.img}
 										alt={category.alt}
@@ -231,10 +219,10 @@ const Shop = () => {
 				</div>
 			</div>
 
-			<div className='container-3'>
-				<div className='shop-by-category'>
+			<div className='ShopContainer3'>
+				<div className='ShopShopByCategory'>
 					<h2>Shop by Category</h2>
-					<div className='category-container'>
+					<div className='ShopCategoryContainer'>
 						{[
 							{
 								img: Dogs,
@@ -252,10 +240,10 @@ const Shop = () => {
 							<Link
 								to={category.path}
 								key={category.alt}
-								className='category'
+								className='ShopCategory'
 								role='button'
 								aria-label={`View ${category.label}`}>
-								<div className='image-wrapper-sec large'>
+								<div className='ShopImageWrapperSec ShopLarge'>
 									<img
 										src={category.img}
 										alt={category.alt}
@@ -268,23 +256,23 @@ const Shop = () => {
 				</div>
 			</div>
 
-			<div className='big-sale-container'>
-				<div className='sale-content'>
-					<h2 className='sale-title'>
+			<div className='ShopBigSaleContainer'>
+				<div className='ShopSaleContent'>
+					<h2 className='ShopSaleTitle'>
 						HOT{' '}
-						<span className='sale-highlight'>
+						<span className='ShopSaleHighlight'>
 							{' '}
 							<br /> SALES
 						</span>
 					</h2>
-					<p className='sale-text'>CHECK NOW OUR SPECIAL OFFERS</p>
+					<p className='ShopSaleText'>CHECK NOW OUR SPECIAL OFFERS</p>
 					<Link
 						to='/ProductsPage'
-						className='shop-now-2'>
+						className='ShopShopNow2'>
 						Shop Now
 					</Link>
 				</div>
-				<div className='sale-image'>
+				<div className='ShopSaleImage'>
 					<img
 						src={saleImage}
 						alt='Big Sale'
@@ -292,8 +280,8 @@ const Shop = () => {
 				</div>
 			</div>
 
-			<div className='products-list'>
-				<div className='featured-products'>
+			<div className='ShopProductsList'>
+				<div className='ShopFeaturedProducts'>
 					<h2>Featured Products</h2>
 				</div>
 				{loading ? (
@@ -301,17 +289,17 @@ const Shop = () => {
 				) : error ? (
 					<p>{error}</p>
 				) : (
-					<div className='products-grid'>
+					<div className='ShopProductsGrid'>
 						{featuredProducts.map((product) => (
 							<div
 								key={product._id}
-								className='product-card'
+								className='ShopProductCard'
 								onClick={() => navigate(`/products/product/${product._id}`)}
 								style={{ cursor: 'pointer' }}>
 								<img
 									src={product.image}
 									alt={product.productName}
-									className='product-image'
+									className='ShopProductImage'
 								/>
 								<h4>{product.productName}</h4>
 								<p>{product.price} LE</p>
@@ -320,7 +308,7 @@ const Shop = () => {
 					</div>
 				)}
 				<button
-					className='view-all-btn'
+					className='ShopViewAllBtn'
 					onClick={() => navigate('/ProductsPage')}>
 					View All Products
 				</button>
