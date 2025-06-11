@@ -7,7 +7,7 @@ import './Footer.css';
 
 const Footer = () => {
 	return (
-		<footer style={{padding:"1px 40px 40px"}} className='footer'>
+		<footer style={{padding:"100px 40px 40px"}} className='footer'>
 			<div className="container">
 				<div className="box">
 					<h3 style={{marginBottom:"30px"}} className="font-semibold text-xl" >Reach us</h3>
