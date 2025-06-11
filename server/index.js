@@ -29,10 +29,10 @@ mongoose
   .then(() => console.log("MongoDB Connected Successfully"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-// تعريف الـ Secret Key بشكل ثابت
+
 const JWT_SECRET = "yourSecretKey";
 
-// Middleware للتحقق من التوكن
+// Token Checker
 const authMiddleware = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
@@ -50,10 +50,9 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// إعدادات Multer لصور البوستات (FTP)
+
 const uploadPosts = multer({ dest: "uploads/" });
 
-// إعدادات Multer لصور اليوزرز (محلي)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.join(__dirname, "Uploads", "users");
@@ -82,7 +81,7 @@ const uploadUsers = multer({
 });
 
 
-// إعداد Multer لصور العيادات
+// Multer for clinic photos
 const storageClinics = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.join(__dirname, "uploads", "clinic-photos");
@@ -136,7 +135,7 @@ const uploadPets = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
-// Endpoint للتسجيل
+// Register
 app.post("/register", async (req, res) => {
   const { name, userType, username, email, password } = req.body;
   try {
@@ -181,7 +180,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// تسجيل الدخول
+// Login
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -203,7 +202,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// جلب بيانات المستخدم
+// Get User Info
 app.get("/user", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId).select("-password");
@@ -216,7 +215,7 @@ app.get("/user", authMiddleware, async (req, res) => {
   }
 });
 
-// Endpoint لرفع صورة اليوزر
+// Add User Photo
 app.post("/user/upload-photo", authMiddleware, uploadUsers.single("photo"), async (req, res) => {
   try {
     if (!req.file) {
@@ -256,7 +255,7 @@ app.delete("/user/remove-photo", authMiddleware, async (req, res) => {
   }
 });
 
-// جلب خدمات المستخدم
+// Get User Info
 app.get("/user/services", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId).select("services userType");
@@ -269,7 +268,7 @@ app.get("/user/services", authMiddleware, async (req, res) => {
   }
 });
 
-// إضافة خدمة جديدة مع رفع صور العيادة
+// Add new service with adding clinic photo
 app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5), async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -282,7 +281,6 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
       return res.status(400).json({ message: "Mobile and email are required" });
     }
 
-    // تحقق من تنسيق الرقم المصري
     if (!/^\+201[0125]\d{8}$/.test(mobile)) {
       return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
     }
@@ -298,7 +296,6 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
       if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription || !specialties) {
         return res.status(400).json({ message: "All clinic fields are required" });
       }
-      // التحقق من أن السعر صالح (يمكن أن يكون string مع أرقام عشرية)
       if (isNaN(parseFloat(servicePrice)) || parseFloat(servicePrice) <= 0) {
         return res.status(400).json({ message: "Service price must be a positive number" });
       }
@@ -316,7 +313,7 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
           specificLocation: location.specificLocation,
         },
         workingHours,
-        servicePrice, // الاحتفاظ بالقيمة الأصلية كـ string
+        servicePrice,
         currency,
         serviceType,
         doctorDescription,
@@ -361,7 +358,7 @@ app.post("/user/services", authMiddleware, uploadClinics.array("clinicPhotos", 5
   }
 });
 
-// تعديل خدمة موجودة مع رفع صور العيادة
+// update service with adding clinic photo
 app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinicPhotos", 5), async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -378,7 +375,6 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
       return res.status(400).json({ message: "Mobile and email are required" });
     }
 
-    // تحقق من تنسيق الرقم المصري
     if (!/^\+201[0125]\d{8}$/.test(mobile)) {
       return res.status(400).json({ message: "Invalid mobile number. Use format +2010129398859." });
     }
@@ -393,7 +389,6 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
       if (!clinicName || !doctorName || !location || !workingHours || !servicePrice || !currency || !serviceType || !doctorDescription || !specialties) {
         return res.status(400).json({ message: "All clinic fields are required" });
       }
-      // التحقق من أن السعر صالح (يمكن أن يكون string مع أرقام عشرية)
       if (isNaN(parseFloat(servicePrice)) || parseFloat(servicePrice) <= 0) {
         return res.status(400).json({ message: "Service price must be a positive number" });
       }
@@ -408,7 +403,7 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
         doctorName,
         location: { governorate: location.governorate, specificLocation: location.specificLocation },
         workingHours,
-        servicePrice, // الاحتفاظ بالقيمة الأصلية كـ string
+        servicePrice,
         currency,
         serviceType,
         doctorDescription,
@@ -451,7 +446,7 @@ app.put("/user/services/:serviceId", authMiddleware, uploadClinics.array("clinic
   }
 });
 
-// حذف خدمة
+// Delete service
 app.delete("/user/services/:serviceId", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -488,7 +483,7 @@ app.get("/user/all-clinics", authMiddleware, async (req, res) => {
   }
 });
 
-// Get single clinics
+// Get single clinic
 app.get("/user/all-clinics/:id", authMiddleware, async (req, res) => {
   try {
     const clinics = await UsersModel.find({ userType: "clinicAdmin", "services.0": { $exists: true } })
@@ -499,7 +494,15 @@ app.get("/user/all-clinics/:id", authMiddleware, async (req, res) => {
     if (!clinic) {
       return res.status(404).json({ message: "Clinic not found" });
     }
-    res.status(200).json({ clinic });
+    const adminUser = await UsersModel.findOne({ services: { $elemMatch: { _id: req.params.id } } }).select("_id");
+    if (!adminUser) {
+      return res.status(404).json({ message: "Admin not found for this clinic" });
+    }
+    const clinicWithAdmin = {
+      ...clinic,
+      adminId: adminUser._id.toString(), 
+    };
+    res.status(200).json({ clinic: clinicWithAdmin });
   } catch (err) {
     res.status(500).json({ message: "Error fetching clinic", error: err.message });
   }
@@ -518,7 +521,7 @@ app.get('/admin/:id', async (req, res) => {
   }
 });
 
-// جلب جميع المدربين اللي عندهم خدمات
+// Get all trainers have services
 app.get("/user/trainers", authMiddleware, async (req, res) => {
   try {
     const trainers = await UsersModel.find({ userType: "trainer", "services.0": { $exists: true } }).select("-password");
@@ -531,7 +534,7 @@ app.get("/user/trainers", authMiddleware, async (req, res) => {
   }
 });
 
-// جلب بيانات المدرب بناءً على الـ ID
+// Get trainer Detaila
 app.get("/user/:trainerId", authMiddleware, async (req, res) => {
   try {
     const trainer = await UsersModel.findById(req.params.trainerId).select("-password");
@@ -547,7 +550,7 @@ app.get("/user/:trainerId", authMiddleware, async (req, res) => {
   }
 });
 
-// جلب بيانات الخدمة الخاصة بالمدرب
+// Get info of service for the trainer
 app.get("/user/services/:trainerId", authMiddleware, async (req, res) => {
   try {
     const trainer = await UsersModel.findById(req.params.trainerId);
@@ -565,7 +568,7 @@ app.get("/user/services/:trainerId", authMiddleware, async (req, res) => {
   }
 });
 
-// تحديث بيانات المستخدم
+// update user info
 app.put("/user/update", authMiddleware, async (req, res) => {
   const { name, username, email, currentPassword, newPassword } = req.body;
   try {
@@ -592,7 +595,6 @@ app.put("/user/update", authMiddleware, async (req, res) => {
     user.username = username;
     user.email = email;
 
-    // إذا تم تقديم كلمة مرور جديدة
     if (newPassword) {
       if (!currentPassword) {
         return res.status(400).json({ message: "Current password is required to change password" });
@@ -619,7 +621,7 @@ app.put("/user/update", authMiddleware, async (req, res) => {
   }
 });
 
-// جلب كل المنتجات
+// Get All Products
 app.get("/products", async (req, res) => {
   try {
     const products = await ProductModel.find();
@@ -629,7 +631,7 @@ app.get("/products", async (req, res) => {
   }
 });
 
-// جلب منتج معين
+// Get Single Product
 app.get("/products/:id", async (req, res) => {
   try {
     const product = await ProductModel.findById(req.params.id);
@@ -642,7 +644,7 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
-// جلب أكل الكلاب
+// Get Dogs Food
 app.get("/dogs-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "dogs-food" });
@@ -652,7 +654,7 @@ app.get("/dogs-food", async (req, res) => {
   }
 });
 
-// جلب أكل القطط
+// Get Cats Food
 app.get("/cats-food", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "cats-food" });
@@ -662,7 +664,7 @@ app.get("/cats-food", async (req, res) => {
   }
 });
 
-// جلب الإكسسوارات
+// Get Accessories
 app.get("/accessories", async (req, res) => {
   try {
     const products = await ProductModel.find({ category: "accessories" });
@@ -672,7 +674,7 @@ app.get("/accessories", async (req, res) => {
   }
 });
 
-// إضافة منتجات
+// إAdd Product
 app.post("/products", async (req, res) => {
   try {
     const products = req.body;
@@ -706,7 +708,7 @@ app.post("/products", async (req, res) => {
   }
 });
 
-// إضافة متطلبات السفر
+// Add travel Requirements
 app.post("/travel-requirements", async (req, res) => {
   try {
     const { country, documentsRequired, vaccinationsRequired, comfortTips, type } = req.body;
@@ -731,7 +733,7 @@ app.post("/travel-requirements", async (req, res) => {
   }
 });
 
-// جلب متطلبات السفر
+// Get travel requirements
 app.get("/travel-requirements", async (req, res) => {
   try {
     const requirements = await TravelRequirementModel.find();
@@ -741,7 +743,7 @@ app.get("/travel-requirements", async (req, res) => {
   }
 });
 
-// إضافة منتج للسلة
+// Add Product to cart
 app.post("/cart/add", authMiddleware, async (req, res) => {
   const { productId, quantity } = req.body;
   if (!productId || !quantity || quantity < 1) {
@@ -770,7 +772,7 @@ app.post("/cart/add", authMiddleware, async (req, res) => {
   }
 });
 
-// جلب السلة
+// Get Cart
 app.get("/cart", authMiddleware, async (req, res) => {
   try {
     const user = await UsersModel.findById(req.user.userId);
@@ -784,7 +786,7 @@ app.get("/cart", authMiddleware, async (req, res) => {
   }
 });
 
-// إزالة منتج من السلة
+// Remove Product from Cart
 app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   const { productId } = req.params;
   try {
@@ -801,7 +803,7 @@ app.delete("/cart/remove/:productId", authMiddleware, async (req, res) => {
   }
 });
 
-// إضافة بوست
+// Add Post
 app.post("/community/posts", authMiddleware, uploadPosts.single("image"), async (req, res) => {
   try {
     const { content } = req.body;
@@ -858,7 +860,7 @@ app.post("/community/posts", authMiddleware, uploadPosts.single("image"), async 
   }
 });
 
-// جلب كل البوستات
+// Get All Posts
 app.get("/community/posts", async (req, res) => {
   try {
     const posts = await PostModel.find().populate("author", "username").sort({ createdAt: -1 });
@@ -868,7 +870,7 @@ app.get("/community/posts", async (req, res) => {
   }
 });
 
-// إضافة/حذف Like على بوست
+// Add Or Delete Like From Post
 app.post("/community/posts/:postId/like", authMiddleware, async (req, res) => {
   try {
     const post = await PostModel.findById(req.params.postId);
@@ -889,7 +891,7 @@ app.post("/community/posts/:postId/like", authMiddleware, async (req, res) => {
   }
 });
 
-// إضافة تعليق على بوست
+// Add Comment On Post
 app.post("/community/posts/:postId/comment", authMiddleware, async (req, res) => {
   try {
     const { content } = req.body;

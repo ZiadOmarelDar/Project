@@ -1,4 +1,3 @@
-// src/components/ClinicAdmin.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -15,6 +14,7 @@ const ClinicAdmin = () => {
         const response = await axios.get(`http://localhost:3001/api/admin/${adminId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
+        console.log("Admin Data:", response.data.admin); // Debug the response
         setAdmin(response.data.admin);
       } catch (err) {
         console.error("Error fetching admin details:", err.response ? err.response.data : err.message);
@@ -26,7 +26,8 @@ const ClinicAdmin = () => {
   if (!admin) return <div>Loading...</div>;
 
   const handleImageClick = (photoUrl) => {
-    window.open(photoUrl.startsWith('http') ? photoUrl : `http://localhost:3001${photoUrl}`, "_blank");
+    const fullUrl = photoUrl.startsWith('http') ? photoUrl : `http://localhost:3001${photoUrl}`;
+    window.open(fullUrl, "_blank");
   };
 
   return (
@@ -35,14 +36,16 @@ const ClinicAdmin = () => {
         <h2 className="adminTitle">Admin Profile</h2>
         <div className="adminProfile">
           <img
-            src={admin.image || "/default-image.png"} // استبدل /default-image.png بمسار صورة افتراضية
+            src={admin.image || "/default-image.png"} // Default image if none provided
             alt={`${admin.name || "Admin"} photo`}
             className="adminImage"
             onClick={() => handleImageClick(admin.image || "/default-image.png")}
+            onError={(e) => { e.target.src = "/default-image.png"; }} // Fallback on error
           />
           <div className="adminText">
             <h3>{admin.name || "Unknown Admin"}</h3>
-            <p>{admin.description || "No description available"}</p>
+            <p><strong>Email:</strong> {admin.email || "Not provided"}</p>
+            <p><strong>Description:</strong> {admin.description || "No description available"}</p>
           </div>
         </div>
       </div>

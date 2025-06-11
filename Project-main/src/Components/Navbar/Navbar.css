@@ -155,17 +155,18 @@
 
 .logout-btn {
 	background-color: #323773;
-	color: white;
+	color: rgb(235, 228, 228);
 	border: none;
 	padding: 8px 16px;
-	border-radius: 5px;
 	cursor: pointer;
 	font-size: 14px;
 	transition: 0.3s;
+	border-radius: 17px;
+	font-weight: bolder;
 }
 
 .logout-btn:hover {
-	background-color: #e60000;
+	background-color: #1b205e;
 }
 
 @media (max-width: 768px) {
