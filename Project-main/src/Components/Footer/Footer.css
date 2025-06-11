@@ -24,10 +24,11 @@
 .footer .container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  column-gap: 40px;
+  column-gap: px;
   padding-top: 50px;
   border-top: 3px solid black;
   padding-bottom: 50px;
+  margin-inline: auto;
 }
 
 @media (max-width: 768px) {

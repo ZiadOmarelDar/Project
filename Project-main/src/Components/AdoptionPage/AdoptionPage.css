@@ -144,9 +144,11 @@ body {
   overflow: hidden;
   position: relative;
   text-align: center;
-  padding: 10px;
-  border-radius: 15px;
+  
+  border-radius:  15px 15px 150px  150px;
   transition: 0.3s;
+  width: 280px;
+  height: 300px;  
 }
 .pet-card:hover{
   transform: scale(1.05);
@@ -159,7 +161,7 @@ body {
 .pet-image {
   width: 100%;
   object-fit: cover;
-  border-radius: 15px
+  border-radius:  15px 15px 150px  150px;
 }
 
 .heart-btn {
@@ -185,21 +187,23 @@ body {
 }
 
 .pet-name-1 {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 600;
   color: #323773;
-  margin: 15px 0 20px;
+  margin: 20px 0 10px;
 }
 
 .see-them-card {
   background-color: #323773;
-  border-radius: 15px;
+  border-radius:  15px 15px 150px  150px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  width: 280px;
+  height: 300px;
 }
 .see-them-card:hover{
   transform: scale(1.03);
@@ -344,7 +348,7 @@ body {
 }
 
 .bottom-cta-btn:hover{
-  background-color: #323773;
+  background-color: #212877;
   color: white;
 }
 

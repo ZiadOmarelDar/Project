@@ -1,87 +1,236 @@
-.trainer-details-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: "Open Sans", sans-serif;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.trainer-details-container-2777 {
+	position: relative;
+	top: 50px;
+	max-width: 1000px;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	/* background-color: #fff; */
 }
 
-.trainer-details-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 700;
+.trainer-details-container-2777 h2 {
+	text-align: center;
+	color: #323773;
+	margin-bottom: 20px;
+	font-weight: 700;
+	font-size: 30px;
 }
 
-.trainer-header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.trainer-content-2777 {
+	display: flex;
+	align-items: center;
+	gap: 150px;
+	padding: 20px;
+	border-radius: 8px;
 }
 
-.trainer-image-container {
-  position: relative;
+.trainer-image-container-2777 {
+	position: relative;
+	left: 90px;
+	width: 250px;
+	height: 400px;
+	overflow: hidden;
+	border-radius: 8px;
+	margin-right: 20px;
 }
 
-.trainer-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ddd;
+.trainer-image-2777 {
+	width: 250px;
+	height: 350px;
+	border-radius: 8px;
+	object-fit: cover;
+	/* border: 3px solid #ddd; */
 }
 
-.trainer-icon {
-  width: 150px;
-  height: 150px;
-  color: #aaa;
+.trainer-icon-2777 {
+	width: 150px;
+	height: 150px;
+	color: #aaa;
 }
 
-.trainer-details {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.trainer-info-2777 {
+	flex-grow: 1;
+	border-left: 1px solid #ccc;
+	padding-left: 20px;
+	position: relative;
+	bottom: 30px;
 }
 
-.trainer-details p {
-  margin: 10px 0;
-  font-size: 16px;
-  color: #555;
+.trainer-info-2777 p {
+	margin: 15px 0;
+	font-size: 16px;
+	color: #000000;
+	line-height: 1.5;
+	position: relative;
+	/* top: 50px; */
 }
 
-.trainer-details p strong {
-  color: #333;
-  margin-right: 10px;
+.trainer-info-2777 p strong {
+	display: inline;
+	color: #000000;
+	margin-right: 5px;
 }
 
-.trainer-actions {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+.trainer-info-2777 a {
+	color: #001a9e;
+	text-decoration: none;
 }
 
-.contact-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #323772;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s;
+.trainer-info-2777 a:hover {
+	text-decoration: underline;
 }
 
-.contact-link:hover {
-  background-color: #323772;
+.contactLinks-2777 {
+	margin-top: 50px;
+	/* margin-bottom: 60px; */
+	display: flex;
+	gap: 50px;
+	justify-content: center;
 }
 
-.error {
-  color: #e74c3c;
-  text-align: center;
-  font-size: 16px;
-  margin: 20px 0;
+.contactLink-2777 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 20px;
+	border-radius: 20px;
+	font-weight: 500;
+	font-size: 0.9em;
+	text-decoration: none;
+	color: #fff;
+}
+
+.contactLink-2777.whatsapp-2777 {
+	background-color: #ffffff;
+	color: #25d366;
+	border: 2px solid #25d366;
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+.contactLink-2777.email-2777 {
+	background-color: #2e317f;
+	color: #fff;
+	border: 2px solid #2e317f;
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+.contactLink-2777 svg {
+	font-size: 1.2em;
+}
+
+.error-2777 {
+	color: #e74c3c;
+	text-align: center;
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+/* Responsive adjustments for mobile (up to 576px) */
+@media (max-width: 576px) {
+	.trainer-details-container-2777 {
+		top: 20px;
+		padding: 10px;
+		max-width: 100%;
+	}
+
+	.trainer-content-2777 {
+		flex-direction: column;
+		gap: 20px;
+		padding: 10px;
+		align-items: center;
+	}
+
+	.trainer-image-container-2777 {
+		left: 0;
+		width: 200px;
+		height: 300px;
+		margin-right: 0;
+	}
+
+	.trainer-image-2777 {
+		width: 200px;
+		height: 250px;
+	}
+
+	.trainer-info-2777 {
+		border-left: none;
+		padding-left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 14px;
+		margin: 10px 0;
+	}
+
+	.contactLinks-2777 {
+		margin-top: 30px;
+		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.contactLink-2777 {
+		width: 80%;
+		text-align: center;
+	}
+}
+
+/* Responsive adjustments for tablet (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+	.trainer-details-container-2777 {
+		top: 30px;
+		max-width: 90%;
+	}
+
+	.trainer-content-2777 {
+		gap: 100px;
+	}
+
+	.trainer-image-container-2777 {
+		left: 50px;
+		width: 200px;
+		height: 350px;
+	}
+
+	.trainer-image-2777 {
+		width: 200px;
+		height: 300px;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 15px;
+	}
+
+	.contactLinks-2777 {
+		gap: 30px;
+		font-size: 15px;
+	}
+}
+
+/* Responsive adjustments for iPad/tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.trainer-details-container-2777 {
+		top: 40px;
+		max-width: 900px;
+	}
+
+	.trainer-content-2777 {
+		gap: 120px;
+	}
+
+	.trainer-image-container-2777 {
+		left: 70px;
+		width: 220px;
+		height: 380px;
+	}
+
+	.trainer-image-2777 {
+		width: 220px;
+		height: 330px;
+	}
+
+	.trainer-info-2777 p {
+		font-size: 16px;
+	}
 }
