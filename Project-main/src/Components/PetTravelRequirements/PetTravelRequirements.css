@@ -65,7 +65,9 @@
 
 .selector-group label {
   font-size: 1.5rem;
+  color: white;
 }
+
 
 .selector-group select {
   font-size: 1rem;
@@ -74,6 +76,7 @@
   width: 180px;
   height: 30px;
   padding: 5px;
+  color: rgb(132, 128, 128);
 }
 
 .error-message {

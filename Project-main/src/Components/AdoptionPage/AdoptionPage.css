@@ -144,11 +144,11 @@ body {
   overflow: hidden;
   position: relative;
   text-align: center;
+  border-radius: 30px;
   
-  border-radius:  15px 15px 150px  150px;
   transition: 0.3s;
   width: 280px;
-  height: 300px;  
+  height: 400px;  
 }
 .pet-card:hover{
   transform: scale(1.05);
@@ -161,7 +161,7 @@ body {
 .pet-image {
   width: 100%;
   object-fit: cover;
-  border-radius:  15px 15px 150px  150px;
+  
 }
 
 .heart-btn {
@@ -195,7 +195,7 @@ body {
 
 .see-them-card {
   background-color: #323773;
-  border-radius:  15px 15px 150px  150px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +203,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   width: 280px;
-  height: 300px;
+  height: 400px;
 }
 .see-them-card:hover{
   transform: scale(1.03);

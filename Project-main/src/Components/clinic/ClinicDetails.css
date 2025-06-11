@@ -234,6 +234,14 @@
 	font-size: 1.2em;
 }
 
+.admin-link{
+	border: 1px solid #2e317f;
+	background-color: #2e317f;
+	padding: 8px 20px;
+	color: white;
+	border-radius: 30px;
+}
+
 @media (min-width: 481px) and (max-width: 1024px) {
 	.detail-row {
 		flex-direction: row;

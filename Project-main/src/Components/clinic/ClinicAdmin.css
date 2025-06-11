@@ -49,15 +49,22 @@
 }
 
 .adminText h3 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size:3rem;
   color: #2E317F;
   margin: 0 0 1rem;
+  font-weight: bold;
 }
 
 .adminText p {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #34495e;
   margin: 0;
+  text-align: left;
+}
+.adminText strong {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #2E317F;
 }
 
 @media (max-width: 1024px) {

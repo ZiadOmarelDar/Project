@@ -358,11 +358,12 @@ body {
 .checkboxGroup345,
 .checkboxGroup678 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2 , 1fr);
   gap: 30px;
   margin-top: 20px;
   align-items: center;
 }
+
 
 .checkboxGroup345 label,
 .checkboxGroup678 label {
@@ -385,10 +386,11 @@ body {
 }
 
 .formButtons012 {
-  display: flex;
-  gap: 20px;
+  
+  
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 200px;
+  margin-left: 200px;
 }
 
 .saveButton345,
@@ -414,6 +416,7 @@ body {
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
+  margin-right: 20px;
 }
 
 .updateLinkSection901 {

@@ -190,17 +190,7 @@ const ClinicDetails = () => {
                       rel='noopener noreferrer'>
                       <FaEnvelope /> {displayValue(clinic.email)}
                     </a>
-                    {clinic.adminId && (
-                      <p>
-                        <Link
-                          to={`/clinic-admin/${clinic.adminId}`}
-                          className='admin-link'
-                          >
-                          View Admin
-                        </Link>
-                      </p>
-
-                    )}
+                    
                   </div>
                 </div>
                 <p className='detail-item specialist'>
@@ -230,6 +220,17 @@ const ClinicDetails = () => {
                   <MdEmail size={20} /> Connect Via Mail
                 </a>
               )}
+              {clinic.adminId && (
+                      <p className='admin-link'>
+                        <Link
+                          to={`/clinic-admin/${clinic.adminId}`}
+                          
+                          >
+                          clinic doctor
+                        </Link>
+                      </p>
+
+                    )}
             </div>
           </div>
         </div>
