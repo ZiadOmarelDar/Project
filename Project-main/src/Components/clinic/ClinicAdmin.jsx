@@ -29,10 +29,6 @@ const ClinicAdmin = () => {
     window.open(fullUrl, "_blank");
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 74e56766e741112c6cff4fa7447822dc86967c22
   const description = admin.services && admin.services.length > 0 ? admin.services[0].doctorDescription : "No description available";
   const photoUrl = admin.userPhoto || "https://via.placeholder.com/150";
 
