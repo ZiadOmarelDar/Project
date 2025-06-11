@@ -193,12 +193,13 @@
 		display: flex; /* إخفاء الروابط في البداية */
 		flex-direction: row;
 		gap: 10px;
-		width: 50%;
 		display: none;
 	}
 
 	.nav-links.active {
 		display: flex;
+		flex-direction: column;
+		gap: 20px;
 	}
 
 	.nav-links li {
@@ -278,7 +279,6 @@
 	/* تعديل الأزرار */
 	.auth-buttons {
 		display: flex;
-		flex-direction: row;
 	}
 
 	/* إظهار زر القائمة الجانبية (المينيو) */
