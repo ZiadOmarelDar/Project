@@ -195,7 +195,7 @@ app.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
-    const token = jwt.sign({ userId: user._id }, "your-secret-key", { expiresIn: "24h" });
+    const token = jwt.sign({ userId: user._id }, "your-secret-key", { expiresIn: "5m" });
     res.json({ token, message: "Login successful" });
   } catch (err) {
     res.status(500).json({ message: "Error logging in", error: err.message });
